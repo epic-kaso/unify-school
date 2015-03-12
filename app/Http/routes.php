@@ -18,3 +18,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'resources', 'namespace' => 'Resources'], function () {
+    Route::resource('school', 'School\SchoolController');
+    Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+});

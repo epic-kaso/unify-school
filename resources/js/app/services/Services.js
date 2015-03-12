@@ -1,7 +1,19 @@
 /**
  * Created by kaso on 11/6/2014.
  */
-var app = angular.module('UnifySchoolApp.Services', [])
+var app = angular.module('UnifySchoolApp.Services', []);
+
+app.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
+app.factory('SchoolSetupService', ['$resource', function ($resource) {
+    return $resource('/resources/school-setup/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
 
 app.factory('PreloadTemplates',function ($templateCache, $http,ViewBaseURL) {
     var templates = [

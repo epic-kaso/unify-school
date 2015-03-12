@@ -1,33 +1,19 @@
-/**
- * Created by kaso on 11/6/2014.
- */
+<?php namespace SupergeeksGadgetSwap\Http\Controllers\Resources\Configurations;
 
-var app = angular.module('UnifySchoolApp',
-    [
-        'ui.router',
-        'ui.checkbox',
-        'ui.bootstrap',
-        'ngCookies',
-        'ngAnimate',
-        'ngSanitize',
-        'UnifySchoolApp.Controllers',
-        'UnifySchoolApp.Services',
-        'UnifySchoolApp.directives'
-    ]);
+use SupergeeksGadgetSwap\Http\Controllers\Controller;
+use SupergeeksGadgetSwap\Http\Requests;
 
-app.constant('ViewBaseURL', '/wizard/partials');
+class RegisterSchoolConfigController extends Controller
+{
 
-app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
-
-    $urlRouterProvider.otherwise("/setup/step-one");
-
-    $stateProvider
-        .state('base', {
-            url: "/setup",
-            abstract: true,
-            template: '<div ui-view></div>',
-            controller: ['$scope', function ($scope) {
-                $scope.school = {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return \Response::json("{'school': {
                     'name': '',
                     'selected_school_type': '',
                     'school_types': [
@@ -285,80 +271,71 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     'admin_email': '',
                     'admin_password': '',
                     'admin_password_confirmation': ''
-                };
-
-                $scope.removeCategory = function (selectedCategory, indexToRemove) {
-                    $scope.school.school_types[selectedCategory].school_categories.splice(indexToRemove, 1);
-                };
-
-                $scope.addCategory = function (selectedCategory, school_category_name) {
-                    $scope.school.school_types[selectedCategory].school_categories.push({
-                        'display_name': school_category_name,
-                        'name': school_category_name,
-                        'arms': [
-                            {
-                                display_name: 'Default',
-                                name: 'default',
-                                arms: {
-                                    default: {}
-                                }
-                            }
-                        ]
-                    });
-                }
-            }]
-        })
-        .state('base.step_one', {
-            url: "/step-one",
-            templateUrl: ViewBaseURL + "/step-one.html",
-            controller: ['$scope', '$state', function ($scope, $state) {
-                $scope.next = function () {
-                    $state.go('base.step_two');
-                }
-            }]
-        })
-        .state('base.step_two', {
-            url: "/step-two",
-            templateUrl: ViewBaseURL + "/step-two.html",
-            controller: ['$scope', function ($scope) {
-
-            }]
-        });
-});
-/**
- * Created by kaso on 11/6/2014.
- */
-
-var app = angular.module('UnifySchoolApp.Controllers', []);
-/**
- * Created by kaso on 11/6/2014.
- */
-
-var app = angular.module('UnifySchoolApp.directives', []);
-
-/**
- * Created by kaso on 11/6/2014.
- */
-var app = angular.module('UnifySchoolApp.Services', [])
-
-app.factory('PreloadTemplates',function ($templateCache, $http,ViewBaseURL) {
-    var templates = [
-        ViewBaseURL+"/device-make.html",
-        ViewBaseURL+"/device-model.html",
-        ViewBaseURL+"/device-size.html",
-        ViewBaseURL+"/device-network.html",
-        ViewBaseURL+"/device-condition.html",
-        ViewBaseURL+"/device-reward.html",
-        ViewBaseURL+"/book-appointment.html",
-        ViewBaseURL+"/book-success.html",
-        ViewBaseURL+"/swap-location.html"
-    ];
-    return {
-        run: function(){
-            templates.forEach(function(currentItem){
-                $http.get(currentItem, { cache: $templateCache });
-            });
-        }
+                }}");
     }
-});
-//# sourceMappingURL=main.js.map
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+}
