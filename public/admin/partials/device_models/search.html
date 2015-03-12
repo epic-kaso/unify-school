@@ -1,0 +1,18 @@
+<div class="inmates-menu-items">
+    <div class="menu-item inmate-item" ng-repeat="item in result">
+        <img ng-src="{{ item.logo_url }}" class="img-responsive inmate-pic" alt=""/>
+
+        <div class="inmate-bio">
+            <h4> {{ item.model}}</h4>
+            <h4> {{ item.sizes}}</h4>
+        </div>
+    </div>
+
+</div>
+
+<nav>
+    <ul class="pager search-result-pager">
+        <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+        <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+    </ul>
+</nav>

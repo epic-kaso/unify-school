@@ -1,0 +1,54 @@
+<div>
+    <form action="/resources/device_makers" method="post">
+        <input type="hidden" name="_token" value="{{ CSRF_TOKEN }}"/>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="text" name="name" required="" placeholder="Make"
+                       ng-blur="fetchImages(device_maker + ' logo')"
+                       ng-model="device_maker" class="form-control inmate-search-box"/>
+            </div>
+            <div class="form-group">
+                <label for="scratched-condition">Normal Condition Value (%):</label>
+                <input type="text" value="100" required="" id="normal-condition" name="normal_condition" placeholder="%"
+                       class="form-control inmate-search-box">
+            </div>
+            <div class="form-group">
+                <label for="scratched-condition">Scratched Condition Value (%):</label>
+                <input type="text" id="scratched-condition" required="" name="scratched_condition" placeholder="%"
+                       class="form-control inmate-search-box">
+            </div>
+            <div class="form-group">
+                <label for="bad-condition">Bad Condition Value (%):</label>
+                <input type="text" id="bad-condition" required="" name="bad_condition" placeholder="%"
+                       class="form-control inmate-search-box">
+            </div>
+
+            <div class="form-group">
+                <label for="logo">Logo Url:</label>
+                <input type="text" id="logo" name="logo_url" ng-model="logoUrl" placeholder="Logo Url"
+                       class="form-control inmate-search-box">
+            </div>
+
+            <div class="panel panel-default" ng-if="images.length > 0">
+                <div class="panel-heading">
+                    <label>Select image to use as logo (please choose a portrait) </label>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="image-item" ng-repeat="image in images">
+                            <label>
+                                <img class="img-thumbnail img-responsive" ng-src="{{ image.src }}"
+                                     style="height: {{ image.height || '150' }}px"/>
+                                <input type="radio" name="logo_url" ng-model="logoUrl" value="{{ image.src }}"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn"/>
+            </div>
+        </div>
+    </form>
+</div>

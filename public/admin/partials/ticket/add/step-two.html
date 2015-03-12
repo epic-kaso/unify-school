@@ -1,0 +1,38 @@
+<h4>Gadget Evaluation</h4>
+<hr/>
+<div class="form-group evaluate">
+    <div class="form-group evaluate">
+        <label>Device Brand</label>
+        <select class="form-control" ng-model="brand.selectedIndex" placeholder="Select a Brand">
+            <option ng-repeat="brand in device_brands" value="{{ $index }}">{{ brand.name }}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group evaluate">
+    <div class="form-group evaluate">
+        <label>Device Model</label>
+        <select class="form-control" ng-model="device.selectedIndex">
+            <option ng-repeat="device in devices" value="{{ $index }}">{{ device.model }}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group evaluate">
+    <label>Device Size</label>
+    <select class="form-control" ng-model="ticket.size_id">
+        <option ng-repeat="size in selected.device.sizes" value="{{ size.id }}">{{ size.value }}</option>
+    </select>
+</div>
+
+<div class="form-group evaluate">
+    <label>Network</label>
+    <select class="form-control" ng-model="ticket.network_id">
+        <option ng-repeat="network in networks" value="{{ network.id }}">{{ network.name }}</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <button class="btn search-btn back-btn pull-right" ng-click="nextStepThree()"><span
+            class="fa fa-chevron-right"></span></button>
+</div>
