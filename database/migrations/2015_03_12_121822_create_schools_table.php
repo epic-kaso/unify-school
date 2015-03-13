@@ -22,6 +22,7 @@ class CreateSchoolsTable extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('hashcode');
+            $table->integer('school_type_id');
             $table->text('school_object');
 			$table->timestamps();
             $table->unique(['name', 'city', 'state', 'country']);

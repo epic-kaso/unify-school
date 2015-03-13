@@ -2,7 +2,30 @@
     <h3>Basic Information</h3>
     <hr/>
     <div class="form-group">
+        <label>Enter School's Name</label>
         <input type="text" required placeholder="School Name in Full" name="name" ng-model="school.name"
+               class="form-control inmate-search-box"/>
+    </div>
+
+    <div class="form-group evaluate">
+        <label>Select School's Country</label>
+        <select class="form-control" required ng-model="school.country">
+            <option value="@{{ country.short_code }}"
+                    ng-repeat="country in config.countries">@{{ country.name }}</option>
+        </select>
+    </div>
+
+    <div class="form-group evaluate">
+        <label>Select School's State</label>
+        <select class="form-control" required ng-model="school.state">
+            <option value="@{{ state.short_code }}"
+                    ng-repeat="state in config.countries[school.country].states">@{{ state.name }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Enter School's City of Residence</label>
+        <input type="text" required placeholder="Enter School's City of Residence" ng-model="school.city"
                class="form-control inmate-search-box"/>
     </div>
 
@@ -19,7 +42,7 @@
 
         <div>
             <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item" style="text-transform: uppercase; font-weight: 400;">
                     @{{
                     school.school_types[school.selected_school_type].session.session_type + ' '+
                     school.school_types[school.selected_school_type].session.session_divisions_display_name+' '+
@@ -102,7 +125,7 @@
 
     <div class="col-sm-12" style="padding: 0">
         <div class="form-group">
-            <button class="btn btn-info pull-right" ng-click="next()">Next</button>
+            <button class="btn btn-info pull-right" ng-click="nextStepTwo()">Next</button>
         </div>
     </div>
 </div>

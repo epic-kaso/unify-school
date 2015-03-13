@@ -30,6 +30,8 @@ use Illuminate\Support\Str;
 class School extends Model
 {
 
+    protected $guarded = ['id', 'slug', 'hashcode'];
+
     protected $casts = [
         'school_object' => 'object'
     ];

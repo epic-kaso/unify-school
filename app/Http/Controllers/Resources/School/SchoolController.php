@@ -1,7 +1,9 @@
 <?php namespace SupergeeksGadgetSwap\Http\Controllers\Resources\School;
 
+use SupergeeksGadgetSwap\Commands\CreateNewSchool;
 use SupergeeksGadgetSwap\Http\Controllers\Controller;
 use SupergeeksGadgetSwap\Http\Requests;
+use SupergeeksGadgetSwap\Http\Requests\CreateSchoolRequest;
 
 class SchoolController extends Controller
 {
@@ -29,11 +31,13 @@ class SchoolController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param CreateSchoolRequest $request
      * @return Response
      */
-    public function store()
+    public function store(CreateSchoolRequest $request)
     {
-        //
+        $school = $this->dispatchFrom(CreateNewSchool::class, $request);
+        return $school;
     }
 
     /**
