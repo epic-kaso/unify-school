@@ -35,3 +35,23 @@ app.factory('PreloadTemplates',function ($templateCache, $http,ViewBaseURL) {
         }
     }
 });
+
+
+app.factory('ToastService', ['$rootScope', function ($rootScope) {
+
+    if (angular.isUndefined($rootScope.toast)) {
+        $rootScope.toast = {messages: [], show: false, type: 'info'};
+    }
+
+    return {
+        error: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'danger'};
+        },
+        info: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'info'};
+        },
+        success: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'success'};
+        }
+    }
+}]);

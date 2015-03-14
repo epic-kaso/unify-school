@@ -15,15 +15,20 @@
 </head>
 <body>
 
-<div class="container-fluid" ng-init="currentProgress = '0%'">
-    <h1>School Registration</h1>
+<div class="container-fluid" ng-init="currentProgress = '0%'" style="padding: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;">
+    <h1 style="padding: 10px;font-weight: 700;">School Registration</h1>
 
     <div class="progress">
         <div class="progress-bar progress-bar-info" ng-style="{width: currentProgress }"></div>
     </div>
 </div>
 
-<div class="container" style="margin-top: 20px;padding-bottom: 100px">
+<div class="container" style="margin-top: 120px;padding-bottom: 100px">
     <div class="row">
         <div class="col-md-12 col-lg-offset-1 col-lg-10">
             <div class="widget-canvas">
@@ -41,6 +46,8 @@
         </div>
     </div>
 </div>
+
+<toast type="toast.type" show="toast.show" messages="toast.messages"></toast>
 
 <script src="{{ asset('app/libs/core.js') }}"></script>
 <script src="{{ asset('app/libs/others.js') }}"></script>

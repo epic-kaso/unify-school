@@ -33,7 +33,8 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     return SchoolSetupService.get();
                 }]
             },
-            controller: ['$scope', 'Config', 'SchoolService', '$state', function ($scope, Config, SchoolService, $state) {
+            controller: ['$scope', 'Config', 'SchoolService', '$state', '$rootScope', 'ToastService',
+                function ($scope, Config, SchoolService, $state, $rootScope, ToastService) {
                 $scope.config = Config;
                 $scope.school = Config.school;
 
@@ -59,8 +60,11 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                 };
 
                 $scope.nextStepTwo = function () {
+                    $rootScope.currentProgress = '30%';
                     SchoolService.save($scope.school, function (data) {
                         console.log(data);
+
+                        ToastService.success('School details saved!, Keep going');
 
                         SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
                             $scope.school = data;
@@ -69,11 +73,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
 
                     }, function () {
                         console.log('error occurred');
+                        ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                     });
                 };
 
 
                 $scope.nextStepThree = function () {
+                    $rootScope.currentProgress = '70%';
                     SchoolService.update(
                         {
                             id: $scope.school.id,
@@ -84,14 +90,17 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                         console.log(data);
                         $scope.school = data;
-                        $state.go('base.step_three');
+                            ToastService.success('Okay, Details Saved. Keep going, Almost done.');
+                            $state.go('base.step_three');
 
                     }, function () {
                         console.log('error occurred');
+                            ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                     });
-                }
+                };
 
                 $scope.nextStepFour = function () {
+                    $rootScope.currentProgress = '100%';
                     SchoolService.update(
                         {
                             id: $scope.school.id,
@@ -102,10 +111,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                             console.log(data);
                             $scope.school = data;
+                            ToastService.success('Okay, Details Saved. Keep going, Almost done.');
+
                             $state.go('base.step_four');
 
                         }, function () {
                             console.log('error occurred');
+                            ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                         });
                 }
             }]
@@ -165,13 +177,49 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.Controllers', []);
+var app = angular.module('UnifySchoolApp.directives', []);
+
+
+app.directive('toast', function ($animate, $timeout) {
+    return {
+        'restrict': 'EA',
+        'template': '<div class="toast alert alert-{{ type }} text-center" ><ul><li ng-repeat="message in messages"> {{ message }}</li></ul></div>',
+        scope: {
+            type: '=type',
+            messages: '=messages',
+            show: '=show'
+        },
+        'link': function link(scope, element, attrs) {
+            function showToast() {
+                //$animate.addClass(element,'toast-alert');
+                element.css({opacity: 1});
+                $timeout(hideToast, 10000);
+            }
+
+            function hideToast() {
+                element.css({opacity: 0});
+                //$animate.removeClass(element,'toast-alert');
+            }
+
+            showToast();
+            scope.$watch(function () {
+                return scope.show;
+            }, function (newV, oldV) {
+                if (newV == true) {
+                    showToast();
+                } else {
+                    hideToast();
+                }
+            })
+        }
+    }
+});
+
 /**
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.directives', []);
-
+var app = angular.module('UnifySchoolApp.Controllers', []);
 /**
  * Created by kaso on 11/6/2014.
  */
@@ -209,4 +257,24 @@ app.factory('PreloadTemplates',function ($templateCache, $http,ViewBaseURL) {
         }
     }
 });
+
+
+app.factory('ToastService', ['$rootScope', function ($rootScope) {
+
+    if (angular.isUndefined($rootScope.toast)) {
+        $rootScope.toast = {messages: [], show: false, type: 'info'};
+    }
+
+    return {
+        error: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'danger'};
+        },
+        info: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'info'};
+        },
+        success: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'success'};
+        }
+    }
+}]);
 //# sourceMappingURL=main.js.map

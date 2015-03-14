@@ -33,7 +33,8 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     return SchoolSetupService.get();
                 }]
             },
-            controller: ['$scope', 'Config', 'SchoolService', '$state', function ($scope, Config, SchoolService, $state) {
+            controller: ['$scope', 'Config', 'SchoolService', '$state', '$rootScope', 'ToastService',
+                function ($scope, Config, SchoolService, $state, $rootScope, ToastService) {
                 $scope.config = Config;
                 $scope.school = Config.school;
 
@@ -59,8 +60,11 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                 };
 
                 $scope.nextStepTwo = function () {
+                    $rootScope.currentProgress = '30%';
                     SchoolService.save($scope.school, function (data) {
                         console.log(data);
+
+                        ToastService.success('School details saved!, Keep going');
 
                         SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
                             $scope.school = data;
@@ -69,11 +73,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
 
                     }, function () {
                         console.log('error occurred');
+                        ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                     });
                 };
 
 
                 $scope.nextStepThree = function () {
+                    $rootScope.currentProgress = '70%';
                     SchoolService.update(
                         {
                             id: $scope.school.id,
@@ -84,14 +90,17 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                         console.log(data);
                         $scope.school = data;
-                        $state.go('base.step_three');
+                            ToastService.success('Okay, Details Saved. Keep going, Almost done.');
+                            $state.go('base.step_three');
 
                     }, function () {
                         console.log('error occurred');
+                            ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                     });
-                }
+                };
 
                 $scope.nextStepFour = function () {
+                    $rootScope.currentProgress = '100%';
                     SchoolService.update(
                         {
                             id: $scope.school.id,
@@ -102,10 +111,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                             console.log(data);
                             $scope.school = data;
+                            ToastService.success('Okay, Details Saved. Keep going, Almost done.');
+
                             $state.go('base.step_four');
 
                         }, function () {
                             console.log('error occurred');
+                            ToastService.error('Error Occurred, We couldn\'t save school details, Retry later.');
                         });
                 }
             }]

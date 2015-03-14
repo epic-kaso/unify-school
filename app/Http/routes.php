@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         'auth' => 'AdminAuthController',
         'password' => 'AdminPasswordController',
     ]);
+    Route::controller('dashboard', 'AdminDashboardController');
 });
 
 Route::group(['prefix' => 'resources', 'namespace' => 'Resources'], function () {

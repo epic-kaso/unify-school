@@ -87,8 +87,8 @@
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our School!</div>
-            <div class="intro-heading">It's Nice To Meet You</div>
+            <div class="intro-lead-in">Welcome To Our School Project!</div>
+            <div class="intro-heading">Manage your School like never before</div>
 
             @if(isset($school))
                 <a class="btn btn-xl btn-info" href="{{ $school->student_website }}"
@@ -97,7 +97,7 @@
                 <a class="btn btn-xl btn-warning" href="{{ $school->admin_website }}"
                    style="border-color: orangered; background-color: orangered">Admin Login</a>
             @else
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                <a href="/wizard" class="btn btn-xl">Sign Up Your School</a>
             @endif
 
         </div>
