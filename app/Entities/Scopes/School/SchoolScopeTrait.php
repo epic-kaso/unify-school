@@ -19,7 +19,7 @@ trait SchoolScopeTrait
      */
     public static function bootSchoolScopeTrait()
     {
-        $context = \App::make('UnifySchoolProject\Entities\Context\ContextInterface');
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
         static::addGlobalScope(new SchoolGlobalScope($context));
     }
 }

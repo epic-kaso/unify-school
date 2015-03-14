@@ -30,7 +30,7 @@ class BaseModel extends Model
 
     public function getSchool()
     {
-        $context = \App::make('UnifySchoolProject\Entities\Context\ContextInterface');
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
         return $context->get();
     }
 }

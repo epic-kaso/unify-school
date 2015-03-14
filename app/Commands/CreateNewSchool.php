@@ -53,7 +53,7 @@ class CreateNewSchool extends Command implements SelfHandling
         $this->school_types = $school_types;
 
         $this->school_type = array_first($school_types, function ($item) use ($selected_school_type) {
-            return $item->id == $selected_school_type;
+            return $item['id'] == $selected_school_type;
         });
     }
 
@@ -98,9 +98,9 @@ class CreateNewSchool extends Command implements SelfHandling
     private function createScopedSchoolType($school_type, School $school)
     {
         $cat = new ScopedSchoolType();
-        $cat->name = $school_type->name;
-        $cat->display_name = $school_type->display_name;
-        $cat->session_type_id = $school_type->session_type_id;
+        $cat->name = $school_type['name'];
+        $cat->display_name = $school_type['display_name'];
+        $cat->session_type_id = $school_type['session_type_id'];
         $cat->school_id = $school->id;
 
         $cat->save();
@@ -109,10 +109,10 @@ class CreateNewSchool extends Command implements SelfHandling
 
     private function createScopedSchoolCategories(School $school, ScopedSchoolType $schoolType)
     {
-        foreach ($this->school_type->school_categories as $category) {
+        foreach ($this->school_type['school_categories'] as $category) {
             $cat = new ScopedSchoolCategory();
-            $cat->name = $category->name;
-            $cat->display_name = $category->display_name;
+            $cat->name = $category['name'];
+            $cat->display_name = $category['display_name'];
             $cat->scoped_school_type_id = $schoolType->id;
             $cat->school_id = $school->id;
             $cat->save();
