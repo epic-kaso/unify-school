@@ -15,8 +15,20 @@ class RegisterSchoolConfigController extends Controller
      */
     public function index(SchoolTypeRepository $schoolRepository)
     {
-        return \Response::json($schoolRepository->fetchDefaultSchoolConfig());
-        //return \Response::json(json_decode(file_get_contents(storage_path('app/school_default.json'))));
+        $config = new \stdClass();
+
+        $school = new \stdClass();
+        $school->selected_school_type = "";
+        $school->name = "";
+        $school->admin_email = "";
+        $school->admin_password = "";
+        $school->admin_password_confirmation = "";
+        $school->school_types = $schoolRepository->fetchDefaultSchoolConfig();
+
+        $config->school = $school;
+        $config->countries = $schoolRepository->fetchSupportedCountries();
+
+        return \Response::json($config);
     }
 
     /**

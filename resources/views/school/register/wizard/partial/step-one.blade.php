@@ -10,7 +10,7 @@
     <div class="form-group evaluate">
         <label>Select School's Country</label>
         <select class="form-control" required ng-model="school.country">
-            <option value="@{{ country.short_code }}"
+            <option value="@{{ country.id }}"
                     ng-repeat="country in config.countries">@{{ country.name }}</option>
         </select>
     </div>
@@ -18,8 +18,8 @@
     <div class="form-group evaluate">
         <label>Select School's State</label>
         <select class="form-control" required ng-model="school.state">
-            <option value="@{{ state.short_code }}"
-                    ng-repeat="state in config.countries[school.country].states">@{{ state.name }}</option>
+            <option value="@{{ state.id }}"
+                    ng-repeat="state in config.countries[school.country - 1].states">@{{ state.name }}</option>
         </select>
     </div>
 
@@ -32,21 +32,21 @@
     <div class="form-group evaluate">
         <label>Select School Type</label>
         <select class="form-control" required ng-model="school.selected_school_type">
-            <option value="@{{ $index }}"
+            <option value="@{{ school_type.id }}"
                     ng-repeat="school_type in school.school_types">@{{ school_type.display_name }}</option>
         </select>
     </div>
 
-    <div class="form-group" ng-show="school.school_types[school.selected_school_type].session != null">
+    <div class="form-group" ng-show="school.school_types[school.selected_school_type - 1].session != null">
         <label>Session System</label>
 
         <div>
             <ul class="list-group">
                 <li class="list-group-item" style="text-transform: uppercase; font-weight: 400;">
                     @{{
-                    school.school_types[school.selected_school_type].session.session_type + ' '+
-                    school.school_types[school.selected_school_type].session.session_divisions_display_name+' '+
-                    school.school_types[school.selected_school_type].session.session_display_name
+                    school.school_types[school.selected_school_type - 1].session.session_type + ' '+
+                    school.school_types[school.selected_school_type - 1].session.session_divisions_display_name+' '+
+                    school.school_types[school.selected_school_type - 1].session.session_display_name
                     }}
                     <span class="btn btn-xs btn-primary pull-right" ng-hide="onEdit"
                           ng-click="onEdit = true">Edit</span>
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label>Session Division</label>
                             <select class="form-control" id=""
-                                    ng-model="school.school_types[school.selected_school_type].session.session_type">
+                                    ng-model="school.school_types[school.selected_school_type - 1 ].session.session_type">
                                 <option value="one">One</option>
                                 <option value="two">Two</option>
                                 <option value="three">Three</option>
@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <label>Session Sub-division Name</label>
                             <input type="text" class="form-control"
-                                   ng-model="school.school_types[school.selected_school_type].session.session_divisions_display_name"/>
+                                   ng-model="school.school_types[school.selected_school_type - 1 ].session.session_divisions_display_name"/>
                         </div>
                         <div>
                             <span class="btn btn-info" ng-click="onEdit = false">Save</span>
@@ -102,7 +102,7 @@
                         <div>
                                     <span class="btn btn-info"
                                           ng-click="
-                                          addCategory(school.selected_school_type,school_category_name);
+                                          addCategory(school.selected_school_type - 1,school_category_name);
                                           onAddSchoolType = false;
                                           school_category_name = null;
                                           ">
@@ -112,11 +112,11 @@
                     </div>
                 </li>
                 <li
-                        ng-repeat="school_category in school.school_types[school.selected_school_type].school_categories"
+                        ng-repeat="school_category in school.school_types[school.selected_school_type - 1].school_categories"
                         class="list-group-item">
                     <span class="school_category_title">@{{ school_category.display_name }}</span>
                     <span class="btn btn-xs btn-danger pull-right"
-                          ng-click="removeCategory(school.selected_school_type,$index)">Remove</span>
+                          ng-click="removeCategory(school.selected_school_type - 1,$index)">Remove</span>
                 </li>
             </ul>
         </div>

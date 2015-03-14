@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArmSubdivision whereMeta($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArmSubdivision whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArmSubdivision whereUpdatedAt($value)
- * @property-read \UnifySchool\SchoolCategoryArm $school_category_arm 
+ * @property-read \UnifySchool\SchoolCategoryArm $school_category_arm
  */
 class SchoolCategoryArmSubdivision extends Model
 {

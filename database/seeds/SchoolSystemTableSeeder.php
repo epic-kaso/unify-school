@@ -1,10 +1,12 @@
 <?php
 use Illuminate\Database\Seeder;
+use UnifySchool\Country;
 use UnifySchool\SchoolCategory;
 use UnifySchool\SchoolCategoryArm;
 use UnifySchool\SchoolCategoryArmSubdivision;
 use UnifySchool\SchoolType;
 use UnifySchool\SessionType;
+use UnifySchool\State;
 
 /**
  * Created by PhpStorm.
@@ -24,9 +26,57 @@ class SchoolSystemTableSeeder extends Seeder
         DB::table('school_category_arm_subdivisions')->truncate();
 
         DB::transaction(function () {
+            $this->createCountries();
             $this->createSessionTypes();
         });
 
+    }
+
+    private function createCountries()
+    {
+        $countries = [
+            "ng" => [
+                "name" => "Nigeria",
+                "short_code" => "ng",
+                "states" => [
+                    "ab" => [
+                        "name" => "Abia",
+                        "short_code" => "ab"
+                    ],
+                    "an" => [
+                        "name" => "Anambra",
+                        "short_code" => "an"
+                    ]
+                ]
+            ]
+        ];
+
+        foreach ($countries as $country) {
+            $this->createCountry($country['name'], $country['short_code'], $country['states']);
+        }
+    }
+
+    private function createCountry($name, $shortCode, array $states)
+    {
+        $item = new Country();
+        $item->name = $name;
+        $item->short_code = $shortCode;
+        $item->save();
+
+        foreach ($states as $state) {
+            $this->createState($item, $state['name'], $state['short_code']);
+        }
+
+        return $item;
+    }
+
+    private function createState(Country $country, $name, $shortCode)
+    {
+        $item = new State();
+        $item->name = $name;
+        $item->short_code = $shortCode;
+        $item->country()->associate($country);
+        $item->save();
     }
 
     private function createSessionTypes()
@@ -83,7 +133,6 @@ class SchoolSystemTableSeeder extends Seeder
 
         return $item;
     }
-
 
     private function createSchoolTypes(
         SessionType $tertiarySession,
@@ -433,7 +482,6 @@ class SchoolSystemTableSeeder extends Seeder
         return $item;
     }
 
-
     private function createSchoolCategoryArms(
         SchoolCategory $schoolCategory,
         array $arms
@@ -486,6 +534,5 @@ class SchoolSystemTableSeeder extends Seeder
 
         return $response;
     }
-
 
 }

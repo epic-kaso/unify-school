@@ -75,6 +75,15 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
             templateUrl: ViewBaseURL + "/step-two.html",
             controller: ['$scope', function ($scope) {
 
+                $scope.createArms = function (baseName, school_arm, count) {
+                    school_arm.arms = [];
+                    for (var i = 1; i <= count; i++) {
+                        school_arm.arms[i - 1] = {
+                            'name': baseName + '_' + i,
+                            'display_name': ''
+                        }
+                    }
+                }
             }]
         });
 });
