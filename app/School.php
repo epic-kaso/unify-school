@@ -44,6 +44,8 @@ class School extends Model
         'school_object' => 'object'
     ];
 
+    protected $appends = ['website', 'admin_website', 'student_website'];
+
     public static function boot()
     {
         parent::boot();
@@ -75,6 +77,8 @@ class School extends Model
         return $query->with(
             'country',
             'state',
+            'administrator',
+            'administrators',
             'school_type',
             'school_type.session_type',
             'school_type.school_categories',
@@ -96,5 +100,48 @@ class School extends Model
     public function school_type()
     {
         return $this->belongsTo('UnifySchool\Entities\School\ScopedSchoolType', 'school_type_id');
+    }
+
+    public function administrators()
+    {
+        return $this->hasMany('UnifySchool\Entities\School\SchoolAdministrator');
+    }
+
+    public function administrator()
+    {
+        return $this->hasOne('UnifySchool\Entities\School\SchoolAdministrator');
+    }
+
+    public function getWebsiteAttribute()
+    {
+        $domain = \Config::get('unify.domain');
+
+        if ($domain == 'localhost:8000') {
+            return "{$domain}?school_slug={$this->slug}";
+        }
+
+        return "{$this->slug }.{$domain}";
+    }
+
+    public function getAdminWebsiteAttribute()
+    {
+        $domain = \Config::get('unify.domain');
+
+        if ($domain == 'localhost:8000') {
+            return "{$domain}/admin?school_slug={$this->slug}";
+        }
+
+        return "{$this->slug }.{$domain}/admin";
+    }
+
+    public function getStudentWebsiteAttribute()
+    {
+        $domain = \Config::get('unify.domain');
+
+        if ($domain == 'localhost:8000') {
+            return "{$domain}/students?school_slug={$this->slug}";
+        }
+
+        return "{$this->slug }.{$domain}/students";
     }
 }

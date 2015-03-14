@@ -25,7 +25,7 @@ class CreateSchoolRequest extends Request
                 'city' => 'required',
                 'state' => 'required|integer',
                 'country' => 'required|integer',
-                'name' => 'required',
+                'name' => 'required|unique:schools,name',
                 'selected_school_type' => 'required|integer',
             ];
         } elseif ($this->isMethod('put') || $this->isMethod('patch')) {

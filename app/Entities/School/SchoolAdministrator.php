@@ -15,6 +15,8 @@
 class SchoolAdministrator extends BaseModel
 {
 
+    protected $hidden = ['password', 'remember_token'];
+
     public static function boot()
     {
         parent::boot();
@@ -24,5 +26,11 @@ class SchoolAdministrator extends BaseModel
                 $model->attributes['password'] = \Hash::make($model->attributes['password']);
             }
         });
+    }
+
+
+    public function school()
+    {
+        return $this->belongsTo('UnifySchool\School');
     }
 }
