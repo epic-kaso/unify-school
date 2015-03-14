@@ -42,7 +42,8 @@ class SchoolController extends Controller
             $request->get('country'),
             $request->get('state'),
             $request->get('city'),
-            $request->get('selected_school_type')
+            $request->get('selected_school_type'),
+            $request->get('school_types')
         );
         $school = $this->dispatch($createSchool);
 
@@ -75,11 +76,12 @@ class SchoolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  int $id
+     * @param CreateSchoolRequest $request
      * @return Response
      */
-    public function update($id)
+    public function update($id, CreateSchoolRequest $request)
     {
-        //
+
     }
 
     /**

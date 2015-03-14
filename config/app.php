@@ -146,6 +146,7 @@ return [
         'UnifySchool\Providers\ConfigServiceProvider',
         'UnifySchool\Providers\EventServiceProvider',
         'UnifySchool\Providers\RouteServiceProvider',
+        'UnifySchool\Providers\ContextServiceProvider',
 
     ],
 

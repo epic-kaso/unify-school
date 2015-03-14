@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
+use UnifySchool\School;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,16 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        //
+        $router->bind('school_slug', function ($value) {
+            $context = \App::make('UnifySchoolProject\Entities\Context\ContextInterface');
+            $school = School::bySlug($value);
+            if (is_null($school)) {
+                abort(404);
+            }
+
+            $context->set($school);
+            return $school;
+        });
     }
 
     /**
