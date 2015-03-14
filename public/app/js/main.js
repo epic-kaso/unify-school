@@ -177,6 +177,11 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
+var app = angular.module('UnifySchoolApp.Controllers', []);
+/**
+ * Created by kaso on 11/6/2014.
+ */
+
 var app = angular.module('UnifySchoolApp.directives', []);
 
 
@@ -215,11 +220,6 @@ app.directive('toast', function ($animate, $timeout) {
     }
 });
 
-/**
- * Created by kaso on 11/6/2014.
- */
-
-var app = angular.module('UnifySchoolApp.Controllers', []);
 /**
  * Created by kaso on 11/6/2014.
  */

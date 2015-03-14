@@ -15,6 +15,24 @@ Route::get('/wizard/partials/{name}.html','School\RegistrationWizardController@p
 Route::resource('/wizard','School\RegistrationWizardController');
 
 
+//SubDomain Routing
+Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function () {
+    Route::get('/', 'LandingPageController@getIndex');
+    Route::resource('school', 'School\SchoolController');
+    Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'domain' => '{school_slug}.' . config('unify.domain')], function () {
+    Route::controllers([
+        'auth' => 'AdminAuthController',
+        'password' => 'AdminPasswordController',
+    ]);
+    Route::controller('dashboard', 'AdminDashboardController');
+});
+
+
+//None SubDomain routing
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::controllers([
         'auth' => 'AdminAuthController',

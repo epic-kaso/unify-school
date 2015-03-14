@@ -7,5 +7,5 @@
  */
 
 return [
-    'domain' => env('domain', 'localhost:8000')
+    'domain' => env('DOMAIN', 'localhost:8000')
 ];
