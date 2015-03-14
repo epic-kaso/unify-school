@@ -38,7 +38,6 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                 $scope.config = Config;
                 $scope.school = Config.school;
 
-
                 $scope.removeCategory = function (selectedCategory, indexToRemove) {
                     $scope.school.school_types[selectedCategory].school_categories.splice(indexToRemove, 1);
                 };
