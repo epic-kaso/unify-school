@@ -8,30 +8,8 @@
     </div>
 
     <div class="form-group evaluate">
-        <label>Select School's Country</label>
-        <select class="form-control" required ng-model="school.country">
-            <option value="@{{ country.id }}"
-                    ng-repeat="country in config.countries">@{{ country.name }}</option>
-        </select>
-    </div>
-
-    <div class="form-group evaluate">
-        <label>Select School's State</label>
-        <select class="form-control" required ng-model="school.state">
-            <option value="@{{ state.id }}"
-                    ng-repeat="state in config.countries[school.country - 1].states">@{{ state.name }}</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Enter School's City of Residence</label>
-        <input type="text" required placeholder="Enter School's City of Residence" ng-model="school.city"
-               class="form-control inmate-search-box"/>
-    </div>
-
-    <div class="form-group evaluate">
         <label>Select School Type</label>
-        <select class="form-control" required ng-model="school.selected_school_type"
+        <select class="form-control" ng-model="school.selected_school_type"
                 ng-options="school_type.id as school_type.display_name for school_type in school.school_types">
         </select>
     </div>
@@ -121,6 +99,28 @@
         </div>
     </div>
 
+
+    <div class="form-group evaluate">
+        <label>Select School's Country</label>
+        <select class="form-control" required ng-model="school.country">
+            <option value="@{{ country.id }}"
+                    ng-repeat="country in config.countries">@{{ country.name }}</option>
+        </select>
+    </div>
+
+    <div class="form-group evaluate">
+        <label>Select School's State</label>
+        <select class="form-control" required ng-model="school.state">
+            <option value="@{{ state.id }}"
+                    ng-repeat="state in config.countries[school.country - 1].states">@{{ state.name }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Enter School's City of Residence</label>
+        <input type="text" required placeholder="Enter School's City of Residence" ng-model="school.city"
+               class="form-control inmate-search-box"/>
+    </div>
 
     <div class="col-sm-12" style="padding: 0">
         <div class="form-group">

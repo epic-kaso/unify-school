@@ -160,14 +160,12 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
             url: "/step-three",
             templateUrl: ViewBaseURL + "/step-three.html",
             controller: ['$scope', '$state', function ($scope, $state) {
-
             }]
         })
         .state('base.step_four', {
             url: "/step-four",
             templateUrl: ViewBaseURL + "/step-four.html",
             controller: ['$scope', '$state', function ($scope, $state) {
-
             }]
         });
 });
