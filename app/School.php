@@ -72,7 +72,15 @@ class School extends Model
 
     public function scopeWithData($query)
     {
-        return $query->with('country', 'state', 'school_type');
+        return $query->with(
+            'country',
+            'state',
+            'school_type',
+            'school_type.session_type',
+            'school_type.school_categories',
+            'school_type.school_categories.school_category_arms',
+            'school_type.school_categories.school_category_arms.school_category_arm_subdivisions'
+        );
     }
 
     public function country()
