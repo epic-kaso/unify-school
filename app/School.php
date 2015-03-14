@@ -82,6 +82,6 @@ class School extends Model
 
     public function school_type()
     {
-        return $this->belongsTo('UnifySchool\SchoolType');
+        return $this->belongsTo('UnifySchool\Entities\School\ScopedSchoolType');
     }
 }

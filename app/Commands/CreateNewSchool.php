@@ -32,6 +32,8 @@ class CreateNewSchool extends Command implements SelfHandling
      */
     private $school_types;
 
+    private $school_type;
+
     /**
      * Create a new command instance.
      *
@@ -52,9 +54,16 @@ class CreateNewSchool extends Command implements SelfHandling
         $this->selected_school_type = $selected_school_type;
         $this->school_types = $school_types;
 
-        $this->school_type = array_first($school_types, function ($item) use ($selected_school_type) {
-            return $item['id'] == $selected_school_type;
-        });
+        foreach ($school_types as $type) {
+            if ($type['id'] == $selected_school_type) {
+                $this->school_type = $type;
+                break;
+            }
+        }
+
+        if (is_null($this->school_type)) {
+            throw new \Exception('School type can not be null');
+        }
     }
 
     /**
