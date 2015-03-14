@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Console\Commands;
+<?php namespace UnifySchool\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

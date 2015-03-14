@@ -141,11 +141,11 @@ return [
         /*
          * Application Service Providers...
          */
-        'SupergeeksGadgetSwap\Providers\AppServiceProvider',
-        'SupergeeksGadgetSwap\Providers\BusServiceProvider',
-        'SupergeeksGadgetSwap\Providers\ConfigServiceProvider',
-        'SupergeeksGadgetSwap\Providers\EventServiceProvider',
-        'SupergeeksGadgetSwap\Providers\RouteServiceProvider',
+        'UnifySchool\Providers\AppServiceProvider',
+        'UnifySchool\Providers\BusServiceProvider',
+        'UnifySchool\Providers\ConfigServiceProvider',
+        'UnifySchool\Providers\EventServiceProvider',
+        'UnifySchool\Providers\RouteServiceProvider',
 
     ],
 

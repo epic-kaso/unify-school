@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Http\Middleware;
+<?php namespace UnifySchool\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

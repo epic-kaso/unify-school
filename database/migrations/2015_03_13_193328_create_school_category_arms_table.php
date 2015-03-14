@@ -15,9 +15,10 @@ class CreateSchoolCategoryArmsTable extends Migration
     {
         Schema::create('school_category_arms', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('school_category_id');
             $table->string('name');
             $table->string('display_name');
-            $table->text('arms');
+            $table->text('meta');
             $table->timestamps();
         });
     }

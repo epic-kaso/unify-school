@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Http\Controllers;
+<?php namespace UnifySchool\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Foundation\Validation\ValidatesRequests;

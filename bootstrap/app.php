@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     'Illuminate\Contracts\Http\Kernel',
-    'SupergeeksGadgetSwap\Http\Kernel'
+    'UnifySchool\Http\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Console\Kernel',
-    'SupergeeksGadgetSwap\Console\Kernel'
+    'UnifySchool\Console\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Debug\ExceptionHandler',
-    'SupergeeksGadgetSwap\Exceptions\Handler'
+    'UnifySchool\Exceptions\Handler'
 );
 
 /*

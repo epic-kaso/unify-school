@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => 'SupergeeksGadgetSwap\User',
+    'model' => 'UnifySchool\User',
 
     /*
     |--------------------------------------------------------------------------

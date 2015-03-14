@@ -1,10 +1,10 @@
-<?php namespace SupergeeksGadgetSwap;
+<?php namespace UnifySchool;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 /**
- * SupergeeksGadgetSwap\School
+ * UnifySchool\School
  *
  * @property integer $id
  * @property string $slug
@@ -16,16 +16,19 @@ use Illuminate\Support\Str;
  * @property string $school_object
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereCity($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereState($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereCountry($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereHashcode($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereSchoolObject($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\SupergeeksGadgetSwap\School whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCity($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereState($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereHashcode($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereSchoolObject($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereUpdatedAt($value)
+ * @property integer $school_type_id
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereSchoolTypeId($value)
+ * @method static \UnifySchool\School bySlug($slug)
  */
 class School extends Model
 {

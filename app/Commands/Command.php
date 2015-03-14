@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Commands;
+<?php namespace UnifySchool\Commands;
 
 abstract class Command
 {

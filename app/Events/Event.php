@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Events;
+<?php namespace UnifySchool\Events;
 
 abstract class Event
 {

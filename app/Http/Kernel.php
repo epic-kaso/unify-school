@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Http;
+<?php namespace UnifySchool\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -25,10 +25,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => 'SupergeeksGadgetSwap\Http\Middleware\Authenticate',
+        'auth' => 'UnifySchool\Http\Middleware\Authenticate',
         'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'guest' => 'SupergeeksGadgetSwap\Http\Middleware\RedirectIfAuthenticated',
-        'csrf' => 'SupergeeksGadgetSwap\Http\Middleware\VerifyCsrfToken',
+        'guest' => 'UnifySchool\Http\Middleware\RedirectIfAuthenticated',
+        'csrf' => 'UnifySchool\Http\Middleware\VerifyCsrfToken',
     ];
 
 }

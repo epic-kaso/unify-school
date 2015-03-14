@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Providers;
+<?php namespace UnifySchool\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -13,7 +13,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'SupergeeksGadgetSwap\Http\Controllers';
+    protected $namespace = 'UnifySchool\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

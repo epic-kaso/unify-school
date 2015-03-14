@@ -1,7 +1,7 @@
-<?php namespace SupergeeksGadgetSwap\Http\Controllers\Resources\Configurations;
+<?php namespace UnifySchool\Http\Controllers\Resources\Configurations;
 
-use SupergeeksGadgetSwap\Http\Controllers\Controller;
-use SupergeeksGadgetSwap\Http\Requests;
+use UnifySchool\Http\Controllers\Controller;
+use UnifySchool\Http\Requests;
 
 class RegisterSchoolConfigController extends Controller
 {

@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: SupergeeksGadgetSwap
-        psr4_prefix: SupergeeksGadgetSwap
+        namespace: UnifySchool
+        psr4_prefix: UnifySchool
         src_path: app

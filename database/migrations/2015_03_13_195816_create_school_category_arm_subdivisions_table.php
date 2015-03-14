@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSchoolAdministratorsTable extends Migration
+class CreateSchoolCategoryArmSubdivisionsTable extends Migration
 {
 
     /**
@@ -13,13 +13,12 @@ class CreateSchoolAdministratorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_administrators', function (Blueprint $table) {
+        Schema::create('school_category_arm_subdivisions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('school_id');
+            $table->integer('school_category_arm_id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->rememberToken();
+            $table->string('display_name');
+            $table->text('meta');
             $table->timestamps();
         });
     }
@@ -31,7 +30,7 @@ class CreateSchoolAdministratorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('school_administrators');
+        Schema::drop('school_category_arm_subdivisions');
     }
 
 }

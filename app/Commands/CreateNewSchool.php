@@ -1,7 +1,7 @@
-<?php namespace SupergeeksGadgetSwap\Commands;
+<?php namespace UnifySchool\Commands;
 
 use Illuminate\Contracts\Bus\SelfHandling;
-use SupergeeksGadgetSwap\School;
+use UnifySchool\School;
 
 class CreateNewSchool extends Command implements SelfHandling
 {

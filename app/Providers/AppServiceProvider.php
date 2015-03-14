@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Providers;
+<?php namespace UnifySchool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Illuminate\Contracts\Auth\Registrar',
-            'SupergeeksGadgetSwap\Services\Registrar'
+            'UnifySchool\Services\Registrar'
         );
     }
 

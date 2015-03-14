@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Http\Requests;
+<?php namespace UnifySchool\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

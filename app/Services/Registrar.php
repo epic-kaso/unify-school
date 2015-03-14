@@ -1,7 +1,7 @@
-<?php namespace SupergeeksGadgetSwap\Services;
+<?php namespace UnifySchool\Services;
 
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
-use SupergeeksGadgetSwap\User;
+use UnifySchool\User;
 use Validator;
 
 class Registrar implements RegistrarContract {

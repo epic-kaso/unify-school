@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Providers;
+<?php namespace UnifySchool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

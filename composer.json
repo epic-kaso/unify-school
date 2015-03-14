@@ -23,7 +23,7 @@
       "database"
     ],
     "psr-4": {
-      "SupergeeksGadgetSwap\\": "app/"
+      "UnifySchool\\": "app/"
     }
   },
   "autoload-dev": {

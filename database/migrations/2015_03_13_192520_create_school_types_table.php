@@ -69,7 +69,7 @@ class CreateSchoolTypesTable extends Migration
             $table->string('name');
             $table->string('display_name');
             $table->integer('session_type_id');
-            $table->text('school_categories');
+            $table->text('meta');
             $table->timestamps();
         });
     }

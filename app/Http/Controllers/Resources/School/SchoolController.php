@@ -1,9 +1,9 @@
-<?php namespace SupergeeksGadgetSwap\Http\Controllers\Resources\School;
+<?php namespace UnifySchool\Http\Controllers\Resources\School;
 
-use SupergeeksGadgetSwap\Commands\CreateNewSchool;
-use SupergeeksGadgetSwap\Http\Controllers\Controller;
-use SupergeeksGadgetSwap\Http\Requests;
-use SupergeeksGadgetSwap\Http\Requests\CreateSchoolRequest;
+use UnifySchool\Commands\CreateNewSchool;
+use UnifySchool\Http\Controllers\Controller;
+use UnifySchool\Http\Requests;
+use UnifySchool\Http\Requests\CreateSchoolRequest;
 
 class SchoolController extends Controller
 {

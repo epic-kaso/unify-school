@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Exceptions;
+<?php namespace UnifySchool\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

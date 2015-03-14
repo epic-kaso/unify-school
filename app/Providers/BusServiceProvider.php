@@ -1,4 +1,4 @@
-<?php namespace SupergeeksGadgetSwap\Providers;
+<?php namespace UnifySchool\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class BusServiceProvider extends ServiceProvider
     {
         $dispatcher->mapUsing(function ($command) {
             return Dispatcher::simpleMapping(
-                $command, 'SupergeeksGadgetSwap\Commands', 'SupergeeksGadgetSwap\Handlers\Commands'
+                $command, 'UnifySchool\Commands', 'UnifySchool\Handlers\Commands'
             );
         });
     }

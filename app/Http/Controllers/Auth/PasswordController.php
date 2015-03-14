@@ -1,9 +1,9 @@
-<?php namespace SupergeeksGadgetSwap\Http\Controllers\Auth;
+<?php namespace UnifySchool\Http\Controllers\Auth;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use SupergeeksGadgetSwap\Http\Controllers\Controller;
+use UnifySchool\Http\Controllers\Controller;
 
 class PasswordController extends Controller {
 

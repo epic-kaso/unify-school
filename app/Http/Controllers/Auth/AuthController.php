@@ -1,9 +1,9 @@
-<?php namespace SupergeeksGadgetSwap\Http\Controllers\Auth;
+<?php namespace UnifySchool\Http\Controllers\Auth;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use SupergeeksGadgetSwap\Http\Controllers\Controller;
+use UnifySchool\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {

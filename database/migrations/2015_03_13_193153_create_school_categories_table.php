@@ -39,9 +39,10 @@ class CreateSchoolCategoriesTable extends Migration
          */
         Schema::create('school_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('school_type_id');
             $table->string('name');
             $table->string('display_name');
-            $table->text('arms');
+            $table->text('meta');
             $table->timestamps();
         });
     }
