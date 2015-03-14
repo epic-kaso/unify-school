@@ -22,7 +22,10 @@ Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function (
         return $school_slug;
     });
 
-    Route::get('/', 'LandingPageController@getIndex');
+    Route::get('/', function ($school_slug) {
+        return view('landing_page.index', ['school' => $school_slug]);
+    });
+
     Route::resource('school', 'School\SchoolController');
     Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
 });
