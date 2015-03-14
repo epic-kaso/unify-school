@@ -19,7 +19,7 @@
         <label>Select School's State</label>
         <select class="form-control" required ng-model="config.school.state">
             <option value="@{{ state.id }}"
-                    ng-repeat="state in config.countries[school.country - 1].states">@{{ state.name }}</option>
+                    ng-repeat="state in config.countries[config.school.country - 1].states">@{{ state.name }}</option>
         </select>
     </div>
 
