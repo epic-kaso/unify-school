@@ -39,11 +39,11 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                 $scope.school = Config.school;
 
                 $scope.removeCategory = function (selectedCategory, indexToRemove) {
-                    $scope.school.school_types[selectedCategory].school_categories.splice(indexToRemove, 1);
+                    $scope.config.school.school_types[selectedCategory].school_categories.splice(indexToRemove, 1);
                 };
 
                 $scope.addCategory = function (selectedCategory, school_category_name) {
-                    $scope.school.school_types[selectedCategory].school_categories.push({
+                    $scope.config.school.school_types[selectedCategory].school_categories.push({
                         'display_name': school_category_name,
                         'name': school_category_name,
                         'arms': [
@@ -60,7 +60,7 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
 
                 $scope.nextStepTwo = function () {
                     $rootScope.currentProgress = '30%';
-                    SchoolService.save($scope.school, function (data) {
+                    SchoolService.save($scope.config.school, function (data) {
                         console.log(data);
 
                         ToastService.success('School details saved!, Keep going');
