@@ -1,5 +1,10 @@
 <?php namespace UnifySchool\Entities\School;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+
 /**
  * UnifySchool\SchoolAdministrator
  *
@@ -12,8 +17,9 @@
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * */
-class SchoolAdministrator extends BaseModel
+class SchoolAdministrator extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
+    use Authenticatable, CanResetPassword;
 
     protected $hidden = ['password', 'remember_token'];
 

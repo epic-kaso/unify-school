@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use UnifySchool\Entities\School\SchoolAdministrator;
 
 class ConfigServiceProvider extends ServiceProvider
 {
@@ -16,9 +17,11 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        config([
-            //
-        ]);
+        if (str_contains(\Request::getUri(), 'admin')) {
+            config([
+                'auth.model' => SchoolAdministrator::class
+            ]);
+        }
     }
 
 }

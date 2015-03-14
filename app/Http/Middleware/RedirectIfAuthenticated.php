@@ -35,10 +35,15 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return new RedirectResponse(url('/home'));
+            return new RedirectResponse(url('/admin/dashboard?school_slug=' . $this->getSchool()->slug));
         }
 
         return $next($request);
     }
 
+    public function getSchool()
+    {
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+        return $context->get();
+    }
 }
