@@ -22,7 +22,7 @@ Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function (
         return $school_slug;
     });
 
-    Route::get('/', function ($school_slug) {
+    Route::get('home', function ($school_slug) {
         return view('landing_page.index', ['school' => $school_slug]);
     });
 
