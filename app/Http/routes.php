@@ -17,15 +17,9 @@ Route::resource('/wizard','School\RegistrationWizardController');
 
 //SubDomain Routing
 Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function () {
-
-    Route::get('/test', function ($school_slug) {
-        return $school_slug;
-    });
-
     Route::get('home', function ($school_slug) {
         return view('landing_page.index', ['school' => $school_slug]);
     });
-
     Route::resource('school', 'School\SchoolController');
     Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
 });

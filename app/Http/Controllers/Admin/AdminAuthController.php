@@ -31,8 +31,6 @@ class AdminAuthController extends Controller
     {
         $this->auth = $auth;
         $this->registrar = $registrar;
-        $this->redirectPath = '/admin/dashboard';
-
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
@@ -63,12 +61,21 @@ class AdminAuthController extends Controller
 
     public function redirectPath()
     {
-        return '/admin/dashboard?school_slug=' . $this->getSchool()->slug;
+        return $this->generateUrl('/admin/dashboard');
+    }
+
+    private function generateUrl($url)
+    {
+        if (str_contains(\Request::getRequestUri(), $this->getSchool()->slug)) {
+            return $url;
+        }
+
+        return $url . '?school_slug=' . $this->getSchool()->slug;
     }
 
     public function loginPath()
     {
-        return '/admin/auth/login?school_slug=' . $this->getSchool()->slug;
+        return $this->generateUrl('/admin/auth/login');
     }
 
     protected function getFailedLoginMessage()
