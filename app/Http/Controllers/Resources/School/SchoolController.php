@@ -46,7 +46,6 @@ class SchoolController extends Controller
             $request->get('school_types')
         );
         $school = $this->dispatch($createSchool);
-
         return $school;
     }
 
@@ -58,7 +57,7 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
-        //
+        return School::withData()->find($id);
     }
 
     /**

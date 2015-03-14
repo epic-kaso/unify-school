@@ -61,7 +61,23 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                 $scope.nextStepTwo = function () {
                     SchoolService.save($scope.school, function (data) {
                         console.log(data);
-                        $state.go('base.step_two');
+
+                        SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
+                            $scope.school = data;
+                            $state.go('base.step_two');
+                        });
+
+                    }, function () {
+                        console.log('error occurred');
+                    });
+                };
+
+
+                $scope.nextStepThree = function () {
+                    SchoolService.update({id: $scope.school.id}, $scope.school).$promise.then(function (data) {
+                        console.log(data);
+                        $scope.school = data;
+                        $state.go('base.step_three');
                     }, function () {
                         console.log('error occurred');
                     });
@@ -101,6 +117,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                         'arms': []
                     });
                 };
+            }]
+        })
+        .state('base.step_three', {
+            url: "/step-three",
+            templateUrl: ViewBaseURL + "/step-three.html",
+            controller: ['$scope', '$state', function ($scope, $state) {
+
             }]
         });
 });

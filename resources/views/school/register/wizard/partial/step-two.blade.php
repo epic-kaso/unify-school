@@ -4,7 +4,7 @@
 
 
     <div class="form-group"
-         ng-repeat="school_category in school.school_types[school.selected_school_type - 1].school_categories">
+         ng-repeat="school_category in school.school_type.school_categories">
         <div class="panel">
             <div class="panel-heading">
                 <h3>@{{ school_category.display_name }}</h3>
@@ -101,7 +101,7 @@
     <div class="row">
         <div class="col-sm-12" style="padding: 0">
             <div class="form-group">
-                <button class="btn btn-info pull-right" ng-click="next()">Next</button>
+                <button class="btn btn-info pull-right" ng-click="nextStepThree()">Next</button>
             </div>
         </div>
     </div>

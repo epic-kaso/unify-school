@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Http\Middleware;
 
 use Closure;
+use Illuminate\Database\Eloquent\Model;
 use UnifySchool\School;
 
 class BindContext
@@ -26,7 +27,7 @@ class BindContext
     {
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
         $school = School::bySlug($slug);
-        if (is_null($school)) {
+        if (is_null($school) || !is_subclass_of($school, Model::class)) {
             abort(404);
         }
         $context->set($school);
