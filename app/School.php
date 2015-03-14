@@ -29,6 +29,10 @@ use Illuminate\Support\Str;
  * @property integer $school_type_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereSchoolTypeId($value)
  * @method static \UnifySchool\School bySlug($slug)
+ * @property integer $state_id
+ * @property integer $country_id
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereStateId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCountryId($value)
  */
 class School extends Model
 {
@@ -45,25 +49,38 @@ class School extends Model
 
         static::saving(function (School $model) {
             if ($model->isDirty('name')) {
-                $model->generateSlug();
+                return $model->generateSlug();
             }
         });
     }
 
-    private function generateSlug($count = null)
+    private function generateSlug()
     {
-        $this->attributes['slug'] = Str::slug($this->name . ' ' . $this->city . ' ' . $this->state . ' ' . $this->country . ' ' . $count);
+        $this->attributes['slug'] = Str::slug($this->name . ' ' . $this->city . ' ' . $this->state->short_code . ' ' . $this->country->short_code);
 
-        if (!is_null(static::bySlug($this->attributes['slug']))) {
-            $count = is_null($count) ? $count = 0 : ++$count;
-            return $this->generateSlug($count);
+        if (!is_null(static::whereSlug($this->attributes['slug'])->first())) {
+            return false;
         }
-
         return true;
     }
 
     public function scopeBySlug($query, $slug)
     {
         return $query->where('slug', $slug)->first();
+    }
+
+    public function country()
+    {
+        return $this->belongsTo('UnifySchool\Country');
+    }
+
+    public function state()
+    {
+        return $this->belongsTo('UnifySchool\State');
+    }
+
+    public function school_type()
+    {
+        return $this->belongsTo('UnifySchool\SchoolType');
     }
 }

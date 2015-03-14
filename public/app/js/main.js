@@ -56,10 +56,15 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                             }
                         ]
                     });
-                }
+                };
 
                 $scope.nextStepTwo = function () {
-                    $state.go('base.step_two');
+                    SchoolService.save($scope.school, function (data) {
+                        console.log(data);
+                        $state.go('base.step_two');
+                    }, function () {
+                        console.log('error occurred');
+                    });
                 }
             }]
         })
@@ -83,7 +88,19 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                             'display_name': ''
                         }
                     }
-                }
+                };
+
+                $scope.removeArm = function (school_category_arms, index) {
+                    school_category_arms.splice(index, 1);
+                };
+
+                $scope.addArm = function (school_category_arms, school_category_name) {
+                    school_category_arms.push({
+                        'display_name': school_category_name,
+                        'name': school_category_name,
+                        'arms': []
+                    });
+                };
             }]
         });
 });

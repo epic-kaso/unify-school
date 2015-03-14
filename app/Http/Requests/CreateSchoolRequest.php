@@ -22,10 +22,10 @@ class CreateSchoolRequest extends Request
     {
         return [
             'city' => 'required',
-            'state' => 'required',
-            'country' => 'required',
+            'state' => 'required|integer',
+            'country' => 'required|integer',
             'name' => 'required',
-            'selected_school_type' => 'required',
+            'selected_school_type' => 'required|integer',
         ];
     }
 

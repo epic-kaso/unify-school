@@ -18,7 +18,7 @@
                     <span class="btn btn-xs btn-primary pull-right" ng-show="onAddCategoryArmType"
                           ng-click="onAddCategoryArmType = false">Hide</span>
 
-                        <div ng-show="onAddSchoolType">
+                        <div ng-show="onAddCategoryArmType">
                             <div class="form-group">
                                 <label>Category Title</label>
                                 <input type="text" class="form-control" ng-model="school_arm_name"/>
@@ -26,7 +26,7 @@
                             <div>
                                     <span class="btn btn-info"
                                           ng-click="
-                                          addArmToCategory(school_category,school_arm_name);
+                                          addArm(school_category.school_category_arms,school_arm_name);
                                           onAddCategoryArmType = false;
                                           school_arm_name = null;
                                           ">
@@ -42,7 +42,7 @@
 
                         <span class="btn btn-xs btn-danger pull-right"
                               ng-click="removeArm(school_category.school_category_arms,$index)">Remove</span>
-                        <label class="pull-right">Has Arms? <input type="checkbox"
+                        <label class="pull-right" style="margin-right: 20px;">Has Arms? <input type="checkbox"
                                                                    ng-model="school_arm.has_arms"/></label>
 
                         <div class="row" ng-show="school_arm.has_arms">

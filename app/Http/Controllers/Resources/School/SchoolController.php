@@ -4,6 +4,7 @@ use UnifySchool\Commands\CreateNewSchool;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\CreateSchoolRequest;
+use UnifySchool\School;
 
 class SchoolController extends Controller
 {
@@ -15,7 +16,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        return School::all();
     }
 
     /**
@@ -36,7 +37,15 @@ class SchoolController extends Controller
      */
     public function store(CreateSchoolRequest $request)
     {
-        $school = $this->dispatchFrom(CreateNewSchool::class, $request);
+        $createSchool = new CreateNewSchool(
+            $request->get('name'),
+            $request->get('country'),
+            $request->get('state'),
+            $request->get('city'),
+            $request->get('selected_school_type')
+        );
+        $school = $this->dispatch($createSchool);
+
         return $school;
     }
 
