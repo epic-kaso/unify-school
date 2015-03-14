@@ -24,6 +24,8 @@ class SchoolSystemTableSeeder extends Seeder
         DB::table('school_categories')->truncate();
         DB::table('school_category_arms')->truncate();
         DB::table('school_category_arm_subdivisions')->truncate();
+        DB::table('countries')->truncate();
+        DB::table('states')->truncate();
 
         DB::transaction(function () {
             $this->createCountries();
