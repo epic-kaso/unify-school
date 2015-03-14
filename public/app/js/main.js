@@ -74,13 +74,39 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
 
 
                 $scope.nextStepThree = function () {
-                    SchoolService.update({id: $scope.school.id}, $scope.school).$promise.then(function (data) {
+                    SchoolService.update(
+                        {
+                            id: $scope.school.id,
+                            school_slug: $scope.school.slug,
+                            action: 'school_categories_update'
+                        },
+                        $scope.school
+                    ).$promise.then(function (data) {
                         console.log(data);
                         $scope.school = data;
                         $state.go('base.step_three');
+
                     }, function () {
                         console.log('error occurred');
                     });
+                }
+
+                $scope.nextStepFour = function () {
+                    SchoolService.update(
+                        {
+                            id: $scope.school.id,
+                            school_slug: $scope.school.slug,
+                            action: 'admin_login_details_update'
+                        },
+                        $scope.school
+                    ).$promise.then(function (data) {
+                            console.log(data);
+                            $scope.school = data;
+                            $state.go('base.step_three');
+
+                        }, function () {
+                            console.log('error occurred');
+                        });
                 }
             }]
         })
@@ -132,13 +158,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.Controllers', []);
+var app = angular.module('UnifySchoolApp.directives', []);
+
 /**
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.directives', []);
-
+var app = angular.module('UnifySchoolApp.Controllers', []);
 /**
  * Created by kaso on 11/6/2014.
  */

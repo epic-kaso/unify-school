@@ -15,4 +15,14 @@
 class SchoolAdministrator extends BaseModel
 {
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($model) {
+            if ($model->isDirty('password')) {
+                $model->attributes['password'] = \Hash::make($model->attributes['password']);
+            }
+        });
+    }
 }

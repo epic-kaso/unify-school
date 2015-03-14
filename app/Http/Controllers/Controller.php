@@ -9,4 +9,9 @@ abstract class Controller extends BaseController
 
     use DispatchesCommands, ValidatesRequests;
 
+    public function getSchool()
+    {
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+        return $context->get();
+    }
 }
