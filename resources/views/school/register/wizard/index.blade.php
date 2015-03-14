@@ -21,7 +21,7 @@
   width: 100%;
   z-index: 100;
   background-color: white;">
-    <h1 style="padding: 10px;font-weight: 700;">School Registration</h1>
+    <h1 style="padding: 10px;font-weight: 400;">School Registration</h1>
 
     <div class="progress">
         <div class="progress-bar progress-bar-info" ng-style="{width: currentProgress }"></div>
