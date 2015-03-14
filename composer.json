@@ -39,6 +39,7 @@
     "post-update-cmd": [
       "php artisan clear-compiled",
       "php artisan ide-helper:generate",
+      "php artisan route:clear",
       "php artisan optimize"
     ],
     "post-create-project-cmd": [
