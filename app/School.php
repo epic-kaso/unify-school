@@ -117,10 +117,10 @@ class School extends Model
         $domain = \Config::get('unify.domain');
 
         if ($domain == 'localhost:8000') {
-            return "http://{$domain}?school_slug={$this->slug}/home";
+            return "http://{$domain}/home?school_slug={$this->slug}";
         }
 
-        return "http://{$this->slug }.{$domain}";
+        return "http://{$this->slug }.{$domain}/home";
     }
 
     public function getAdminWebsiteAttribute()
