@@ -23,7 +23,9 @@ class SchoolSystemTableSeeder extends Seeder
         DB::table('school_category_arms')->truncate();
         DB::table('school_category_arm_subdivisions')->truncate();
 
-        $this->createSessionTypes();
+        DB::transaction(function () {
+            $this->createSessionTypes();
+        });
 
     }
 
@@ -131,7 +133,6 @@ class SchoolSystemTableSeeder extends Seeder
         $item->name = $value['name'];
         $item->display_name = $value['display_name'];
         $item->session_type()->associate($value['session_type']);
-        $item->school_categories = $value['school_categories'];
         $item->save();
         return $item;
     }
@@ -154,18 +155,18 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "history",
                         "display_name" => "History",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "history",
                             "display_name" => "History"
-                        ]
+                        ]]
                     ],
                     [
                         "name" => "theatre_arts",
                         "display_name" => "Theatre Arts",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "theatre_arts",
                             "display_name" => "Theatre Arts"
-                        ]
+                        ]]
                     ]
                 ]
             ],
@@ -177,18 +178,18 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "computer_science",
                         "display_name" => "Computer Science",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "computer_science",
                             "display_name" => "Computer Science"
-                        ]
+                        ]]
                     ],
                     [
                         "name" => "bio_chemistry",
                         "display_name" => "Bio Chemistry",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "bio_chemistry",
                             "display_name" => "Bio Chemistry"
-                        ]
+                        ]]
                     ]
                 ]
             ],
@@ -200,18 +201,18 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "electrical",
                         "display_name" => "Electrical",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "electrical",
                             "display_name" => "Electrical"
-                        ]
+                        ]]
                     ],
                     [
                         "name" => "chemical",
                         "display_name" => "Chemical",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "chemical",
                             "display_name" => "Chemical"
-                        ]
+                        ]]
                     ]
                 ]
             ]
@@ -227,33 +228,33 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "pre_nursery",
                         "display_name" => "Pre Nursery",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "pre_nursery",
-                            "display_name" => "Pre Nursery"
+                            "display_name" => "Pre Nursery"]
                         ]
                     ],
                     [
                         "name" => "nursery_1",
                         "display_name" => "Nursery 1",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "nursery_1",
-                            "display_name" => "nursery_1"
+                            "display_name" => "nursery_1"]
                         ]
                     ],
                     [
                         "name" => "nursery_2",
                         "display_name" => "Nursery 2",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "nursery_2",
-                            "display_name" => "Nursery 2"
+                            "display_name" => "Nursery 2"]
                         ]
                     ],
                     [
                         "name" => "nursery_3",
                         "display_name" => "Nursery 3",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "nursery_3",
-                            "display_name" => "Nursery 3"
+                            "display_name" => "Nursery 3"]
                         ]
                     ]
                 ]
@@ -266,49 +267,49 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "primary_1",
                         "display_name" => "Primary 1",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_1",
-                            "display_name" => "Primary 1"
+                            "display_name" => "Primary 1"]
                         ]
                     ],
                     [
                         "name" => "primary_2",
                         "display_name" => "Primary 2",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_2",
-                            "display_name" => "Primary 2"
+                            "display_name" => "Primary 2"]
                         ]
                     ],
                     [
                         "name" => "primary_3",
                         "display_name" => "Primary 3",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_3",
-                            "display_name" => "Primary 3"
+                            "display_name" => "Primary 3"]
                         ]
                     ],
                     [
                         "name" => "primary_4",
                         "display_name" => "Primary 4",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_4",
-                            "display_name" => "Primary 4"
+                            "display_name" => "Primary 4"]
                         ]
                     ],
                     [
                         "name" => "primary_5",
                         "display_name" => "Primary 5",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_5",
-                            "display_name" => "Primary 5"
+                            "display_name" => "Primary 5"]
                         ]
                     ],
                     [
                         "name" => "primary_6",
                         "display_name" => "Primary 6",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "primary_6",
-                            "display_name" => "Primary 6"
+                            "display_name" => "Primary 6"]
                         ]
                     ]
                 ]
@@ -321,25 +322,25 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "jss_1",
                         "display_name" => "JSS 1",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "jss_1",
-                            "display_name" => "JSS 1"
+                            "display_name" => "JSS 1"]
                         ]
                     ],
                     [
                         "name" => "jss_2",
                         "display_name" => "JSS 2",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "jss_2",
-                            "display_name" => "JSS 2"
+                            "display_name" => "JSS 2"]
                         ]
                     ],
                     [
                         "name" => "jss_3",
                         "display_name" => "JSS 3",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "jss_3",
-                            "display_name" => "JSS 3"
+                            "display_name" => "JSS 3"]
                         ]
                     ]
                 ]
@@ -352,25 +353,29 @@ class SchoolSystemTableSeeder extends Seeder
                     [
                         "name" => "ss_1",
                         "display_name" => "SS 1",
-                        "sub_divisions" => [
+                        "sub_divisions" => [[
                             "name" => "ss_1",
-                            "display_name" => "SS 1"
+                            "display_name" => "SS 1"]
                         ]
                     ],
                     [
                         "name" => "jss_2",
                         "display_name" => "SS 2",
                         "sub_divisions" => [
-                            "name" => "ss_2",
-                            "display_name" => "SS 2"
+                            [
+                                "name" => "ss_2",
+                                "display_name" => "SS 2"
+                            ]
                         ]
                     ],
                     [
                         "name" => "ss_3",
                         "display_name" => "SS 3",
                         "sub_divisions" => [
-                            "name" => "ss_3",
-                            "display_name" => "SS 3"
+                            [
+                                "name" => "ss_3",
+                                "display_name" => "SS 3"
+                            ]
                         ]
                     ]
                 ]
@@ -387,8 +392,10 @@ class SchoolSystemTableSeeder extends Seeder
                         "name" => "default",
                         "display_name" => "default",
                         "sub_divisions" => [
-                            "name" => "default",
-                            "display_name" => "default"
+                            [
+                                "name" => "default",
+                                "display_name" => "default"
+                            ]
                         ]
                     ]
                 ]

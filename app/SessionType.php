@@ -21,10 +21,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SessionType whereSessionDivisionsDisplayName($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SessionType whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SessionType whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\SchoolType[] $school_types 
  */
 class SessionType extends Model
 {
 
-    //
+    public function school_types()
+    {
+        return $this->hasMany('UnifySchool\SchoolType');
+    }
 
 }

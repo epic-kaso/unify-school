@@ -2,6 +2,7 @@
 
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
+use UnifySchool\Repositories\SchoolTypeRepository;
 
 class RegisterSchoolConfigController extends Controller
 {
@@ -9,11 +10,13 @@ class RegisterSchoolConfigController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param SchoolTypeRepository $schoolRepository
      * @return Response
      */
-    public function index()
+    public function index(SchoolTypeRepository $schoolRepository)
     {
-        return \Response::json(json_decode(file_get_contents(storage_path('app/school_default.json'))));
+        return \Response::json($schoolRepository->fetchDefaultSchoolConfig());
+        //return \Response::json(json_decode(file_get_contents(storage_path('app/school_default.json'))));
     }
 
     /**

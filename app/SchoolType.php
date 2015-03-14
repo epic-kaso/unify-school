@@ -19,14 +19,36 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolType whereSchoolCategories($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolType whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolType whereUpdatedAt($value)
+ * @property string $meta
+ * @property-read \UnifySchool\SessionType $session_type
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolType whereMeta($value)
+ * @method static \UnifySchool\SchoolType withDefaults()
  */
 class SchoolType extends Model
 {
+
+    protected $casts = [
+        'meta' => 'object'
+    ];
 
     public function session_type()
     {
         return $this->belongsTo('UnifySchool\SessionType');
     }
-    //
 
+
+    public function school_categories()
+    {
+        return $this->hasMany('UnifySchool\SchoolCategory');
+    }
+
+    public function scopeWithDefaults($query)
+    {
+        return $query->with(
+            'session_type',
+            'school_categories',
+            'school_categories.school_category_arms',
+            'school_categories.school_category_arms.school_category_arm_subdivisions'
+        );
+    }
 }

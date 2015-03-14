@@ -17,13 +17,27 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereArms($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereUpdatedAt($value)
+ * @property integer $school_type_id
+ * @property string $meta
+ * @property-read \UnifySchool\SchoolType $school_type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\SchoolCategoryArm[] $school_category_arms
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereSchoolTypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereMeta($value)
  */
 class SchoolCategory extends Model
 {
+    protected $casts = [
+        'meta' => 'object'
+    ];
 
     public function school_type()
     {
         return $this->belongsTo('UnifySchool\SchoolType');
+    }
+
+    public function school_category_arms()
+    {
+        return $this->hasMany('UnifySchool\SchoolCategoryArm');
     }
 
 }
