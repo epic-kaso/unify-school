@@ -31,9 +31,8 @@
 
     <div class="form-group evaluate">
         <label>Select School Type</label>
-        <select class="form-control" required ng-model="school.selected_school_type">
-            <option value="@{{ school_type.id }}"
-                    ng-repeat="school_type in school.school_types">@{{ school_type.display_name }}</option>
+        <select class="form-control" required ng-model="school.selected_school_type"
+                ng-options="school_type.id as school_type.display_name for school_type in school.school_types">
         </select>
     </div>
 
