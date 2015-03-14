@@ -102,7 +102,7 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                             console.log(data);
                             $scope.school = data;
-                            $state.go('base.step_three');
+                            $state.go('base.step_four');
 
                         }, function () {
                             console.log('error occurred');
@@ -151,6 +151,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
             controller: ['$scope', '$state', function ($scope, $state) {
 
             }]
+        })
+        .state('base.step_four', {
+            url: "/step-four",
+            templateUrl: ViewBaseURL + "/step-four.html",
+            controller: ['$scope', '$state', function ($scope, $state) {
+
+            }]
         });
 });
 
@@ -158,13 +165,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.directives', []);
-
+var app = angular.module('UnifySchoolApp.Controllers', []);
 /**
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.Controllers', []);
+var app = angular.module('UnifySchoolApp.directives', []);
+
 /**
  * Created by kaso on 11/6/2014.
  */

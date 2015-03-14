@@ -117,10 +117,10 @@ class School extends Model
         $domain = \Config::get('unify.domain');
 
         if ($domain == 'localhost:8000') {
-            return "{$domain}?school_slug={$this->slug}";
+            return "http://{$domain}?school_slug={$this->slug}";
         }
 
-        return "{$this->slug }.{$domain}";
+        return "http://{$this->slug }.{$domain}";
     }
 
     public function getAdminWebsiteAttribute()
@@ -128,10 +128,10 @@ class School extends Model
         $domain = \Config::get('unify.domain');
 
         if ($domain == 'localhost:8000') {
-            return "{$domain}/admin?school_slug={$this->slug}";
+            return "http://{$domain}/admin?school_slug={$this->slug}";
         }
 
-        return "{$this->slug }.{$domain}/admin";
+        return "http://{$this->slug }.{$domain}/admin";
     }
 
     public function getStudentWebsiteAttribute()
@@ -139,9 +139,9 @@ class School extends Model
         $domain = \Config::get('unify.domain');
 
         if ($domain == 'localhost:8000') {
-            return "{$domain}/students?school_slug={$this->slug}";
+            return "http://{$domain}/students?school_slug={$this->slug}";
         }
 
-        return "{$this->slug }.{$domain}/students";
+        return "http://{$this->slug }.{$domain}/students";
     }
 }

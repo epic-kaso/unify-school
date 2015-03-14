@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/', 'LandingPageController@getIndex');
 Route::get('/wizard/partials/{name}.html','School\RegistrationWizardController@partial');
 Route::resource('/wizard','School\RegistrationWizardController');
 
