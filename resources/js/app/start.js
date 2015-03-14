@@ -102,7 +102,7 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                     ).$promise.then(function (data) {
                             console.log(data);
                             $scope.school = data;
-                            $state.go('base.step_three');
+                            $state.go('base.step_four');
 
                         }, function () {
                             console.log('error occurred');
@@ -148,6 +148,13 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
         .state('base.step_three', {
             url: "/step-three",
             templateUrl: ViewBaseURL + "/step-three.html",
+            controller: ['$scope', '$state', function ($scope, $state) {
+
+            }]
+        })
+        .state('base.step_four', {
+            url: "/step-four",
+            templateUrl: ViewBaseURL + "/step-four.html",
             controller: ['$scope', '$state', function ($scope, $state) {
 
             }]
