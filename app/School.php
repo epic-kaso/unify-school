@@ -33,6 +33,7 @@ use Illuminate\Support\Str;
  * @property integer $country_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereStateId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCountryId($value)
+ * @property-read \UnifySchool\SchoolType $school_type 
  */
 class School extends Model
 {
