@@ -79,6 +79,7 @@ class CreateNewSchool extends Command implements SelfHandling
         $schoolType = $this->createScopedSchoolType($this->school_type, $school);
 
         $school->school_type_id = $schoolType->id;
+        $school->save();
 
         $this->createScopedSchoolCategories($school, $schoolType);
 

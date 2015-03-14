@@ -16,7 +16,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return School::all();
+        return School::withData()->get();
     }
 
     /**

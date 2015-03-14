@@ -70,6 +70,11 @@ class School extends Model
         return $query->where('slug', $slug)->first();
     }
 
+    public function scopeWithData($query)
+    {
+        return $query->with('country', 'state', 'school_type');
+    }
+
     public function country()
     {
         return $this->belongsTo('UnifySchool\Country');
@@ -82,6 +87,6 @@ class School extends Model
 
     public function school_type()
     {
-        return $this->belongsTo('UnifySchool\Entities\School\ScopedSchoolType');
+        return $this->belongsTo('UnifySchool\Entities\School\ScopedSchoolType', 'school_type_id');
     }
 }
