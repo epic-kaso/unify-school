@@ -6547,7 +6547,7 @@ label,
 }
 body {
   font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
-  background-color: rgba(0, 0, 0, 0.01);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 body .auth-form-panel {
   padding: 10px;

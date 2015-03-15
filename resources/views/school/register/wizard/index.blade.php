@@ -7,21 +7,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="{{ asset('landing_page/css/bootstrap.min.css')}}" rel="stylesheet">
     {{-- Laravel Based  --}}
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="{{ asset('landing_page/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('app/css/main.css') }}">
 </head>
 <body>
 
 <div class="container-fluid" ng-init="currentProgress = '0%'" style="padding: 0px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: white;">
-    <h1 style="padding: 10px;font-weight: 400;">School Registration</h1>
+  position: fixed;top: 0;width: 100%;z-index: 100;background-color: black;">
+    <h1 style="padding: 10px;font-weight: 400;color: #fed136;">School Registration</h1>
 
     <div class="progress">
         <div class="progress-bar progress-bar-info" ng-style="{width: currentProgress }"></div>
@@ -36,10 +32,9 @@
                     <div class="" style="
                         padding-top: 50px;
                     ">
-                        <img src="{{ asset('app/img/loading.gif') }}" class="img-responsive" style="
-                            margin-left: auto;
-                            margin-right: auto;
-                        ">
+                        <span style="color: #fed136;font-size: 100px; display: block;text-align: center;width: 120px; margin-left: auto;margin-right: auto;">
+                            <span class="fa fa-spin fa-spinner"></span>
+                        </span>
                     </div>
                 </div>
             </div>

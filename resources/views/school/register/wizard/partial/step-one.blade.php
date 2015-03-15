@@ -125,7 +125,7 @@
 
     <div class="col-sm-12" style="padding: 0">
         <div class="form-group">
-            <button class="btn btn-info pull-right" ng-click="nextStepTwo()">Next</button>
+            <button class="btn btn-yellow pull-right" ng-click="nextStepTwo()">Next</button>
         </div>
     </div>
 </div>
