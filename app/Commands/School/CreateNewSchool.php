@@ -1,6 +1,7 @@
-<?php namespace UnifySchool\Commands;
+<?php namespace UnifySchool\Commands\School;
 
 use Illuminate\Contracts\Bus\SelfHandling;
+use UnifySchool\Commands\Command;
 use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Entities\School\ScopedSessionType;

@@ -1,8 +1,8 @@
 <?php namespace UnifySchool\Http\Controllers\School\Resources\School;
 
-use UnifySchool\Commands\CreateNewSchool;
-use UnifySchool\Commands\UpdateSchoolAdminDetails;
-use UnifySchool\Commands\UpdateSchoolCategories;
+use UnifySchool\Commands\School\CreateNewSchool;
+use UnifySchool\Commands\School\UpdateSchoolAdminDetails;
+use UnifySchool\Commands\School\UpdateSchoolCategories;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\CreateSchoolRequest;

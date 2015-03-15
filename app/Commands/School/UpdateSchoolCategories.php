@@ -1,7 +1,8 @@
-<?php namespace UnifySchool\Commands;
+<?php namespace UnifySchool\Commands\School;
 
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Str;
+use UnifySchool\Commands\Command;
 use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
 use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\School;
