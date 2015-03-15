@@ -17,10 +17,11 @@ class CreateSchoolAdministratorsTable extends Migration
             $table->increments('id');
             $table->integer('school_id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();
+            $table->unique(['email', 'school_id']);
         });
     }
 

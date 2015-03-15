@@ -1,5 +1,28 @@
 <?php namespace UnifySchool\Entities\School;
 
+/**
+ * UnifySchool\Entities\School\ScopedSchoolType
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $display_name
+ * @property integer $session_type_id
+ * @property integer $school_id
+ * @property string $meta
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \UnifySchool\SessionType $session_type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\Entities\School\ScopedSchoolCategory[] $school_categories
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereDisplayName($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereSessionTypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereSchoolId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereMeta($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereUpdatedAt($value)
+ * @method static \UnifySchool\Entities\School\ScopedSchoolType withDefaults()
+ */
 class ScopedSchoolType extends BaseModel
 {
 

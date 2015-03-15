@@ -33,11 +33,27 @@ use Illuminate\Support\Str;
  * @property integer $country_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereStateId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereCountryId($value)
- * @property-read \UnifySchool\SchoolType $school_type 
+ * @property-read \UnifySchool\SchoolType $school_type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\Entities\School\SchoolAdministrator[] $administrators
+ * @property-read \UnifySchool\Entities\School\SchoolAdministrator $administrator
+ * @property-read mixed $website
+ * @property-read mixed $admin_website
+ * @property-read mixed $student_website
+ * @method static \UnifySchool\School withData()
  */
 class School extends Model
 {
 
+    public static $relationData = ['country',
+        'state',
+        'administrator',
+        'administrators',
+        'school_type',
+        'school_type.session_type',
+        'school_type.school_categories',
+        'school_type.school_categories.school_category_arms',
+        'school_type.school_categories.school_category_arms.school_category_arm_subdivisions'
+    ];
     protected $guarded = ['id', 'slug', 'hashcode'];
 
     protected $casts = [

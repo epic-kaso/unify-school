@@ -12,6 +12,10 @@ namespace UnifySchool\Entities\School;
 use Illuminate\Database\Eloquent\Model;
 use UnifySchool\Entities\Scopes\School\SchoolScopeTrait;
 
+/**
+ * UnifySchool\Entities\School\BaseModel
+ *
+ */
 class BaseModel extends Model
 {
 

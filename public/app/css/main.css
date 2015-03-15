@@ -1194,14 +1194,14 @@ form .ng-valid.ng-dirty {
     height: 50px;
     width: 100%;
     z-index: 2000;
-    background-color: lightblue;
+    display: none;
     border-radius: 0;
     margin: 0;
     transition: all 0.5s;
 }
 
 .toast.toast-alert {
-    opacity: 1;
+    display: block;
 }
 
 .toast.toast-alert-add {
@@ -1220,12 +1220,12 @@ form .ng-valid.ng-dirty {
 @keyframes add-toast-animation {
     0% {
         transform: translateY(-50px);
-        opacity: 0;
+        display: none;
     }
 
     100% {
         transform: translateY(0);
-        opacity: 1;
+        display: block;
     }
 }
 
@@ -1241,48 +1241,4 @@ span.school_category_title {
     margin-bottom: 5px;
     display: inline-block;
     font-weight: 400;
-}
-
-/* Toast */
-
-.toast {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 50px;
-    width: 100%;
-    z-index: 2000;
-    background-color: lightblue;
-    border-radius: 0;
-    margin: 0;
-    transition: all 0.5s;
-}
-
-.toast.toast-alert {
-    opacity: 1;
-}
-
-.toast.toast-alert-add {
-    animation-name: add-toast-animation;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-}
-
-.toast.toast-alert-remove {
-    animation-name: add-toast-animation;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-direction: reverse;
-}
-
-@keyframes add-toast-animation {
-    0% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }

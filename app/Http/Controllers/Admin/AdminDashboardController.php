@@ -10,6 +10,7 @@ namespace UnifySchool\Http\Controllers\Admin;
 
 
 use UnifySchool\Http\Controllers\Controller;
+use UnifySchool\School;
 
 class AdminDashboardController extends Controller
 {
@@ -23,6 +24,8 @@ class AdminDashboardController extends Controller
     public function getIndex()
     {
         $school = $this->getSchool();
+        $school->load(School::$relationData);
+
         return view('admin.dashboard.index', compact('school'));
     }
 }
