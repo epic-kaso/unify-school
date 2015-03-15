@@ -33,7 +33,7 @@ class AdminAuthController extends Controller
     {
         $school = $this->getSchool();
 
-        return view('admin.auth.login', ['school' => $school]);
+        return view('school.admin.auth.login', ['school' => $school]);
     }
 
 
