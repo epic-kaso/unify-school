@@ -175,6 +175,11 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
+var app = angular.module('UnifySchoolApp.Controllers', []);
+/**
+ * Created by kaso on 11/6/2014.
+ */
+
 var app = angular.module('UnifySchoolApp.directives', []);
 
 
@@ -270,9 +275,4 @@ app.factory('ToastService', ['$rootScope', function ($rootScope) {
         }
     }
 }]);
-/**
- * Created by kaso on 11/6/2014.
- */
-
-var app = angular.module('UnifySchoolApp.Controllers', []);
 //# sourceMappingURL=main.js.map
