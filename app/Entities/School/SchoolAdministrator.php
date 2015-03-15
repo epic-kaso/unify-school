@@ -43,9 +43,4 @@ class SchoolAdministrator extends BaseModel implements AuthenticatableContract, 
         });
     }
 
-
-    public function school()
-    {
-        return $this->belongsTo('UnifySchool\School');
-    }
 }

@@ -37,4 +37,9 @@ class BaseModel extends Model
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
         return $context->get();
     }
+
+    public function school()
+    {
+        return $this->belongsTo('UnifySchool\School');
+    }
 }

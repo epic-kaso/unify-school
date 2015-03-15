@@ -17,7 +17,13 @@ Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@
 Route::resource('/wizard', 'School\RegistrationWizardController');
 
 
-//SubDomain Routing
+/*
+ * -------------------------------------------------------------------------
+ * SUB-DOMAIN ROUTES
+ * -------------------------------------------------------------------------
+ */
+
+//Basic Routes
 Route::group(
     [
         'domain' => '{school_slug}.' . config('unify.domain')
@@ -27,6 +33,7 @@ Route::group(
     }
 );
 
+//School Resources API Route
 Route::group(
     [
         'domain' => '{school_slug}.' . config('unify.domain'),
@@ -39,6 +46,7 @@ Route::group(
     }
 );
 
+//School Admin Pages Route
 Route::group(
     [
         'domain' => '{school_slug}.' . config('unify.domain'),
@@ -54,9 +62,30 @@ Route::group(
     }
 );
 
+//School Student Pages routes
+Route::group(
+    [
+        'domain' => '{school_slug}.' . config('unify.domain'),
+        'prefix' => 'student',
+        'namespace' => 'School\Student'
+    ],
+    function () {
+        Route::controllers([
+            'auth' => 'StudentAuthController',
+            'password' => 'StudentPasswordController',
+        ]);
+        Route::controller('dashboard', 'StudentDashboardController');
+    }
+);
 
-//None SubDomain routing
 
+/*
+ * -------------------------------------------------------------------------
+ * NON-SUB-DOMAIN ROUTES
+ * -------------------------------------------------------------------------
+ */
+
+//School Admin Routes
 Route::group(
     [
         'prefix' => 'admin',
@@ -71,6 +100,23 @@ Route::group(
     }
 );
 
+//School Students Routes
+Route::group(
+    [
+        'prefix' => 'student',
+        'namespace' => 'School\Student'
+    ],
+    function () {
+        Route::controllers([
+            'auth' => 'StudentAuthController',
+            'password' => 'StudentPasswordController',
+        ]);
+        Route::controller('dashboard', 'StudentDashboardController');
+    }
+);
+
+//School Resources Routes API
+
 Route::group(
     [
         'prefix' => 'resources',
@@ -83,7 +129,11 @@ Route::group(
 );
 
 
-//SUPER-ADMIN  routing
+/*
+ * -------------------------------------------------------------------------
+ * SUPER ADMIN ROUTES
+ * -------------------------------------------------------------------------
+ */
 
 Route::group(
     [
