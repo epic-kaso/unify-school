@@ -64,11 +64,12 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                         console.log(data);
 
                         ToastService.success('School details saved!, Keep going');
-
-                        SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
-                            $scope.school = data;
-                            $state.go('base.step_two');
-                        });
+                        $scope.school = data;
+                        $state.go('base.step_two');
+                        //SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
+                        //    $scope.school = data;
+                        //    $state.go('base.step_two');
+                        //});
 
                     }, function () {
                         console.log('error occurred');
@@ -174,11 +175,6 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
  * Created by kaso on 11/6/2014.
  */
 
-var app = angular.module('UnifySchoolApp.Controllers', []);
-/**
- * Created by kaso on 11/6/2014.
- */
-
 var app = angular.module('UnifySchoolApp.directives', []);
 
 
@@ -274,4 +270,9 @@ app.factory('ToastService', ['$rootScope', function ($rootScope) {
         }
     }
 }]);
+/**
+ * Created by kaso on 11/6/2014.
+ */
+
+var app = angular.module('UnifySchoolApp.Controllers', []);
 //# sourceMappingURL=main.js.map

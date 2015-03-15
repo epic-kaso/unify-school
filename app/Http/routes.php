@@ -12,40 +12,74 @@
 */
 Route::get('/', 'LandingPageController@getIndex');
 Route::get('/home', 'LandingPageController@getIndex');
-Route::get('/admin', 'Admin\AdminDashboardController@getIndex');
-Route::get('/wizard/partials/{name}.html','School\RegistrationWizardController@partial');
 
-Route::resource('/wizard','School\RegistrationWizardController');
+Route::get('/admin', 'School\Admin\AdminDashboardController@getIndex');
+
+Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
+Route::resource('/wizard', 'School\RegistrationWizardController');
+
 
 //SubDomain Routing
-Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function () {
-    Route::get('home', function ($school_slug) {
-        return view('landing_page.index', ['school' => $school_slug]);
-    });
-    Route::resource('school', 'School\SchoolController');
-    Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
-});
+Route::group(
+    [
+        'domain' => '{school_slug}.' . config('unify.domain')
+    ],
+    function () {
+        Route::get('home', 'LandingPageController@getIndex');
+    }
+);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'domain' => '{school_slug}.' . config('unify.domain')], function () {
-    Route::controllers([
-        'auth' => 'AdminAuthController',
-        'password' => 'AdminPasswordController',
-    ]);
-    Route::controller('dashboard', 'AdminDashboardController');
-});
+Route::group(
+    [
+        'domain' => '{school_slug}.' . config('unify.domain'),
+        'prefix' => 'resources',
+        'namespace' => 'School\Resources'
+    ],
+    function () {
+        Route::resource('school', 'School\SchoolController');
+        Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+    }
+);
+
+Route::group(
+    [
+        'domain' => '{school_slug}.' . config('unify.domain'),
+        'prefix' => 'admin',
+        'namespace' => 'School\Admin'
+    ],
+    function () {
+        Route::controllers([
+            'auth' => 'AdminAuthController',
+            'password' => 'AdminPasswordController',
+        ]);
+        Route::controller('dashboard', 'AdminDashboardController');
+    }
+);
 
 
 //None SubDomain routing
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::controllers([
-        'auth' => 'AdminAuthController',
-        'password' => 'AdminPasswordController',
-    ]);
-    Route::controller('dashboard', 'AdminDashboardController');
-});
+Route::group(
+    [
+        'prefix' => 'admin',
+        'namespace' => 'School\Admin'
+    ],
+    function () {
+        Route::controllers([
+            'auth' => 'AdminAuthController',
+            'password' => 'AdminPasswordController',
+        ]);
+        Route::controller('dashboard', 'AdminDashboardController');
+    }
+);
 
-Route::group(['prefix' => 'resources', 'namespace' => 'Resources'], function () {
-    Route::resource('school', 'School\SchoolController');
-    Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
-});
+Route::group(
+    [
+        'prefix' => 'resources',
+        'namespace' => 'School\Resources'
+    ],
+    function () {
+        Route::resource('school', 'School\SchoolController');
+        Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+    }
+);

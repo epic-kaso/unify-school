@@ -6,7 +6,7 @@
  * Time: 6:30 PM
  */
 
-namespace UnifySchool\Http\Controllers\Admin;
+namespace UnifySchool\Http\Controllers\School\Admin;
 
 
 use Illuminate\Contracts\Auth\Guard;

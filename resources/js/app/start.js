@@ -64,11 +64,12 @@ app.config(function ($stateProvider, $urlRouterProvider, ViewBaseURL) {
                         console.log(data);
 
                         ToastService.success('School details saved!, Keep going');
-
-                        SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
-                            $scope.school = data;
-                            $state.go('base.step_two');
-                        });
+                        $scope.school = data;
+                        $state.go('base.step_two');
+                        //SchoolService.get({id: data.id, school_slug: data.slug}, function (data) {
+                        //    $scope.school = data;
+                        //    $state.go('base.step_two');
+                        //});
 
                     }, function () {
                         console.log('error occurred');

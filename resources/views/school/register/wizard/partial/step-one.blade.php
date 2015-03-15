@@ -38,15 +38,15 @@
     </div>
 
     <div class="form-group"
-         ng-show="config.school.school_types[config.school.selected_school_type - 1].session != null">
+         ng-show="config.school.school_types[config.school.selected_school_type - 1].session_type != null">
         <label>Session System</label>
         <div>
             <ul class="list-group">
                 <li class="list-group-item" style="text-transform: uppercase; font-weight: 400;">
                     @{{
-                    config.school.school_types[config.school.selected_school_type - 1].session.session_type + ' '+
-                    config.school.school_types[config.school.selected_school_type - 1].session.session_divisions_display_name+' '+
-                    config.school.school_types[config.school.selected_school_type - 1].session.session_display_name
+                    config.school.school_types[config.school.selected_school_type - 1].session_type.session_type + ' '+
+                    config.school.school_types[config.school.selected_school_type - 1].session_type.session_divisions_display_name+' '+
+                    config.school.school_types[config.school.selected_school_type - 1].session_type.session_display_name
                     }}
                     <span class="btn btn-xs btn-primary pull-right" ng-hide="onEdit"
                           ng-click="onEdit = true">Edit</span>

@@ -1,4 +1,4 @@
-<?php namespace UnifySchool\Http\Controllers\Resources\School;
+<?php namespace UnifySchool\Http\Controllers\School\Resources\School;
 
 use UnifySchool\Commands\CreateNewSchool;
 use UnifySchool\Commands\UpdateSchoolAdminDetails;
@@ -50,6 +50,10 @@ class SchoolController extends Controller
             $request->get('school_types')
         );
         $school = $this->dispatch($createSchool);
+
+        $this->setGlobalContext($school);
+
+        $school->load(School::$relationData);
         return $school;
     }
 
@@ -128,5 +132,6 @@ class SchoolController extends Controller
     {
         //
     }
+
 
 }

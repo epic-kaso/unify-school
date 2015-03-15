@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateScopedSchoolTypesTable extends Migration
+class CreateScopedSessionTypesTable extends Migration
 {
 
     /**
@@ -13,13 +13,14 @@ class CreateScopedSchoolTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('scoped_school_types', function (Blueprint $table) {
+        Schema::create('scoped_session_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('display_name');
-            $table->integer('scoped_session_type_id');
             $table->integer('school_id');
-            $table->text('meta');
+            $table->string('session_type');
+            $table->string('session_name');
+            $table->string('session_display_name');
+            $table->string('session_divisions_name');
+            $table->string('session_divisions_display_name');
             $table->timestamps();
         });
     }
@@ -31,7 +32,7 @@ class CreateScopedSchoolTypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('scoped_school_types');
+        Schema::drop('scoped_session_types');
     }
 
 }

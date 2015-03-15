@@ -3,10 +3,12 @@
 use Illuminate\Contracts\Bus\SelfHandling;
 use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Entities\School\ScopedSchoolType;
+use UnifySchool\Entities\School\ScopedSessionType;
 use UnifySchool\School;
 
 class CreateNewSchool extends Command implements SelfHandling
 {
+    protected $school;
     /**
      * @var
      */
@@ -76,6 +78,7 @@ class CreateNewSchool extends Command implements SelfHandling
     public function handle()
     {
         $school = $this->createSchool();
+        $this->school = $school;
 
         $schoolType = $this->createScopedSchoolType($this->school_type, $school);
 
@@ -111,11 +114,37 @@ class CreateNewSchool extends Command implements SelfHandling
         $cat = new ScopedSchoolType();
         $cat->name = $school_type['name'];
         $cat->display_name = $school_type['display_name'];
-        $cat->session_type_id = $school_type['session_type_id'];
+        $cat->scoped_session_type_id = $this->createOrGetSessionTypeID($school_type);
         $cat->school_id = $school->id;
 
         $cat->save();
         return $cat;
+    }
+
+    private function createOrGetSessionTypeID(array $school_type)
+    {
+        $session = new ScopedSessionType();
+
+        if (isset($school_type['session'])) {
+            $session->session_type = $school_type['session']['session_type'];
+            $session->session_divisions_display_name = $school_type['session']['session_divisions_display_name'];
+            $session->session_divisions_name = 'sub_session';
+            $session->session_name = 'session';
+            $session->session_display_name = 'Session';
+            $session->school_id = $this->school->id;
+            $session->save();
+        } else {
+            $session->session_type = $school_type['session_type']['session_type'];
+            $session->session_divisions_display_name = $school_type['session_type']['session_divisions_display_name'];
+            $session->session_divisions_name = $school_type['session_type']['session_divisions_name'];
+            $session->session_name = $school_type['session_type']['session_name'];
+            $session->session_display_name = $school_type['session_type']['session_display_name'];;
+            $session->school_id = $this->school->id;
+            $session->save();
+        }
+
+        return $session->id;
+
     }
 
     private function createScopedSchoolCategories(School $school, ScopedSchoolType $schoolType)

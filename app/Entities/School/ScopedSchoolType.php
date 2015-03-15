@@ -22,6 +22,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\ScopedSchoolType withDefaults()
+ * @property integer $scoped_session_type_id
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereScopedSessionTypeId($value)
  */
 class ScopedSchoolType extends BaseModel
 {
@@ -32,7 +34,7 @@ class ScopedSchoolType extends BaseModel
 
     public function session_type()
     {
-        return $this->belongsTo('UnifySchool\SessionType');
+        return $this->belongsTo('UnifySchool\Entities\School\ScopedSessionType');
     }
 
 

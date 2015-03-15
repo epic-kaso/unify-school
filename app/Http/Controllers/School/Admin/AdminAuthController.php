@@ -6,11 +6,10 @@
  * Time: 5:59 PM
  */
 
-namespace UnifySchool\Http\Controllers\Admin;
+namespace UnifySchool\Http\Controllers\School\Admin;
 
 
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\AdminLoginRequest;
 
@@ -18,19 +17,15 @@ class AdminAuthController extends Controller
 {
 
     protected $auth;
-    protected $registrar;
-    private $redirectPath;
 
     /**
      * Create a new authentication controller instance.
      *
      * @param  \Illuminate\Contracts\Auth\Guard $auth
-     * @param  \Illuminate\Contracts\Auth\Registrar $registrar
      */
-    public function __construct(Guard $auth, Registrar $registrar)
+    public function __construct(Guard $auth)
     {
         $this->auth = $auth;
-        $this->registrar = $registrar;
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 

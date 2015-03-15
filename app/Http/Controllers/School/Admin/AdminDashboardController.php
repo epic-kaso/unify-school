@@ -6,7 +6,7 @@
  * Time: 7:05 PM
  */
 
-namespace UnifySchool\Http\Controllers\Admin;
+namespace UnifySchool\Http\Controllers\School\Admin;
 
 
 use UnifySchool\Http\Controllers\Controller;

@@ -1,4 +1,4 @@
-<?php namespace UnifySchool\Http\Controllers\Resources\Configurations;
+<?php namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
