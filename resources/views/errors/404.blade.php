@@ -1,4 +1,4 @@
-@extends('admin.auth.layout')
+@extends('errors.layout')
 
 @section('content')
     <div class="container-fluid">

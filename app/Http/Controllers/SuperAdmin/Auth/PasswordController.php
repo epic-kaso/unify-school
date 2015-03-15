@@ -1,4 +1,4 @@
-<?php namespace UnifySchool\Http\Controllers\Auth;
+<?php namespace UnifySchool\Http\Controllers\SuperAdmin\Auth;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;

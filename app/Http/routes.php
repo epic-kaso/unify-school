@@ -13,8 +13,6 @@
 Route::get('/', 'LandingPageController@getIndex');
 Route::get('/home', 'LandingPageController@getIndex');
 
-Route::get('/admin', 'School\Admin\AdminDashboardController@getIndex');
-
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
 
@@ -81,5 +79,22 @@ Route::group(
     function () {
         Route::resource('school', 'School\SchoolController');
         Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+    }
+);
+
+
+//SUPER-ADMIN  routing
+
+Route::group(
+    [
+        'prefix' => 'super-admin',
+        'namespace' => 'SuperAdmin'
+    ],
+    function () {
+        Route::controllers([
+            'auth' => 'Auth\AuthController',
+            'password' => 'Auth\PasswordController',
+        ]);
+        Route::controller('dashboard', 'Dashboard\DashboardController');
     }
 );
