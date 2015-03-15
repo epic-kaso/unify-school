@@ -11,9 +11,11 @@
 |
 */
 Route::get('/', 'LandingPageController@getIndex');
+Route::get('/home', 'LandingPageController@getIndex');
+Route::get('/admin', 'Admin\AdminDashboardController@getIndex');
 Route::get('/wizard/partials/{name}.html','School\RegistrationWizardController@partial');
-Route::resource('/wizard','School\RegistrationWizardController');
 
+Route::resource('/wizard','School\RegistrationWizardController');
 
 //SubDomain Routing
 Route::group(['domain' => '{school_slug}.' . config('unify.domain')], function () {
