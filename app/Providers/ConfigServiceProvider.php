@@ -2,6 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 use UnifySchool\Entities\School\SchoolAdministrator;
+use UnifySchool\Entities\School\ScopedStudent;
+use UnifySchool\User;
 
 class ConfigServiceProvider extends ServiceProvider
 {
@@ -17,9 +19,17 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (str_contains(\Request::getUri(), 'admin')) {
+        if (str_contains(\Request::route()->getName(), 'admin')) {
             config([
                 'auth.model' => SchoolAdministrator::class
+            ]);
+        } elseif (str_contains(\Request::route()->getName(), 'student')) {
+            config([
+                'auth.model' => ScopedStudent::class
+            ]);
+        } elseif (str_contains(\Request::route()->getName(), 'unify')) {
+            config([
+                'auth.model' => User::class
             ]);
         }
     }

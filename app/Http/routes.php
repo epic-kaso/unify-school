@@ -137,7 +137,7 @@ Route::group(
 
 Route::group(
     [
-        'prefix' => 'super-admin',
+        'prefix' => 'unify',
         'namespace' => 'SuperAdmin'
     ],
     function () {
