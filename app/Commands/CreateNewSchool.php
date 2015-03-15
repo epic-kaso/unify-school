@@ -43,6 +43,7 @@ class CreateNewSchool extends Command implements SelfHandling
      * @param $city
      * @param $selected_school_type
      * @param $school_types
+     * @throws \Exception
      */
     public function __construct($name, $country, $state, $city, $selected_school_type, $school_types)
     {
