@@ -21,7 +21,8 @@ class CreateScopedClassStudentsTable extends Migration
             $table->string('academic_session');
             $table->timestamps();
 
-            $table->unique(['scoped_student_id', 'school_id', 'scoped_school_category_arm_subdivision_id']);
+            $table->unique(['scoped_student_id', 'school_id', 'scoped_school_category_arm_subdivision_id'],
+                'student_school_school_category_arm_subdivision');
         });
     }
 
