@@ -1,4 +1,4 @@
-@extends('admin.dashboard.layout')
+@extends('school.admin.dashboard.layout')
 
 @section('script')
     document.data = {};

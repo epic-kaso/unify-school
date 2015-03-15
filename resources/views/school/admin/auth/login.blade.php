@@ -1,4 +1,4 @@
-@extends('admin.auth.layout')
+@extends('school.admin.auth.layout')
 
 @section('content')
     <div class="container-fluid">
