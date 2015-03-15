@@ -29,8 +29,13 @@ class Kernel extends HttpKernel
         'auth' => 'UnifySchool\Http\Middleware\Authenticate',
         'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'UnifySchool\Http\Middleware\RedirectIfAuthenticated',
+        'guest.school' => 'UnifySchool\Http\Middleware\RedirectIfAuthenticatedSchool',
+        'guest.student' => 'UnifySchool\Http\Middleware\RedirectIfAuthenticatedStudent',
+        'guest.unify' => 'UnifySchool\Http\Middleware\RedirectIfAuthenticatedUnify',
         'csrf' => 'UnifySchool\Http\Middleware\VerifyCsrfToken',
-        'auth.admin' => 'UnifySchool\Http\Middleware\ConfigureAuthGuardForAdmin',
+        'auth.school' => 'UnifySchool\Http\Middleware\AuthenticateSchool',
+        'auth.student' => 'UnifySchool\Http\Middleware\AuthenticateStudent',
+        'auth.unify' => 'UnifySchool\Http\Middleware\AuthenticateUnify',
     ];
 
 }

@@ -41,6 +41,6 @@ class AdminPasswordController extends Controller
         $this->auth = $auth;
         $this->passwords = $passwords;
 
-        $this->middleware('guest');
+        $this->middleware('guest.school');
     }
 }

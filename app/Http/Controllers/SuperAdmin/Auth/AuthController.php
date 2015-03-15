@@ -2,7 +2,7 @@
 
 use Illuminate\Contracts\Auth\Guard;
 use UnifySchool\Http\Controllers\Controller;
-use UnifySchool\Http\Requests\Request;
+use UnifySchool\Http\Requests\UnifyLoginRequest;
 
 class AuthController extends Controller
 {
@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest.unify', ['except' => 'getLogout']);
     }
 
     public function getLogin()
@@ -25,7 +25,7 @@ class AuthController extends Controller
     }
 
 
-    public function postLogin(Request $request)
+    public function postLogin(UnifyLoginRequest $request)
     {
 
         $credentials = $request->only('email', 'password');
@@ -43,12 +43,12 @@ class AuthController extends Controller
 
     public function redirectPath()
     {
-        return '/super-admin/dashboard';
+        return '/unify/dashboard';
     }
 
     public function loginPath()
     {
-        return '/super-admin/auth/login';
+        return '/unify/auth/login';
     }
 
     protected function getFailedLoginMessage()

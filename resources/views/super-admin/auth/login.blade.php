@@ -18,7 +18,7 @@
                             </div>
                         @endif
 
-                        <form role="form" method="POST" action="/auth/login">
+                        <form role="form" method="POST" action="/unify/auth/login">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">

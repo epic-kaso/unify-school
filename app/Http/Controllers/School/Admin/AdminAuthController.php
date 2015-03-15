@@ -26,7 +26,7 @@ class AdminAuthController extends Controller
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest.school', ['except' => 'getLogout']);
     }
 
     public function getLogin()
