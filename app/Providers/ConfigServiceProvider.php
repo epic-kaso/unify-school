@@ -19,15 +19,15 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (str_contains(\Request::route()->getName(), 'admin')) {
+        if (str_contains(\Request::getRequestUri(), 'admin')) {
             config([
                 'auth.model' => SchoolAdministrator::class
             ]);
-        } elseif (str_contains(\Request::route()->getName(), 'student')) {
+        } elseif (str_contains(\Request::getRequestUri(), 'student')) {
             config([
                 'auth.model' => ScopedStudent::class
             ]);
-        } elseif (str_contains(\Request::route()->getName(), 'unify')) {
+        } elseif (str_contains(\Request::getRequestUri(), 'unify')) {
             config([
                 'auth.model' => User::class
             ]);
