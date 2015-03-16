@@ -4,8 +4,9 @@
     document.data = {};
     document.data.school = {!! $school->toJson() !!};
 
-    angular.module('SchoolAdminApp').factory('SchoolDataService',['$document',function($document){
-    return $document.data;
+    angular.module('SchoolAdminApp')
+    .factory('SchoolDataService',[function(){
+    return document.data;
     }]);
 @stop
 

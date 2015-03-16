@@ -4,9 +4,9 @@
     document.data = {};
     document.data.schools = {!! $schools->toJson() !!};
 
-
-    angular.module('SuperAdminApp').factory('SchoolsDataService',['$document',function($document){
-    return $document.data;
+    angular.module('SuperAdminApp')
+    .factory('SchoolsDataService',[function(){
+    return document.data;
     }]);
 @stop
 
@@ -24,32 +24,7 @@
             </div>
 
             <div class="col-sm-8">
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h3>Schools</h3>
-                    </div>
-                    <table class="table">
-                        <tr>
-                            <td>S/N</td>
-                            <td>Name</td>
-                            <td>Active</td>
-                        </tr>
-
-                        @for($i = 1; $i <= count($schools); $i++)
-                            <tr>
-                                <td>{{ $i }}</td>
-                                <td>{{ $schools[$i - 1]->name }}</td>
-                                <td>
-                                    @if($schools[$i - 1]->active)
-                                        <span class="label label-success">Active</span>
-                                    @else
-                                        <span class="label label-danger">InActive</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endfor
-                    </table>
-                </div>
+                <div ui-view></div>
             </div>
         </div>
     </div>

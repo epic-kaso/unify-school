@@ -11,10 +11,6 @@
     {{-- Laravel Based  --}}
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('landing_page/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <script>
-        @yield('script')
-    </script>
-
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -62,5 +58,11 @@
 <script src="{{ asset('app/libs/others.js') }}"></script>
 <script src="{{ asset('super_admin/js/main.js') }}"></script>
 
+<script>
+    @yield('script')
+</script>
+<script>
+    angular.module('SuperAdminApp').constant('CSRF_TOKEN', '{{ csrf_token() }}');
+</script>
 </body>
 </html>

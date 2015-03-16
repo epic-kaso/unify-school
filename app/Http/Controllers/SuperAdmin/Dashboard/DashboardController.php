@@ -26,4 +26,10 @@ class DashboardController extends Controller
         return view('super-admin.dashboard.index', compact('schools'));
     }
 
+
+    public function getPartial($partial)
+    {
+        return view('super-admin.dashboard.partials.' . $partial);
+    }
+
 }
