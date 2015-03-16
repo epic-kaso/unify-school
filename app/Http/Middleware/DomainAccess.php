@@ -56,37 +56,6 @@ class DomainAccess
 
     }
 
-
-    private function bindContextToSchool($slug)
-    {
-        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
-
-        $school = School::bySlug($slug);
-
-        if (is_null($school) || !is_subclass_of($school, Model::class)) {
-            abort(404);
-        }
-
-        $context->set($school);
-
-        return $school;
-    }
-
-    private function bindContextToSchool($slug)
-    {
-        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
-
-        $school = School::bySlug($slug);
-
-        if (is_null($school) || !is_subclass_of($school, Model::class)) {
-            abort(404);
-        }
-
-        $context->set($school);
-
-        return $school;
-    }
-
     /**
      * @return mixed
      */
@@ -95,5 +64,20 @@ class DomainAccess
         $server = explode('.', \Request::server('HTTP_HOST'));
         $subDomain = $server[0];
         return $subDomain;
+    }
+
+    private function bindContextToSchool($slug)
+    {
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+
+        $school = School::bySlug($slug);
+
+        if (is_null($school) || !is_subclass_of($school, Model::class)) {
+            abort(404);
+        }
+
+        $context->set($school);
+
+        return $school;
     }
 }
