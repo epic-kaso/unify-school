@@ -49,7 +49,7 @@ Route::group(
 //School Resources API Route
 Route::group(
     [
-        'domain' => '{school}.kaso.co',
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'resources',
         'namespace' => 'School\Resources'
     ],
@@ -62,7 +62,7 @@ Route::group(
 //School Admin Pages Route
 Route::group(
     [
-        'domain' => '{school}.kaso.co',
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'admin',
         'namespace' => 'School\Admin'
     ],
@@ -78,7 +78,7 @@ Route::group(
 //School Student Pages routes
 Route::group(
     [
-        'domain' => '{school}.kaso.co',
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'student',
         'namespace' => 'School\Student'
     ],

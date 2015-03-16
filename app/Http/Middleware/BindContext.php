@@ -16,7 +16,10 @@ class BindContext
      */
     public function handle($request, Closure $next)
     {
-        $slug = $request->route()->getParameter('school_slug');
+        $slug = null;
+        $route = $request->route();
+        if (!is_null($route))
+            $slug = $route->getParameter('school_slug');
 
         $slug = is_null($slug) ? $request->get('school') : $slug;
 
