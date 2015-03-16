@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     <link href="{{ asset('landing_page/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('school_admin/css/school_dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('school_admin/css/school.css') }}" rel="stylesheet">
     {{-- Laravel Based  --}}
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('landing_page/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">

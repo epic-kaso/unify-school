@@ -6,7 +6,6 @@ var app = angular.module("SchoolAdminApp",
         'ngSanitize',
         'ui.bootstrap',
         'ui.router',
-        'ngUpload',
         'ngAnimate',
         'ngResource',
         'angular-loading-bar',
@@ -22,7 +21,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
 
         $stateProvider.state('home',
             {
-                url: '/',
+                url: '/home',
                 templateUrl: 'partials/device_models/dashboard.html',
                 controller: ['$scope', 'SchoolDataService', function ($scope, SchoolDataService) {
                     $scope.school = SchoolDataService.school;
@@ -30,7 +29,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
             }
         );
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
     }]);
 
 app.factory('sessionInjector', ['$location', function ($location) {
