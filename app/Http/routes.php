@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Illuminate\Database\Eloquent\Model;
 use UnifySchool\School;
 
 Route::get('/', 'LandingPageController@getIndex');
@@ -21,7 +22,7 @@ Route::resource('/wizard', 'School\RegistrationWizardController');
 Route::bind('school', function ($slug) {
     $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
     $school = School::bySlug($slug);
-    if (is_null($school)) {
+    if (is_null($school) || !is_subclass_of($school, Model::class)) {
         abort(404);
     }
     $context->set($school);
@@ -48,7 +49,7 @@ Route::group(
 //School Resources API Route
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'domain' => '{school}.kaso.co',
         'prefix' => 'resources',
         'namespace' => 'School\Resources'
     ],
@@ -61,7 +62,7 @@ Route::group(
 //School Admin Pages Route
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'domain' => '{school}.kaso.co',
         'prefix' => 'admin',
         'namespace' => 'School\Admin'
     ],
@@ -77,7 +78,7 @@ Route::group(
 //School Student Pages routes
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'domain' => '{school}.kaso.co',
         'prefix' => 'student',
         'namespace' => 'School\Student'
     ],
