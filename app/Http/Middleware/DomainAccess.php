@@ -27,29 +27,24 @@ class DomainAccess
         return $next($request);
     }
 
-    // The method within the filter called 'check'
-// Returns Bool/Object
+
     public function check()
     {
         $server = explode('.', \Request::server('HTTP_HOST'));
-        $subdomain = $server[0];
+        $subDomain = $server[0];
         $needsLookup = true;
 
-        // Does a cached index already exist?
         if (\Cache::has('school')) {
             $school_slug = \Cache::get('school');
-            // Compare the cached program against the subdomain.
-            if ($subdomain == $school_slug) {
-                $needsLookup = false;
+            if ($subDomain == $school_slug) {
                 return $school_slug;
             }
         }
 
-        // Do I need to go and lookup the subdomain and confirm it's valid?
         if ($needsLookup) {
             \Cache::forget('school');
 
-            $school = School::bySlug($subdomain);
+            $school = School::bySlug($subDomain);
             if (!$school) {
                 return false;
 
@@ -58,6 +53,7 @@ class DomainAccess
                 return $school->slug;
             }
         }
+
     }
 
 
