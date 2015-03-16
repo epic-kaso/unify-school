@@ -31,6 +31,10 @@ class DomainAccess
 
     public function check()
     {
+        if ($this->isRequestForDomain()) {
+            return true;
+        }
+
         $subDomain = $this->extractSubDomainName();
 
         $needsLookup = true;
@@ -63,6 +67,11 @@ class DomainAccess
             }
         }
 
+    }
+
+    private function isRequestForDomain()
+    {
+        return \Request::server('HTTP_HOST') == \Config::get('unify.domain');
     }
 
     /**
