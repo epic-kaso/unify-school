@@ -22,11 +22,7 @@ Route::resource('/wizard', 'School\RegistrationWizardController');
  */
 
 //Basic Routes
-Route::group(
-    [
-        'middleware' => 'domain_access'
-    ],
-    function () {
+Route::group(['middleware' => 'domain_access'], function () {
         Route::get('home', 'LandingPageController@getIndex');
     }
 );
