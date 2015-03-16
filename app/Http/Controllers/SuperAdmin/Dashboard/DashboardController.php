@@ -14,4 +14,14 @@ use UnifySchool\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth.unify');
+    }
+
+    public function getIndex()
+    {
+        return view('super-admin.dashboard.index');
+    }
+
 }

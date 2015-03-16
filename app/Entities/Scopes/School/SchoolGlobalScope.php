@@ -34,7 +34,35 @@ class SchoolGlobalScope implements ScopeInterface
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where($this->context->column(), $this->context->id());
+        if (!is_null($this->context->get())) {
+            $builder->where($this->context->column(), $this->context->id());
+        }
+    }
+
+    /**
+     * Extend the query builder with the needed functions.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    public function extend(Builder $builder)
+    {
+        $this->addWithAllSchools($builder);
+    }
+
+    /**
+     * Add the with-trashed extension to the builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    protected function addWithAllSchools(Builder $builder)
+    {
+        $builder->macro('withAllSchools', function (Builder $builder) {
+            $this->remove($builder, $builder->getModel());
+
+            return $builder;
+        });
     }
 
     /**
@@ -52,9 +80,6 @@ class SchoolGlobalScope implements ScopeInterface
         $query = $builder->getQuery();
 
         foreach ((array)$query->wheres as $key => $where) {
-            // If the where clause is a soft delete date constraint, we will remove it from
-            // the query and reset the keys on the wheres. This allows this developer to
-            // include deleted model in a relationship result set that is lazy loaded.
             if ($this->isScopeConstraint($where, $column)) {
                 unset($query->wheres[$key]);
                 $query->wheres = array_values($query->wheres);
@@ -73,5 +98,4 @@ class SchoolGlobalScope implements ScopeInterface
     {
         return $where['column'] == $column;
     }
-
 }

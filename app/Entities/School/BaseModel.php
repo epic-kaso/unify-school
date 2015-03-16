@@ -42,4 +42,9 @@ class BaseModel extends Model
     {
         return $this->belongsTo('UnifySchool\School');
     }
+
+    public function scopeUnScoped($query)
+    {
+        return $query->withAllSchools();
+    }
 }
