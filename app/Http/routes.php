@@ -76,57 +76,6 @@ Route::group(
     }
 );
 
-
-/*
- * -------------------------------------------------------------------------
- * NON-SUB-DOMAIN ROUTES
- * -------------------------------------------------------------------------
- */
-
-//School Admin Routes
-Route::group(
-    [
-        'prefix' => 'admin',
-        'namespace' => 'School\Admin'
-    ],
-    function () {
-        Route::controllers([
-            'auth' => 'AdminAuthController',
-            'password' => 'AdminPasswordController',
-        ]);
-        Route::controller('dashboard', 'AdminDashboardController');
-    }
-);
-
-//School Students Routes
-Route::group(
-    [
-        'prefix' => 'student',
-        'namespace' => 'School\Student'
-    ],
-    function () {
-        Route::controllers([
-            'auth' => 'StudentAuthController',
-            'password' => 'StudentPasswordController',
-        ]);
-        Route::controller('dashboard', 'StudentDashboardController');
-    }
-);
-
-//School Resources Routes API
-
-Route::group(
-    [
-        'prefix' => 'resources',
-        'namespace' => 'School\Resources'
-    ],
-    function () {
-        Route::resource('school', 'School\SchoolController');
-        Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
-    }
-);
-
-
 /*
  * -------------------------------------------------------------------------
  * SUPER ADMIN ROUTES
