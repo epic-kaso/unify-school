@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-sm-8">
-                //Center
+                <div ui-view></div>
             </div>
         </div>
     </div>

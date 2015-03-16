@@ -21,7 +21,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
 
         $stateProvider.state('home',
             {
-                url: '/home',
+                url: '/',
                 templateUrl: 'partials/device_models/dashboard.html',
                 controller: ['$scope', 'SchoolDataService', function ($scope, SchoolDataService) {
                     $scope.school = SchoolDataService.school;
@@ -29,7 +29,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
             }
         );
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
     }]);
 
 app.factory('sessionInjector', ['$location', function ($location) {
