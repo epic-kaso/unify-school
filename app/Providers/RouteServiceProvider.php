@@ -26,21 +26,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        $router->bind('school_slug', function ($value) {
-            $school = $this->bindContextToSchool($value);
-            return $school;
-        });
-    }
-
-    private function bindContextToSchool($slug)
-    {
-        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
-        $school = School::bySlug($slug);
-        if (is_null($school)) {
-            abort(404);
-        }
-        $context->set($school);
-        return $school;
+//        $router->bind('school_slug', function ($value) {
+//            $school = $this->bindContextToSchool($value);
+//            return $school;
+//        });
     }
 
     /**
@@ -54,6 +43,17 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace], function ($router) {
             require app_path('Http/routes.php');
         });
+    }
+
+    private function bindContextToSchool($slug)
+    {
+        $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+        $school = School::bySlug($slug);
+        if (is_null($school)) {
+            abort(404);
+        }
+        $context->set($school);
+        return $school;
     }
 
 }

@@ -10,11 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use UnifySchool\School;
+
 Route::get('/', 'LandingPageController@getIndex');
 Route::get('/home', 'LandingPageController@getIndex');
 
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
+
+Route::bind('school', function ($slug) {
+    $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+    $school = School::bySlug($slug);
+    if (is_null($school)) {
+        abort(404);
+    }
+    $context->set($school);
+    return $school;
+});
 
 
 /*
@@ -26,7 +38,7 @@ Route::resource('/wizard', 'School\RegistrationWizardController');
 //Basic Routes
 Route::group(
     [
-        'domain' => '{school_slug}.' . config('unify.domain')
+        'domain' => '{school}.' . config('unify.domain')
     ],
     function () {
         Route::get('home', 'LandingPageController@getIndex');
@@ -36,7 +48,7 @@ Route::group(
 //School Resources API Route
 Route::group(
     [
-        'domain' => '{school_slug}.' . config('unify.domain'),
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'resources',
         'namespace' => 'School\Resources'
     ],
@@ -49,7 +61,7 @@ Route::group(
 //School Admin Pages Route
 Route::group(
     [
-        'domain' => '{school_slug}.' . config('unify.domain'),
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'admin',
         'namespace' => 'School\Admin'
     ],
@@ -65,7 +77,7 @@ Route::group(
 //School Student Pages routes
 Route::group(
     [
-        'domain' => '{school_slug}.' . config('unify.domain'),
+        'domain' => '{school}.' . config('unify.domain'),
         'prefix' => 'student',
         'namespace' => 'School\Student'
     ],
