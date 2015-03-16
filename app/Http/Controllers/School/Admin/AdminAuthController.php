@@ -61,11 +61,7 @@ class AdminAuthController extends Controller
 
     private function generateUrl($url)
     {
-        if (str_contains(\Request::getRequestUri(), $this->getSchool()->slug)) {
-            return $url;
-        }
-
-        return $url . '?school_slug=' . $this->getSchool()->slug;
+        return $url;
     }
 
     public function loginPath()
