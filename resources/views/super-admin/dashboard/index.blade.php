@@ -3,6 +3,11 @@
 @section('script')
     document.data = {};
     document.data.schools = {!! $schools->toJson() !!};
+
+
+    angular.module('SuperAdminApp').factory('SchoolsDataService',['$document',function($document){
+    return $document.data;
+    }]);
 @stop
 
 @section('navbar')

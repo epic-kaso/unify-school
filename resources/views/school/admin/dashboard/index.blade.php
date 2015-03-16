@@ -3,6 +3,10 @@
 @section('script')
     document.data = {};
     document.data.school = {!! $school->toJson() !!};
+
+    angular.module('SchoolAdminApp').factory('SchoolDataService',['$document',function($document){
+    return $document.data;
+    }]);
 @stop
 
 @section('navbar')
