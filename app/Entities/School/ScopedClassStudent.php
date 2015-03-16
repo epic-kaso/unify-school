@@ -17,6 +17,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedClassStudent whereAcademicSession($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedClassStudent whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedClassStudent whereUpdatedAt($value)
+ * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  */
 class ScopedClassStudent extends BaseModel
 {

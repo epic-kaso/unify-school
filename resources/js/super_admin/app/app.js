@@ -1,12 +1,12 @@
 /**
  * Created by Ak on 2/19/2015.
  */
-var app = angular.module("AdminApp",
+var app = angular.module("SuperAdminApp",
     ['ui.select', 'ngSanitize', 'ngImgCrop',
         'ui.bootstrap', 'ui.router', 'ngUpload',
         'ngAnimate', 'ngResource',
-        'angular-loading-bar', 'adminApp.directives', 'adminApp.controllers',
-        'adminApp.services', 'ngCookies']);
+        'angular-loading-bar', 'SuperAdminApp.directives', 'SuperAdminApp.controllers',
+        'SuperAdminApp.services', 'ngCookies']);
 
 app.config(['$urlRouterProvider', '$stateProvider',
     function ($urlRouterProvider, $stateProvider) {

@@ -10,6 +10,7 @@ namespace UnifySchool\Http\Controllers\SuperAdmin\Dashboard;
 
 
 use UnifySchool\Http\Controllers\Controller;
+use UnifySchool\School;
 
 class DashboardController extends Controller
 {
@@ -21,7 +22,8 @@ class DashboardController extends Controller
 
     public function getIndex()
     {
-        return view('super-admin.dashboard.index');
+        $schools = School::all();
+        return view('super-admin.dashboard.index', compact('schools'));
     }
 
 }

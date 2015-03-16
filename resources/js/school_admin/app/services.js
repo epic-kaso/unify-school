@@ -2,7 +2,7 @@
  * Created by Ak on 2/19/2015.
  */
 
-var app = angular.module('adminApp.services', []);
+var app = angular.module('SchoolAdminApp.services', []);
 
 app.factory('TicketServ', ['$resource', 'URLServ', function ($resource, URLServ) {
     return $resource('/resources/ticket/:id', {id: '@id'}, {

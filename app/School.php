@@ -40,6 +40,10 @@ use Illuminate\Support\Str;
  * @property-read mixed $admin_website
  * @property-read mixed $student_website
  * @method static \UnifySchool\School withData()
+ * @property boolean $active
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereActive($value)
+ * @method static \UnifySchool\School isActive()
+ * @method static \UnifySchool\School isNotActive()
  */
 class School extends Model
 {
@@ -57,7 +61,8 @@ class School extends Model
     protected $guarded = ['id', 'slug', 'hashcode'];
 
     protected $casts = [
-        'school_object' => 'object'
+        'school_object' => 'object',
+        'active' => 'boolean',
     ];
 
     protected $appends = ['website', 'admin_website', 'student_website'];
@@ -86,6 +91,16 @@ class School extends Model
     public function scopeBySlug($query, $slug)
     {
         return $query->where('slug', $slug)->first();
+    }
+
+    public function scopeIsActive($query)
+    {
+        return $query->whereActive(true);
+    }
+
+    public function scopeIsNotActive($query)
+    {
+        return $query->whereActive(false);
     }
 
     public function scopeWithData($query)
@@ -132,20 +147,12 @@ class School extends Model
     {
         $domain = \Config::get('unify.domain');
 
-        if ($domain == 'localhost:8000') {
-            return "http://{$domain}/home?school_slug={$this->slug}";
-        }
-
         return "http://{$this->slug }.{$domain}/home";
     }
 
     public function getAdminWebsiteAttribute()
     {
         $domain = \Config::get('unify.domain');
-
-        if ($domain == 'localhost:8000') {
-            return "http://{$domain}/admin?school_slug={$this->slug}";
-        }
 
         return "http://{$this->slug }.{$domain}/admin/dashboard";
     }
@@ -154,9 +161,6 @@ class School extends Model
     {
         $domain = \Config::get('unify.domain');
 
-        if ($domain == 'localhost:8000') {
-            return "http://{$domain}/students?school_slug={$this->slug}";
-        }
 
         return "http://{$this->slug }.{$domain}/students";
     }

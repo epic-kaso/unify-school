@@ -2,7 +2,7 @@
  * Created by Ak on 2/19/2015.
  */
 
-var app =  angular.module('adminApp.directives',[]);
+var app = angular.module('SuperAdminApp.directives', []);
 
 app.directive('backButton',function(){
     return {

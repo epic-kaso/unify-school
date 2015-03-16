@@ -25,6 +25,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\SchoolAdministrator whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\SchoolAdministrator whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\SchoolAdministrator whereUpdatedAt($value)
+ * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  */
 class SchoolAdministrator extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {

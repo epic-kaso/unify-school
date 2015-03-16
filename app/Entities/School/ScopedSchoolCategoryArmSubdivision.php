@@ -20,6 +20,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereMeta($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereUpdatedAt($value)
+ * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  */
 class ScopedSchoolCategoryArmSubdivision extends BaseModel
 {

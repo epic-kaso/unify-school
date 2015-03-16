@@ -2,16 +2,11 @@
 
 @section('script')
     document.data = {};
-    document.data.school = {!! $school->toJson() !!};
+    document.data.schools = {!! $schools->toJson() !!};
 @stop
 
 @section('navbar')
-    @if(count($school->school_type->school_categories) > 1)
-        <li><a href="#">All</a></li>
-    @endif
-    @foreach($school->school_type->school_categories as $category)
-        <li><a href="#" ng-click="prepareSchoolCategory({{ $category->id }})">{{ $category->display_name }}</a></li>
-    @endforeach
+    <li><a href="#">Home</a></li>
 @stop
 @section('content')
     <div class="container">
@@ -24,7 +19,32 @@
             </div>
 
             <div class="col-sm-8">
-                //Center
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>Schools</h3>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>S/N</td>
+                            <td>Name</td>
+                            <td>Active</td>
+                        </tr>
+
+                        @for($i = 1; $i <= count($schools); $i++)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td>{{ $schools[$i - 1]->name }}</td>
+                                <td>
+                                    @if($schools[$i - 1]->active)
+                                        <span class="label label-success">Active</span>
+                                    @else
+                                        <span class="label label-danger">InActive</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endfor
+                    </table>
+                </div>
             </div>
         </div>
     </div>

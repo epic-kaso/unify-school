@@ -1,7 +1,7 @@
 /**
  * Created by Ak on 2/19/2015.
  */
-var module = angular.module('adminApp.controllers', ['adminApp.services']);
+var module = angular.module('SchoolAdminApp.controllers', ['SchoolAdminApp.services']);
 
 module.controller('NewTicketController', [
     '$scope', 'TicketServ', 'TicketColumns', '$state', '$stateParams', 'DeviceBrands', 'ToastService',
