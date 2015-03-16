@@ -16,12 +16,7 @@ class BindContext
      */
     public function handle($request, Closure $next)
     {
-        $slug = null;
-        $route = $request->route();
-        if (!is_null($route))
-            $slug = $route->getParameter('school_slug');
-
-        $slug = is_null($slug) ? $request->get('school') : $slug;
+        $slug = $request->get('school_slug');
 
         if (!is_null($slug)) {
             $this->bindContextToSchool($slug);
@@ -32,6 +27,11 @@ class BindContext
     private function bindContextToSchool($slug)
     {
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
+
+        if (!is_null($context->get()) && is_subclass_of($context->get(), Model::class)) {
+            return $context->get();
+        }
+
         $school = School::bySlug($slug);
         if (is_null($school) || !is_subclass_of($school, Model::class)) {
             abort(404);

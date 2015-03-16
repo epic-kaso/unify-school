@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
         'auth.school' => 'UnifySchool\Http\Middleware\AuthenticateSchool',
         'auth.student' => 'UnifySchool\Http\Middleware\AuthenticateStudent',
         'auth.unify' => 'UnifySchool\Http\Middleware\AuthenticateUnify',
+        'domain_access' => 'UnifySchool\Http\Middleware\DomainAccess',
     ];
 
 }

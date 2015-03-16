@@ -10,25 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-use Illuminate\Database\Eloquent\Model;
-use UnifySchool\School;
 
-Route::get('/', 'LandingPageController@getIndex');
-Route::get('/home', 'LandingPageController@getIndex');
-
+Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageController@getIndex']);
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
-
-Route::bind('school', function ($slug) {
-    $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
-    $school = School::bySlug($slug);
-    if (is_null($school) || !is_subclass_of($school, Model::class)) {
-        abort(404);
-    }
-    $context->set($school);
-    return $school;
-});
-
 
 /*
  * -------------------------------------------------------------------------
@@ -39,7 +24,7 @@ Route::bind('school', function ($slug) {
 //Basic Routes
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain')
+        'middleware' => 'domain_access'
     ],
     function () {
         Route::get('home', 'LandingPageController@getIndex');
@@ -49,7 +34,7 @@ Route::group(
 //School Resources API Route
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'middleware' => 'domain_access',
         'prefix' => 'resources',
         'namespace' => 'School\Resources'
     ],
@@ -62,7 +47,7 @@ Route::group(
 //School Admin Pages Route
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'middleware' => 'domain_access',
         'prefix' => 'admin',
         'namespace' => 'School\Admin'
     ],
@@ -78,7 +63,7 @@ Route::group(
 //School Student Pages routes
 Route::group(
     [
-        'domain' => '{school}.' . config('unify.domain'),
+        'middleware' => 'domain_access',
         'prefix' => 'student',
         'namespace' => 'School\Student'
     ],
