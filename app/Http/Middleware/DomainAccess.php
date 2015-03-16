@@ -7,6 +7,7 @@ use UnifySchool\School;
 class DomainAccess
 {
 
+    protected $specialSubDomains = ['www', 'unify'];
     /**
      * Handle an incoming request.
      *
@@ -21,7 +22,7 @@ class DomainAccess
         if (!$validProgram) {
             return \Redirect::to('/');
         } else {
-            $this->bindContextToSchool($validProgram);
+            is_string($validProgram) ? $this->bindContextToSchool($validProgram) : null;
         }
 
         return $next($request);
@@ -44,11 +45,19 @@ class DomainAccess
         if ($needsLookup) {
             \Cache::forget('school');
 
+            if ($this->isSpecialSubDomain($subDomain)) {
+                return true;
+            }
+
             $school = School::bySlug($subDomain);
+
             if (!$school) {
                 return false;
 
             } else {
+
+                $this->ensureObjectIsASchool($school);
+
                 \Cache::put('school', $school->slug, \Config::get('session.lifetime'));
                 return $school->slug;
             }
@@ -64,6 +73,23 @@ class DomainAccess
         $server = explode('.', \Request::server('HTTP_HOST'));
         $subDomain = $server[0];
         return $subDomain;
+    }
+
+    private function isSpecialSubDomain($subDomain)
+    {
+        if (in_array(strtolower($subDomain), $this->specialSubDomains)) {
+            return true;
+        }
+        return false;
+    }
+
+    private function ensureObjectIsASchool($school)
+    {
+        if (is_null($school) || !is_subclass_of($school, Model::class)) {
+            abort(404);
+        }
+
+        return true;
     }
 
     private function bindContextToSchool($slug)
