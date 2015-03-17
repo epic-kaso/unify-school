@@ -28,6 +28,25 @@
             </li>
         </ul>
         <!-- END Left navbar-->
+
+        <div class="btn-group" dropdown ng-controller="NavBarController">
+            <button type="button" class="btn btn-danger navbar-btn"><span
+                        ng-bind="selectedSchoolCategory.display_name"></span></button>
+            <button type="button" class="btn btn-danger navbar-btn dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Split button!</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-if="schoolCategories.length > 1">
+                    <a href="#">All</a>
+                </li>
+                <li ng-repeat="category in schoolCategories">
+                    <a href="#" ng-click="prepareSchoolCategory($event,category)">@{{ category.display_name }}</a>
+                </li>
+            </ul>
+        </div>
+
+
         <!-- START Right Navbar-->
         <ul class="nav navbar-nav navbar-right">
             <!-- Search icon-->
@@ -42,6 +61,14 @@
                     <em class="icon-notebook"></em>
                 </a>
             </li>
+            <li class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle>
+                    {{ Auth::user()->email }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/unify/auth/logout">Logout</a></li>
+                </ul>
+            </li>
             <!-- END Offsidebar menu-->
         </ul>
         <!-- END Right Navbar-->
@@ -50,7 +77,7 @@
     <!-- START Search form-->
     <form role="search" action="search.html" class="navbar-form">
         <div class="form-group has-feedback">
-            <input type="text" placeholder="{{ 'topbar.search.PLACEHOLDER' | translate }}" class="form-control"/>
+            <input type="text" placeholder="@{{ 'topbar.search.PLACEHOLDER' | translate }}" class="form-control"/>
 
             <div search-dismiss="search-dismiss" class="fa fa-times form-control-feedback"></div>
         </div>

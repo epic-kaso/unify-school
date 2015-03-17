@@ -1,6 +1,6 @@
 /*!
  * 
- * Angle - Bootstrap Admin App + AngularJS
+ * SchoolAdminApp - Bootstrap Admin App + AngularJS
  * 
  * Author: @themicon_co
  * Website: http://themicon.co
@@ -15,7 +15,7 @@ if (typeof $ === 'undefined') {
 // APP START
 // ----------------------------------- 
 
-var App = angular.module('angle', [
+var App = angular.module('SchoolAdminApp', [
     'ngRoute',
     'ngAnimate',
     'ngStorage',
@@ -30,54 +30,55 @@ var App = angular.module('angle', [
     'ui.utils'
 ]);
 
-App.run(["$rootScope", "$state", "$stateParams", '$window', '$templateCache', function ($rootScope, $state, $stateParams, $window, $templateCache) {
-    // Set reference to access them from any scope
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
-    $rootScope.$storage = $window.localStorage;
+App.run(
+    ["$rootScope", "$state", "$stateParams", '$window', '$templateCache', 'SchoolDataService',
+        function ($rootScope, $state, $stateParams, $window, $templateCache, SchoolDataService) {
+            // Set reference to access them from any scope
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+            $rootScope.$storage = $window.localStorage;
 
-    // Uncomment this to disable template cache
-    /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-     if (typeof(toState) !== 'undefined'){
-     $templateCache.remove(toState.templateUrl);
-     }
-     });*/
+            // Uncomment this to disable template cache
+            /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+             if (typeof(toState) !== 'undefined'){
+             $templateCache.remove(toState.templateUrl);
+             }
+             });*/
 
-    // Scope Globals
-    // ----------------------------------- 
-    $rootScope.app = {
-        name: 'Angle',
-        description: 'Angular Bootstrap Admin Template',
-        year: ((new Date()).getFullYear()),
-        layout: {
-            isFixed: true,
-            isCollapsed: false,
-            isBoxed: false,
-            isRTL: false,
-            horizontal: false,
-            isFloat: false,
-            asideHover: false,
-            theme: null
-        },
-        useFullLayout: false,
-        hiddenFooter: false,
-        viewAnimation: 'ng-fadeInUp'
-    };
-    $rootScope.user = {
-        name: 'John',
-        job: 'ng-developer',
-        picture: '/framework/app/img/user/02.jpg'
-    };
+            // Scope Globals
+            // -----------------------------------
+            $rootScope.app = {
+                name: 'SchoolAdminApp',
+                description: 'UnifySchools Admin App',
+                year: ((new Date()).getFullYear()),
+                layout: {
+                    isFixed: true,
+                    isCollapsed: false,
+                    isBoxed: false,
+                    isRTL: false,
+                    horizontal: false,
+                    isFloat: false,
+                    asideHover: false,
+                    theme: null
+                },
+                useFullLayout: false,
+                hiddenFooter: false,
+                viewAnimation: 'ng-fadeInUp'
+            };
+            $rootScope.user = SchoolDataService.adminUser;
 
-}]);
+        }]);
 
 /**=========================================================
  * Module: config.js
  * App routes and resources configuration
  =========================================================*/
 
-App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider',
-    function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
+App.constant('ViewBaseURL', '/admin/dashboard/partial');
+App.constant('AssetsBaseURL', '/school_admin/framework');
+
+App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider', 'ViewBaseURL',
+    function ($stateProvider, $locationProvider, $urlRouterProvider, helper, ViewBaseURL) {
         'use strict';
 
         // Set the following to true to enable the HTML5 Mode
@@ -85,29 +86,33 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
         $locationProvider.html5Mode(false);
 
         // default route
-        $urlRouterProvider.otherwise('/app/singleview');
+        $urlRouterProvider.otherwise('/app/schools');
 
         //
         // Application Routes
         // -----------------------------------
+
+
         $stateProvider
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: helper.basepath('app.html'),
+                templateUrl: ViewBaseURL + '/app',
                 controller: 'AppController',
                 resolve: helper.resolveFor('modernizr', 'icons')
             })
-            .state('app.singleview', {
-                url: '/singleview',
-                title: 'Single View',
-                templateUrl: helper.basepath('singleview.html')
-            })
-            .state('app.submenu', {
-                url: '/submenu',
-                title: 'Submenu',
-                templateUrl: helper.basepath('submenu.html')
-            })
+            .state('app.home',
+            {
+                url: '/home',
+                templateUrl: ViewBaseURL + '/home',
+                title: 'School Dashboard',
+                resolve: helper.resolveFor('ngTable', 'ngTableExport'),
+                controller: ['$scope',
+                    function ($scope) {
+
+                    }]
+            }
+        );
             //
             // CUSTOM RESOLVES
             //   Add your own resolves properties
@@ -152,7 +157,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
     }]).config(['$translateProvider', function ($translateProvider) {
 
     $translateProvider.useStaticFilesLoader({
-        prefix: 'framework/app/i18n/',
+        prefix: '/school_admin/framework/app/i18n/',
         suffix: '.json'
     });
     $translateProvider.preferredLanguage('en');
@@ -203,13 +208,21 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
-            'modernizr': ['framework/vendor/modernizr/modernizr.js'],
-            'icons': ['framework/vendor/fontawesome/css/font-awesome.min.css',
-                'framework/vendor/simple-line-icons/css/simple-line-icons.css']
+            'modernizr': ['/school_admin/framework/vendor/modernizr/modernizr.js'],
+            'icons': ['/school_admin/framework/vendor/fontawesome/css/font-awesome.min.css',
+                '/school_admin/framework/vendor/simple-line-icons/css/simple-line-icons.css']
         },
         // Angular based script (use the right module name)
         modules: [
-            // { name: 'toaster', files: ['vendor/angularjs-toaster/toaster.js','vendor/angularjs-toaster/toaster.css'] }
+            {
+                name: 'toaster',
+                files: ['/school_admin/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
+            },
+            {
+                name: 'ngTable', files: ['/school_admin/framework/vendor/ng-table/dist/ng-table.min.js',
+                '/school_admin/framework/vendor/ng-table/dist/ng-table.min.css']
+            },
+            {name: 'ngTableExport', files: ['/school_admin/framework/vendor/ng-table-export/ng-table-export.js']}
         ]
 
     })
@@ -341,8 +354,8 @@ App.controller('AppController',
  * Handle sidebar collapsible elements
  =========================================================*/
 
-App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout', 'Utils',
-    function ($rootScope, $scope, $state, $http, $timeout, Utils) {
+App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout', 'Utils', 'ResourcesService',
+    function ($rootScope, $scope, $state, $http, $timeout, Utils, ResourcesService) {
 
         var collapseList = [];
 
@@ -379,8 +392,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
         $scope.loadSidebarMenu = function () {
 
-            var menuJson = 'framework/server/sidebar-menu.json',
-                menuURL = menuJson + '?v=' + (new Date().getTime()); // jumps cache
+            var menuURL = ResourcesService.getMenuResourceUrl();
             $http.get(menuURL)
                 .success(function (items) {
                     $scope.menuItems = items;
@@ -815,7 +827,7 @@ App.provider('RouteHelpers', ['APP_REQUIRES', function (appRequires) {
     // Set here the base of the relative path
     // for all app views
     this.basepath = function (uri) {
-        return 'framework/app/views/' + uri;
+        return '/school_admin/framework/app/views/' + uri;
     };
 
     // Generates a resolve object by passing script names
@@ -1045,30 +1057,62 @@ App.service('Utils', ["$window", "APP_MEDIAQUERY", function ($window, APP_MEDIAQ
 // To run this code, edit file 
 // index.html or index.jade and change
 // html data-ng-app attribute from
-// angle to myAppName
+// SchoolAdminApp to myAppName
 // ----------------------------------- 
 
-var myApp = angular.module('myAppName', ['angle']);
+var myApp = angular.module('SchoolAdminApp');
 
-myApp.run(["$log", function ($log) {
+myApp.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
-    $log.log('I\'m a line from custom.js');
+    var TableData = {
+        cache: SchoolDataService.schools,
+        getData: function ($defer, params) {
+
+            filterdata($defer, params);
+
+            function filterdata($defer, params) {
+                var from = (params.page() - 1) * params.count();
+                var to = params.page() * params.count();
+                var filteredData = TableData.cache.slice(from, to);
+
+                params.total(TableData.cache.length);
+                $defer.resolve(filteredData);
+            }
+
+        }
+    };
+
+    return TableData;
 
 }]);
 
-myApp.config(["RouteHelpersProvider", function (RouteHelpersProvider) {
-
-
+myApp.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
 }]);
 
-myApp.controller('oneOfMyOwnController', ["$scope", function ($scope) {
-    /* controller code */
-}]);
 
-myApp.directive('oneOfMyOwnDirectives', function () {
-    /*directive code*/
-});
+/**
+ * Controllers
+ *
+ */
 
-myApp.config(["$stateProvider", function ($stateProvider /* ... */) {
-    /* specific routes here (see file config.js) */
-}]);
+myApp.controller('NavBarController', [
+        '$scope', '$rootScope', 'SchoolDataService',
+        function ($scope, $rootScope, SchoolDataService) {
+            $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+            $scope.selectedSchoolCategory = $scope.schoolCategories[0];
+
+            $scope.prepareSchoolCategory = function ($event, category) {
+                $scope.selectedSchoolCategory = category;
+                $event.preventDefault();
+            };
+
+            $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
+                console.log('selectedSchoolCategoryChanged event');
+                $rootScope.$emit('selectedSchoolCategoryChanged', {value: newV});
+                console.log('selectedSchoolCategoryChanged raised');
+            });
+        }]
+);
