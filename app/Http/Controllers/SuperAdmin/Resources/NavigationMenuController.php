@@ -31,26 +31,26 @@ class NavigationMenuController extends Controller
             [
                 "text" => "Schools",
                 "sref" => "app.schools",
-                "icon" => "fa fa-file-o"
-            ],
-            [
-                "text" => "Single View",
-                "sref" => "app.singleview",
-                "icon" => "fa fa-file-o",
-                "translate" => "sidebar.nav.SINGLEVIEW"
-            ],
-            [
-                "text" => "Menu",
-                "sref" => "#",
-                "icon" => "icon-folder",
-                "submenu" => [
-                    ["text" => "Sub Menu",
-                        "sref" => "app.submenu",
-                        "translate" => "sidebar.nav.menu.SUBMENU"
-                    ]
-                ],
-                "translate" => "sidebar.nav.menu.MENU"
+                "icon" => "icon-users"
             ]
+//            [
+//                "text" => "Single View",
+//                "sref" => "app.singleview",
+//                "icon" => "fa fa-file-o",
+//                "translate" => "sidebar.nav.SINGLEVIEW"
+//            ],
+//            [
+//                "text" => "Menu",
+//                "sref" => "#",
+//                "icon" => "icon-folder",
+//                "submenu" => [
+//                    ["text" => "Sub Menu",
+//                        "sref" => "app.submenu",
+//                        "translate" => "sidebar.nav.menu.SUBMENU"
+//                    ]
+//                ],
+//                "translate" => "sidebar.nav.menu.MENU"
+//            ]
         ];
 
         $result = [];

@@ -164,4 +164,10 @@ class School extends Model
 
         return "http://{$this->slug }.{$domain}/students";
     }
+
+    public function setActivateState($active)
+    {
+        $this->active = $active;
+        $this->save();
+    }
 }

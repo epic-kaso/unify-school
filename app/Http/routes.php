@@ -95,5 +95,6 @@ Route::group(
         ]);
         Route::controller('dashboard', 'Dashboard\DashboardController');
         Route::resource('resources/menu', 'Resources\NavigationMenuController');
+        Route::resource('resources/school', 'Resources\SchoolController');
     }
 );

@@ -97,7 +97,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: helper.basepath('app.html'),
+                templateUrl: ViewBaseURL + '/app',
                 controller: 'AppController',
                 resolve: helper.resolveFor('modernizr', 'icons')
             })
@@ -106,15 +106,49 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 url: '/schools',
                 templateUrl: ViewBaseURL + '/schools_list',
                 title: 'Schools',
-                controller: ['$scope', 'SchoolsDataService', function ($scope, SchoolsDataService) {
-                    $scope.schools = SchoolsDataService.schools;
-                }]
+                resolve: helper.resolveFor('ngTable', 'ngTableExport'),
+                controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService',
+                    function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService) {
+                        $scope.schools = SchoolsDataService.schools;
+                        $scope.tableParams = new ngTableParams({
+                            page: 1,            // show first page
+                            count: 10           // count per page
+                        }, {
+                            total: 0,           // length of data
+                            counts: [],         // hide page counts control
+                            getData: function ($defer, params) {
+                                ngTableDataService.getData($defer, params);
+                            }
+                        });
+
+                        $scope.UpdateSchoolActiveState = function (school) {
+                            school.updating = true;
+                            SchoolService.update({
+                                id: school.id,
+                                action: 'updateActiveState'
+                            }, {'active': school.active}).$promise
+                                .then(function (data) {
+                                    school.updating = false;
+                                }, function (data) {
+                                    alert('Failed to update!!');
+                                    school.updating = false;
+                                });
+                        };
+                        $scope.selectAllSchool = function (newV) {
+
+                            console.log('selectAllSchool change: ' + newV);
+                            angular.forEach($scope.tableParams.data, function (value, key) {
+                                value.$selected = newV;
+                                console.log(value);
+                            });
+                        }
+                    }]
             }
         )
             .state('app.singleview', {
                 url: '/singleview',
                 title: 'Single View',
-                templateUrl: ViewBaseURL + 'single_view'
+                templateUrl: ViewBaseURL + '/single_view'
             })
             //
             // CUSTOM RESOLVES
@@ -217,7 +251,15 @@ App
         },
         // Angular based script (use the right module name)
         modules: [
-            // { name: 'toaster', files: ['vendor/angularjs-toaster/toaster.js','vendor/angularjs-toaster/toaster.css'] }
+            {
+                name: 'toaster',
+                files: ['/super_admin/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
+            },
+            {
+                name: 'ngTable', files: ['/super_admin/framework/vendor/ng-table/dist/ng-table.min.js',
+                '/super_admin/framework/vendor/ng-table/dist/ng-table.min.css']
+            },
+            {name: 'ngTableExport', files: ['/super_admin/framework/vendor/ng-table-export/ng-table-export.js']}
         ]
 
     })
@@ -1055,27 +1097,34 @@ App.service('Utils', ["$window", "APP_MEDIAQUERY", function ($window, APP_MEDIAQ
 // SuperAdminApp to myAppName
 // ----------------------------------- 
 
-var myApp = angular.module('myAppName', ['SuperAdminApp']);
+var myApp = angular.module('SuperAdminApp');
 
-myApp.run(["$log", function ($log) {
+myApp.service('TableDataService', ['SchoolsDataService', function (SchoolsDataService) {
 
-    $log.log('I\'m a line from custom.js');
+    var TableData = {
+        cache: SchoolsDataService.schools,
+        getData: function ($defer, params) {
+
+            filterdata($defer, params);
+
+            function filterdata($defer, params) {
+                var from = (params.page() - 1) * params.count();
+                var to = params.page() * params.count();
+                var filteredData = TableData.cache.slice(from, to);
+
+                params.total(TableData.cache.length);
+                $defer.resolve(filteredData);
+            }
+
+        }
+    };
+
+    return TableData;
 
 }]);
 
-myApp.config(["RouteHelpersProvider", function (RouteHelpersProvider) {
-
-
-}]);
-
-myApp.controller('oneOfMyOwnController', ["$scope", function ($scope) {
-    /* controller code */
-}]);
-
-myApp.directive('oneOfMyOwnDirectives', function () {
-    /*directive code*/
-});
-
-myApp.config(["$stateProvider", function ($stateProvider /* ... */) {
-    /* specific routes here (see file config.js) */
+myApp.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/unify/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
 }]);
