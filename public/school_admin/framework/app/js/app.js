@@ -86,7 +86,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
         $locationProvider.html5Mode(false);
 
         // default route
-        $urlRouterProvider.otherwise('/app/schools');
+        $urlRouterProvider.otherwise('/app/home');
 
         //
         // Application Routes
@@ -106,7 +106,6 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 url: '/home',
                 templateUrl: ViewBaseURL + '/home',
                 title: 'School Dashboard',
-                resolve: helper.resolveFor('ngTable', 'ngTableExport'),
                 controller: ['$scope',
                     function ($scope) {
 
@@ -129,7 +128,6 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             //     }
             //   )
             // })
-        ;
 
 
     }]).config(['$ocLazyLoadProvider', 'APP_REQUIRES', function ($ocLazyLoadProvider, APP_REQUIRES) {
@@ -364,6 +362,10 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
             if (newVal === false && oldVal === true) {
                 closeAllBut(-1);
             }
+        });
+
+        $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
+            console.log('event selectedSchoolCat received');
         });
 
         // Check item and children active state
@@ -1111,7 +1113,7 @@ myApp.controller('NavBarController', [
 
             $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
                 console.log('selectedSchoolCategoryChanged event');
-                $rootScope.$emit('selectedSchoolCategoryChanged', {value: newV});
+                $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
                 console.log('selectedSchoolCategoryChanged raised');
             });
         }]

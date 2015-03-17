@@ -42,6 +42,7 @@ Route::group(
     function () {
         Route::resource('school', 'School\SchoolController');
         Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+
     }
 );
 
@@ -58,6 +59,7 @@ Route::group(
             'password' => 'AdminPasswordController',
         ]);
         Route::controller('dashboard', 'AdminDashboardController');
+        Route::resource('resources/menu', 'Dashboard\NavigationMenuController');
     }
 );
 
