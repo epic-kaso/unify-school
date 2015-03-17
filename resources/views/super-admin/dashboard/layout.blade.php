@@ -8,7 +8,7 @@
     <title data-ng-bind="pageTitle()">Angle - Angular Bootstrap Admin Template</title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
-    <link href="{{ asset('super_admin/css/super_admin_dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('super_admin/css/super_admin.css') }}" rel="stylesheet">
 </head>
 <body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
 
