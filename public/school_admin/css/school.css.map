@@ -1,9 +1,1 @@
-{
-  "version": 3,
-  "sources": [],
-  "names": [],
-  "mappings": "",
-  "file": "school.css",
-  "sourcesContent": [],
-  "sourceRoot": "/source/"
-}
+{"version":3,"sources":["school.less","school.css"],"names":[],"mappings":"AAAA;EACE,yCAAA;ECCD;ADED;EACE,YAAA;ECAD;ADDD;EAII,aAAA;EACA,gBAAA;EACA,eAAA;EACA,WAAA;EACA,uBAAA;ECAH;ADRD;EAYI,uCAAA;ECDH;ADKD;;EACE,eAAA;EACA,cAAA;EACA,6CAAA;EACA,kBAAA;ECFD","file":"school.css","sourcesContent":["body {\r\n  background-color: rgba(0, 0, 0, 0.0175)\r\n}\r\n\r\naccordion .panel-heading {\r\n  padding: 0;\r\n\r\n  a.accordion-toggle {\r\n    width: 100%;\r\n    display: block;\r\n    padding: 10px;\r\n    margin: 0;\r\n    text-decoration: none;\r\n  }\r\n\r\n  a.accordion-toggle:hover {\r\n    background-color: rgba(0, 0, 0, 0.05);\r\n  }\r\n}\r\n\r\naccordion .panel-group .panel + .panel, accordion .panel-group .panel {\r\n  margin-top: 0;\r\n  border: none;\r\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\r\n  border-radius: 0;\r\n}",null],"sourceRoot":"/source/"}

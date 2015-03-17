@@ -12,7 +12,7 @@
     <link href="{{ asset('landing_page/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-controller="NavBarController">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -33,10 +33,11 @@
                 @if (Auth::guest())
                     <li><a href="/admin/auth/login">Login</a></li>
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ Auth::user()->email }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown" dropdown on-toggle="toggled(open)">
+                        <a href class="dropdown-toggle" dropdown-toggle>
+                            {{ Auth::user()->email }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
                             <li><a href="/admin/auth/logout">Logout</a></li>
                         </ul>
                     </li>

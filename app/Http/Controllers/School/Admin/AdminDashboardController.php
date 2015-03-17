@@ -28,4 +28,9 @@ class AdminDashboardController extends Controller
 
         return view('school.admin.dashboard.index', compact('school'));
     }
+
+    public function getPartial($partial)
+    {
+        return view('school.admin.dashboard.partials.' . $partial);
+    }
 }

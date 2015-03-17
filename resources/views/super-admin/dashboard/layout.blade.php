@@ -35,11 +35,12 @@
                 @if (Auth::guest())
                     <li><a href="/admin/auth/login">Login</a></li>
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ Auth::user()->email }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/admin/auth/logout">Logout</a></li>
+                    <li class="dropdown" dropdown on-toggle="toggled(open)">
+                        <a href class="dropdown-toggle" dropdown-toggle>
+                            {{ Auth::user()->email }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/unify/auth/logout">Logout</a></li>
                         </ul>
                     </li>
                 @endif

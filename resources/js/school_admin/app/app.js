@@ -16,15 +16,25 @@ var app = angular.module("SchoolAdminApp",
     ]
 );
 
-app.config(['$urlRouterProvider', '$stateProvider',
-    function ($urlRouterProvider, $stateProvider) {
+app.constant('ViewBaseURL', '/admin/dashboard/partial');
+
+app.config(['$urlRouterProvider', '$stateProvider', 'ViewBaseURL',
+    function ($urlRouterProvider, $stateProvider, ViewBaseURL) {
 
         $stateProvider.state('home',
             {
                 url: '/',
-                templateUrl: 'partials/device_models/dashboard.html',
+                templateUrl: ViewBaseURL + '/home',
                 controller: ['$scope', 'SchoolDataService', function ($scope, SchoolDataService) {
                     $scope.school = SchoolDataService.school;
+
+                    $scope.schoolCategoryClasses = $scope.school.school_type.school_categories[0].school_category_arms;
+                    console.log($scope.schoolCategoryClasses);
+
+                    $scope.$on('selectedSchoolCategoryChanged', function ($event, data) {
+                        console.log('selectedSchoolCategoryChanged occured');
+                        console.log(data);
+                    })
                 }]
             }
         );
