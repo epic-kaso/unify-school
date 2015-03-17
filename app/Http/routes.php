@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageController@getIndex']);
+//Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageController@getIndex']);
+
+Route::get('/', ['uses' => function () {
+    return view('app');
+}]);
+
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
 
@@ -89,5 +94,6 @@ Route::group(
             'password' => 'Auth\PasswordController',
         ]);
         Route::controller('dashboard', 'Dashboard\DashboardController');
+        Route::resource('resources/menu', 'Resources\NavigationMenuController');
     }
 );
