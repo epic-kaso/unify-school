@@ -105,7 +105,7 @@ class DomainAccess
     {
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
 
-        $school = School::bySlug($slug);
+        $school = School::isActive()->bySlug($slug);
 
         if (is_null($school) || !is_subclass_of($school, Model::class)) {
             abort(404);

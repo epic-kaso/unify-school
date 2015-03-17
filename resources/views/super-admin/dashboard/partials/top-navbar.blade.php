@@ -42,6 +42,14 @@
                     <em class="icon-notebook"></em>
                 </a>
             </li>
+            <li class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle>
+                    {{ Auth::user()->email }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/unify/auth/logout">Logout</a></li>
+                </ul>
+            </li>
             <!-- END Offsidebar menu-->
         </ul>
         <!-- END Right Navbar-->
