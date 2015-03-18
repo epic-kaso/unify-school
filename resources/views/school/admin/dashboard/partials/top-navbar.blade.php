@@ -13,7 +13,7 @@
     </div>
     <!-- END navbar header-->
     <!-- START Nav wrapper-->
-    <div class="nav-wrapper">
+    <div class="nav-wrapper" ng-controller="NavBarController">
         <!-- START Left navbar-->
         <ul class="nav navbar-nav">
             <li>
@@ -29,7 +29,7 @@
         </ul>
         <!-- END Left navbar-->
 
-        <div class="btn-group" dropdown ng-controller="NavBarController">
+        <div class="btn-group" dropdown>
             <button type="button" class="btn btn-danger navbar-btn"><span
                         ng-bind="selectedSchoolCategory.display_name"></span></button>
             <button type="button" class="btn btn-danger navbar-btn dropdown-toggle" dropdown-toggle>
@@ -45,6 +45,10 @@
                 </li>
             </ul>
         </div>
+
+        <button class="btn btn-info">
+            <span class="fa fa-gear"></span>&nbsp;&bnsp;Setup
+        </button>
 
 
         <!-- START Right Navbar-->
