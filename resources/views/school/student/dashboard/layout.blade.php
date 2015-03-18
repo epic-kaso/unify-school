@@ -13,8 +13,8 @@
 <body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
 
 @yield('content')
-<script src="{{ asset('student/framework/app/js/base.js') }}"></script>
-<script src="{{ asset('student/framework/app/js/app.js') }}"></script>
+<script src="{{ asset('student/app/js/base.js') }}"></script>
+<script src="{{ asset('student/app/js/app.js') }}"></script>
 <script>
     @yield('script')
 </script>

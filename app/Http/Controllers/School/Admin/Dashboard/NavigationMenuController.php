@@ -25,8 +25,7 @@ class NavigationMenuController extends Controller
         $data = [
             [
                 "text" => "Main Navigation",
-                "heading" => "true",
-                "translate" => "sidebar.heading.HEADER"
+                "heading" => "true"
             ],
             [
                 "text" => "Classes",
@@ -41,8 +40,7 @@ class NavigationMenuController extends Controller
             ],
             [
                 "text" => "Others",
-                "heading" => "true",
-                "translate" => "sidebar.heading.HEADER"
+                "heading" => "true"
             ],
             [
                 "text" => "Settings",
