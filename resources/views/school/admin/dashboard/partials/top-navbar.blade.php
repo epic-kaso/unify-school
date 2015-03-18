@@ -47,7 +47,7 @@
         </div>
 
         <button class="btn btn-info">
-            <span class="fa fa-gear"></span>&nbsp;&bnsp;Setup
+            <span class="fa fa-gear"></span>&nbsp;&nbsp;Setup
         </button>
 
 
