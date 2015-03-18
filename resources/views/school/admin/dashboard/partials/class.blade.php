@@ -19,6 +19,7 @@
                         <div class="col-xs-8">
                             <div class="panel-body text-center">
                                 <h4 class="mt0">100%</h4>
+
                                 <p class="mb0 text-muted">VOLUME</p>
                             </div>
                         </div>
@@ -36,6 +37,7 @@
                         <div class="col-xs-8">
                             <div class="panel-body text-center">
                                 <h4 class="mt0">150</h4>
+
                                 <p class="mb0 text-muted">FORKS</p>
                             </div>
                         </div>
@@ -50,7 +52,8 @@
                 </div>
                 <div collapse="panelPortlet1" class="panel-wrapper">
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae
+                            ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                     </div>
                     <div class="panel-footer">Panel Footer</div>
                 </div>
@@ -63,7 +66,8 @@
                 </div>
                 <div collapse="panelPortlet2" class="panel-wrapper">
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae
+                            ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                     </div>
                     <div class="panel-footer">Panel Footer</div>
                 </div>
@@ -73,7 +77,8 @@
             <div id="panelPortlet3" class="panel panel-success">
                 <div class="panel-heading portlet-handler">Success Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -88,6 +93,7 @@
                         <div class="col-xs-12">
                             <div class="panel-body text-center bg-purple">
                                 <h4 class="mt0">10k</h4>
+
                                 <p class="mb0 text-white">VISITORS</p>
                             </div>
                         </div>
@@ -102,6 +108,7 @@
                         <div class="col-xs-12">
                             <div class="panel-body text-center bg-pink">
                                 <h4 class="mt0">100%</h4>
+
                                 <p class="mb0 text-white">VOLUME</p>
                             </div>
                         </div>
@@ -113,7 +120,8 @@
             <div id="panelPortlet6" class="panel panel-info">
                 <div class="panel-heading portlet-handler">Info Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -122,7 +130,8 @@
             <div id="panelPortlet7" class="panel panel-warning">
                 <div class="panel-heading portlet-handler">Warning Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -131,7 +140,8 @@
             <div id="panelPortlet8" class="panel panel-danger">
                 <div class="panel-heading portlet-handler">Danger Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -146,6 +156,7 @@
                         <div class="col-xs-12">
                             <div class="panel-body text-center bg-green">
                                 <h4 class="mt0">150</h4>
+
                                 <p class="mb0 text-white">FORKS</p>
                             </div>
                         </div>
@@ -160,6 +171,7 @@
                         <div class="col-xs-12">
                             <div class="panel-body text-center bg-primary">
                                 <h4 class="mt0">10</h4>
+
                                 <p class="mb0 text-white">NEW MESSAGES</p>
                             </div>
                         </div>
@@ -171,7 +183,8 @@
             <div id="panelPortlet11" class="panel panel-inverse">
                 <div class="panel-heading portlet-handler">Inverse Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -180,7 +193,8 @@
             <div id="panelPortlet12" class="panel panel-purple">
                 <div class="panel-heading portlet-handler">Purple Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>
@@ -189,7 +203,8 @@
             <div id="panelPortlet13" class="panel panel-green">
                 <div class="panel-heading portlet-handler">Green Panel</div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices
+                        accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                 </div>
                 <div class="panel-footer">Panel Footer</div>
             </div>

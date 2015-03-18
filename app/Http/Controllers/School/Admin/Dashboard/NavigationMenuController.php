@@ -40,9 +40,9 @@ class NavigationMenuController extends Controller
                 ]
             ],
             [
-            "text" => "Others",
-            "heading" => "true",
-            "translate" => "sidebar.heading.HEADER"
+                "text" => "Others",
+                "heading" => "true",
+                "translate" => "sidebar.heading.HEADER"
             ],
             [
                 "text" => "Settings",

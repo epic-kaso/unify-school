@@ -99,7 +99,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 abstract: true,
                 templateUrl: ViewBaseURL + '/app',
                 controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons','toaster')
+                resolve: helper.resolveFor('modernizr', 'icons', 'toaster')
             })
             .state('app.schools',
             {
@@ -107,8 +107,8 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 templateUrl: ViewBaseURL + '/schools_list',
                 title: 'Schools',
                 resolve: helper.resolveFor('ngTable', 'ngTableExport'),
-                controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService','toaster',
-                    function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService,toaster) {
+                controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService', 'toaster',
+                    function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService, toaster) {
                         $scope.schools = SchoolsDataService.schools;
                         $scope.tableParams = new ngTableParams({
                             page: 1,            // show first page
@@ -130,7 +130,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                                 .then(function (data) {
                                     school.updating = false;
                                 }, function (data) {
-                                    toaster.pop('error','Schoo; Active State','Failed to change school\'s active state.');
+                                    toaster.pop('error', 'Schoo; Active State', 'Failed to change school\'s active state.');
                                     school.updating = false;
                                 });
                         };
