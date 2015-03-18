@@ -22,7 +22,9 @@ class DomainAccess
         if (!$validProgram) {
             return \Redirect::to('/');
         } else {
-            is_string($validProgram) ? $this->bindContextToSchool($validProgram) : null;
+            if(is_object($validProgram) && is_subclass_of($validProgram, Model::class)){
+                $this->bindContextToSchool($validProgram);
+            }
         }
 
         return $next($request);
@@ -40,9 +42,9 @@ class DomainAccess
         $needsLookup = true;
 
         if (\Cache::has('school')) {
-            $school_slug = \Cache::get('school');
-            if ($subDomain == $school_slug) {
-                return $school_slug;
+            $school = \Cache::get('school');
+            if ($subDomain == $school->slug) {
+                return $school;
             }
         }
 
@@ -53,7 +55,7 @@ class DomainAccess
                 return true;
             }
 
-            $school = School::bySlug($subDomain);
+            $school = School::isActive()->bySlug($subDomain);
 
             if (!$school) {
                 return false;
@@ -62,8 +64,8 @@ class DomainAccess
 
                 $this->ensureObjectIsASchool($school);
 
-                \Cache::put('school', $school->slug, \Config::get('session.lifetime'));
-                return $school->slug;
+                \Cache::put('school', $school, \Config::get('session.lifetime'));
+                return $school;
             }
         }
 
@@ -101,16 +103,13 @@ class DomainAccess
         return true;
     }
 
-    private function bindContextToSchool($slug)
+    private function bindContextToSchool(School $school)
     {
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
-
-        $school = School::isActive()->bySlug($slug);
 
         if (is_null($school) || !is_subclass_of($school, Model::class)) {
             abort(404);
         }
-
         $context->set($school);
 
         return $school;
