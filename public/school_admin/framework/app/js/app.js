@@ -110,8 +110,17 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                     function ($scope) {
 
                     }]
-            }
-        );
+            })
+            .state('app.viewClassArm',
+            {
+                url: '/class/:id',
+                templateUrl: ViewBaseURL + '/class',
+                title: 'Class Dashboard',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            });
             //
             // CUSTOM RESOLVES
             //   Add your own resolves properties
@@ -382,7 +391,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
             angular.forEach(school_cat_arms, function (value, key) {
                 var item = {};
                 item.text = value.display_name;
-                item.sref = '';
+                item.sref = 'app.viewClassArm({id: ' + value.id + '})';
 
                 this.push(item);
             }, response);
