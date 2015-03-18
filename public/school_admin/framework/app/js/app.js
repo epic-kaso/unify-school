@@ -391,7 +391,8 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
             angular.forEach(school_cat_arms, function (value, key) {
                 var item = {};
                 item.text = value.display_name;
-                item.sref = 'app.viewClassArm({id: ' + value.id + '})';
+                item.sref = 'app.viewClassArm';
+                item.params = {id: value.id};
 
                 this.push(item);
             }, response);
