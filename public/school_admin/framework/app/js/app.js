@@ -94,13 +94,6 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
 
 
         $stateProvider
-            .state('setup', {
-                url: '/setup',
-                abstract: true,
-                templateUrl: ViewBaseURL + '/app',
-                controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons')
-            })
             .state('app', {
                 url: '/app',
                 abstract: true,
@@ -123,6 +116,16 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 url: '/class/:id',
                 templateUrl: ViewBaseURL + '/class',
                 title: 'Class Dashboard',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.settings',
+            {
+                url: '/settings',
+                templateUrl: ViewBaseURL + '/settings',
+                title: 'Settings',
                 controller: ['$scope',
                     function ($scope) {
                     }

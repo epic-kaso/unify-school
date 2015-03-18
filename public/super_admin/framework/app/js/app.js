@@ -99,7 +99,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 abstract: true,
                 templateUrl: ViewBaseURL + '/app',
                 controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons')
+                resolve: helper.resolveFor('modernizr', 'icons','toaster')
             })
             .state('app.schools',
             {
@@ -107,8 +107,8 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 templateUrl: ViewBaseURL + '/schools_list',
                 title: 'Schools',
                 resolve: helper.resolveFor('ngTable', 'ngTableExport'),
-                controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService',
-                    function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService) {
+                controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService','toaster',
+                    function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService,toaster) {
                         $scope.schools = SchoolsDataService.schools;
                         $scope.tableParams = new ngTableParams({
                             page: 1,            // show first page
@@ -130,7 +130,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                                 .then(function (data) {
                                     school.updating = false;
                                 }, function (data) {
-                                    alert('Failed to update!!');
+                                    toaster.pop('error','Schoo; Active State','Failed to change school\'s active state.');
                                     school.updating = false;
                                 });
                         };
@@ -144,12 +144,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                         }
                     }]
             }
-        )
-            .state('app.singleview', {
-                url: '/singleview',
-                title: 'Single View',
-                templateUrl: ViewBaseURL + '/single_view'
-            })
+        );
             //
             // CUSTOM RESOLVES
             //   Add your own resolves properties

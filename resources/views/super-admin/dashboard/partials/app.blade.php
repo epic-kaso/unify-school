@@ -12,3 +12,4 @@
 </section>
 <!-- Page footer-->
 <footer ng-include="'/unify/dashboard/partial/footer'"></footer>
+<toaster-container></toaster-container>

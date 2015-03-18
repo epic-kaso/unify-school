@@ -24,7 +24,7 @@ class NavigationMenuController extends Controller
     {
         $data = [
             [
-                "text" => "Menu Heading",
+                "text" => "Main Navigation",
                 "heading" => "true",
                 "translate" => "sidebar.heading.HEADER"
             ],
@@ -38,7 +38,17 @@ class NavigationMenuController extends Controller
                         "sref" => "app.submenu"
                     ]
                 ]
-            ]
+            ],
+            [
+            "text" => "Others",
+            "heading" => "true",
+            "translate" => "sidebar.heading.HEADER"
+            ],
+            [
+                "text" => "Settings",
+                "sref" => "app.settings",
+                "icon" => "fa fa-gears"
+            ],
         ];
 
         $result = [];

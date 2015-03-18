@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Africa/Lagos',
 
     /*
     |--------------------------------------------------------------------------
@@ -137,6 +137,7 @@ return [
         'Illuminate\View\ViewServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
         /*
          * Application Service Providers...
@@ -196,6 +197,7 @@ return [
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+        'Image' => 'Intervention\Image\Facades\Image'
 
     ],
 

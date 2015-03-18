@@ -17,6 +17,26 @@
 <!-- START Sidebar (left)-->
 <div class="aside-inner">
     <nav sidebar="" class="sidebar">
+
+        <div ng-hide="app.layout.isCollapsed"
+             class="btn-group btn-block" dropdown ng-controller="NavBarController"
+             style="padding-left: 10px;padding-right: 10px;margin-top: 10px;">
+            <button type="button" style="width: 90%" class="btn btn-danger navbar-btn"><span
+                        ng-bind="selectedSchoolCategory.display_name"></span></button>
+            <button type="button" style="width: 10%" class="btn btn-danger navbar-btn dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Split button!</span>
+            </button>
+            <ul class="dropdown-menu" role="menu" style="margin-left: 10px;margin-right: 10px;width: 90%;">
+                <li ng-if="schoolCategories.length > 1">
+                    <a href="#">All</a>
+                </li>
+                <li ng-repeat="category in schoolCategories">
+                    <a href="#" ng-click="prepareSchoolCategory($event,category)">@{{ category.display_name }}</a>
+                </li>
+            </ul>
+        </div>
+
         <!-- START sidebar nav-->
         <ul class="nav">
             <!-- Iterates over all sidebar items-->
