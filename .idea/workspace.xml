@@ -2,100 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\admin\css\admin.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\admin\css\admin.css.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\admin\js\admin.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\admin\js\admin_main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\admin\js\admin_main.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\app-rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\app.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-a.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-b.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-c.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-d.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-e.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-f.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-g.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\css\theme-h.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\js\app.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\app.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\footer.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\offsidebar-tab1.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\offsidebar-tab2.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\offsidebar.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\sidebar.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\partials\top-navbar.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\singleview.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\views\submenu.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\server\sidebar-menu.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\img\loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\css\font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\modernizr\modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\simple-line-icons\css\simple-line-icons.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\angularjs-toaster\toaster.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\angularjs-toaster\toaster.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\css\font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\modernizr\modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\simple-line-icons\css\simple-line-icons.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\i18n\en.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\i18n\es_AR.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\img\logo-single.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\img\logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\js\base.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\angularjs-toaster\toaster.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\angularjs-toaster\toaster.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\css\font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\fontawesome\fonts\fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\modernizr\modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\simple-line-icons\css\simple-line-icons.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\i18n\en.json" afterPath="$PROJECT_DIR$/public/school_admin/app/i18n/en.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\i18n\es_AR.json" afterPath="$PROJECT_DIR$/public/school_admin/app/i18n/es_AR.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\img\logo-single.png" afterPath="$PROJECT_DIR$/public/super_admin/app/img/logo-single.png" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\img\logo.png" afterPath="$PROJECT_DIR$/public/super_admin/app/img/logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\framework\app\js\base.js" afterPath="$PROJECT_DIR$/public/school_admin/app/js/base.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\app\i18n\en.json" afterPath="$PROJECT_DIR$/public/student/app/i18n/en.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\app\i18n\es_AR.json" afterPath="$PROJECT_DIR$/public/student/app/i18n/es_AR.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\app\js\app.js" afterPath="$PROJECT_DIR$/public/school_admin/app/js/app.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\app\js\base.js" afterPath="$PROJECT_DIR$/public/student/app/js/base.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\angularjs-toaster\toaster.css" afterPath="$PROJECT_DIR$/public/framework/vendor/angularjs-toaster/toaster.css" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\school_admin\framework\vendor\angularjs-toaster\toaster.js" afterPath="$PROJECT_DIR$/public/framework/vendor/angularjs-toaster/toaster.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\app\i18n\en.json" afterPath="$PROJECT_DIR$/public/super_admin/app/i18n/en.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\app\i18n\es_AR.json" afterPath="$PROJECT_DIR$/public/super_admin/app/i18n/es_AR.json" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\app\js\app.js" afterPath="$PROJECT_DIR$/public/student/app/js/app.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\student\framework\app\js\base.js" afterPath="$PROJECT_DIR$/public/super_admin/app/js/base.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\app\js\app.js" afterPath="$PROJECT_DIR$/public/super_admin/app/js/app.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\ng-table-export\ng-table-export.js" afterPath="$PROJECT_DIR$/public/framework/vendor/ng-table-export/ng-table-export.js" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\ng-table\dist\ng-table.min.css" afterPath="$PROJECT_DIR$/public/framework/vendor/ng-table/dist/ng-table.min.css" />
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\public\super_admin\framework\vendor\ng-table\dist\ng-table.min.js" afterPath="$PROJECT_DIR$/public/framework/vendor/ng-table/dist/ng-table.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" afterPath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/School.php" afterPath="$PROJECT_DIR$/app/School.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -121,16 +33,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="services.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3846154" vertical-offset="182" max-vertical-offset="731">
-              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/super_admin/app/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -141,20 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/session.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="73.69231" vertical-offset="2154" max-vertical-offset="2703">
-              <caret line="14" column="27" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/school_admin/app/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40213522" vertical-offset="3633" max-vertical-offset="16456">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3633" max-vertical-offset="16456">
               <caret line="235" column="28" selection-start-line="235" selection-start-column="28" selection-end-line="235" selection-end-column="28" />
               <folding>
                 <element signature="e#17911#18234#0" expanded="false" />
@@ -162,6 +54,76 @@
                 <element signature="e#27927#28538#0" expanded="false" />
                 <element signature="e#31397#33193#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CacheModelObserver.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="663">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchoolController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.769231" vertical-offset="909" max-vertical-offset="2516">
+              <caret line="79" column="45" selection-start-line="73" selection-start-column="8" selection-end-line="79" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterSchoolConfigController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/RegisterSchoolConfigController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="30.538462" vertical-offset="1185" max-vertical-offset="1734">
+              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchoolController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.9981343" vertical-offset="1266" max-vertical-offset="1802">
+              <caret line="46" column="76" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="School.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/School.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.423077" vertical-offset="1003" max-vertical-offset="3060">
+              <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchoolTypeRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.461538" vertical-offset="382" max-vertical-offset="935">
+              <caret line="46" column="49" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Entities/School/BaseModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.269231" vertical-offset="148" max-vertical-offset="986">
+              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -191,56 +153,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unify.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/unify.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.3846154" vertical-offset="114" max-vertical-offset="663">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.538462" vertical-offset="2987" max-vertical-offset="3570">
-              <caret line="201" column="6" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/super_admin/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12954">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -254,25 +166,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/single_view.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/assets/less/super_admin_dashboard.less" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/layout.blade.php" />
-        <option value="$PROJECT_DIR$/public/super_admin/framework/app/views/app.html" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/offsidebar-tab1.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/offsidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
         <option value="$PROJECT_DIR$/public/super_admin/css/super_admin.css" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/auth/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/top-navbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/DomainAccess.php" />
-        <option value="$PROJECT_DIR$/app/School.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/app.blade.php" />
@@ -305,6 +209,14 @@
         <option value="$PROJECT_DIR$/public/super_admin/app/js/app.js" />
         <option value="$PROJECT_DIR$/public/student/app/js/app.js" />
         <option value="$PROJECT_DIR$/public/school_admin/app/js/app.js" />
+        <option value="$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php" />
+        <option value="$PROJECT_DIR$/app/Entities/School/BaseModel.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/School/CrudRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/SchoolRepository.php" />
+        <option value="$PROJECT_DIR$/app/School.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
       </list>
     </option>
   </component>
@@ -383,6 +295,228 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repositories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Configurations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -453,12 +587,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00048" summary="fixes">
-      <created>1426417816457</created>
-      <option name="number" value="00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1426417816457</updated>
     </task>
     <task id="LOCAL-00049" summary="fixes">
       <created>1426418248679</created>
@@ -748,7 +876,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426719239691</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Slimming down">
+      <created>1426720067864</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1426720067864</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -783,7 +917,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.297546" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.297546" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -824,7 +958,8 @@
     <MESSAGE value="sub-domain routing fixes" />
     <MESSAGE value="school admin dashboard" />
     <MESSAGE value="student dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="student dashboard" />
+    <MESSAGE value="Slimming down" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slimming down" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,55 +968,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="22" column="2" selection-start-line="5" selection-start-column="6" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3995">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56335616" vertical-offset="657" max-vertical-offset="1445">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminDashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44363636" vertical-offset="45" max-vertical-offset="595">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2261">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="850">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/student/dashboard/partials/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/less/student.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="119">
@@ -1226,7 +1312,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/school_admin/app/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40213522" vertical-offset="3633" max-vertical-offset="16456">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3633" max-vertical-offset="16456">
           <caret line="235" column="28" selection-start-line="235" selection-start-column="28" selection-end-line="235" selection-end-column="28" />
           <folding>
             <element signature="e#17911#18234#0" expanded="false" />
@@ -1234,6 +1320,62 @@
             <element signature="e#27927#28538#0" expanded="false" />
             <element signature="e#31397#33193#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/School/BaseModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.269231" vertical-offset="148" max-vertical-offset="986">
+          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="663">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/School.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="1003" max-vertical-offset="3060">
+          <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.461538" vertical-offset="382" max-vertical-offset="935">
+          <caret line="46" column="49" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/RegisterSchoolConfigController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="30.538462" vertical-offset="1185" max-vertical-offset="1734">
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.769231" vertical-offset="909" max-vertical-offset="2516">
+          <caret line="79" column="45" selection-start-line="73" selection-start-column="8" selection-end-line="79" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9981343" vertical-offset="1266" max-vertical-offset="1802">
+          <caret line="46" column="76" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>

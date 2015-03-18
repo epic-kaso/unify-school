@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use UnifySchool\Entities\School\CacheModelObserver;
 
 /**
  * UnifySchool\School
@@ -76,6 +77,8 @@ class School extends Model
                 return $model->generateSlug();
             }
         });
+
+        static::observe(new CacheModelObserver());
     }
 
     private function generateSlug()

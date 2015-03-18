@@ -32,6 +32,8 @@ class BaseModel extends Model
                 $model->attributes['school_id'] = $model->getSchool()->id;
             }
         });
+
+        static::observe(new CacheModelObserver());
     }
 
     public function getSchool()
@@ -48,5 +50,10 @@ class BaseModel extends Model
     public function scopeUnScoped($query)
     {
         return $query->withAllSchools();
+    }
+
+    public static function table(){
+        $s = new static;
+        return $s->getTable();
     }
 }

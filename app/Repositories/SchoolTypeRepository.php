@@ -31,11 +31,26 @@ class SchoolTypeRepository
 
     public function fetchDefaultSchoolConfig()
     {
+        if(\App::environment() == 'production') {
+            return \Cache::tags('fetchDefaultSchoolConfig')
+                ->remember('schools_default_config', 60 * 24, function () {
+                    return $this->school->withDefaults()->get();
+                });
+        }
+
         return $this->school->withDefaults()->get();
     }
 
     public function fetchSupportedCountries()
     {
+
+        if(\App::environment() == 'production') {
+            return \Cache::tags('fetchSupportedCountries')
+                ->remember('schools_default_config', 60 * 24, function (){
+                    return $this->country->withStates()->get();
+                });
+        }
+
         return $this->country->withStates()->get();
     }
 }
