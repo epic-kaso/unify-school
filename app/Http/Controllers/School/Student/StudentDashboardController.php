@@ -26,6 +26,6 @@ class StudentDashboardController extends Controller
         $school = $this->getSchool();
         $school->load(School::$relationData);
 
-        return view('school.admin.dashboard.index', compact('school'));
+        return view('school.student.dashboard.index', compact('school'));
     }
 }

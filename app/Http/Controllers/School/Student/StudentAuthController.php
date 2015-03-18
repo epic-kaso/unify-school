@@ -11,7 +11,7 @@ namespace UnifySchool\Http\Controllers\School\Student;
 
 use Illuminate\Contracts\Auth\Guard;
 use UnifySchool\Http\Controllers\Controller;
-use UnifySchool\Http\Requests\AdminLoginRequest;
+use UnifySchool\Http\Requests\StudentLoginRequest;
 
 class StudentAuthController extends Controller
 {
@@ -33,30 +33,30 @@ class StudentAuthController extends Controller
     {
         $school = $this->getSchool();
 
-        return view('school.admin.auth.login', ['school' => $school]);
+        return view('school.student.auth.login', ['school' => $school]);
     }
 
 
-    public function postLogin(AdminLoginRequest $request)
+    public function postLogin(StudentLoginRequest $request)
     {
         $school = $this->getSchool();
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('reg_number', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember'))) {
             return redirect()->intended($this->redirectPath());
         }
 
         return redirect($this->loginPath())
-            ->withInput($request->only('email', 'remember'))
+            ->withInput($request->only('reg_number', 'remember'))
             ->withErrors([
-                'email' => $this->getFailedLoginMessage(),
+                'reg_number' => $this->getFailedLoginMessage(),
             ]);
     }
 
     public function redirectPath()
     {
-        return $this->generateUrl('/admin/dashboard');
+        return $this->generateUrl('/student/dashboard');
     }
 
     private function generateUrl($url)
@@ -70,7 +70,7 @@ class StudentAuthController extends Controller
 
     public function loginPath()
     {
-        return $this->generateUrl('/admin/auth/login');
+        return $this->generateUrl('/student/auth/login');
     }
 
     protected function getFailedLoginMessage()

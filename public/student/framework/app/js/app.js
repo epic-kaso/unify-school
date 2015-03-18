@@ -1,6 +1,6 @@
 /*!
  * 
- * SchoolAdminApp - Bootstrap Admin App + AngularJS
+ * StudentApp - Bootstrap Admin App + AngularJS
  * 
  * Author: @themicon_co
  * Website: http://themicon.co
@@ -15,7 +15,7 @@ if (typeof $ === 'undefined') {
 // APP START
 // ----------------------------------- 
 
-var App = angular.module('SchoolAdminApp', [
+var App = angular.module('StudentApp', [
     'ngRoute',
     'ngAnimate',
     'ngStorage',
@@ -48,7 +48,7 @@ App.run(
             // Scope Globals
             // -----------------------------------
             $rootScope.app = {
-                name: 'SchoolAdminApp',
+                name: 'StudentApp',
                 description: 'UnifySchools Admin App',
                 year: ((new Date()).getFullYear()),
                 layout: {
@@ -74,8 +74,8 @@ App.run(
  * App routes and resources configuration
  =========================================================*/
 
-App.constant('ViewBaseURL', '/admin/dashboard/partial');
-App.constant('AssetsBaseURL', '/school_admin/framework');
+App.constant('ViewBaseURL', '/student/dashboard/partial');
+App.constant('AssetsBaseURL', '/student/framework');
 
 App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider', 'ViewBaseURL',
     function ($stateProvider, $locationProvider, $urlRouterProvider, helper, ViewBaseURL) {
@@ -94,13 +94,6 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
 
 
         $stateProvider
-            .state('setup', {
-                url: '/setup',
-                abstract: true,
-                templateUrl: ViewBaseURL + '/app',
-                controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons')
-            })
             .state('app', {
                 url: '/app',
                 abstract: true,
@@ -128,22 +121,22 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                     }
                 ]
             });
-            //
-            // CUSTOM RESOLVES
-            //   Add your own resolves properties
-            //   following this object extend
-            //   method
-            // -----------------------------------
-            // .state('app.someroute', {
-            //   url: '/some_url',
-            //   templateUrl: 'path_to_template.html',
-            //   controller: 'someController',
-            //   resolve: angular.extend(
-            //     helper.resolveFor(), {
-            //     // YOUR RESOLVES GO HERE
-            //     }
-            //   )
-            // })
+        //
+        // CUSTOM RESOLVES
+        //   Add your own resolves properties
+        //   following this object extend
+        //   method
+        // -----------------------------------
+        // .state('app.someroute', {
+        //   url: '/some_url',
+        //   templateUrl: 'path_to_template.html',
+        //   controller: 'someController',
+        //   resolve: angular.extend(
+        //     helper.resolveFor(), {
+        //     // YOUR RESOLVES GO HERE
+        //     }
+        //   )
+        // })
 
 
     }]).config(['$ocLazyLoadProvider', 'APP_REQUIRES', function ($ocLazyLoadProvider, APP_REQUIRES) {
@@ -171,7 +164,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
     }]).config(['$translateProvider', function ($translateProvider) {
 
     $translateProvider.useStaticFilesLoader({
-        prefix: '/school_admin/framework/app/i18n/',
+        prefix: '/student/framework/app/i18n/',
         suffix: '.json'
     });
     $translateProvider.preferredLanguage('en');
@@ -222,21 +215,21 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
-            'modernizr': ['/school_admin/framework/vendor/modernizr/modernizr.js'],
-            'icons': ['/school_admin/framework/vendor/fontawesome/css/font-awesome.min.css',
-                '/school_admin/framework/vendor/simple-line-icons/css/simple-line-icons.css']
+            'modernizr': ['/student/framework/vendor/modernizr/modernizr.js'],
+            'icons': ['/student/framework/vendor/fontawesome/css/font-awesome.min.css',
+                '/student/framework/vendor/simple-line-icons/css/simple-line-icons.css']
         },
         // Angular based script (use the right module name)
         modules: [
             {
                 name: 'toaster',
-                files: ['/school_admin/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
+                files: ['/student/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
             },
             {
-                name: 'ngTable', files: ['/school_admin/framework/vendor/ng-table/dist/ng-table.min.js',
-                '/school_admin/framework/vendor/ng-table/dist/ng-table.min.css']
+                name: 'ngTable', files: ['/student/framework/vendor/ng-table/dist/ng-table.min.js',
+                '/student/framework/vendor/ng-table/dist/ng-table.min.css']
             },
-            {name: 'ngTableExport', files: ['/school_admin/framework/vendor/ng-table-export/ng-table-export.js']}
+            {name: 'ngTableExport', files: ['/student/framework/vendor/ng-table-export/ng-table-export.js']}
         ]
 
     })
@@ -379,33 +372,6 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 closeAllBut(-1);
             }
         });
-
-        $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
-            console.log('event selectedSchoolCat received');
-
-            if (angular.isDefined($scope.menuItems)) {
-                angular.forEach($scope.menuItems, function (value, key) {
-                    if (value.text == 'Classes') {
-                        value.submenu = prepareSubmenuItems(obj.value.school_category_arms);
-                    }
-                });
-            }
-        });
-
-        function prepareSubmenuItems(school_cat_arms) {
-            var response = [];
-
-            angular.forEach(school_cat_arms, function (value, key) {
-                var item = {};
-                item.text = value.display_name;
-                item.sref = 'app.viewClassArm';
-                item.params = {id: value.id};
-
-                this.push(item);
-            }, response);
-
-            return response;
-        }
 
         // Check item and children active state
         var isActive = function (item) {
@@ -868,7 +834,7 @@ App.provider('RouteHelpers', ['APP_REQUIRES', function (appRequires) {
     // Set here the base of the relative path
     // for all app views
     this.basepath = function (uri) {
-        return '/school_admin/framework/app/views/' + uri;
+        return '/student/framework/app/views/' + uri;
     };
 
     // Generates a resolve object by passing script names
@@ -1098,62 +1064,12 @@ App.service('Utils', ["$window", "APP_MEDIAQUERY", function ($window, APP_MEDIAQ
 // To run this code, edit file 
 // index.html or index.jade and change
 // html data-ng-app attribute from
-// SchoolAdminApp to myAppName
+// StudentApp to myAppName
 // ----------------------------------- 
 
-var myApp = angular.module('SchoolAdminApp');
-
-myApp.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
-
-    var TableData = {
-        cache: SchoolDataService.schools,
-        getData: function ($defer, params) {
-
-            filterdata($defer, params);
-
-            function filterdata($defer, params) {
-                var from = (params.page() - 1) * params.count();
-                var to = params.page() * params.count();
-                var filteredData = TableData.cache.slice(from, to);
-
-                params.total(TableData.cache.length);
-                $defer.resolve(filteredData);
-            }
-
-        }
-    };
-
-    return TableData;
-
-}]);
-
-myApp.factory('SchoolService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/school/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });
-}]);
-
+var myApp = angular.module('StudentApp');
 
 /**
  * Controllers
  *
  */
-
-myApp.controller('NavBarController', [
-        '$scope', '$rootScope', 'SchoolDataService',
-        function ($scope, $rootScope, SchoolDataService) {
-            $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
-            $scope.selectedSchoolCategory = $scope.schoolCategories[0];
-
-            $scope.prepareSchoolCategory = function ($event, category) {
-                $scope.selectedSchoolCategory = category;
-                $event.preventDefault();
-            };
-
-            $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
-                console.log('selectedSchoolCategoryChanged event');
-                $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
-                console.log('selectedSchoolCategoryChanged raised');
-            });
-        }]
-);

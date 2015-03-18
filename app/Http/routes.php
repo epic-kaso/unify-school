@@ -72,6 +72,7 @@ Route::group(
             'password' => 'StudentPasswordController',
         ]);
         Route::controller('dashboard', 'StudentDashboardController');
+        Route::resource('resources/menu', 'Dashboard\NavigationMenuController');
     }
 );
 
