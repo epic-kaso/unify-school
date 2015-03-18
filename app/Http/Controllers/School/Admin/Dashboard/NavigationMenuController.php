@@ -29,17 +29,6 @@ class NavigationMenuController extends Controller
                 "translate" => "sidebar.heading.HEADER"
             ],
             [
-                "text" => "Schools",
-                "sref" => "app.schools",
-                "icon" => "icon-users"
-            ],
-//            [
-//                "text" => "Single View",
-//                "sref" => "app.singleview",
-//                "icon" => "fa fa-file-o",
-//                "translate" => "sidebar.nav.SINGLEVIEW"
-//            ],
-            [
                 "text" => "Classes",
                 "sref" => "#",
                 "icon" => "icon-folder",
