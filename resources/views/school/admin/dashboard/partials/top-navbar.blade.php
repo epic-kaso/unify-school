@@ -70,7 +70,7 @@
                     {{ Auth::user()->email }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/unify/auth/logout">Logout</a></li>
+                    <li><a href="/admin/auth/logout">Logout</a></li>
                 </ul>
             </li>
             <!-- END Offsidebar menu-->
