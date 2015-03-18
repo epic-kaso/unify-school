@@ -41,15 +41,15 @@ class DomainAccess
 
         $needsLookup = true;
 
-        if (\Cache::has('school')) {
-            $school = \Cache::get('school');
+        if (\Cache::has('global_school_context')) {
+            $school = \Cache::get('global_school_context');
             if ($subDomain == $school->slug) {
                 return $school;
             }
         }
 
         if ($needsLookup) {
-            \Cache::forget('school');
+            \Cache::forget('global_school_context');
 
             if ($this->isSpecialSubDomain($subDomain)) {
                 return true;
@@ -64,7 +64,7 @@ class DomainAccess
 
                 $this->ensureObjectIsASchool($school);
 
-                \Cache::put('school', $school, \Config::get('session.lifetime'));
+                \Cache::put('global_school_context', $school, \Config::get('session.lifetime'));
                 return $school;
             }
         }
