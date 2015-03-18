@@ -366,7 +366,29 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
         $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
             console.log('event selectedSchoolCat received');
+
+            if (angular.isDefined($scope.menuItems)) {
+                angular.forEach($scope.menuItems, function (value, key) {
+                    if (value.text == 'Classes') {
+                        value.submenu = prepareSubmenuItems(obj.value.school_category_arms);
+                    }
+                });
+            }
         });
+
+        function prepareSubmenuItems(school_cat_arms) {
+            var response = [];
+
+            angular.forEach(school_cat_arms, function (value, key) {
+                var item = {};
+                item.text = value.display_name;
+                item.sref = '';
+
+                this.push(item);
+            }, response);
+
+            return response;
+        }
 
         // Check item and children active state
         var isActive = function (item) {

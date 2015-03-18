@@ -44,7 +44,8 @@ class NavigationMenuController extends Controller
                 "sref" => "#",
                 "icon" => "icon-folder",
                 "submenu" => [
-                    ["text" => "JSS 1",
+                    [
+                        "text" => "JSS 1",
                         "sref" => "app.submenu"
                     ]
                 ]
