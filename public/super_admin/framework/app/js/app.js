@@ -248,7 +248,7 @@ App
         modules: [
             {
                 name: 'toaster',
-                files: ['/super_admin/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
+                files: ['/super_admin/framework/vendor/angularjs-toaster/toaster.js', '/super_admin/framework/vendor/angularjs-toaster/toaster.css']
             },
             {
                 name: 'ngTable', files: ['/super_admin/framework/vendor/ng-table/dist/ng-table.min.js',

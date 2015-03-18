@@ -233,7 +233,7 @@ App
         modules: [
             {
                 name: 'toaster',
-                files: ['/school_admin/framework/vendor/angularjs-toaster/toaster.js', 'vendor/angularjs-toaster/toaster.css']
+                files: ['/school_admin/framework/vendor/angularjs-toaster/toaster.js', '/school_admin/framework/vendor/angularjs-toaster/toaster.css']
             },
             {
                 name: 'ngTable', files: ['/school_admin/framework/vendor/ng-table/dist/ng-table.min.js',
