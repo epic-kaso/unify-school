@@ -5,6 +5,7 @@ use UnifySchool\Commands\Command;
 use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Entities\School\ScopedSessionType;
+use UnifySchool\Events\NewSchoolRegistered;
 use UnifySchool\School;
 
 class CreateNewSchool extends Command implements SelfHandling
@@ -92,6 +93,7 @@ class CreateNewSchool extends Command implements SelfHandling
             throw new \Exception('Could not create school');
 
         //raise new school event
+        event(new NewSchoolRegistered($school));
 
         return $school;
     }

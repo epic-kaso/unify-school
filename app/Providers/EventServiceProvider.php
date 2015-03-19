@@ -15,6 +15,9 @@ class EventServiceProvider extends ServiceProvider
         'event.name' => [
             'EventListener',
         ],
+        'UnifySchool\Events\NewSchoolRegistered' => [
+            'UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails',
+        ],
     ];
 
     /**
