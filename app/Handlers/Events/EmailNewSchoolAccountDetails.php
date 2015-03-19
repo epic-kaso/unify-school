@@ -1,11 +1,9 @@
 <?php namespace UnifySchool\Handlers\Events;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldBeQueued;
 use UnifySchool\Events\NewSchoolRegistered;
 use UnifySchool\School;
 
-class EmailNewSchoolAccountDetails implements ShouldBeQueued {
+class EmailNewSchoolAccountDetails{
 
 	/**
 	 * Create the event handler.
