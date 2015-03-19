@@ -3,6 +3,7 @@
 use Illuminate\Contracts\Bus\SelfHandling;
 use UnifySchool\Commands\Command;
 use UnifySchool\Entities\School\SchoolAdministrator;
+use UnifySchool\Events\NewSchoolRegistered;
 use UnifySchool\School;
 
 class UpdateSchoolAdminDetails extends Command implements SelfHandling
@@ -48,6 +49,9 @@ class UpdateSchoolAdminDetails extends Command implements SelfHandling
         $admin->school_id = $this->school->id;
 
         $admin->save();
+
+        //raise new school event
+        event(new NewSchoolRegistered($this->school));
 
         return $admin;
 

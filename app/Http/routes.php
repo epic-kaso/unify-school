@@ -15,6 +15,7 @@ Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageControll
 
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
+Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
 
 /*
  * -------------------------------------------------------------------------

@@ -92,9 +92,6 @@ class CreateNewSchool extends Command implements SelfHandling
         if (is_null($school))
             throw new \Exception('Could not create school');
 
-        //raise new school event
-        event(new NewSchoolRegistered($school));
-
         return $school;
     }
 

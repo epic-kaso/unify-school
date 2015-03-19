@@ -7,7 +7,7 @@ use UnifySchool\School;
 class DomainAccess
 {
 
-    protected $specialSubDomains = ['www', 'unify'];
+    protected $specialSubDomains = ['www', 'unify','localhost','app'];
     /**
      * Handle an incoming request.
      *
@@ -17,7 +17,7 @@ class DomainAccess
      */
     public function handle($request, Closure $next)
     {
-        // Checks subdomain is valid and exists in DB.
+
         $validProgram = $this->check();
         if (!$validProgram) {
             return \Redirect::to('/');

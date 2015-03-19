@@ -27,10 +27,9 @@ class EmailNewSchoolAccountDetails implements ShouldBeQueued {
 	{
 
         $school = $event->getSchool()->load(School::$relationData);
-        $data = $school->toArray();
         $admin_email = $school->administrator->email;
 
-        \Mail::send('emails.school.new_school', $data, function($message) use($admin_email)
+        \Mail::send('emails.school.new_school', ['school' => $school], function($message) use($admin_email)
         {
             $message->from('no-reply@kaso.co', 'Unify Schools Project:: Klipboard');
             $message->to($admin_email)
