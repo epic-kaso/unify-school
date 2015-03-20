@@ -97,7 +97,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: ViewBaseURL + '/app',
+                templateUrl: ViewBaseURL + '/ui/app',
                 controller: 'AppController',
                 resolve: helper.resolveFor('modernizr', 'icons')
             })
@@ -114,7 +114,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app.viewClassArm',
             {
                 url: '/class/:id',
-                templateUrl: ViewBaseURL + '/class',
+                templateUrl: ViewBaseURL + '/pages/school_class',
                 title: 'Class Dashboard',
                 controller: ['$scope',
                     function ($scope) {
@@ -124,8 +124,78 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app.settings',
             {
                 url: '/settings',
-                templateUrl: ViewBaseURL + '/settings',
+                templateUrl: ViewBaseURL + '/pages/settings',
                 title: 'Settings',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+
+            //Student Module Routes
+            .state('app.enroll_student',
+            {
+                url: '/students/enroll-student',
+                templateUrl: ViewBaseURL + '/students/enroll_student',
+                title: 'Enroll A New Student',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.enroll_students',
+            {
+                url: '/students/enroll-students',
+                templateUrl: ViewBaseURL + '/students/enroll_students',
+                title: 'Enroll Many Students',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.import_students',
+            {
+                url: '/students/import',
+                templateUrl: ViewBaseURL + '/students/import-students',
+                title: 'Import Students',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+
+                        console.log(SchoolDataService.school.school_type.school_categories);
+
+                        $scope.current_school_classes = null;
+                        $scope.school_categories = SchoolDataService.school.school_type.school_categories;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+                        $scope.$watch('form.school_category',function(newV,oldV){
+                            setCurrentSchoolClassesForSchoolType(newV);
+                        });
+
+
+                        function setCurrentSchoolClassesForSchoolType(newV){
+                            var school_type = null;
+                            angular.forEach($scope.school_categories,function(value,key){
+                                if(value.id == newV){
+                                    school_type = value;
+                                    return ;
+                                }
+                            });
+
+                            if(angular.isDefined(school_type) && school_type != null){
+                                $scope.current_school_classes = school_type.classes;
+                            }
+                        }
+
+                    }
+                ]
+            })
+            .state('app.export_students',
+            {
+                url: '/students/export',
+                templateUrl: ViewBaseURL + '/students/export-students',
+                title: 'Export Students',
                 controller: ['$scope',
                     function ($scope) {
                     }

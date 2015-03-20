@@ -28,6 +28,7 @@
  */
 class ScopedSchoolType extends BaseModel
 {
+    protected $appends = ['classes'];
 
     protected $casts = [
         'meta' => 'object'
@@ -52,5 +53,13 @@ class ScopedSchoolType extends BaseModel
             'school_categories.school_category_arms',
             'school_categories.school_category_arms.school_category_arm_subdivisions'
         );
+    }
+
+    public function getClassesAttribute(){
+        $response = [];
+        foreach($this->school_categories as $category){
+            $response = array_merge($response,$category->classes);
+        }
+        return $response;
     }
 }

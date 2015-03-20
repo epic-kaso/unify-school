@@ -131,17 +131,17 @@ class CreateNewSchool extends Command implements SelfHandling
             $session->session_divisions_name = 'sub_session';
             $session->session_name = 'session';
             $session->session_display_name = 'Session';
-            $session->school_id = $this->school->id;
-            $session->save();
         } else {
             $session->session_type = $school_type['session_type']['session_type'];
             $session->session_divisions_display_name = $school_type['session_type']['session_divisions_display_name'];
             $session->session_divisions_name = $school_type['session_type']['session_divisions_name'];
             $session->session_name = $school_type['session_type']['session_name'];
             $session->session_display_name = $school_type['session_type']['session_display_name'];;
-            $session->school_id = $this->school->id;
-            $session->save();
+
+
         }
+        $session->school_id = $this->school->id;
+        $session->save();
 
         return $session->id;
 

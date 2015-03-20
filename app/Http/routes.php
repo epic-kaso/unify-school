@@ -15,8 +15,6 @@ Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageControll
 
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
-Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
-
 /*
  * -------------------------------------------------------------------------
  * SUB-DOMAIN ROUTES
@@ -38,6 +36,7 @@ Route::group(
     ],
     function () {
         Route::resource('school', 'School\SchoolController');
+        Route::resource('import-students', 'School\StudentImportController');
         Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
 
     }
@@ -98,3 +97,5 @@ Route::group(
         Route::resource('resources/school', 'Resources\SchoolController');
     }
 );
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

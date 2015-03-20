@@ -28,6 +28,11 @@ class NavigationMenuController extends Controller
                 "heading" => "true"
             ],
             [
+                "text" => "Home",
+                "sref" => "app.home",
+                "icon" => "fa fa-house"
+            ],
+            [
                 "text" => "Classes",
                 "sref" => "#",
                 "icon" => "icon-folder",

@@ -29,8 +29,17 @@ class AdminDashboardController extends Controller
         return view('school.admin.dashboard.index', compact('school'));
     }
 
-    public function getPartial($partial)
+    public function getPartial($first, $second = null, $third = null)
     {
-        return view('school.admin.dashboard.partials.' . $partial);
+        if(!is_null($first) && is_null($second) && is_null($third)) {
+            return view('school.admin.dashboard.partials.' . $first);
+        }elseif(!is_null($first) && !is_null($second) && is_null($third)){
+            return view("school.admin.dashboard.partials.$first.$second");
+        }elseif(!is_null($first) && !is_null($second) && !is_null($third)){
+            return view("school.admin.dashboard.partials.$first.$second.$third");
+        }else{
+            abort(404);
+            return null;
+        }
     }
 }

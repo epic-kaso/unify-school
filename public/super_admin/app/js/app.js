@@ -97,14 +97,14 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: ViewBaseURL + '/app',
+                templateUrl: ViewBaseURL + '/ui/app',
                 controller: 'AppController',
                 resolve: helper.resolveFor('modernizr', 'icons', 'toaster')
             })
             .state('app.schools',
             {
                 url: '/schools',
-                templateUrl: ViewBaseURL + '/schools_list',
+                templateUrl: ViewBaseURL + '/schools/schools_list',
                 title: 'Schools',
                 resolve: helper.resolveFor('ngTable', 'ngTableExport'),
                 controller: ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService', 'toaster',

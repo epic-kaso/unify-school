@@ -26,6 +26,8 @@
 class ScopedSchoolCategory extends BaseModel
 {
 
+    protected $appends = ['classes'];
+
     protected $casts = [
         'meta' => 'object'
     ];
@@ -38,6 +40,15 @@ class ScopedSchoolCategory extends BaseModel
     public function school_category_arms()
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArm');
+    }
+
+    public function getClassesAttribute(){
+        $response = [];
+        foreach($this->school_category_arms as $arm){
+            $response = array_merge($response,$arm->school_category_arm_subdivisions->toArray());
+        }
+
+        return $response;
     }
 
 }

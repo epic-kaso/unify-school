@@ -49,11 +49,13 @@ use UnifySchool\Entities\School\CacheModelObserver;
 class School extends Model
 {
 
-    public static $relationData = ['country',
+    public static $relationData = [
+        'country',
         'state',
         'administrator',
         'administrators',
         'school_type',
+        'session_type',
         'school_type.session_type',
         'school_type.school_categories',
         'school_type.school_categories.school_category_arms',
@@ -108,17 +110,7 @@ class School extends Model
 
     public function scopeWithData($query)
     {
-        return $query->with(
-            'country',
-            'state',
-            'administrator',
-            'administrators',
-            'school_type',
-            'school_type.session_type',
-            'school_type.school_categories',
-            'school_type.school_categories.school_category_arms',
-            'school_type.school_categories.school_category_arms.school_category_arm_subdivisions'
-        );
+        return $query->with(static::$relationData);
     }
 
     public function country()
@@ -139,6 +131,11 @@ class School extends Model
     public function administrators()
     {
         return $this->hasMany('UnifySchool\Entities\School\SchoolAdministrator');
+    }
+
+    public function session_type()
+    {
+        return $this->hasOne('UnifySchool\Entities\School\ScopedSessionType');
     }
 
     public function administrator()

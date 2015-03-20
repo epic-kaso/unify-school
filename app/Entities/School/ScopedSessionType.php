@@ -27,5 +27,4 @@
 class ScopedSessionType extends BaseModel
 {
 
-
 }

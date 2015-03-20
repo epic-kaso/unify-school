@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b019186fbc31642805c88d7785dd2a4",
+    "hash": "d1b8451fd9504d475473c429f5ba62fc",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -68,6 +68,53 @@
                 "sublime"
             ],
             "time": "2015-03-17 08:00:28"
+        },
+        {
+            "name": "bosnadev/repositories",
+            "version": "0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bosnadev/Repositories.git",
+                "reference": "27951d8d017d0645f194dbf170b6198c4f96bebf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bosnadev/Repositories/zipball/27951d8d017d0645f194dbf170b6198c4f96bebf",
+                "reference": "27951d8d017d0645f194dbf170b6198c4f96bebf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bosnadev\\Repositories\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mirza Pasic",
+                    "email": "mirza.pasic@edu.fit.ba"
+                }
+            ],
+            "description": "Laravel Repositories",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "repositories",
+                "repository"
+            ],
+            "time": "2015-03-17 09:34:12"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1265,16 +1312,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "cd2ecfcc5208d96445df6d5b9170efb3786509a3"
+                "reference": "5da62ad9c8250fe332a6322d0b110559174e30d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/cd2ecfcc5208d96445df6d5b9170efb3786509a3",
-                "reference": "cd2ecfcc5208d96445df6d5b9170efb3786509a3",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/5da62ad9c8250fe332a6322d0b110559174e30d5",
+                "reference": "5da62ad9c8250fe332a6322d0b110559174e30d5",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1375,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2015-02-16 11:12:55"
+            "time": "2015-03-19 13:47:43"
         },
         {
             "name": "monolog/monolog",
@@ -1802,6 +1849,49 @@
                 "shell"
             ],
             "time": "2015-03-17 15:17:33"
+        },
+        {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v0.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "2cfcb7c9d3ec6e8c7269eb15206ce256d1472349"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/2cfcb7c9d3ec6e8c7269eb15206ce256d1472349",
+                "reference": "2cfcb7c9d3ec6e8c7269eb15206ce256d1472349",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*|5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphael@ornikar.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging"
+            ],
+            "time": "2015-02-27 13:37:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
