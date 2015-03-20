@@ -99,3 +99,13 @@ Route::group(
 );
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+Route::get('queue',function(){
+   Mail::queue('emails.ticket',[],function($message){
+       $message->to('kasoprecede47@gmail.com');
+   });
+
+   Queue::push(function($job){
+       Log::debug('Testing backgound task');
+   });
+});
