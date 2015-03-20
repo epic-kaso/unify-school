@@ -13,7 +13,12 @@ class ContextServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $monolog = \Log::getMonolog();
+        $syslog = new \Monolog\Handler\SyslogHandler('papertrail');
+        $formatter = new \Monolog\Formatter\LineFormatter('%channel%.%level_name%: %message% %extra%');
+        $syslog->setFormatter($formatter);
+
+        $monolog->pushHandler($syslog);
     }
 
     /**
