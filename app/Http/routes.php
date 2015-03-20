@@ -99,6 +99,9 @@ Route::group(
 );
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+Route::get('download-logs',function(){
+    return Response::download(storage_path('logs/laravel-'.\Carbon\Carbon::now()->toDateString().'.log'));
+});
 
 Route::get('queue',function(){
    Mail::queue('emails.ticket',[],function($message){
