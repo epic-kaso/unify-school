@@ -27,7 +27,7 @@ class DashboardController extends Controller
     }
 
 
-    public function getPartial($first,$second,$third)
+    public function getPartial($first,$second = null,$third = null)
     {
         if(!is_null($first) && is_null($second) && is_null($third)) {
             return view('super-admin.admin.dashboard.partials.' . $first);
