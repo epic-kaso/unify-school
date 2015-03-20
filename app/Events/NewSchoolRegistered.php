@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Events;
 
 use Illuminate\Queue\SerializesModels;
+use UnifySchool\Entities\School\SchoolAdministrator;
 use UnifySchool\School;
 
 class NewSchoolRegistered extends Event {
@@ -8,15 +9,21 @@ class NewSchoolRegistered extends Event {
 	use SerializesModels;
 
     protected $school;
-	/**
-	 * Create a new event instance.
-	 *
-	 * @return void
-	 */
-	public function __construct(School $school)
+    /**
+     * @var SchoolAdministrator
+     */
+    private $administrator;
+
+    /**
+     * Create a new event instance.
+     *
+     * @param School $school
+     */
+	public function __construct(School $school,SchoolAdministrator $administrator)
 	{
-		//
+		\Log::debug('NewSchoolRegistered event raised');
         $this->school = $school;
+        $this->administrator = $administrator;
     }
 
     /**
@@ -25,6 +32,14 @@ class NewSchoolRegistered extends Event {
     public function getSchool()
     {
         return $this->school;
+    }
+
+    /**
+     * @return SchoolAdministrator
+     */
+    public function getAdministrator()
+    {
+        return $this->administrator;
     }
 
 }

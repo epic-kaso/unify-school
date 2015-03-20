@@ -25,12 +25,12 @@ class EmailNewSchoolAccountDetails{
 	{
 
         $school = $event->getSchool()->load(School::$relationData);
-        $admin_email = $school->administrator->email;
+        $admin_email = $event->getAdministrator()->email;
 
         \Mail::queue('emails.school.new_school', ['school' => $school], function($message) use($admin_email)
         {
-            $message->from('no-reply@kaso.co', 'Unify Schools Project:: Klipboard');
-            $message->to($admin_email)
+            $message
+                ->to($admin_email)
                 ->subject('Successful School Registration, School Details');
         });
 
