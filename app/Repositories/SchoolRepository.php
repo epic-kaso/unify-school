@@ -26,6 +26,7 @@ class SchoolRepository extends BaseRepository {
     public function create(array $data)
     {
         $school = parent::create($data);
+        return $school;
     }
 
 
