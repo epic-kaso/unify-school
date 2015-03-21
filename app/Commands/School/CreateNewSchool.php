@@ -93,7 +93,7 @@ class CreateNewSchool extends Command implements SelfHandling
     {
         $school = $this->createSchool($schoolRepository);
         $schoolType = $this->createScopedSchoolType($schoolTypeRepository,$this->school_type, $school,$sessionTypeRepository);
-        $this->setSchoolType($school,$schoolType);
+        $schoolRepository->setSchoolType($school,$schoolType);
         $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
 
 
@@ -143,15 +143,15 @@ class CreateNewSchool extends Command implements SelfHandling
 
         $sessionData['school_id'] = $this->school->id;
         $sessionData['session_divisions_name'] = 'sub_session';
-        $session['session_name'] = 'session';
+        $sessionData['session_name'] = 'session';
 
         if (isset($school_type['session'])) {
             $sessionData['session_type'] = $school_type['session']['session_type'];
-            $session['session_display_name'] = 'Session';
+            $sessionData['session_display_name'] = 'Session';
             $sessionData['session_divisions_display_name'] = $school_type['session']['session_divisions_display_name'];
         } else {
             $sessionData['session_type'] = $school_type['session_type']['session_type'];
-            $session['session_display_name'] = $school_type['session_type']['session_display_name'];
+            $sessionData['session_display_name'] = $school_type['session_type']['session_display_name'];
             $sessionData['session_divisions_display_name'] = $school_type['session_type']['session_divisions_display_name'];
         }
 
@@ -159,7 +159,11 @@ class CreateNewSchool extends Command implements SelfHandling
         return  $session;
     }
 
-    private function createScopedSchoolCategories(ScopedSchoolCategoriesRepository $schoolCategoriesRepository,School $school, ScopedSchoolType $schoolType)
+    private function createScopedSchoolCategories(
+        ScopedSchoolCategoriesRepository $schoolCategoriesRepository,
+        School $school,
+        ScopedSchoolType $schoolType
+    )
     {
         foreach ($this->school_type['school_categories'] as $category) {
             $cat = [];
@@ -170,11 +174,6 @@ class CreateNewSchool extends Command implements SelfHandling
 
             $schoolCategoriesRepository->create($cat);
         }
-    }
-
-    private function setSchoolType(School $school,ScopedSchoolType $schoolType)
-    {
-        $school->setSchoolType($schoolType);
     }
 
 }

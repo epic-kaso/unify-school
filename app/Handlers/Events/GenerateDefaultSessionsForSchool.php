@@ -29,7 +29,7 @@ class GenerateDefaultSessionsForSchool {
 		TertiaryOrNonTertiarySchoolTypeDetected $event
 		)
 	{
-	    $sessionGenerator = new SessionGenerator;
+	    $sessionGenerator = \App::make(SessionGenerator::class);
 		$school = $event->getSchool();
 		$sessions = $this->makeSessions($sessionGenerator);
 

@@ -9,6 +9,7 @@
 namespace UnifySchool\Repositories;
 
 
+use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\School;
 
 class SchoolRepository extends BaseRepository {
@@ -27,6 +28,13 @@ class SchoolRepository extends BaseRepository {
     {
         $school = parent::create($data);
         return $school;
+    }
+
+
+
+    public function setSchoolType(School $school,ScopedSchoolType $schoolType)
+    {
+        $school->setSchoolType($schoolType);
     }
 
 

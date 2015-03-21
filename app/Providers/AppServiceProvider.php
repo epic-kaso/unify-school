@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use UnifySchool\Entities\Resources\NonTertiary\SessionGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,14 @@ class AppServiceProvider extends ServiceProvider
             'Illuminate\Contracts\Auth\Registrar',
             'UnifySchool\Services\Registrar'
         );
+
+        $this->app->singleton(SessionGenerator::class,function(){
+            return new SessionGenerator();
+        });
+
+        if ($this->app->environment() == 'local') {
+            $this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
+        }
     }
 
 }
