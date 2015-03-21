@@ -38,7 +38,6 @@ Route::group(
         Route::resource('school', 'School\SchoolController');
         Route::resource('import-students', 'School\StudentImportController');
         Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
-
     }
 );
 
