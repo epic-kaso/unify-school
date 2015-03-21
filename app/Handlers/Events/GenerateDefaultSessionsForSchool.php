@@ -29,6 +29,8 @@ class GenerateDefaultSessionsForSchool {
 		TertiaryOrNonTertiarySchoolTypeDetected $event
 		)
 	{
+		\Log::debug('TertiaryNonTertiary Event Handler called');
+
 	    $sessionGenerator = \App::make(SessionGenerator::class);
 		$school = $event->getSchool();
 		$sessions = $this->makeSessions($sessionGenerator);

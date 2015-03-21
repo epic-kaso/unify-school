@@ -24,6 +24,8 @@ class EmailNewSchoolAccountDetails{
 	public function handle(NewSchoolRegistered $event)
 	{
 
+        \Log::debug('New School Register Event handler called');
+
         $school = $event->getSchool()->load(School::$relationData);
         $admin_email = $event->getAdministrator()->email;
 
