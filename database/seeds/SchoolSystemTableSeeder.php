@@ -147,17 +147,17 @@ class SchoolSystemTableSeeder extends Seeder
 
         $data = [
             [
-                "name" => "tertiary",
+                "name" => SchoolType::SCHOOL_TERTIARY,
                 "display_name" => "Tertiary (Universities, Poly etc)",
                 "session_type" => $tertiarySession
             ],
             [
-                "name" => "non_tertiary",
+                "name" => SchoolType::SCHOOL_NON_TERTIARY,
                 "display_name" => "Non Tertiary (Nursery, Primary etc )",
                 "session_type" => $nonTertiarySession
             ],
             [
-                "name" => "custom",
+                "name" => SchoolType::SCHOOL_CUSTOM,
                 "display_name" => "Other Schools (Business School, etc)",
                 "session_type" => $customSession
             ]

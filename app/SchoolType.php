@@ -27,6 +27,10 @@ use Illuminate\Database\Eloquent\Model;
 class SchoolType extends Model
 {
 
+    const SCHOOL_TERTIARY = 'tertiary';
+    const SCHOOL_NON_TERTIARY = 'non_tertiary';
+    const SCHOOL_CUSTOM = 'custom';
+
     protected $casts = [
         'meta' => 'object'
     ];

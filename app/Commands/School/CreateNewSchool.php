@@ -176,8 +176,7 @@ class CreateNewSchool extends Command implements SelfHandling
 
     private function setSchoolType(School $school,ScopedSchoolType $schoolType)
     {
-        $school->school_type_id = $schoolType->id;
-        $school->save();
+        $school->setSchoolType($schoolType);
     }
 
 }

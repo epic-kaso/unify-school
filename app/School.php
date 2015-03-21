@@ -3,6 +3,8 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use UnifySchool\Entities\School\CacheModelObserver;
+use UnifySchool\Entities\School\ScopedSchoolType;
+use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
 
 /**
  * UnifySchool\School
@@ -140,6 +142,11 @@ class School extends Model
         return $this->hasOne('UnifySchool\Entities\School\ScopedSessionType');
     }
 
+    public function sessions()
+    {
+        return $this->hasMany('UnifySchool\Entities\School\ScopedSession');
+    }
+
     public function administrator()
     {
         return $this->hasOne('UnifySchool\Entities\School\SchoolAdministrator');
@@ -171,5 +178,15 @@ class School extends Model
     {
         $this->active = $active;
         $this->save();
+    }
+
+    public function setSchoolType(ScopedSchoolType $schoolType)
+    {
+        $this->school_type_id = $schoolType->id;
+        $this->save();
+
+        if($schoolType->name != SchoolType::SCHOOL_CUSTOM){
+            \Event::fire(new TertiaryOrNonTertiarySchoolTypeDetected($this));
+        }
     }
 }

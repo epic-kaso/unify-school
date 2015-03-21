@@ -22,4 +22,11 @@ class SchoolRepository extends BaseRepository {
     {
         return School::class;
     }
+
+    public function create(array $data)
+    {
+        $school = parent::create($data);
+    }
+
+
 }

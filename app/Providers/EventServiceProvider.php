@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         'UnifySchool\Events\NewSchoolRegistered' => [
             'UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails',
         ],
+        'UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected' => [
+            'UnifySchool\Handlers\Events\GenerateDefaultSessionsForSchool',
+        ],
     ];
 
     /**
