@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use UnifySchool\Entities\School\ScopedSessionType;
+use UnifySchool\Repositories\School\ScopedSessionTypeRepository;
 
 class CreateScopedSubSessionTypesTable extends Migration {
 
@@ -21,6 +23,14 @@ class CreateScopedSubSessionTypesTable extends Migration {
 			$table->string('display_name');
 			$table->timestamps();
 		});
+
+		$sessionTypeRepository = App::make(ScopedSessionTypeRepository::class);
+
+		foreach(ScopedSessionType::all() as $model){
+			$data = $model->toArray();
+			$model->delete();
+			$sessionTypeRepository->create($data);
+		}
 	}
 
 	/**
