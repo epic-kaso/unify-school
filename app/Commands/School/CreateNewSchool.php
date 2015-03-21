@@ -6,6 +6,10 @@ use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Entities\School\ScopedSessionType;
 use UnifySchool\Events\NewSchoolRegistered;
+use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
+use UnifySchool\Repositories\School\ScopedSchoolTypeRepository;
+use UnifySchool\Repositories\School\ScopedSessionTypeRepository;
+use UnifySchool\Repositories\SchoolRepository;
 use UnifySchool\School;
 
 class CreateNewSchool extends Command implements SelfHandling
@@ -74,20 +78,25 @@ class CreateNewSchool extends Command implements SelfHandling
     /**
      * Execute the command.
      *
+     * @param SchoolRepository $schoolRepository
+     * @param ScopedSessionTypeRepository $sessionTypeRepository
+     * @param ScopedSchoolTypeRepository $schoolTypeRepository
+     * @param ScopedSchoolCategoriesRepository $schoolCategoriesRepository
      * @return School|static
      * @throws \Exception
      */
-    public function handle()
+    public function handle(
+        SchoolRepository $schoolRepository,
+        ScopedSessionTypeRepository $sessionTypeRepository,
+        ScopedSchoolTypeRepository $schoolTypeRepository,
+        ScopedSchoolCategoriesRepository $schoolCategoriesRepository
+    )
     {
-        $school = $this->createSchool();
-        $this->school = $school;
+        $school = $this->createSchool($schoolRepository);
+        $schoolType = $this->createScopedSchoolType($schoolTypeRepository,$this->school_type, $school,$sessionTypeRepository);
+        $this->setSchoolType($school,$schoolType);
+        $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
 
-        $schoolType = $this->createScopedSchoolType($this->school_type, $school);
-
-        $school->school_type_id = $schoolType->id;
-        $school->save();
-
-        $this->createScopedSchoolCategories($school, $schoolType);
 
         if (is_null($school))
             throw new \Exception('Could not create school');
@@ -96,67 +105,79 @@ class CreateNewSchool extends Command implements SelfHandling
     }
 
     /**
+     * @param SchoolRepository $schoolRepository
      * @return School
      */
-    private function createSchool()
+    private function createSchool(SchoolRepository $schoolRepository)
     {
-        $school = new School();
-        $school->city = $this->city;
-        $school->state_id = $this->state;
-        $school->country_id = $this->country;
-        $school->name = $this->name;
-        $school->save();
-        return $school;
+        $school = [];
+        $school['city'] = $this->city;
+        $school['state_id'] = $this->state;
+        $school['country_id'] = $this->country;
+        $school['name'] = $this->name;
+
+        $schoolModel = $schoolRepository->create($school);
+        $this->school = $schoolModel;
+        return $schoolModel;
     }
 
-    private function createScopedSchoolType($school_type, School $school)
+    private function createScopedSchoolType(
+        ScopedSchoolTypeRepository $schoolTypeRepository,
+        $school_type,
+        School $school,
+        ScopedSessionTypeRepository $sessionTypeRepository)
     {
-        $cat = new ScopedSchoolType();
-        $cat->name = $school_type['name'];
-        $cat->display_name = $school_type['display_name'];
-        $cat->scoped_session_type_id = $this->createOrGetSessionTypeID($school_type);
-        $cat->school_id = $school->id;
+        $cat = [];
+        $cat['name'] = $school_type['name'];
+        $cat['display_name'] = $school_type['display_name'];
+        $cat['scoped_session_type_id'] = $this->createSessionType($school_type,$sessionTypeRepository)->id;
+        $cat['school_id'] = $school->id;
 
-        $cat->save();
-        return $cat;
+        $model = $schoolTypeRepository->create($cat);
+        return $model;
     }
 
-    private function createOrGetSessionTypeID(array $school_type)
+    private function createSessionType(array $school_type,ScopedSessionTypeRepository $sessionTypeRepository)
     {
-        $session = new ScopedSessionType();
+        
+        $sessionData = [];
+
+        $sessionData['session_type'] = $school_type['session']['session_type'];
+        $sessionData['session_divisions_display_name'] = $school_type['session']['session_divisions_display_name'];
+        $sessionData['school_id'] = $this->school->id;
 
         if (isset($school_type['session'])) {
-            $session->session_type = $school_type['session']['session_type'];
-            $session->session_divisions_display_name = $school_type['session']['session_divisions_display_name'];
-            $session->session_divisions_name = 'sub_session';
-            $session->session_name = 'session';
-            $session->session_display_name = 'Session';
+            $sessionData['session_divisions_name'] = 'sub_session';
+            $session['session_name'] = 'session';
+            $session['session_display_name'] = 'Session';
         } else {
-            $session->session_type = $school_type['session_type']['session_type'];
-            $session->session_divisions_display_name = $school_type['session_type']['session_divisions_display_name'];
-            $session->session_divisions_name = $school_type['session_type']['session_divisions_name'];
-            $session->session_name = $school_type['session_type']['session_name'];
-            $session->session_display_name = $school_type['session_type']['session_display_name'];;
-
-
+            $session['session_divisions_name'] = $school_type['session_type']['session_divisions_name'];
+            $session['session_name'] = $school_type['session_type']['session_name'];
+            $session['session_display_name'] = $school_type['session_type']['session_display_name'];
         }
-        $session->school_id = $this->school->id;
-        $session->save();
 
-        return $session->id;
+        $session = $sessionTypeRepository->create($sessionData);
 
+        return  $session;
     }
 
-    private function createScopedSchoolCategories(School $school, ScopedSchoolType $schoolType)
+    private function createScopedSchoolCategories(ScopedSchoolCategoriesRepository $schoolCategoriesRepository,School $school, ScopedSchoolType $schoolType)
     {
         foreach ($this->school_type['school_categories'] as $category) {
-            $cat = new ScopedSchoolCategory();
-            $cat->name = $category['name'];
-            $cat->display_name = $category['display_name'];
-            $cat->scoped_school_type_id = $schoolType->id;
-            $cat->school_id = $school->id;
-            $cat->save();
+            $cat = [];
+            $cat['name'] = $category['name'];
+            $cat['display_name'] = $category['display_name'];
+            $cat['scoped_school_type_id'] = $schoolType->id;
+            $cat['school_id'] = $school->id;
+
+            $schoolCategoriesRepository->create($cat);
         }
+    }
+
+    private function setSchoolType(School $school,ScopedSchoolType $schoolType)
+    {
+        $school->school_type_id = $schoolType->id;
+        $school->save();
     }
 
 }

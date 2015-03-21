@@ -23,6 +23,8 @@ class BaseModel extends Model
 
     use SchoolScopeTrait;
 
+    protected $guarded = ['id'];
+
     public static function boot()
     {
         parent::boot();

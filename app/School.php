@@ -45,6 +45,7 @@ use UnifySchool\Entities\School\CacheModelObserver;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereActive($value)
  * @method static \UnifySchool\School isActive()
  * @method static \UnifySchool\School isNotActive()
+ * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type 
  */
 class School extends Model
 {

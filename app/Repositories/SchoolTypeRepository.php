@@ -8,10 +8,12 @@
 
 namespace UnifySchool\Repositories;
 
+use Illuminate\Container\Container as App;
+use Illuminate\Support\Collection;
 use UnifySchool\Country;
 use UnifySchool\SchoolType;
 
-class SchoolTypeRepository
+class SchoolTypeRepository extends BaseRepository
 {
 
     /**
@@ -23,10 +25,13 @@ class SchoolTypeRepository
      */
     private $country;
 
-    function __construct(SchoolType $school, Country $country)
+    public function __construct(App $app, Collection $collection,SchoolType $school, Country $country)
     {
+        parent::__construct($app,$collection);
+
         $this->school = $school;
         $this->country = $country;
+
     }
 
     public function fetchDefaultSchoolConfig()
@@ -52,5 +57,15 @@ class SchoolTypeRepository
         }
 
         return $this->country->withStates()->get();
+    }
+
+    /**
+     * Specify Model class name
+     *
+     * @return mixed
+     */
+    public function model()
+    {
+       return SchoolType::class;
     }
 }
