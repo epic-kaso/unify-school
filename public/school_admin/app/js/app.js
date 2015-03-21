@@ -124,14 +124,321 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             .state('app.settings',
             {
                 url: '/settings',
-                templateUrl: ViewBaseURL + '/pages/settings',
+                templateUrl: ViewBaseURL + '/settings/index',
                 title: 'Settings',
                 controller: ['$scope',
                     function ($scope) {
                     }
                 ]
             })
+            .state('app.settings.session_term',
+            {
+                url: '/session_term',
+                templateUrl: ViewBaseURL + '/settings/session_term',
+                title: 'Session & Term Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
 
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.students',
+            {
+                url: '/students',
+                templateUrl: ViewBaseURL + '/settings/students',
+                title: 'Students Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.school',
+            {
+                url: '/school',
+                templateUrl: ViewBaseURL + '/settings/school',
+                title: 'School Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.staff',
+            {
+                url: '/staff',
+                templateUrl: ViewBaseURL + '/settings/staff',
+                title: 'Staff Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.classes',
+            {
+                url: '/classes',
+                templateUrl: ViewBaseURL + '/settings/class',
+                title: 'Classes Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.courses',
+            {
+                url: '/courses',
+                templateUrl: ViewBaseURL + '/settings/courses',
+                title: 'Courses Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.grades',
+            {
+                url: '/grades',
+                templateUrl: ViewBaseURL + '/settings/grades',
+                title: 'Grades Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.reports',
+            {
+                url: '/reports',
+                templateUrl: ViewBaseURL + '/settings/reports',
+                title: 'Reports Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.financials',
+            {
+                url: '/financial',
+                templateUrl: ViewBaseURL + '/settings/financials',
+                title: 'Financial Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.notifications',
+            {
+                url: '/notifications',
+                templateUrl: ViewBaseURL + '/settings/notifications',
+                title: 'Notification Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
+            .state('app.settings.administrators',
+            {
+                url: '/administrators',
+                templateUrl: ViewBaseURL + '/settings/administrators',
+                title: 'Administrators Settings',
+                controller: ['$scope','SchoolDataService',
+                    function ($scope,SchoolDataService) {
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                        $scope.form = {
+                            school_category: null
+                        };
+
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
+                    }
+                ]
+            })
             //Student Module Routes
             .state('app.enroll_student',
             {

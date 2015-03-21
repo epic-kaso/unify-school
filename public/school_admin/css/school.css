@@ -16982,5 +16982,12 @@ body,
 body {
   background-color: rgba(0, 0, 0, 0.0175);
 }
+.content-wrapper {
+  background: #ffffff;
+}
+.nav-pills > li > a.active {
+  background-color: #37bc9b;
+  color: #ffffff;
+}
 
 /*# sourceMappingURL=school.css.map */
