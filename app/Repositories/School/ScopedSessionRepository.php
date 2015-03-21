@@ -22,4 +22,12 @@ class ScopedSessionRepository extends BaseRepository {
     {
         return ScopedSession::class;
     }
+
+    public function setCurrentSession($name = null){
+        $item = $this->model()->whereName($name)->first();
+        $item->current_session = true;
+        $item->save();
+
+        return $item;
+    }
 }
