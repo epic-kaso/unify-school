@@ -69,7 +69,6 @@ class CreateNewSchool extends Command implements SelfHandling
                 break;
             }
         }
-
         if (is_null($this->school_type)) {
             throw new \Exception('School type can not be null');
         }
