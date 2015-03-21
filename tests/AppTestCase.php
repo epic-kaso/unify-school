@@ -1,6 +1,6 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+class AppTestCase extends Illuminate\Foundation\Testing\TestCase
 {
 
     /**

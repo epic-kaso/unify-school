@@ -18,10 +18,9 @@
 
                 <div class="form-group">
                     <label>Select Term</label>
-                    <select name="import_term" class="form-control">
-                        {{--@foreach($terms as $term)--}}
-                            {{--<option value="{{ $term->id }}">{{ $term->display_name }}</option>--}}
-                        {{--@endforeach--}}
+                    <select name="import_term" class="form-control" ng-model="form.sub_session"
+                            ng-options="sub_session.id as sub_session.display_name for sub_session in sub_sessions">
+                        <option value="">Select Term</option>
                     </select>
                 </div>
 

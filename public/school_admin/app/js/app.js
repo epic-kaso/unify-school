@@ -165,6 +165,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
 
                         $scope.current_school_classes = null;
                         $scope.school_categories = SchoolDataService.school.school_type.school_categories;
+                        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
                         $scope.form = {
                             school_category: null
                         };
