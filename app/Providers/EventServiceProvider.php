@@ -2,6 +2,10 @@
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use UnifySchool\Events\NewSchoolRegistered;
+use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
+use UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails;
+use UnifySchool\Handlers\Events\GenerateDefaultSessionsForSchool;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -12,14 +16,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'event.name' => [
-            'EventListener',
+        NewSchoolRegistered::class => [
+            EmailNewSchoolAccountDetails::class
         ],
-        'UnifySchool\Events\NewSchoolRegistered' => [
-            'UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails',
-        ],
-        'UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected' => [
-            'UnifySchool\Handlers\Events\GenerateDefaultSessionsForSchool',
+        TertiaryOrNonTertiarySchoolTypeDetected::class => [
+            GenerateDefaultSessionsForSchool::class
         ],
     ];
 
