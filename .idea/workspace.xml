@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -26,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2015_03_21_071154_create_scoped_sub_session_types_table.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2015_03_21_071154_create_scoped_sub_session_types_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.346154">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.5286738">
+              <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_03_21_094503_create_scoped_sessions_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2015_03_21_094503_create_scoped_sessions_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1469534">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+            <state vertical-scroll-proportion="-25.384615">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,8 +107,8 @@
         <option value="$PROJECT_DIR$/tests/factories/factories.php" />
         <option value="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
         <option value="$PROJECT_DIR$/tests/Commands/School/CreateNewSchoolTest.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php" />
       </list>
     </option>
   </component>
@@ -190,38 +189,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -325,12 +292,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00090" summary="school admin dashboard">
-      <created>1426638822729</created>
-      <option name="number" value="00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1426638822729</updated>
     </task>
     <task id="LOCAL-00091" summary="school admin dashboard">
       <created>1426639214514</created>
@@ -620,7 +581,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426969430104</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="school creation bug fix">
+      <created>1426969793548</created>
+      <option name="number" value="00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1426969793548</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1120,18 +1087,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.346154">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="67" />
+        <state vertical-scroll-proportion="-25.384615">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1469534">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.5286738">
+          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
           <folding />
         </state>
       </provider>
