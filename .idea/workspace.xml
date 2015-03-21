@@ -265,12 +265,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00073" summary="sub-domain routing fixes">
-      <created>1426539789490</created>
-      <option name="number" value="00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1426539789491</updated>
-    </task>
     <task id="LOCAL-00074" summary="sub-domain routing fixes">
       <created>1426540982425</created>
       <option name="number" value="00074" />
@@ -559,7 +553,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426927346012</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Repository pattern implementation">
+      <created>1426927375488</created>
+      <option name="number" value="00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1426927375488</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
