@@ -20,6 +20,8 @@ class CreateScopedSessionsTable extends Migration {
 			$table->string('name');
 			$table->boolean('current_session')->default(false);
 			$table->timestamps();
+
+			$table->unique(['school_id','name']);
 		});
 
 		$schools = School::all();

@@ -21,7 +21,10 @@ class CreateScopedSubSessionTypesTable extends Migration {
 			$table->integer('scoped_session_type_id');
 			$table->string('name');
 			$table->string('display_name');
+			$table->boolean('current')->default(false);
 			$table->timestamps();
+
+			$table->unique(['school_id','scoped_session_type_id']);
 		});
 
 		$sessionTypeRepository = App::make(ScopedSessionTypeRepository::class);
