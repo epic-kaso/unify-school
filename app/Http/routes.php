@@ -98,8 +98,8 @@ Route::group(
 );
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-Route::get('download-logs',function(){
-    File::delete(storage_path('logs/laravel-'.\Carbon\Carbon::now()->toDateString().'.log'));
+Route::get('flush-cache',function(){
+    Cache::flush();
     return 'Done';
 });
 

@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolType whereMeta($value)
  * @method static \UnifySchool\SchoolType withDefaults()
  */
-class SchoolType extends Model
+class SchoolType extends BaseModel
 {
 
     const SCHOOL_TERTIARY = 'tertiary';

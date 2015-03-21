@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArm whereSchoolCategoryId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArm whereMeta($value)
  */
-class SchoolCategoryArm extends Model
+class SchoolCategoryArm extends BaseModel
 {
 
     protected $casts = [

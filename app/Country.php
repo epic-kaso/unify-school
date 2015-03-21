@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Country whereUpdatedAt($value)
  * @method static \UnifySchool\Country withStates()
  */
-class Country extends Model
+class Country extends BaseModel
 {
 
     public function states()

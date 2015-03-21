@@ -3,10 +3,20 @@
 use UnifySchool\Commands\School\CreateNewSchool;
 use UnifySchool\Commands\School\UpdateSchoolAdminDetails;
 use UnifySchool\Commands\School\UpdateSchoolCategories;
+use UnifySchool\Country;
+use UnifySchool\Entities\School\SchoolAdministrator;
+use UnifySchool\Entities\School\ScopedSchoolCategory;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
+use UnifySchool\Entities\School\ScopedSchoolType;
+use UnifySchool\Entities\School\ScopedSession;
+use UnifySchool\Entities\School\ScopedSessionType;
+use UnifySchool\Entities\School\ScopedSubSessionType;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\CreateSchoolRequest;
 use UnifySchool\School;
+use UnifySchool\State;
 
 class SchoolController extends Controller
 {
@@ -21,7 +31,19 @@ class SchoolController extends Controller
     public function index()
     {
         if($this->productionEnvironment()) {
-            return \Cache::tags(School::$relationData)->remember('schools_list', 60 * 24, function () {
+            return \Cache::tags(
+                Country::table(),
+                State::table(),
+                SchoolAdministrator::table(),
+                ScopedSchoolType::table(),
+                ScopedSession::table(),
+                ScopedSessionType::table(),
+                ScopedSubSessionType::table(),
+                ScopedSchoolType::table(),
+                ScopedSchoolCategoryArmSubdivision::table(),
+                ScopedSchoolCategoryArm::table(),
+                ScopedSchoolCategory::table()
+            )->remember('schools_list', 60 * 24, function () {
                 return School::withData()->get();
             });
         }
@@ -60,6 +82,8 @@ class SchoolController extends Controller
         $this->setGlobalContext($school);
 
         $school->load(School::$relationData);
+
+        $this->cleanUpCache();
         return $school;
     }
 
@@ -111,6 +135,8 @@ class SchoolController extends Controller
                 break;
         }
 
+        $this->cleanUpCache();
+
         return School::withData()->find($request->get('id'));
     }
 
@@ -142,9 +168,13 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->cleanUpCache();
     }
 
+    private function cleanUpCache()
+    {
+        \Cache::flush();
+    }
 
 
 }

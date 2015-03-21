@@ -50,9 +50,8 @@ use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
  * @method static \UnifySchool\School isNotActive()
  * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type 
  */
-class School extends Model
+class School extends BaseModel
 {
-
     public static $relationData = [
         'country',
         'state',
@@ -190,5 +189,10 @@ class School extends Model
         if($schoolType->name != SchoolType::SCHOOL_CUSTOM){
             \Event::fire(new TertiaryOrNonTertiarySchoolTypeDetected($this));
         }
+    }
+
+    public static function table(){
+        $s = new static;
+        return $s->getTable();
     }
 }

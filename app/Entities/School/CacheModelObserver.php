@@ -9,7 +9,11 @@
 namespace UnifySchool\Entities\School;
 
 
+use UnifySchool\Entities\Context\SchoolContextTrait;
+
 class CacheModelObserver {
+
+    use SchoolContextTrait;
 
     public function clearCacheTags($tags){
         if($this->productionEnvironment()){
@@ -32,8 +36,4 @@ class CacheModelObserver {
         $this->clearCacheTags($model->getTable());
     }
 
-    private function productionEnvironment()
-    {
-        return \App::environment() === 'production';
-    }
 }

@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereSchoolTypeId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategory whereMeta($value)
  */
-class SchoolCategory extends Model
+class SchoolCategory extends BaseModel
 {
     protected $casts = [
         'meta' => 'object'
@@ -39,5 +39,4 @@ class SchoolCategory extends Model
     {
         return $this->hasMany('UnifySchool\SchoolCategoryArm');
     }
-
 }

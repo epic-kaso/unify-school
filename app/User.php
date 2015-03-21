@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\User whereUpdatedAt($value)
  */
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
 
     use Authenticatable, CanResetPassword;

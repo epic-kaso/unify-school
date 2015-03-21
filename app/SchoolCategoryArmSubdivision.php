@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolCategoryArmSubdivision whereUpdatedAt($value)
  * @property-read \UnifySchool\SchoolCategoryArm $school_category_arm
  */
-class SchoolCategoryArmSubdivision extends Model
+class SchoolCategoryArmSubdivision extends BaseModel
 {
 
     protected $casts = [

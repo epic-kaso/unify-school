@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SessionType whereUpdatedAt($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\SchoolType[] $school_types
  */
-class SessionType extends Model
+class SessionType extends BaseModel
 {
 
     public function school_types()
