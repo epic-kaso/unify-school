@@ -165,6 +165,8 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
 
                         $scope.current_school_classes = null;
                         $scope.school_categories = SchoolDataService.school.school_type.school_categories;
+                        $scope.sessions = getSessionsFrom(SchoolDataService);
+
                         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
                         $scope.form = {
                             school_category: null
@@ -173,6 +175,18 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                         $scope.$watch('form.school_category',function(newV,oldV){
                             setCurrentSchoolClassesForSchoolType(newV);
                         });
+
+                        function getSessionsFrom(SchoolDataService){
+                            return SchoolDataService.school.sessions.sort(function(a,b){
+                                if (a.name < b.name) {
+                                    return -1;
+                                }
+                                if (a.name > b.name) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                        }
 
 
                         function setCurrentSchoolClassesForSchoolType(newV){

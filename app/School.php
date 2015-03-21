@@ -59,6 +59,7 @@ class School extends Model
         'administrator',
         'administrators',
         'school_type',
+        'sessions',
         'session_type',
         'session_type.sub_sessions',
         'school_type.session_type',

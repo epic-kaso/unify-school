@@ -9,10 +9,9 @@
 
                 <div class="form-group">
                     <label>Select Session</label>
-                    <select name="import_session" class="form-control">
-                        {{--@foreach($sessions as $session)--}}
-                            {{--<option value="{{ $session->id }}">{{ $session->display_name }}</option>--}}
-                        {{--@endforeach--}}
+                    <select name="import_session" class="form-control" ng-model="form.session"
+                            ng-options="session.id as session.name for session in sessions">
+                        <option value="">Select Session</option>
                     </select>
                 </div>
 
