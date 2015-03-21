@@ -142,23 +142,20 @@ class CreateNewSchool extends Command implements SelfHandling
         $sessionData = [];
 
         $sessionData['school_id'] = $this->school->id;
+        $sessionData['session_divisions_name'] = 'sub_session';
+        $session['session_name'] = 'session';
 
         if (isset($school_type['session'])) {
             $sessionData['session_type'] = $school_type['session']['session_type'];
-            $sessionData['session_divisions_name'] = 'sub_session';
-            $session['session_name'] = 'session';
             $session['session_display_name'] = 'Session';
             $sessionData['session_divisions_display_name'] = $school_type['session']['session_divisions_display_name'];
         } else {
             $sessionData['session_type'] = $school_type['session_type']['session_type'];
-            $session['session_divisions_name'] = $school_type['session_type']['session_divisions_name'];
-            $session['session_name'] = $school_type['session_type']['session_name'];
             $session['session_display_name'] = $school_type['session_type']['session_display_name'];
             $sessionData['session_divisions_display_name'] = $school_type['session_type']['session_divisions_display_name'];
         }
 
         $session = $sessionTypeRepository->create($sessionData);
-
         return  $session;
     }
 
