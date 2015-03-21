@@ -37,7 +37,8 @@ class SchoolTypeRepository extends BaseRepository
     public function fetchDefaultSchoolConfig()
     {
         if($this->productionEnvironment()) {
-            return \Cache::remember('schools_default_config', 60 * 24, function () {
+            return \Cache::tags(SchoolType::table())
+                ->remember('schools_default_config', 60 * 24, function () {
                     return $this->school->withDefaults()->get();
                 });
         }
@@ -49,7 +50,8 @@ class SchoolTypeRepository extends BaseRepository
     {
 
         if($this->productionEnvironment()) {
-            return \Cache::remember('schools_default_config', 60 * 24, function (){
+            return \Cache::tags(Country::table())
+                ->remember('schools_default_config', 60 * 24, function (){
                     return $this->country->withStates()->get();
                 });
         }

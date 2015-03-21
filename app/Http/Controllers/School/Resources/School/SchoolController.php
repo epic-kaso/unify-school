@@ -96,7 +96,8 @@ class SchoolController extends Controller
     public function show($id)
     {
         if($this->productionEnvironment()) {
-            return \Cache::tags('school_by_id', $id)->remember('schools_by_id_' . $id, 60 * 24, function () use ($id) {
+            return \Cache::tags(School::table())
+                ->remember('schools_by_id_' . $id, 60 * 24, function () use ($id) {
                 return School::withData()->find($id);
             });
         }
