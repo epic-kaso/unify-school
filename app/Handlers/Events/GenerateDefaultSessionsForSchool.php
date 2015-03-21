@@ -40,7 +40,7 @@ class GenerateDefaultSessionsForSchool {
 	{
 		$response = [];
 		$current = $sessionGenerator->generateCurrentSession();
-		$response[] = new ScopedSession(['name' => $current]);
+		$response[] = new ScopedSession(['name' => $current,'current_session' => 'true']);
 
 		$lastTenYrs = $sessionGenerator->generatePastSession(10);
 		$lastTenSessionModels = $this->generateSessionModels($lastTenYrs);

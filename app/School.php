@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use UnifySchool\Entities\Resources\NonTertiary\SessionGenerator;
 use UnifySchool\Entities\School\CacheModelObserver;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
