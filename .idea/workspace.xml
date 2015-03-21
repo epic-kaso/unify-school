@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
+    <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="school creation bug fix">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -89,8 +89,8 @@
       <file leaf-file-name="Controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6953405">
-              <caret line="277" column="28" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.8172043">
+              <caret line="281" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -512,12 +512,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00082" summary="school admin dashboard">
-      <created>1426617045740</created>
-      <option name="number" value="00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1426617045740</updated>
-    </task>
     <task id="LOCAL-00083" summary="school admin dashboard">
       <created>1426617200350</created>
       <option name="number" value="00083" />
@@ -806,7 +800,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426933838734</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="school creation bug fix">
+      <created>1426934724519</created>
+      <option name="number" value="00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1426934724519</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -831,7 +831,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
@@ -1310,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6953405">
-          <caret line="277" column="28" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.8172043">
+          <caret line="281" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
           <folding />
         </state>
       </provider>
