@@ -28,8 +28,8 @@
       <file leaf-file-name="2015_03_21_071154_create_scoped_sub_session_types_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88351256">
-              <caret line="35" column="9" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.609319">
+              <caret line="26" column="98" selection-start-line="26" selection-start-column="98" selection-end-line="26" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -337,12 +337,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00094" summary="student dashboard">
-      <created>1426691593999</created>
-      <option name="number" value="00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1426691594002</updated>
-    </task>
     <task id="LOCAL-00095" summary="student dashboard">
       <created>1426718895152</created>
       <option name="number" value="00095" />
@@ -631,7 +625,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426970575090</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="school creation bug fix">
+      <created>1426970637315</created>
+      <option name="number" value="00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1426970637315</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1141,8 +1141,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88351256">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.609319">
+          <caret line="26" column="98" selection-start-line="26" selection-start-column="98" selection-end-line="26" selection-end-column="98" />
           <folding />
         </state>
       </provider>
