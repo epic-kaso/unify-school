@@ -1,5 +1,7 @@
 <?php namespace UnifySchool\Handlers\Events;
 
+use App;
+use Log;
 use UnifySchool\Entities\Resources\NonTertiary\SessionGenerator;
 use UnifySchool\Entities\School\ScopedSession;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
@@ -29,9 +31,9 @@ class GenerateDefaultSessionsForSchool {
 		TertiaryOrNonTertiarySchoolTypeDetected $event
 		)
 	{
-		\Log::debug('TertiaryNonTertiary Event Handler called');
+		Log::debug('TertiaryNonTertiary Event Handler called');
 
-	    $sessionGenerator = \App::make(SessionGenerator::class);
+	    $sessionGenerator = App::make(SessionGenerator::class);
 		$school = $event->getSchool();
 		$sessions = $this->makeSessions($sessionGenerator);
 
