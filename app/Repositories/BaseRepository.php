@@ -10,7 +10,8 @@ namespace UnifySchool\Repositories;
 
 
 use Bosnadev\Repositories\Eloquent\Repository;
+use UnifySchool\Entities\Context\SchoolContextTrait;
 
 abstract class BaseRepository extends Repository {
-
+    use SchoolContextTrait;
 }

@@ -11,7 +11,4 @@ abstract class Controller extends BaseController
 
     use DispatchesCommands, ValidatesRequests, SchoolContextTrait;
 
-    protected function productionEnvironment(){
-        return env('APP_ENV','local') != 'local';
-    }
 }

@@ -9,6 +9,7 @@
 namespace UnifySchool\Repositories\School;
 
 
+use UnifySchool\Entities\School\ScopedClassStudent;
 use UnifySchool\Repositories\BaseRepository;
 
 class ScopedClassStudentsRepository extends BaseRepository {
@@ -20,6 +21,6 @@ class ScopedClassStudentsRepository extends BaseRepository {
      */
     public function model()
     {
-        // TODO: Implement model() method.
+        return ScopedClassStudent::class;
     }
 }

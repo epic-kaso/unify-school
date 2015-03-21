@@ -9,6 +9,8 @@
 namespace UnifySchool\Repositories\School;
 
 
+use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Repositories\BaseRepository;
 
 class ScopedSchoolClassRepository extends BaseRepository {
@@ -20,6 +22,6 @@ class ScopedSchoolClassRepository extends BaseRepository {
      */
     public function model()
     {
-        // TODO: Implement model() method.
+        return ScopedSchoolCategoryArmSubdivision::class;
     }
 }

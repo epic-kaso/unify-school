@@ -25,4 +25,8 @@ trait SchoolContextTrait {
         $context = \App::make('UnifySchool\Entities\Context\ContextInterface');
         $context->set($school);
     }
+
+    protected function productionEnvironment(){
+        return env('APP_ENV','local') != 'local';
+    }
 }
