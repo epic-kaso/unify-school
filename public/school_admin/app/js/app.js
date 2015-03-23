@@ -715,7 +715,9 @@ App
                 name: 'ngTable', files: ['/framework/vendor/ng-table/dist/ng-table.min.js',
                 '/framework/vendor/ng-table/dist/ng-table.min.css']
             },
-            {name: 'ngTableExport', files: ['/framework/vendor/ng-table-export/ng-table-export.js']}
+            {name: 'ngTableExport', files: ['/framework/vendor/ng-table-export/ng-table-export.js']},
+            {name: 'xeditable',files: ['/framework/vendor/angular-xeditable/dist/js/xeditable.js',
+                '/framework/vendor/angular-xeditable/dist/css/xeditable.css']},
         ]
 
     })
