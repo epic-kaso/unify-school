@@ -17,6 +17,7 @@ use UnifySchool\State;
 class SchoolSystemTableSeeder extends Seeder
 {
 
+    
     public function run()
     {
         DB::table('session_types')->truncate();
@@ -41,14 +42,43 @@ class SchoolSystemTableSeeder extends Seeder
                 "name" => "Nigeria",
                 "short_code" => "ng",
                 "states" => [
-                    "ab" => [
-                        "name" => "Abia",
-                        "short_code" => "ab"
-                    ],
-                    "an" => [
-                        "name" => "Anambra",
-                        "short_code" => "an"
-                    ]
+                    "AB" => [ "name" => "Abia","short_code" => "AB" ],
+                    "AD" => [ "name" => "Adamawa","short_code" => "AD" ],
+                    "AK" => [ "name" => "Akwa Ibom","short_code" => "AK" ],
+                    "AN" => [ "name" => "Anambra","short_code" => "AN" ],
+                    "BU" => [ "name" => "Bauchi","short_code" => "BU" ],
+                    "BY" => [ "name" => "Bayelsa","short_code" => "BY" ],
+                    "BE" => [ "name" => "Benue","short_code" => "BE" ],
+                    "BO" => [ "name" => "Bornu","short_code" => "BO" ],
+                    "CR" => [ "name" => "Cross River","short_code" => "CR" ],
+                    "DE" => [ "name" => "Delta","short_code" => "DE" ],
+                    "EB" => [ "name" => "Ebonyi","short_code" => "EB" ],
+                    "ED" => [ "name" => "Edo","short_code" => "ED" ],
+                    "EK" => [ "name" => "Ekiti","short_code" => "EK" ],
+                    "EU" => [ "name" => "Enugu","short_code" => "EU" ],
+                    "GO" => [ "name" => "Gombe","short_code" => "GO" ],
+                    "IM" => [ "name" => "Imo","short_code" => "IM" ],
+                    "JI" => [ "name" => "Jigawa","short_code" => "JI" ],
+                    "KA" => [ "name" => "Kaduna","short_code" => "KA" ],
+                    "KO" => [ "name" => "Kano","short_code" => "KO" ],
+                    "KS" => [ "name" => "Katsina","short_code" => "KS" ],
+                    "KE" => [ "name" => "Kebbi","short_code" => "KE" ],
+                    "KG" => [ "name" => "Kogi","short_code" => "KG" ],
+                    "KW" => [ "name" => "Kwara","short_code" => "KW" ],
+                    "LA" => [ "name" => "Lagos","short_code" => "LA" ],
+                    "NA" => [ "name" => "Nasarawa","short_code" => "NA" ],
+                    "NI" => [ "name" => "Niger","short_code" => "NI" ],
+                    "OG" => [ "name" => "Ogun","short_code" => "OG" ],
+                    "ON" => [ "name" => "Ondo","short_code" => "ON" ],
+                    "OS" => [ "name" => "Osun","short_code" => "OS" ],
+                    "OY" => [ "name" => "Oyo","short_code" => "OY" ],
+                    "PL" => [ "name" => "Plateau","short_code" => "PL" ],
+                    "RI" => [ "name" => "Rivers","short_code" => "RI" ],
+                    "SO" => [ "name" => "Sokoto","short_code" => "SO" ],
+                    "TA" => [ "name" => "Taraba","short_code" => "TA" ],
+                    "YO" => [ "name" => "Yobe","short_code" => "YO" ],
+                    "ZA" => [ "name" => "Zamfara","short_code" => "ZA" ],
+                    "FT" => [ "name" => "Federal Captial Territory","short_code" => "FT" ]
                 ]
             ]
         ];

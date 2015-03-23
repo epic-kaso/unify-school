@@ -6,7 +6,7 @@
         <tabset justified="false" type="pills">
             <tab>
                 <tab-heading>
-                    <em class="icon-equalizer fa-sm"></em> Set Current
+                    <em class="icon-equalizer fa-sm"></em> Assign Courses
                 </tab-heading>
                 <div class="row">
                     <div class="col-sm-6">
@@ -32,7 +32,15 @@
             </tab>
             <tab>
                 <tab-heading>
-                    <em class="fa-gear fa-sm"></em> Add New
+                    <em class="fa-gear fa-sm"></em> List Courses
+                </tab-heading>
+                <div>
+                    Coming soon..
+                </div>
+            </tab>
+            <tab>
+                <tab-heading>
+                    <em class="fa-gear fa-sm"></em> Add New Courses
                 </tab-heading>
                 <div>
                     Coming soon..
