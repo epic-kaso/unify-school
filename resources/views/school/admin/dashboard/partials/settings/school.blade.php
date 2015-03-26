@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3>School Settings</h3><hr/>
     </div>
@@ -10,9 +10,8 @@
                 </tab-heading>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">HTML5 Inputs</div>
-                            <div class="panel-body">
+                        <div>
+                            <div>
                                 <div class="form-horizontal">
                                     <div class="form-group m0">
                                         <label class="col-sm-4 control-label">Email:</label>

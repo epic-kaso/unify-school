@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3>Classes Settings</h3><hr/>
     </div>
