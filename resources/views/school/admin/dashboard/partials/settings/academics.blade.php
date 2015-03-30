@@ -12,6 +12,7 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="row">
+                            <h4>Configure Grading Systems</h4><hr/>
                             <div id="rowinfo">
                                 <accordion>
                                     <accordion-group ng-repeat="gradingSystem in gradingSystems">
@@ -125,6 +126,21 @@
 
                             </div>
                         </div>
+                        <div class="row" style="margin-top: 50px">
+                            <h4>Assign Grading Systems</h4><hr/>
+                            <div class="row">
+                                <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
+                                    <div class="form-group">
+                                        <label>@{{ schoolCategory.display_name }} Grading System</label>
+                                        <select class="form-control" required  ng-model="assignedGradingSystem[schoolCategory.name]"
+                                                ng-options="system.id as system.name for system in gradingSystems">
+                                            <option value="">Select Grading System</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </tab>
@@ -221,7 +237,7 @@
                                                 </section>
                                             </div>
                                             <div class="row" style="margin-top: 15px;">
-                                                <div class="col-sm-4 text-center">
+                                                <div class="col-sm-8">
                                                     <button class="btn btn-warning"
                                                             ng-click="addDivision(gradeAssessmentSystem)">Add Division
                                                     </button>

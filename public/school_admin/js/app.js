@@ -1546,10 +1546,13 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService',
-    function ($scope, GradingSystemService, GradeAssessmentSystemService) {
+app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService) {
 
         //Grading Systems
+
+        $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+        $scope.assignedGradingSystem = {};
 
         $scope.gradingSystems = GradingSystemService.query();
 
@@ -1651,12 +1654,15 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
         };
         console.log(GradingSystemService.query());
 
-
+        //---------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------
         //Grade Assessment Systems
+        //---------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------
 
         $scope.gradeAssessmentSystems = GradeAssessmentSystemService.query();
 
-        $scope.setGradeAssessmentSystemEditMode = function ($event, gradeAssessmentSystem, isEdit) {
+        $scope.setGradeAssessmentEditMode = function ($event, gradeAssessmentSystem, isEdit) {
             gradeAssessmentSystem.edit = isEdit;
             $scope.preventDefaultAction($event);
         };
