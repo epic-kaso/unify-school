@@ -22,8 +22,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
- * @property-read mixed $classes 
- * @property-read \UnifySchool\School $school 
+ * @property-read mixed $classes
+ * @property-read \UnifySchool\School $school
  */
 class ScopedSchoolCategory extends BaseModel
 {

@@ -48,7 +48,8 @@ use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereActive($value)
  * @method static \UnifySchool\School isActive()
  * @method static \UnifySchool\School isNotActive()
- * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type 
+ * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\Entities\School\ScopedSession[] $sessions 
  */
 class School extends BaseModel
 {

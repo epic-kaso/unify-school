@@ -23,8 +23,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSessionType whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSessionType whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
- * @property-read \Illuminate\Database\Eloquent\Collection|ScopedSubSessionType[] $sub_sessions 
- * @property-read \UnifySchool\School $school 
+ * @property-read \Illuminate\Database\Eloquent\Collection|ScopedSubSessionType[] $sub_sessions
+ * @property-read \UnifySchool\School $school
  */
 class ScopedSessionType extends BaseModel
 {

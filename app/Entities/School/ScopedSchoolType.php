@@ -25,8 +25,8 @@
  * @property integer $scoped_session_type_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolType whereScopedSessionTypeId($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
- * @property-read mixed $classes 
- * @property-read \UnifySchool\School $school 
+ * @property-read mixed $classes
+ * @property-read \UnifySchool\School $school
  */
 class ScopedSchoolType extends BaseModel
 {

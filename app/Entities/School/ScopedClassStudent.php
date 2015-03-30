@@ -18,7 +18,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedClassStudent whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedClassStudent whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
- * @property-read \UnifySchool\School $school 
+ * @property-read \UnifySchool\School $school
  */
 class ScopedClassStudent extends BaseModel
 {

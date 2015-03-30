@@ -14,7 +14,7 @@
 
 @yield('content')
 <script src="{{ asset('school_admin/app/js/base.js') }}"></script>
-<script src="{{ asset('school_admin/app/js/app.js') }}"></script>
+<script src="{{ asset('school_admin/js/app.js') }}"></script>
 <script>
     @yield('script')
 </script>

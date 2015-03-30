@@ -289,6 +289,107 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
             school_category: null
         };
 
+        $scope.gradingSystems = [
+            {
+                name: 'Default Grading System',
+                grades: [
+                    {
+                        symbol: 'A',
+                        lowerRange: 75,
+                        upperRange: 100,
+                        remark: 'Excellent'
+                    },
+                    {
+                        symbol: 'B',
+                        lowerRange: 60,
+                        upperRange: 74,
+                        remark: 'Very Good'
+                    },
+                    {
+                        symbol: 'C',
+                        lowerRange: 55,
+                        upperRange: 59,
+                        remark: 'Good'
+                    },
+                    {
+                        symbol: 'E',
+                        lowerRange: 50,
+                        upperRange: 54,
+                        remark: 'Pass'
+                    },
+                    {
+                        symbol: 'F',
+                        lowerRange: 0,
+                        upperRange: 49,
+                        remark: 'Fail'
+                    }
+                ]
+            }
+        ];
+
+        $scope.setGradingSystemEditMode = function($event,gradingSystem,isEdit){
+            gradingSystem.edit = isEdit;
+            $scope.preventDefaultAction($event);
+        };
+
+        $scope.preventDefaultAction = function($event){
+            $event.stopPropagation();
+            $event.preventDefault();
+        };
+
+        $scope.removeGrade = function(grades,index){
+            grades.splice(index,1);
+        };
+
+        $scope.addNewGradingSystem = function(){
+            $scope.isAddingNewGradingSystem = true;
+            var clone = {
+                name: 'Default Grading System',
+                grades: [
+                    {
+                        symbol: 'A',
+                        lowerRange: 75,
+                        upperRange: 100,
+                        remark: 'Excellent'
+                    },
+                    {
+                        symbol: 'B',
+                        lowerRange: 60,
+                        upperRange: 74,
+                        remark: 'Very Good'
+                    },
+                    {
+                        symbol: 'C',
+                        lowerRange: 55,
+                        upperRange: 59,
+                        remark: 'Good'
+                    },
+                    {
+                        symbol: 'E',
+                        lowerRange: 50,
+                        upperRange: 54,
+                        remark: 'Pass'
+                    },
+                    {
+                        symbol: 'F',
+                        lowerRange: 0,
+                        upperRange: 49,
+                        remark: 'Fail'
+                    }
+                ]
+            };
+
+            clone.name += ' ' + $scope.gradingSystems.length;
+            $scope.gradingSystems.push(clone);
+
+            $scope.isAddingNewGradingSystem = false;
+        };
+
+        $scope.deleteGradingSystem = function($event,gradingSystems,index){
+            gradingSystems.splice(index,1);
+            $scope.preventDefaultAction($event);
+        }
+
 
         function getSessionsFrom(SchoolDataService){
             return SchoolDataService.school.sessions.sort(function(a,b){
@@ -301,6 +402,8 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
                 return 0;
             });
         }
+
+
     }
 ]);
 
