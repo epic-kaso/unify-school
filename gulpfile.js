@@ -14,9 +14,6 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.less('super_admin.less', 'public/super_admin/css');
     mix.less('school.less', 'public/school_admin/css')
-        .scriptsIn('resources/js/school_admin/app', 'public/school_admin/js/main.js')
-        .scriptsIn('resources/js/super_admin/app', 'public/super_admin/js/main.js')
-        .scriptsIn('resources/js/app', 'public/app/js/main.js')
-        .scriptsIn('resources/js/libs/core','public/app/libs/core_main.js')
-        .scriptsIn('resources/js/libs/others','public/app/libs/others_main.js');
+        .scriptsIn('resources/js/school_admin/app', 'public/school_admin/js/app.js')
+        .scriptsIn('resources/js/app', 'public/app/js/main.js');
 });

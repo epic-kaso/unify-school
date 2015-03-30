@@ -1034,3 +1034,913 @@ App.service('Utils', ["$window", "APP_MEDIAQUERY", function ($window, APP_MEDIAQ
 // html data-ng-app attribute from
 // SchoolAdminApp to myAppName
 // -----------------------------------
+
+var myAppRoutes = angular.module('SchoolAdminApp');
+
+myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider', 'ViewBaseURL',
+    function ($stateProvider, $locationProvider, $urlRouterProvider, helper, ViewBaseURL) {
+        'use strict';
+
+        // Set the following to true to enable the HTML5 Mode
+        // You may have to set <base> tag in index and a routing configuration in your server
+        $locationProvider.html5Mode(false);
+
+        // default route
+        $urlRouterProvider.otherwise('/app/home');
+
+        //
+        // Application Routes
+        // -----------------------------------
+
+        $stateProvider
+            .state('app', {
+                url: '/app',
+                abstract: true,
+                templateUrl: ViewBaseURL + '/ui/app',
+                controller: 'AppController',
+                resolve: helper.resolveFor('modernizr', 'icons')
+            })
+            .state('app.home',
+            {
+                url: '/home',
+                templateUrl: ViewBaseURL + '/home',
+                title: 'School Dashboard',
+                controller: ['$scope',
+                    function ($scope) {
+
+                    }]
+            })
+            .state('app.viewClassArm',
+            {
+                url: '/class/:id',
+                templateUrl: ViewBaseURL + '/pages/school_class',
+                title: 'Class Dashboard',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.settings',
+            {
+                url: '/settings',
+                templateUrl: ViewBaseURL + '/settings/index',
+                title: 'Settings',
+                resolve: helper.resolveFor('xeditable'),
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.settings.session_term',
+            {
+                url: '/session_term',
+                templateUrl: ViewBaseURL + '/settings/session_term',
+                title: 'Session & Term Settings',
+                controller: 'SettingsSessionTermController'
+            })
+            .state('app.settings.students',
+            {
+                url: '/students',
+                templateUrl: ViewBaseURL + '/settings/students',
+                title: 'Students Settings',
+                controller: 'SettingsStudentsController'
+            })
+            .state('app.settings.school',
+            {
+                url: '/school',
+                templateUrl: ViewBaseURL + '/settings/school',
+                title: 'School Settings',
+                controller: 'SettingsSchoolController'
+            })
+            .state('app.settings.staff',
+            {
+                url: '/staff',
+                templateUrl: ViewBaseURL + '/settings/staff',
+                title: 'Staff Settings',
+                controller: 'SettingsStaffController'
+            })
+            .state('app.settings.classes',
+            {
+                url: '/classes',
+                templateUrl: ViewBaseURL + '/settings/class',
+                title: 'Classes Settings',
+                controller: 'SettingsClassesController'
+            })
+            .state('app.settings.courses',
+            {
+                url: '/courses',
+                templateUrl: ViewBaseURL + '/settings/courses',
+                title: 'Courses Settings',
+                controller: 'SettingsCoursesController'
+            })
+            .state('app.settings.academics',
+            {
+                url: '/academics',
+                templateUrl: ViewBaseURL + '/settings/academics',
+                title: 'Academics Settings',
+                controller: 'SettingsAcademicsController'
+            })
+            .state('app.settings.reports',
+            {
+                url: '/reports',
+                templateUrl: ViewBaseURL + '/settings/reports',
+                title: 'Reports Settings',
+                controller: 'SettingsReportController'
+            })
+            .state('app.settings.financials',
+            {
+                url: '/financial',
+                templateUrl: ViewBaseURL + '/settings/financials',
+                title: 'Financial Settings',
+                controller: 'SettingsFinancialController'
+            })
+            .state('app.settings.notifications',
+            {
+                url: '/notifications',
+                templateUrl: ViewBaseURL + '/settings/notifications',
+                title: 'Notification Settings',
+                controller: 'SettingsNotificationController'
+            })
+            .state('app.settings.administrators',
+            {
+                url: '/administrators',
+                templateUrl: ViewBaseURL + '/settings/administrators',
+                title: 'Administrators Settings',
+                controller: 'SettingsAdministratorsController'
+            })
+            //Student Module Routes
+            .state('app.enroll_student',
+            {
+                url: '/students/enroll-student',
+                templateUrl: ViewBaseURL + '/students/enroll_student',
+                title: 'Enroll A New Student',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.enroll_students',
+            {
+                url: '/students/enroll-students',
+                templateUrl: ViewBaseURL + '/students/enroll_students',
+                title: 'Enroll Many Students',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            })
+            .state('app.import_students',
+            {
+                url: '/students/import',
+                templateUrl: ViewBaseURL + '/students/import-students',
+                title: 'Import Students',
+                controller: 'StudentsImportController'
+            })
+            .state('app.export_students',
+            {
+                url: '/students/export',
+                templateUrl: ViewBaseURL + '/students/export-students',
+                title: 'Export Students',
+                controller: ['$scope',
+                    function ($scope) {
+                    }
+                ]
+            });
+        //
+        // CUSTOM RESOLVES
+        //   Add your own resolves properties
+        //   following this object extend
+        //   method
+        // -----------------------------------
+        // .state('app.someroute', {
+        //   url: '/some_url',
+        //   templateUrl: 'path_to_template.html',
+        //   controller: 'someController',
+        //   resolve: angular.extend(
+        //     helper.resolveFor(), {
+        //     // YOUR RESOLVES GO HERE
+        //     }
+        //   )
+        // })
+}]);
+/**
+ * Created by Ak on 2/19/2015.
+ */
+
+var app = angular.module('SchoolAdminApp.services', []);
+
+app.factory('TicketServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/ticket/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+//TicketConfigServ
+app.factory('TicketConfigServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/ticket-config/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+app.factory('DeviceBrandsServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/device_makers/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+app.factory('AdvisersServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/advisers/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+app.factory('DevicesServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/devices/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+app.factory('GradingSystemServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/grading-system-config/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+
+app.factory('MailServ', ['$resource', function ($resource) {
+    return $resource('/resources/mail', null);//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+
+app.factory('NetworksServ', ['$resource', 'URLServ', function ($resource, URLServ) {
+    return $resource('/resources/networks/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });//URLServ.getResourceUrlFor("ticket"));
+}]);
+
+
+app.factory('URLServ', ['$rootScope', function ($rootScope) {
+    return {
+        "getResourceUrlFor": function (name) {
+            return $rootScope.data.resources[name];
+        }
+    }
+}]);
+
+app.factory('GadgetEvaluationReward', ['NetworksServ', '$cookieStore', function (NetworksServ, $cookieStore) {
+    var reward = {result: ''};
+
+    function getBaseLinePrice(device, size) {
+        var baseLinePrice = 0;
+
+        console.log('Device --reward');
+        console.log(device);
+        console.log(size);
+
+        if (device.base_line_prices.length == 1) {
+            baseLinePrice = parseInt(device.base_line_prices[0].value);
+        } else {
+
+            angular.forEach(device.base_line_prices, function (v, k) {
+                if (v.size == size) {
+                    baseLinePrice = parseInt(v.value);
+                }
+            });
+        }
+
+        return baseLinePrice;
+    }
+
+    function calculatePriceFromGrade(device, grade, baseLinePrice) {
+        console.log(baseLinePrice);
+        console.log(device.brand.normal_condition);
+        console.log(device.brand);
+        console.log(grade);
+
+        switch (grade) {
+            case 'A':
+                return parseFloat(parseInt(device.brand.normal_condition) / 100.0) * baseLinePrice;
+            case 'B':
+                return parseFloat(parseInt(device.brand.scratched_condition) / 100.0) * baseLinePrice;
+            case 'C':
+                return parseFloat(parseInt(device.brand.bad_condition) / 100.0) * baseLinePrice;
+        }
+    }
+
+    return {
+        "calculate": function (model) {
+            reward.result = calculatePriceFromGrade(model, model.grade, getBaseLinePrice(model.device, model.size));
+            console.log(reward.result);
+            $cookieStore.put('last-reward', reward.result);
+            return reward.result;
+        },
+        "getLastReward": function () {
+            return $cookieStore.get('last-reward');
+        },
+        fetchAirtelBonus: function () {
+            var network = NetworksServ.get({q: 'airtel'});
+            return network;
+        }
+    }
+}]);
+
+app.factory('GradeDeviceServ', ['$rootScope', function ($rootScope) {
+
+    var threshold = {
+        'A': 8.1,
+        'B': 5.85
+    };
+
+    function generateGradePoint(device) {
+        var result = {gradePoint: 0};
+
+        angular.forEach(device, function (value, key) {
+            if (angular.isDefined(value.rating) && value.rating != '') {
+                console.log(value.rating + " -- " + value.weight);
+                this.gradePoint += parseInt(value.rating) * value.weight;
+                console.log(this.gradePoint);
+            }
+        }, result);
+
+        return result.gradePoint;
+    }
+
+    function generateGradeLetter(gradePoint) {
+        var value = parseFloat(gradePoint);
+
+        if (value >= threshold.A) {
+            return 'A';
+        } else if (value >= threshold.B) {
+            return 'B';
+        } else {
+            return 'C';
+        }
+    }
+
+    return {
+        "getGrade": function (device) {
+            var gradePoint = generateGradePoint(device);
+            return generateGradeLetter(gradePoint);
+        }
+    }
+}]);
+
+app.factory('PreloadTemplates', ['$templateCache', '$http', 'PRELOAD_UI_LIST', function ($templateCache, $http, PRELOAD_UI_LIST) {
+    var templates = PRELOAD_UI_LIST.get();
+    return {
+        run: function () {
+            templates.forEach(function (currentItem) {
+                $http.get(currentItem, {cache: $templateCache});
+            });
+        }
+    }
+}]);
+
+
+app.factory('ImageFetcher', ['$http', '$q', function ($http, $q) {
+    var searchUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAJ_8QtWECvWTcrukqvfLmRWdARJ2bI2rk&cx=011505858740112002603:dap5yb7naau&q=";
+
+    return {
+        fetch: function (query) {
+            var images = [];
+            var deferred = $q.defer();
+            $http.get(searchUrl + encodeURI(query)).then(function (response) {
+                console.log(response.data);
+                response.data.items.forEach(function (currentValue) {
+                    if (angular.isDefined(currentValue.pagemap)) {
+                        var temp = currentValue.pagemap.cse_image;//cse_thumbnail;
+                        if (angular.isDefined(temp) && angular.isArray(temp)) {
+                            temp.forEach(function (cValue) {
+                                images.push(cValue);
+//                                if (cValue.height > cValue.width) {
+//                                    images.push(cValue);
+//                                }
+                            });
+                        } else if (angular.isDefined(temp) && angular.isObject(temp)) {
+                            images.push(temp);
+                        }
+                    }
+                });
+                console.log(images);
+                deferred.resolve(images);
+            }, function (response) {
+                console.log(response);
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
+    }
+
+}]);
+
+
+app.factory('ToastService', ['$rootScope', function ($rootScope) {
+
+    if (angular.isUndefined($rootScope.toast)) {
+        $rootScope.toast = {messages: [], show: false, type: 'info'};
+    }
+
+    return {
+        error: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'danger'};
+        },
+        info: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'info'};
+        },
+        success: function (message) {
+            $rootScope.toast = {messages: [message], show: true, type: 'success'};
+        }
+    }
+}]);
+
+
+app.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
+
+    var TableData = {
+        cache: SchoolDataService.schools,
+        getData: function ($defer, params) {
+
+            filterdata($defer, params);
+
+            function filterdata($defer, params) {
+                var from = (params.page() - 1) * params.count();
+                var to = params.page() * params.count();
+                var filteredData = TableData.cache.slice(from, to);
+
+                params.total(TableData.cache.length);
+                $defer.resolve(filteredData);
+            }
+
+        }
+    };
+
+    return TableData;
+
+}]);
+
+app.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+var app = angular.module('SchoolAdminApp');
+/**
+ * Controllers
+ *
+ */
+
+app.controller('NavBarController', [
+        '$scope', '$rootScope', 'SchoolDataService',
+        function ($scope, $rootScope, SchoolDataService) {
+            $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+            $scope.selectedSchoolCategory = $scope.schoolCategories[0];
+
+            $scope.prepareSchoolCategory = function ($event, category) {
+                $scope.selectedSchoolCategory = category;
+                $event.preventDefault();
+            };
+
+            $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
+                console.log('selectedSchoolCategoryChanged event');
+                $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
+                console.log('selectedSchoolCategoryChanged raised');
+            });
+        }]
+);
+
+
+/**-------------------------------------------------------------------------------
+ * Settings Controllers Start
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Session and Term Settings Controller
+ */
+
+app.controller('SettingsSessionTermController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+ * Students Settings Controller
+ */
+
+app.controller('SettingsStudentsController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+ * School Settings Controller
+ *
+ */
+
+app.controller('SettingsSchoolController',['$scope','SchoolDataService','editableOptions', 'editableThemes',
+    function ($scope,SchoolDataService,editableOptions, editableThemes) {
+
+        //template start
+        editableOptions.theme = 'bs3';
+
+        editableThemes.bs3.inputClass = 'input-sm';
+        editableThemes.bs3.buttonsClass = 'btn-sm';
+        editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
+        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">'+
+        '<span class="fa fa-times text-muted"></span>'+
+        '</button>';
+
+        $scope.user = {
+            email: 'email@example.com',
+            tel: '123-45-67',
+            number: 29,
+            range: 10,
+            url: 'http://example.com',
+            search: 'blabla',
+            color: '#6a4415',
+            date: null,
+            time: '12:30',
+            datetime: null,
+            month: null,
+            week: null,
+            desc: 'Sed pharetra euismod dolor, id feugiat ante volutpat eget. '
+        };
+
+        // Local select
+        // -----------------------------------
+
+        $scope.user2 = {
+            status: 2
+        };
+
+        $scope.statuses = [
+            {value: 1, text: 'status1'},
+            {value: 2, text: 'status2'},
+            {value: 3, text: 'status3'},
+            {value: 4, text: 'status4'}
+        ];
+
+        $scope.showStatus = function() {
+            var selected = $filter('filter')($scope.statuses, {value: $scope.user2.status});
+            return ($scope.user2.status && selected.length) ? selected[0].text : 'Not set';
+        };
+
+        // select remote
+        // -----------------------------------
+
+        $scope.user3 = {
+            id: 4,
+            text: 'admin' // original value
+        };
+
+        $scope.groups = [];
+
+        $scope.loadGroups = function() {
+            return $scope.groups.length ? null : $http.get('server/xeditable-groups.json').success(function(data) {
+                $scope.groups = data;
+            });
+        };
+
+        $scope.$watch('user3.id', function(newVal, oldVal) {
+            if (newVal !== oldVal) {
+                var selected = $filter('filter')($scope.groups, {id: $scope.user3.id});
+                $scope.user3.text = selected.length ? selected[0].text : null;
+            }
+        });
+
+        // Typeahead
+        // -----------------------------------
+
+        $scope.user4 = {
+            state: 'Arizona'
+        };
+
+        $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+        //template stop
+
+
+
+
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+])
+
+/**
+ * Staff Settings Controller
+ */
+
+
+app.controller('SettingsStaffController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+ * Classes Settings Controller
+ */
+
+app.controller('SettingsClassesController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+
+ Courses Settings Controller
+ */
+
+app.controller('SettingsCoursesController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+ * Academics Settings Controller
+ */
+
+app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+/**
+ * Report Settings Controller
+ */
+
+app.controller('SettingsReportController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+
+
+app.controller('SettingsFinancialController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+
+/**
+ * Notification Settings Controller
+ */
+app.controller('SettingsNotificationController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+
+
+app.controller('SettingsAdministratorsController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    }
+]);
+
+var app = angular.module('SchoolAdminApp');
+
+app.controller('StudentsImportController',['$scope','SchoolDataService',
+    function ($scope,SchoolDataService) {
+
+        console.log(SchoolDataService.school.school_type.school_categories);
+
+        $scope.current_school_classes = null;
+        $scope.school_categories = SchoolDataService.school.school_type.school_categories;
+        $scope.sessions = getSessionsFrom(SchoolDataService);
+
+        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.form = {
+            school_category: null
+        };
+
+        $scope.$watch('form.school_category',function(newV,oldV){
+            setCurrentSchoolClassesForSchoolType(newV);
+        });
+
+        function getSessionsFrom(SchoolDataService){
+            return SchoolDataService.school.sessions.sort(function(a,b){
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+
+
+        function setCurrentSchoolClassesForSchoolType(newV){
+            var school_type = null;
+            angular.forEach($scope.school_categories,function(value,key){
+                if(value.id == newV){
+                    school_type = value;
+                    return ;
+                }
+            });
+
+            if(angular.isDefined(school_type) && school_type != null){
+                $scope.current_school_classes = school_type.classes;
+            }
+        }
+
+    }
+]);
+//# sourceMappingURL=app.js.map

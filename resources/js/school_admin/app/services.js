@@ -228,3 +228,34 @@ app.factory('ToastService', ['$rootScope', function ($rootScope) {
         }
     }
 }]);
+
+
+app.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
+
+    var TableData = {
+        cache: SchoolDataService.schools,
+        getData: function ($defer, params) {
+
+            filterdata($defer, params);
+
+            function filterdata($defer, params) {
+                var from = (params.page() - 1) * params.count();
+                var to = params.page() * params.count();
+                var filteredData = TableData.cache.slice(from, to);
+
+                params.total(TableData.cache.length);
+                $defer.resolve(filteredData);
+            }
+
+        }
+    };
+
+    return TableData;
+
+}]);
+
+app.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
