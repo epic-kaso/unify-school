@@ -27,8 +27,7 @@ var App = angular.module('SchoolAdminApp', [
     'cfp.loadingBar',
     'ngSanitize',
     'ngResource',
-    'ui.utils',
-    'SchoolAdminApp.services'
+    'ui.utils'
 ]);
 
 App.run(
@@ -1058,7 +1057,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 abstract: true,
                 templateUrl: ViewBaseURL + '/ui/app',
                 controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons')
+                resolve: helper.resolveFor('modernizr', 'icons','toaster')
             })
             .state('app.home',
             {
@@ -1223,239 +1222,15 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
         //   )
         // })
 }]);
-/**
- * Created by Ak on 2/19/2015.
- */
 
-var app = angular.module('SchoolAdminApp.services', []);
-
-app.factory('TicketServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/ticket/:id', {id: '@id'}, {
+App.factory('GradingSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/grading-systems/:id', {id: '@id'}, {
         'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-//TicketConfigServ
-app.factory('TicketConfigServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/ticket-config/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-app.factory('DeviceBrandsServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/device_makers/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-app.factory('AdvisersServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/advisers/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-app.factory('DevicesServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/devices/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-app.factory('GradingSystemServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/grading-system-config/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
+    });
 }]);
 
 
-app.factory('MailServ', ['$resource', function ($resource) {
-    return $resource('/resources/mail', null);//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-
-app.factory('NetworksServ', ['$resource', 'URLServ', function ($resource, URLServ) {
-    return $resource('/resources/networks/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });//URLServ.getResourceUrlFor("ticket"));
-}]);
-
-
-app.factory('URLServ', ['$rootScope', function ($rootScope) {
-    return {
-        "getResourceUrlFor": function (name) {
-            return $rootScope.data.resources[name];
-        }
-    }
-}]);
-
-app.factory('GadgetEvaluationReward', ['NetworksServ', '$cookieStore', function (NetworksServ, $cookieStore) {
-    var reward = {result: ''};
-
-    function getBaseLinePrice(device, size) {
-        var baseLinePrice = 0;
-
-        console.log('Device --reward');
-        console.log(device);
-        console.log(size);
-
-        if (device.base_line_prices.length == 1) {
-            baseLinePrice = parseInt(device.base_line_prices[0].value);
-        } else {
-
-            angular.forEach(device.base_line_prices, function (v, k) {
-                if (v.size == size) {
-                    baseLinePrice = parseInt(v.value);
-                }
-            });
-        }
-
-        return baseLinePrice;
-    }
-
-    function calculatePriceFromGrade(device, grade, baseLinePrice) {
-        console.log(baseLinePrice);
-        console.log(device.brand.normal_condition);
-        console.log(device.brand);
-        console.log(grade);
-
-        switch (grade) {
-            case 'A':
-                return parseFloat(parseInt(device.brand.normal_condition) / 100.0) * baseLinePrice;
-            case 'B':
-                return parseFloat(parseInt(device.brand.scratched_condition) / 100.0) * baseLinePrice;
-            case 'C':
-                return parseFloat(parseInt(device.brand.bad_condition) / 100.0) * baseLinePrice;
-        }
-    }
-
-    return {
-        "calculate": function (model) {
-            reward.result = calculatePriceFromGrade(model, model.grade, getBaseLinePrice(model.device, model.size));
-            console.log(reward.result);
-            $cookieStore.put('last-reward', reward.result);
-            return reward.result;
-        },
-        "getLastReward": function () {
-            return $cookieStore.get('last-reward');
-        },
-        fetchAirtelBonus: function () {
-            var network = NetworksServ.get({q: 'airtel'});
-            return network;
-        }
-    }
-}]);
-
-app.factory('GradeDeviceServ', ['$rootScope', function ($rootScope) {
-
-    var threshold = {
-        'A': 8.1,
-        'B': 5.85
-    };
-
-    function generateGradePoint(device) {
-        var result = {gradePoint: 0};
-
-        angular.forEach(device, function (value, key) {
-            if (angular.isDefined(value.rating) && value.rating != '') {
-                console.log(value.rating + " -- " + value.weight);
-                this.gradePoint += parseInt(value.rating) * value.weight;
-                console.log(this.gradePoint);
-            }
-        }, result);
-
-        return result.gradePoint;
-    }
-
-    function generateGradeLetter(gradePoint) {
-        var value = parseFloat(gradePoint);
-
-        if (value >= threshold.A) {
-            return 'A';
-        } else if (value >= threshold.B) {
-            return 'B';
-        } else {
-            return 'C';
-        }
-    }
-
-    return {
-        "getGrade": function (device) {
-            var gradePoint = generateGradePoint(device);
-            return generateGradeLetter(gradePoint);
-        }
-    }
-}]);
-
-app.factory('PreloadTemplates', ['$templateCache', '$http', 'PRELOAD_UI_LIST', function ($templateCache, $http, PRELOAD_UI_LIST) {
-    var templates = PRELOAD_UI_LIST.get();
-    return {
-        run: function () {
-            templates.forEach(function (currentItem) {
-                $http.get(currentItem, {cache: $templateCache});
-            });
-        }
-    }
-}]);
-
-
-app.factory('ImageFetcher', ['$http', '$q', function ($http, $q) {
-    var searchUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAJ_8QtWECvWTcrukqvfLmRWdARJ2bI2rk&cx=011505858740112002603:dap5yb7naau&q=";
-
-    return {
-        fetch: function (query) {
-            var images = [];
-            var deferred = $q.defer();
-            $http.get(searchUrl + encodeURI(query)).then(function (response) {
-                console.log(response.data);
-                response.data.items.forEach(function (currentValue) {
-                    if (angular.isDefined(currentValue.pagemap)) {
-                        var temp = currentValue.pagemap.cse_image;//cse_thumbnail;
-                        if (angular.isDefined(temp) && angular.isArray(temp)) {
-                            temp.forEach(function (cValue) {
-                                images.push(cValue);
-//                                if (cValue.height > cValue.width) {
-//                                    images.push(cValue);
-//                                }
-                            });
-                        } else if (angular.isDefined(temp) && angular.isObject(temp)) {
-                            images.push(temp);
-                        }
-                    }
-                });
-                console.log(images);
-                deferred.resolve(images);
-            }, function (response) {
-                console.log(response);
-                deferred.reject(response);
-            });
-
-            return deferred.promise;
-        }
-    }
-
-}]);
-
-
-app.factory('ToastService', ['$rootScope', function ($rootScope) {
-
-    if (angular.isUndefined($rootScope.toast)) {
-        $rootScope.toast = {messages: [], show: false, type: 'info'};
-    }
-
-    return {
-        error: function (message) {
-            $rootScope.toast = {messages: [message], show: true, type: 'danger'};
-        },
-        info: function (message) {
-            $rootScope.toast = {messages: [message], show: true, type: 'info'};
-        },
-        success: function (message) {
-            $rootScope.toast = {messages: [message], show: true, type: 'success'};
-        }
-    }
-}]);
-
-
-app.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
+App.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
     var TableData = {
         cache: SchoolDataService.schools,
@@ -1479,7 +1254,7 @@ app.service('TableDataService', ['SchoolDataService', function (SchoolDataServic
 
 }]);
 
-app.factory('SchoolService', ['$resource', function ($resource) {
+App.factory('SchoolService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school/:id', {id: '@id'}, {
         'update': {method: 'PUT'}
     });
@@ -1767,51 +1542,10 @@ app.controller('SettingsCoursesController',['$scope','SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
+app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
+    function ($scope,GradingSystemService) {
 
-        $scope.gradingSystems = [
-            {
-                name: 'Default Grading System',
-                grades: [
-                    {
-                        symbol: 'A',
-                        lowerRange: 75,
-                        upperRange: 100,
-                        remark: 'Excellent'
-                    },
-                    {
-                        symbol: 'B',
-                        lowerRange: 60,
-                        upperRange: 74,
-                        remark: 'Very Good'
-                    },
-                    {
-                        symbol: 'C',
-                        lowerRange: 55,
-                        upperRange: 59,
-                        remark: 'Good'
-                    },
-                    {
-                        symbol: 'E',
-                        lowerRange: 50,
-                        upperRange: 54,
-                        remark: 'Pass'
-                    },
-                    {
-                        symbol: 'F',
-                        lowerRange: 0,
-                        upperRange: 49,
-                        remark: 'Fail'
-                    }
-                ]
-            }
-        ];
+        $scope.gradingSystems = GradingSystemService.query();
 
         $scope.setGradingSystemEditMode = function($event,gradingSystem,isEdit){
             gradingSystem.edit = isEdit;
@@ -1823,8 +1557,21 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
             $event.preventDefault();
         };
 
-        $scope.removeGrade = function(grades,index){
-            grades.splice(index,1);
+        $scope.addGrade = function(gradingSystem){
+            if(angular.isDefined(gradingSystem) && angular.isDefined(gradingSystem.grades)) {
+                gradingSystem.grades.push({
+                    symbol: '',
+                    lowerRange: 0,
+                    upperRange: 0,
+                    remark: ''
+                });
+            }
+        };
+
+        $scope.removeGrade = function(gradingSystem,index){
+            if(angular.isDefined(gradingSystem) && parseInt(index) > 0) {
+                gradingSystem.grades.splice(index, 1);
+            }
         };
 
         $scope.addNewGradingSystem = function(){
@@ -1864,32 +1611,30 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
                     }
                 ]
             };
-
             clone.name += ' ' + $scope.gradingSystems.length;
-            $scope.gradingSystems.push(clone);
+            //$scope.gradingSystems.push(clone);
 
             $scope.isAddingNewGradingSystem = false;
+            GradingSystemService.save(clone,function(response){
+                $scope.gradingSystems = response;
+            },function(data){
+                //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
+            });
         };
 
         $scope.deleteGradingSystem = function($event,gradingSystems,index){
             gradingSystems.splice(index,1);
             $scope.preventDefaultAction($event);
-        }
+        };
 
-
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
+        $scope.saveGradingSystemChanges = function(gradingSystem){
+            GradingSystemService.update({id: gradingSystem.id},gradingSystem).$promise.then(function(response){
+                console.log('Saved Changes')
+            },function(data){
+                console.log('could not save changes')
             });
         }
-
-
+        console.log(GradingSystemService.query());
     }
 ]);
 

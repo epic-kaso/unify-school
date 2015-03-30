@@ -281,51 +281,10 @@ app.controller('SettingsCoursesController',['$scope','SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
+app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
+    function ($scope,GradingSystemService) {
 
-        $scope.gradingSystems = [
-            {
-                name: 'Default Grading System',
-                grades: [
-                    {
-                        symbol: 'A',
-                        lowerRange: 75,
-                        upperRange: 100,
-                        remark: 'Excellent'
-                    },
-                    {
-                        symbol: 'B',
-                        lowerRange: 60,
-                        upperRange: 74,
-                        remark: 'Very Good'
-                    },
-                    {
-                        symbol: 'C',
-                        lowerRange: 55,
-                        upperRange: 59,
-                        remark: 'Good'
-                    },
-                    {
-                        symbol: 'E',
-                        lowerRange: 50,
-                        upperRange: 54,
-                        remark: 'Pass'
-                    },
-                    {
-                        symbol: 'F',
-                        lowerRange: 0,
-                        upperRange: 49,
-                        remark: 'Fail'
-                    }
-                ]
-            }
-        ];
+        $scope.gradingSystems = GradingSystemService.query();
 
         $scope.setGradingSystemEditMode = function($event,gradingSystem,isEdit){
             gradingSystem.edit = isEdit;
@@ -337,8 +296,21 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
             $event.preventDefault();
         };
 
-        $scope.removeGrade = function(grades,index){
-            grades.splice(index,1);
+        $scope.addGrade = function(gradingSystem){
+            if(angular.isDefined(gradingSystem) && angular.isDefined(gradingSystem.grades)) {
+                gradingSystem.grades.push({
+                    symbol: '',
+                    lowerRange: 0,
+                    upperRange: 0,
+                    remark: ''
+                });
+            }
+        };
+
+        $scope.removeGrade = function(gradingSystem,index){
+            if(angular.isDefined(gradingSystem) && parseInt(index) > 0) {
+                gradingSystem.grades.splice(index, 1);
+            }
         };
 
         $scope.addNewGradingSystem = function(){
@@ -378,32 +350,30 @@ app.controller('SettingsAcademicsController',['$scope','SchoolDataService',
                     }
                 ]
             };
-
             clone.name += ' ' + $scope.gradingSystems.length;
-            $scope.gradingSystems.push(clone);
+            //$scope.gradingSystems.push(clone);
 
             $scope.isAddingNewGradingSystem = false;
+            GradingSystemService.save(clone,function(response){
+                $scope.gradingSystems = response;
+            },function(data){
+                //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
+            });
         };
 
         $scope.deleteGradingSystem = function($event,gradingSystems,index){
             gradingSystems.splice(index,1);
             $scope.preventDefaultAction($event);
-        }
+        };
 
-
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
+        $scope.saveGradingSystemChanges = function(gradingSystem){
+            GradingSystemService.update({id: gradingSystem.id},gradingSystem).$promise.then(function(response){
+                console.log('Saved Changes')
+            },function(data){
+                console.log('could not save changes')
             });
         }
-
-
+        console.log(GradingSystemService.query());
     }
 ]);
 

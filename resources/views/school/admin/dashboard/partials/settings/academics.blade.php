@@ -13,14 +13,14 @@
                         <div class="row">
                             <div id="rowinfo">
                                 <accordion>
-                                    <accordion-group ng-repeat="gradingSystem in gradingSystems track by $index" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                    <accordion-group ng-repeat="gradingSystem in gradingSystems">
                                         <accordion-heading>
-                                            <span class="display_box" ng-if="!gradingSystem.edit">
+                                            <span class="display_box" ng-hide="gradingSystem.edit">
                                                 @{{ gradingSystem.name }}
                                                 <button class="btn btn-default btn-xs"
                                                         ng-click="setGradingSystemEditMode($event,gradingSystem,true)">Rename</button>
                                             </span>
-                                            <span class="edit-box" style="display: inline-block;width: 320px;" ng-if="gradingSystem.edit">
+                                            <span class="edit-box" style="display: inline-block;width: 320px;" ng-show="gradingSystem.edit">
                                                 <input style="width: 250px;display: inline-block" type="text"
                                                        ng-model="gradingSystem.name"
                                                        ng-click="preventDefaultAction($event)"
@@ -33,8 +33,6 @@
                                                   ng-click="deleteGradingSystem($event,gradingSystems,$index)">
                                                 <i class="fa fa-times"></i>
                                             </span>
-                                            <paneltool tool-collapse="collapse">
-                                            </paneltool>
                                         </accordion-heading>
                                             <div class="batch">
                                             <div class="row" style="padding-top:10px">
@@ -48,24 +46,24 @@
                                                         <span class="form-control-static">Score Range</span>
                                                     </label>
                                                 </section>
-                                                <section class="col-sm-5 text-center">
+                                                <section class="col-sm-4 text-center">
                                                     <label>
                                                         <span class="form-control-static">Remark</span>
                                                     </label>
                                                 </section>
-                                                <section class="col-sm-1">
+                                                <section class="col-sm-1 text-center">
 
                                                 </section>
                                             </div>
                                             <div ng-repeat="grade in gradingSystem.grades" class="row" style="padding-top:10px">
                                                 <section class="col-sm-3">
                                                     <label class="input">
-                                                        <input type="text"  value="@{{ grade.symbol }}" class="form-control" placeholder="eg A, C5, B3">
+                                                        <input type="text"  ng-model="grade.symbol" class="form-control" placeholder="eg A, C5, B3">
                                                     </label>
                                                 </section>
                                                 <section class="col-sm-2">
                                                     <label class="select">
-                                                        <select class="form-control from-range">
+                                                        <select class="form-control from-range" ng-model="grade.lowerRange">
                                                             @for($i = 0;$i <= 100;$i++ )
                                                                 <option ng-if="grade.lowerRange == {{ $i }}" selected>{{ $i }}</option>
                                                                 <option ng-if="grade.lowerRange != {{ $i }}">{{ $i }}</option>
@@ -75,7 +73,7 @@
                                                 </section>
                                                 <section class="col-sm-2">
                                                     <label class="select">
-                                                        <select class="form-control to-range">
+                                                        <select class="form-control to-range" ng-model="grade.upperRange">
                                                             @for($i = 0;$i <= 100;$i++ )
                                                                 <option ng-if="grade.upperRange == {{ $i }}" selected>{{ $i }}</option>
                                                                 <option ng-if="grade.upperRange != {{ $i }}">{{ $i }}</option>
@@ -85,15 +83,21 @@
                                                 </section>
                                                 <section class="col-sm-4">
                                                     <label class="input">
-                                                        <input type="text" value="@{{ grade.remark  }}" class="form-control" placeholder="eg excellent">
+                                                        <input type="text" ng-model="grade.remark" class="form-control" placeholder="eg excellent">
                                                     </label>
                                                 </section>
                                                 <section class="col-sm-1">
-                                            <span class="shutdown" ng-click="removeGrade(gradingSystem.grades,$index)" style="cursor: pointer; text-decoration: underline;">
+                                            <span class="shutdown" ng-click="removeGrade(gradingSystem,$index)" style="cursor: pointer; text-decoration: underline;">
                                                 <i class="fa fa-times"></i>
                                             </span>
                                                 </section>
                                             </div>
+                                                <div class="row" style="margin-top: 15px;">
+                                                    <div class="col-sm-4 text-center">
+                                                        <button class="btn btn-warning" ng-click="addGrade(gradingSystem)">Add Grade</button>
+                                                        <button class="btn btn-success" ng-click="saveGradingSystemChanges(gradingSystem)">Save Changes</button>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </accordion-group>
                                 </accordion>
@@ -173,13 +177,3 @@
 
     </div>
 </div>
-
-<script type="text/ng-template" id="NewGradingSystemTmpl.html">
-    <accordion-group>
-    <accordion-heading>
-    Accordion Heading #3
-    <paneltool tool-dismiss="tool-dismiss"></paneltool>
-    </accordion-heading>
-    <p>In vitae porttitor eros. Vivamus et urna magna. In consequat massa eget dui ultrices sit amet auctor libero molestie. Vestibulum nec viverra libero.</p>
-    </accordion-group>
-</script>

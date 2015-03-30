@@ -27,8 +27,7 @@ var App = angular.module('SchoolAdminApp', [
     'cfp.loadingBar',
     'ngSanitize',
     'ngResource',
-    'ui.utils',
-    'SchoolAdminApp.services'
+    'ui.utils'
 ]);
 
 App.run(

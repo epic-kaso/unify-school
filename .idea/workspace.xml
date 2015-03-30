@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_03_30_125921_create_scoped_grading_systems_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Entities/Grade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/directives/panel-tools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/School.php" afterPath="$PROJECT_DIR$/app/School.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedClassStudent.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedClassStudent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArmSubdivision.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArmSubdivision.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSession.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSession.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSessionType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSessionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedStudent.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedStudent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSubSessionType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSubSessionType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js.map" afterPath="$PROJECT_DIR$/public/app/js/main.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -44,12 +36,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="school.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php">
+      <file leaf-file-name="GradingSystemsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077">
-              <caret line="19" column="48" selection-start-line="18" selection-start-column="44" selection-end-line="19" selection-end-column="48" />
+            <state vertical-scroll-proportion="1.4644809">
+              <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+              <folding>
+                <element signature="e#79#106#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="35.76923">
+              <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="33" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="33" />
+              <folding>
+                <element signature="e#282#834#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,10 +74,57 @@
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="389" column="46" selection-start-line="389" selection-start-column="46" selection-end-line="389" selection-end-column="46" />
+              <caret line="374" column="9" selection-start-line="374" selection-start-column="9" selection-end-line="374" selection-end-column="9" />
               <folding>
-                <element signature="e#10757#11878#0" expanded="false" />
+                <element signature="e#9118#9204#0" expanded="false" />
+                <element signature="e#9256#9572#0" expanded="false" />
+                <element signature="e#9915#11036#0" expanded="false" />
+                <element signature="e#11533#11637#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="162" column="30" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="30" />
+              <folding>
+                <element signature="e#654#2159#0" expanded="false" />
+                <element signature="e#6176#11198#0" expanded="false" />
+                <element signature="e#11427#15434#0" expanded="false" />
+                <element signature="e#15703#16026#0" expanded="false" />
+                <element signature="e#16183#16902#0" expanded="false" />
+                <element signature="e#17204#20852#0" expanded="false" />
+                <element signature="e#21334#22216#0" expanded="false" />
+                <element signature="e#22422#25130#0" expanded="false" />
+                <element signature="e#25370#25484#0" expanded="false" />
+                <element signature="e#25719#26330#0" expanded="false" />
+                <element signature="e#26598#28914#0" expanded="false" />
+                <element signature="e#29189#30985#0" expanded="false" />
+                <element signature="e#31261#35250#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GradingSystemsRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,88 +132,16 @@
       <file leaf-file-name="academics.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+            <state vertical-scroll-proportion="-12.423077">
+              <caret line="94" column="89" selection-start-line="94" selection-start-column="89" selection-end-line="94" selection-end-column="89" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#section#4;n#div#1;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_30_125921_create_scoped_grading_systems_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_30_125921_create_scoped_grading_systems_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScopedGradingSystem.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2568306">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScopedGradingSystemsRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.5">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-              <folding>
-                <element signature="e#132#163#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Entities/Grade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.5">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScopedClassStudentsRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedClassStudentsRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding>
-                <element signature="e#132#183#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Entities/School/BaseModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_21_094503_create_scoped_sessions_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="49" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -175,9 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -214,18 +202,21 @@
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/controllers.js" />
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/controllers/students.js" />
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/services.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/directives/panel-tools.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_30_125921_create_scoped_grading_systems_table.php" />
         <option value="$PROJECT_DIR$/app/Entities/Grade.php" />
         <option value="$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
       </list>
     </option>
   </component>
@@ -319,6 +310,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school_admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school_admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -337,7 +416,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Repositories" />
+              <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -355,7 +434,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entities" />
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,11 +456,109 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entities" />
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Configurations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -480,12 +661,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00106" summary="Slimming down &amp; cacheing">
-      <created>1426726451678</created>
-      <option name="number" value="00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1426726451678</updated>
     </task>
     <task id="LOCAL-00107" summary="Slimming down &amp; cacheing">
       <created>1426727402731</created>
@@ -775,7 +950,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427704888165</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="settings module">
+      <created>1427717504757</created>
+      <option name="number" value="00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1427717504757</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -800,7 +981,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
@@ -809,7 +990,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26335877" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26335877" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -877,36 +1058,16 @@
     <MESSAGE value="school session generator" />
     <MESSAGE value="school creation bug fix" />
     <MESSAGE value="settings module" />
-    <option name="LAST_COMMIT_MESSAGE" value="settings module" />
+    <MESSAGE value="Grading System Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grading System Settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/compile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.269231">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Events/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Events/NewSchoolRegistered.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
@@ -1122,14 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11826087">
-          <caret line="4" column="49" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/students.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1184,36 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="e#685#2190#0" expanded="false" />
-            <element signature="e#6207#11229#0" expanded="false" />
-            <element signature="e#11458#15465#0" expanded="false" />
-            <element signature="e#15734#16057#0" expanded="false" />
-            <element signature="e#16214#16933#0" expanded="false" />
-            <element signature="e#17235#20883#0" expanded="false" />
-            <element signature="e#21365#22247#0" expanded="false" />
-            <element signature="e#22453#25161#0" expanded="false" />
-            <element signature="e#25401#25515#0" expanded="false" />
-            <element signature="e#25750#26361#0" expanded="false" />
-            <element signature="e#26629#28945#0" expanded="false" />
-            <element signature="e#29220#31016#0" expanded="false" />
-            <element signature="e#31292#35281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
@@ -1222,32 +1345,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="389" column="46" selection-start-line="389" selection-start-column="46" selection-end-line="389" selection-end-column="46" />
-          <folding>
-            <element signature="e#10757#11878#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#section#4;n#div#1;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
+        <state vertical-scroll-proportion="0.6502732">
           <caret line="23" column="49" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="49" />
           <folding />
         </state>
@@ -1263,7 +1363,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/School/BaseModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
+        <state vertical-scroll-proportion="0.09289618">
           <caret line="8" column="38" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="38" />
           <folding />
         </state>
@@ -1271,7 +1371,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/Grade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.5">
+        <state vertical-scroll-proportion="-0.4025501">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding />
         </state>
@@ -1279,20 +1379,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedClassStudentsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
+        <state vertical-scroll-proportion="0.18579236">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding>
-            <element signature="e#132#183#0#PHP" expanded="true" />
+            <element signature="e#132#183#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.5">
+        <state vertical-scroll-proportion="0.87613845">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
-            <element signature="e#132#163#0#PHP" expanded="true" />
+            <element signature="e#132#163#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1302,6 +1402,100 @@
         <state vertical-scroll-proportion="0.2568306">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="33" />
+          <folding>
+            <element signature="e#282#834#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="35.76923">
+          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="30" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="30" />
+          <folding>
+            <element signature="e#654#2159#0" expanded="false" />
+            <element signature="e#6176#11198#0" expanded="false" />
+            <element signature="e#11427#15434#0" expanded="false" />
+            <element signature="e#15703#16026#0" expanded="false" />
+            <element signature="e#16183#16902#0" expanded="false" />
+            <element signature="e#17204#20852#0" expanded="false" />
+            <element signature="e#21334#22216#0" expanded="false" />
+            <element signature="e#22422#25130#0" expanded="false" />
+            <element signature="e#25370#25484#0" expanded="false" />
+            <element signature="e#25719#26330#0" expanded="false" />
+            <element signature="e#26598#28914#0" expanded="false" />
+            <element signature="e#29189#30985#0" expanded="false" />
+            <element signature="e#31261#35250#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="374" column="9" selection-start-line="374" selection-start-column="9" selection-end-line="374" selection-end-column="9" />
+          <folding>
+            <element signature="e#9118#9204#0" expanded="false" />
+            <element signature="e#9256#9572#0" expanded="false" />
+            <element signature="e#9915#11036#0" expanded="false" />
+            <element signature="e#11533#11637#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="94" column="89" selection-start-line="94" selection-start-column="89" selection-end-line="94" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#1;n#accordion-heading#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#section#4;n#div#1;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4644809">
+          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+          <folding>
+            <element signature="e#79#106#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

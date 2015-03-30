@@ -27,7 +27,7 @@ Route::group(['middleware' => 'domain_access'], function () {
     }
 );
 
-//School Resources API Route
+//School Basic Resources API Route
 Route::group(
     [
         'middleware' => 'domain_access',
@@ -36,7 +36,6 @@ Route::group(
     ],
     function () {
         Route::resource('school', 'School\SchoolController');
-        Route::resource('import-students', 'School\StudentImportController');
         Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
     }
 );
@@ -55,6 +54,19 @@ Route::group(
         ]);
         Route::controller('dashboard', 'AdminDashboardController');
         Route::resource('resources/menu', 'Dashboard\NavigationMenuController');
+    }
+);
+
+//School Admin Resources Route
+Route::group(
+    [
+        'middleware' => 'domain_access',
+        'prefix' => 'admin/resources',
+        'namespace' => 'School\Resources'
+    ],
+    function () {
+        Route::resource('grading-systems', 'Configurations\GradingSystemsController');
+        Route::resource('import-students', 'School\StudentImportController');
     }
 );
 

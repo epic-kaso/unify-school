@@ -21,7 +21,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 abstract: true,
                 templateUrl: ViewBaseURL + '/ui/app',
                 controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons')
+                resolve: helper.resolveFor('modernizr', 'icons','toaster')
             })
             .state('app.home',
             {
