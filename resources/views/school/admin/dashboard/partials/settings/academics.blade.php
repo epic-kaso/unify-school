@@ -65,8 +65,7 @@
                                                     <label class="select">
                                                         <select class="form-control from-range" ng-model="grade.lowerRange">
                                                             @for($i = 0;$i <= 100;$i++ )
-                                                                <option ng-if="grade.lowerRange == {{ $i }}" selected>{{ $i }}</option>
-                                                                <option ng-if="grade.lowerRange != {{ $i }}">{{ $i }}</option>
+                                                                <option value="{{ $i }}">{{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </label>
@@ -75,8 +74,7 @@
                                                     <label class="select">
                                                         <select class="form-control to-range" ng-model="grade.upperRange">
                                                             @for($i = 0;$i <= 100;$i++ )
-                                                                <option ng-if="grade.upperRange == {{ $i }}" selected>{{ $i }}</option>
-                                                                <option ng-if="grade.upperRange != {{ $i }}">{{ $i }}</option>
+                                                                <option value="{{ $i }}">{{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </label>
