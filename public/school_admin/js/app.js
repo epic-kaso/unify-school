@@ -1300,8 +1300,8 @@ app.controller('NavBarController', [
  * Session and Term Settings Controller
  */
 
-app.controller('SettingsSessionTermController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1309,8 +1309,8 @@ app.controller('SettingsSessionTermController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1327,8 +1327,8 @@ app.controller('SettingsSessionTermController',['$scope','SchoolDataService',
  * Students Settings Controller
  */
 
-app.controller('SettingsStudentsController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsStudentsController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1336,8 +1336,8 @@ app.controller('SettingsStudentsController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1355,8 +1355,8 @@ app.controller('SettingsStudentsController',['$scope','SchoolDataService',
  *
  */
 
-app.controller('SettingsSchoolController',['$scope','SchoolDataService','editableOptions', 'editableThemes',
-    function ($scope,SchoolDataService,editableOptions, editableThemes) {
+app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes',
+    function ($scope, SchoolDataService, editableOptions, editableThemes) {
 
         //template start
         editableOptions.theme = 'bs3';
@@ -1364,8 +1364,8 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
         editableThemes.bs3.inputClass = 'input-sm';
         editableThemes.bs3.buttonsClass = 'btn-sm';
         editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
-        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">'+
-        '<span class="fa fa-times text-muted"></span>'+
+        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
+        '<span class="fa fa-times text-muted"></span>' +
         '</button>';
 
         $scope.user = {
@@ -1398,7 +1398,7 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
             {value: 4, text: 'status4'}
         ];
 
-        $scope.showStatus = function() {
+        $scope.showStatus = function () {
             var selected = $filter('filter')($scope.statuses, {value: $scope.user2.status});
             return ($scope.user2.status && selected.length) ? selected[0].text : 'Not set';
         };
@@ -1413,13 +1413,13 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
 
         $scope.groups = [];
 
-        $scope.loadGroups = function() {
-            return $scope.groups.length ? null : $http.get('server/xeditable-groups.json').success(function(data) {
+        $scope.loadGroups = function () {
+            return $scope.groups.length ? null : $http.get('server/xeditable-groups.json').success(function (data) {
                 $scope.groups = data;
             });
         };
 
-        $scope.$watch('user3.id', function(newVal, oldVal) {
+        $scope.$watch('user3.id', function (newVal, oldVal) {
             if (newVal !== oldVal) {
                 var selected = $filter('filter')($scope.groups, {id: $scope.user3.id});
                 $scope.user3.text = selected.length ? selected[0].text : null;
@@ -1438,8 +1438,6 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
         //template stop
 
 
-
-
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1447,8 +1445,8 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1466,8 +1464,8 @@ app.controller('SettingsSchoolController',['$scope','SchoolDataService','editabl
  */
 
 
-app.controller('SettingsStaffController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1475,8 +1473,8 @@ app.controller('SettingsStaffController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1493,8 +1491,8 @@ app.controller('SettingsStaffController',['$scope','SchoolDataService',
  * Classes Settings Controller
  */
 
-app.controller('SettingsClassesController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsClassesController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1502,8 +1500,8 @@ app.controller('SettingsClassesController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1521,8 +1519,8 @@ app.controller('SettingsClassesController',['$scope','SchoolDataService',
  Courses Settings Controller
  */
 
-app.controller('SettingsCoursesController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1530,8 +1528,8 @@ app.controller('SettingsCoursesController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1548,23 +1546,25 @@ app.controller('SettingsCoursesController',['$scope','SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
-    function ($scope,GradingSystemService) {
+app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService) {
+
+        //Grading Systems
 
         $scope.gradingSystems = GradingSystemService.query();
 
-        $scope.setGradingSystemEditMode = function($event,gradingSystem,isEdit){
+        $scope.setGradingSystemEditMode = function ($event, gradingSystem, isEdit) {
             gradingSystem.edit = isEdit;
             $scope.preventDefaultAction($event);
         };
 
-        $scope.preventDefaultAction = function($event){
+        $scope.preventDefaultAction = function ($event) {
             $event.stopPropagation();
             $event.preventDefault();
         };
 
-        $scope.addGrade = function(gradingSystem){
-            if(angular.isDefined(gradingSystem) && angular.isDefined(gradingSystem.grades)) {
+        $scope.addGrade = function (gradingSystem) {
+            if (angular.isDefined(gradingSystem) && angular.isDefined(gradingSystem.grades)) {
                 gradingSystem.grades.push({
                     symbol: '',
                     lowerRange: 0,
@@ -1574,13 +1574,13 @@ app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
             }
         };
 
-        $scope.removeGrade = function(gradingSystem,index){
-            if(angular.isDefined(gradingSystem) && parseInt(index) > 0) {
+        $scope.removeGrade = function (gradingSystem, index) {
+            if (angular.isDefined(gradingSystem) && parseInt(index) >= 0) {
                 gradingSystem.grades.splice(index, 1);
             }
         };
 
-        $scope.addNewGradingSystem = function(){
+        $scope.addNewGradingSystem = function () {
             $scope.isAddingNewGradingSystem = true;
             var clone = {
                 name: 'Default Grading System',
@@ -1621,35 +1621,148 @@ app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
             //$scope.gradingSystems.push(clone);
 
             $scope.isAddingNewGradingSystem = false;
-            GradingSystemService.save(clone,function(response){
-                if(response.success){
+            GradingSystemService.save(clone, function (response) {
+                if (response.success) {
                     $scope.gradingSystems = response.all;
                 }
-            },function(data){
+            }, function (data) {
                 //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
             });
         };
 
-        $scope.deleteGradingSystem = function($event,gradingSystems,index){
+        $scope.deleteGradingSystem = function ($event, gradingSystems, index) {
             var gradingSystem = gradingSystems[index];
 
-            GradingSystemService.delete(gradingSystem,function(data){
-              console.log('delete success');
-                gradingSystems.splice(index,1);
-            },function(){
+            GradingSystemService.delete(gradingSystem, function (data) {
+                console.log('delete success');
+                gradingSystems.splice(index, 1);
+            }, function () {
                 console.log('delete failure');
             });
             $scope.preventDefaultAction($event);
         };
 
-        $scope.saveGradingSystemChanges = function(gradingSystem){
-            GradingSystemService.update({id: gradingSystem.id},gradingSystem).$promise.then(function(response){
+        $scope.saveGradingSystemChanges = function (gradingSystem) {
+            GradingSystemService.update({id: gradingSystem.id}, gradingSystem).$promise.then(function (response) {
                 console.log('Saved Changes')
-            },function(data){
+            }, function (data) {
                 console.log('could not save changes')
             });
         };
         console.log(GradingSystemService.query());
+
+
+        //Grade Assessment Systems
+
+        $scope.gradeAssessmentSystems = GradeAssessmentSystemService.query();
+
+        $scope.setGradeAssessmentSystemEditMode = function ($event, gradeAssessmentSystem, isEdit) {
+            gradeAssessmentSystem.edit = isEdit;
+            $scope.preventDefaultAction($event);
+        };
+
+        $scope.preventDefaultAction = function ($event) {
+            $event.stopPropagation();
+            $event.preventDefault();
+        };
+
+        $scope.addDivision = function (gradeAssessmentSystem) {
+            if (angular.isDefined(gradeAssessmentSystem) && angular.isDefined(gradeAssessmentSystem.divisions)) {
+                gradeAssessmentSystem.divisions.push({
+                    name: '',
+                    score: 0
+                });
+                gradeAssessmentSystem.total_divisions = gradeAssessmentSystem.divisions.length;
+            }
+        };
+
+        $scope.removeDivision = function (gradeAssessmentSystem, index) {
+            if (angular.isDefined(gradeAssessmentSystem) && parseInt(index) >= 0) {
+                gradeAssessmentSystem.divisions.splice(index, 1);
+                gradeAssessmentSystem.total_divisions = gradeAssessmentSystem.divisions.length;
+            }
+        };
+
+        $scope.addNewGradeAssessmentSystem = function () {
+            $scope.isAddingNewGradeAssessmentSystem = true;
+            var clone = {
+                name: 'Default Grade Assessment System',
+                total_score: 100,
+                divisions: [
+                    {
+                        name: 'First Test',
+                        score: 15
+                    },
+                    {
+                        name: 'Second Test',
+                        score: 15
+                    },
+                    {
+                        name: 'Assignment',
+                        score: 10
+                    },
+                    {
+                        name: 'Examination',
+                        score: 60
+                    }
+                ]
+            };
+            clone.name += ' ' + $scope.gradeAssessmentSystems.length;
+            //$scope.gradingSystems.push(clone);
+
+            $scope.isAddingNewGradeAssessmentSystem = false;
+            GradeAssessmentSystemService.save(clone, function (response) {
+                if (response.success) {
+                    $scope.gradeAssessmentSystems = response.all;
+                }
+            }, function (data) {
+                //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
+            });
+        };
+
+        $scope.deleteGradeAssessmentSystem = function ($event, gradeAssessmentSystems, index) {
+            var gradeAssessmentSystem = gradeAssessmentSystems[index];
+
+            GradeAssessmentSystemService.delete(gradeAssessmentSystem, function (data) {
+                console.log('delete success');
+                gradeAssessmentSystems.splice(index, 1);
+            }, function () {
+                console.log('delete failure');
+            });
+            $scope.preventDefaultAction($event);
+        };
+
+        $scope.saveGradeAssessmentSystemChanges = function (gradeAssessmentSystem) {
+            GradeAssessmentSystemService.update({id: gradeAssessmentSystem.id}, gradeAssessmentSystem).$promise.then(function (response) {
+                console.log('Saved Changes')
+            }, function (data) {
+                console.log('could not save changes')
+            });
+        };
+
+        $scope.updateGradeDivisions = function (count, gradeAssessmentSystem) {
+            var num = parseInt(count);
+            if (num < 0 || angular.isUndefined(gradeAssessmentSystem) || angular.isUndefined(gradeAssessmentSystem.divisions))
+                return null;
+
+            if (num > gradeAssessmentSystem.divisions.length) {
+                var difference = num - gradeAssessmentSystem.divisions.length;
+                for (var i = 0; i < difference; i++) {
+                    $scope.addDivision(gradeAssessmentSystem);
+                }
+                return true;
+            }
+            if (num < gradeAssessmentSystem.divisions.length) {
+                var diff = gradeAssessmentSystem.divisions.length - num;
+                for (var j = 0; j <= diff; j++) {
+                    $scope.removeDivision(gradeAssessmentSystem, j);
+                }
+                return true;
+            }
+        };
+
+
+        console.log(GradeAssessmentSystemService.query());
     }
 ]);
 
@@ -1657,8 +1770,8 @@ app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
  * Report Settings Controller
  */
 
-app.controller('SettingsReportController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsReportController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1666,8 +1779,8 @@ app.controller('SettingsReportController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1681,9 +1794,8 @@ app.controller('SettingsReportController',['$scope','SchoolDataService',
 ]);
 
 
-
-app.controller('SettingsFinancialController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsFinancialController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1691,8 +1803,8 @@ app.controller('SettingsFinancialController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1709,8 +1821,8 @@ app.controller('SettingsFinancialController',['$scope','SchoolDataService',
 /**
  * Notification Settings Controller
  */
-app.controller('SettingsNotificationController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsNotificationController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1718,8 +1830,8 @@ app.controller('SettingsNotificationController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }
@@ -1733,9 +1845,8 @@ app.controller('SettingsNotificationController',['$scope','SchoolDataService',
 ]);
 
 
-
-app.controller('SettingsAdministratorsController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
+app.controller('SettingsAdministratorsController', ['$scope', 'SchoolDataService',
+    function ($scope, SchoolDataService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.form = {
@@ -1743,8 +1854,8 @@ app.controller('SettingsAdministratorsController',['$scope','SchoolDataService',
         };
 
 
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
                     return -1;
                 }

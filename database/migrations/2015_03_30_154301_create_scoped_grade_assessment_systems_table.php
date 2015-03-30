@@ -17,6 +17,7 @@ class CreateScopedGradeAssessmentSystemsTable extends Migration {
 			$table->increments('id');
 			$table->integer('school_id');
 			$table->string('name');
+			$table->integer('total_score');
 			$table->text('divisions');
 			$table->timestamps();
 
