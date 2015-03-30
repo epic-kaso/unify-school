@@ -5,6 +5,12 @@ App.factory('GradingSystemService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/grade-assessment-systems/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
 
 App.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
