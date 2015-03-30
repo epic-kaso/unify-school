@@ -36,7 +36,7 @@ class GradingSystemsController extends Controller {
 			'grades' => $request->get('grades')
 		]);
 
-		return $repository->all();
+		return \Response::json(['all' => $repository->all(),'success' => true]);
 	}
 
 	/**

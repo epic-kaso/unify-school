@@ -1616,14 +1616,23 @@ app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
 
             $scope.isAddingNewGradingSystem = false;
             GradingSystemService.save(clone,function(response){
-                $scope.gradingSystems = response;
+                if(response.success){
+                    $scope.gradingSystems = response.all;
+                }
             },function(data){
                 //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
             });
         };
 
         $scope.deleteGradingSystem = function($event,gradingSystems,index){
-            gradingSystems.splice(index,1);
+            var gradingSystem = gradingSystems[index];
+
+            GradingSystemService.delete(gradingSystem,function(data){
+              console.log('delete success');
+                gradingSystems.splice(index,1);
+            },function(){
+                console.log('delete failure');
+            });
             $scope.preventDefaultAction($event);
         };
 
@@ -1633,7 +1642,7 @@ app.controller('SettingsAcademicsController',['$scope','GradingSystemService',
             },function(data){
                 console.log('could not save changes')
             });
-        }
+        };
         console.log(GradingSystemService.query());
     }
 ]);
