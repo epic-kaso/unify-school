@@ -262,6 +262,21 @@
 
                             </div>
                         </div>
+                        <div class="row" style="margin-top: 50px">
+                            <h4>Assign Grade Assessment Systems</h4><hr/>
+                            <div class="row">
+                                <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
+                                    <div class="form-group">
+                                        <label>@{{ schoolCategory.display_name }} Grade Assessment System</label>
+                                        <select class="form-control" required  ng-model="assignedGradeAssessmentSystem[schoolCategory.name]"
+                                                ng-options="system.id as system.name for system in gradeAssessmentSystems">
+                                            <option value="">Select Grade Assessment System</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </tab>
