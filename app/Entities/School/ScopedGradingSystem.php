@@ -4,14 +4,14 @@
 /**
  * UnifySchool\Entities\School\ScopedGradingSystem
  *
- * @property integer $id 
- * @property integer $school_id 
- * @property string $name 
- * @property string $slug 
+ * @property integer $id
+ * @property integer $school_id
+ * @property string $name
+ * @property string $slug
  * @property array $grades
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \UnifySchool\School $school 
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \UnifySchool\School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradingSystem whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradingSystem whereSchoolId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradingSystem whereName($value)

@@ -116,48 +116,104 @@
                 <tab-heading>
                     <em class="icon-equalizer fa-sm"></em> Continuous Assessment System
                 </tab-heading>
-                <div class="row">
-                    <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-body">
                         <div class="row">
-                            <div class="row">
-                                <section class="col col-3">
-                                    <label class="select">
-                                        <select id="cad">
-                                            <option>0</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option selected="">3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        <i></i>
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="select">
-                                        <select id="cas">
-                                            <option>0</option>
-                                            <option>10</option>
-                                            <option>20</option>
-                                            <option>30</option>
-                                            <option selected="">40</option>
-                                            <option>50</option>
-                                            <option>60</option>
-                                            <option>70</option>
-                                            <option>80</option>
-                                            <option>90</option>
-                                            <option>100</option>
-                                        </select><i></i>
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="input">
-                                        <input type="text" name="exam" id="exam" readonly="">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <span class="btn btn-primary btn-xs"><i class="fa fa-plus"></i></span>
-                                </section>
+                            <div id="rowinfo">
+                                <accordion>
+                                    <accordion-group ng-repeat="gradeAssessmentSystem in gradeAssessmentSystems">
+                                        <accordion-heading>
+                                            <span class="display_box" ng-hide="gradeAssessmentSystem.edit">
+                                                @{{ gradeAssessmentSystem.name }}
+                                                <button class="btn btn-default btn-xs"
+                                                        ng-click="setGradeAssessmentEditMode($event,gradeAssessmentSystem,true)">Rename</button>
+                                            </span>
+                                            <span class="edit-box" style="display: inline-block;width: 320px;" ng-show="gradeAssessmentSystem.edit">
+                                                <input style="width: 250px;display: inline-block" type="text"
+                                                       ng-model="gradeAssessmentSystem.name"
+                                                       ng-click="preventDefaultAction($event)"
+                                                       class="form-control"/>
+                                                <span class="btn btn-default"
+                                                      style="width: 60px"
+                                                      ng-click="setGradeAssessmentEditMode($event,gradeAssessmentSystem,false)">Save</span>
+                                            </span>
+                                            <span class="pull-right"
+                                                  ng-click="deleteGradeAssessmentSystem($event,gradeAssessmentSystems,$index)">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+                                        </accordion-heading>
+                                        <div class="batch">
+                                            <div class="row" style="padding-top:10px">
+                                                <section class="col-sm-4 text-center">
+                                                    <label>
+                                                        <span class="form-control-static">Number of Grade Divisions</span>
+                                                    </label>
+                                                    <input type="text" class="form-control"/>
+                                                </section>
+                                                <section class="col-sm-4 text-center">
+                                                    <label>
+                                                        <span class="form-control-static">Total Grade Score</span>
+                                                    </label>
+                                                    <input type="text" class="form-control"/>
+                                                </section>
+                                                <div class="col-sm-4">
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row" style="padding-top:10px">
+                                                <section class="col-sm-4 text-center">
+                                                    <label>
+                                                        <span class="form-control-static">Division Name</span>
+                                                    </label>
+                                                </section>
+                                                <section class="col-sm-4 text-center">
+                                                    <label>
+                                                        <span class="form-control-static">Division Max Score</span>
+                                                    </label>
+                                                </section>
+                                                <div class="col-sm-4">
+
+                                                </div>
+                                            </div>
+                                            <div ng-repeat="grade in gradeAssessmentSystem.divisions" class="row" style="padding-top:10px">
+                                                <section class="col-sm-4">
+                                                    <label class="input">
+                                                        <input type="text"  ng-model="grade.name" class="form-control" placeholder="Test 1, Exam etc">
+                                                    </label>
+                                                </section>
+                                                <section class="col-sm-4">
+                                                    <label class="select">
+                                                        <select class="form-control from-range" ng-model="grade.score">
+                                                            @for($i = 0;$i <= 100;$i++ )
+                                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </label>
+                                                </section>
+                                                <section class="col-sm-1">
+                                            <span class="shutdown" ng-click="removeDivision(gradeAssessmentSystem,$index)" style="cursor: pointer; text-decoration: underline;">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+                                                </section>
+                                            </div>
+                                            <div class="row" style="margin-top: 15px;">
+                                                <div class="col-sm-4 text-center">
+                                                    <button class="btn btn-warning" ng-click="addDivision(gradeAssessmentSystem)">Add Division</button>
+                                                    <button class="btn btn-success" ng-click="saveGradeAssessmentSystemChanges(gradeAssessmentSystem)">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </accordion-group>
+                                </accordion>
+
+                                <div>
+                                    <button class="btn btn-primary" ng-click="addNewGradeAssessmentSystem()" ng-disabled="isAddingNewGradeAssessmentSystem" >
+                                        Add New Grade Assessment System
+                                        <span class="icon-reload fa fa-spin" ng-show="isAddingNewGradeAssessmentSystem"></span>
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
