@@ -12,7 +12,8 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="row">
-                            <h4>Configure Grading Systems</h4><hr/>
+                            <h4>Configure Grading Systems</h4>
+                            <hr/>
                             <div id="rowinfo">
                                 <accordion>
                                     <accordion-group ng-repeat="gradingSystem in gradingSystems">
@@ -127,12 +128,14 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 50px">
-                            <h4>Assign Grading Systems</h4><hr/>
+                            <h4>Assign Grading Systems</h4>
+                            <hr/>
                             <div class="row">
                                 <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
                                     <div class="form-group">
                                         <label>@{{ schoolCategory.display_name }} Grading System</label>
-                                        <select class="form-control" required  ng-model="assignedGradingSystem[schoolCategory.name]"
+                                        <select class="form-control" required
+                                                ng-model="assignedGradingSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradingSystems">
                                             <option value="">Select Grading System</option>
                                         </select>
@@ -153,7 +156,7 @@
             </tab>
             <tab>
                 <tab-heading>
-                    <em class="icon-equalizer fa-sm"></em> Continuous Assessment System
+                    Continuous Assessment System
                 </tab-heading>
                 <div class="panel">
                     <div class="panel-body">
@@ -232,7 +235,9 @@
                                                 </section>
                                                 <section class="col-sm-4">
                                                     <label class="select">
-                                                        <input type="number" ng-maxlength="gradeAssessmentSystem.total_score" class="form-control from-range" ng-model="grade.score">
+                                                        <input type="number"
+                                                               ng-maxlength="gradeAssessmentSystem.total_score"
+                                                               class="form-control from-range" ng-model="grade.score">
                                                     </label>
                                                 </section>
                                                 <section class="col-sm-4">
@@ -270,12 +275,14 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 50px">
-                            <h4>Assign Grade Assessment Systems</h4><hr/>
+                            <h4>Assign Grade Assessment Systems</h4>
+                            <hr/>
                             <div class="row">
                                 <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
                                     <div class="form-group">
                                         <label>Set @{{ schoolCategory.display_name }} Assessment</label>
-                                        <select class="form-control" required  ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
+                                        <select class="form-control" required
+                                                ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradeAssessmentSystems">
                                             <option value="">Select Grade Assessment System</option>
                                         </select>
@@ -286,7 +293,8 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <button class="btn btn-success"
-                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssignmentSystem)">Save Changes
+                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssignmentSystem)">
+                                        Save Changes
                                     </button>
                                 </div>
                             </div>
@@ -296,10 +304,114 @@
             </tab>
             <tab>
                 <tab-heading>
-                    <em class="fa-gear fa-sm"></em> Behaviour Assessment System
+                    Behaviour Assessment System
                 </tab-heading>
                 <div>
-                    Coming soon..
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="btn-group" ng-init="cognitive_assessment = 'behaviour'">
+                                <label ng-model="cognitive_assessment" btn-radio="'behaviour'" class="btn btn-primary">Behaviour</label>
+                                <label ng-model="cognitive_assessment" btn-radio="'skill'"
+                                       class="btn btn-primary">Skill</label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12" ng-if="cognitive_assessment == 'behaviour'">
+                            <h3>Add New Behaviour</h3>
+                            <hr>
+                            <div class="form-group">
+                                <label>Select Domain Type </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label> Select Category</label>
+                                        <select class="form-control">
+                                            <option value="attendance_in_class">ATTENDANCE IN CLASS</option>
+                                            <option value="attentiveness">ATTENTIVENESS</option>
+                                            <option value="honesty">HONESTY</option>
+                                            <option value="initiative">INITIATIVE</option>
+                                            <option value="neatness">NEATNESS</option>
+                                            <option value="organisational_ability">ORGANISATIONAL ABILITY</option>
+                                            <option value="participation_in_school">PARTICIPATION IN SCHOOL ACTIVITIES
+                                            </option>
+                                            <option value="perseverance">PERSEVERANCE</option>
+                                            <option value="politeness">POLITENESS</option>
+                                            <option value="punctuality">PUNCTUALITY</option>
+                                            <option value="relationship_with_other_students">RELATIONSHIP WITH OTHER
+                                                STUDENTS
+                                            </option>
+                                            <option value="relationship_with_staff">RELATIONSHIP WITH STAFF</option>
+                                            <option value="reliabity">RELIABILITY</option>
+                                            <option value="self_control">SELF CONTROL</option>
+                                            <option value="sense_of_responsibility">SENSE OF RESPONSIBILITY</option>
+                                            <option value="spirit_of_cooperation">SPIRIT OF COOPERATION</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Enter Behaviour Name</label>
+
+                                        <div class="input-group">
+                                            <input id="domain" class="form-control" type="text"
+                                                   placeholder="Behaviour Name">
+                                                 <span class="input-group-btn">
+                                                      <button class="btn btn-primary">
+                                                          <i class="fa fa-plus"></i> Add
+                                                      </button>
+                                                 </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-12" ng-if="cognitive_assessment == 'skill'">
+                            <h3>Add New Skill</h3>
+                            <hr>
+                            <div class="form-group">
+                                <label>Select Domain Type </label>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label> Select Category</label>
+                                        <select class="form-control">
+                                            <option value="arts_n_crafts">ARTS AND CRAFTS</option>
+                                            <option value="entertainment">ENTERTAINMENT</option>
+                                            <option value="fluency">FLUENCY</option>
+                                            <option value="hand_writing">HAND WRITING</option>
+                                            <option value="indoor_games">INDOOR GAMES</option>
+                                            <option value="outdoor_games">OUTDOOR GAMES</option>
+                                            <option value="tools_handling">TOOLS HANDLING</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Enter Skill Name</label>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input id="domain" class="form-control" type="text"
+                                                       placeholder="Skill Name">
+                                                 <span class="input-group-btn">
+                                                     <button class="btn btn-primary">
+                                                         <i class="fa fa-plus"></i> Add
+                                                     </button>
+                                                 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </tab>
         </tabset>
@@ -307,4 +419,4 @@
     </div>
 </div>
 
-<toaster-container  toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>
+<toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>
