@@ -1553,6 +1553,7 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
 
         $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
         $scope.assignedGradingSystem = {};
+        $scope.assignedGradeAssignmentSystem = {};
 
         $scope.gradingSystems = GradingSystemService.query();
 
