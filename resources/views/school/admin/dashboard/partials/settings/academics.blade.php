@@ -141,7 +141,7 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-sm-4 text-center">
+                                <div class="col-sm-4">
                                     <button class="btn btn-success"
                                             ng-click="saveAssignedGradingSystem(assignedGradingSystem)">Save Changes
                                     </button>
@@ -275,7 +275,7 @@
                                 <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
                                     <div class="form-group">
                                         <label>Set @{{ schoolCategory.display_name }} Assessment</label>
-                                        <select class="form-control" required  ng-model="assignedGradeAssessmentSystem[schoolCategory.name]"
+                                        <select class="form-control" required  ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradeAssessmentSystems">
                                             <option value="">Select Grade Assessment System</option>
                                         </select>
@@ -286,7 +286,7 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <button class="btn btn-success"
-                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssessmentSystem)">Save Changes
+                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssignmentSystem)">Save Changes
                                     </button>
                                 </div>
                             </div>

@@ -57,7 +57,6 @@ class ScopedSchoolCategoriesRepository extends BaseRepository {
                 $i->{$key} = $value;
             }
         }
-
         return $i;
     }
 }
