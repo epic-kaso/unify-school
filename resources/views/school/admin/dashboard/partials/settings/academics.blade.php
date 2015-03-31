@@ -306,7 +306,7 @@
                 <tab-heading>
                     Behaviour Assessment System
                 </tab-heading>
-                <div>
+                <div style="margin-top: 20px">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="btn-group" ng-init="cognitive_assessment = 'behaviour'">
@@ -366,6 +366,22 @@
                                 </div>
                             </div>
 
+                            <h3>Current Behaviours</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div>
+                                                <span class="pull-right"><button class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button></span>
+                                                <h4>Skill Name</h4>
+                                                <p>skill category</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -407,6 +423,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <h3>Current Skills</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div>
+                                                <span class="pull-right"><button class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button></span>
+                                                <h4>Skill Name</h4>
+                                                <p>skill category</p>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 

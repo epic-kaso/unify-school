@@ -28,8 +28,8 @@
  * @property integer $scoped_grade_assessment_system_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereScopedGradingSystemId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereScopedGradeAssessmentSystemId($value)
- * @property-read \UnifySchool\Entities\School\ScopedGradingSystem $grading_system 
- * @property-read \UnifySchool\Entities\School\ScopedGradeAssessmentSystem $grade_assessment_system 
+ * @property-read \UnifySchool\Entities\School\ScopedGradingSystem $grading_system
+ * @property-read \UnifySchool\Entities\School\ScopedGradeAssessmentSystem $grade_assessment_system
  */
 class ScopedSchoolCategory extends BaseModel
 {

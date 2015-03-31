@@ -1,11 +1,14 @@
 <?php
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use UnifySchool\BehaviourCategory;
 use UnifySchool\Country;
 use UnifySchool\SchoolCategory;
 use UnifySchool\SchoolCategoryArm;
 use UnifySchool\SchoolCategoryArmSubdivision;
 use UnifySchool\SchoolType;
 use UnifySchool\SessionType;
+use UnifySchool\SkillCategory;
 use UnifySchool\State;
 
 /**
@@ -27,12 +30,62 @@ class SchoolSystemTableSeeder extends Seeder
         DB::table('school_category_arm_subdivisions')->truncate();
         DB::table('countries')->truncate();
         DB::table('states')->truncate();
+        DB::table('behaviour_categories')->truncate();
+        DB::table('skill_categories')->truncate();
 
         DB::transaction(function () {
             $this->createCountries();
             $this->createSessionTypes();
+            $this->createBehaviours();
+            $this->createSkills();
         });
 
+    }
+    private function createBehaviours(){
+        $behaviours  = [
+            'ATTENDANCE IN CLASS',
+            'ATTENTIVENESS',
+            'HONESTY',
+            'INITIATIVE',
+            'NEATNESS',
+            'ORGANISATIONAL ABILITY',
+            'PARTICIPATION IN SCHOOL ACTIVITIES'
+            'PERSEVERANCE',
+            'POLITENESS',
+            'PUNCTUALITY', 
+            'RELATIONSHIP WITH OTHER STUDENTS',
+            'RELATIONSHIP WITH STAFF',
+            'RELIABILITY',
+            'SELF CONTROL',
+            'SENSE OF RESPONSIBILITY',
+            'SPIRIT OF COOPERATION',
+        ];
+        
+        foreach($behaviours as $behaviour){
+            $b = new BehaviourCategory();
+            $b->name = $behaviour;
+            $b->slug = Str::slug($behaviour);
+            $b->save();
+        }
+    }
+    
+    private function createSkills(){
+        $skills  = [
+             'ARTS AND CRAFTS',
+            'ENTERTAINMENT',
+            'FLUENCY',
+            'HAND WRITING',
+            'INDOOR GAMES',
+            'OUTDOOR GAMES',
+            'TOOLS HANDLING',
+        ];
+
+        foreach($skills as $skill){
+            $b = new SkillCategory();
+            $b->name = $skill;
+            $b->slug = Str::slug($skill);
+            $b->save();
+        }
     }
 
     private function createCountries()
