@@ -23,11 +23,21 @@ class ScopedSessionRepository extends BaseRepository {
         return ScopedSession::class;
     }
 
-    public function setCurrentSession($name = null){
-        $item = $this->model()->whereName($name)->first();
-        $item->current_session = true;
-        $item->save();
-
-        return $item;
+    public function getCurrentSession(){
+        return $this->findBy('current_session',true);
     }
+
+    public function setCurrentSession($name = null){
+
+    $this->all()->each(function($item){
+        $item->current_session = false;
+        $item->save();
+    });
+
+    $item = $this->model()->firstOrCreate(['name' => $name,'school_id' => $this->getSchool()->id]);
+    $item->current_session = true;
+    $item->save();
+
+    return $item;
+}
 }

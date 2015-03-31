@@ -32,15 +32,11 @@ app.controller('NavBarController', [
 /**
  * Session and Term Settings Controller
  */
-
-app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','SessionTermsSettingsService',
+    function ($scope, SchoolDataService,SessionTermsSettingsService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
-
+        $scope.current = SessionTermsSettingsService.get();
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {
@@ -52,6 +48,18 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService',
                 }
                 return 0;
             });
+        }
+
+        $scope.openStartDate = function($event,sub_session){
+            $event.stopPropagation();
+            $event.preventDefault();
+            sub_session.startDateOpened = true;
+        }
+
+        $scope.openEndDate = function($event,sub_session){
+            $event.stopPropagation();
+            $event.preventDefault();
+            sub_session.endDateOpened = true;
         }
     }
 ]);

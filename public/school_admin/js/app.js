@@ -155,7 +155,8 @@ App
         scripts: {
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
-                '/framework/vendor/simple-line-icons/css/simple-line-icons.css']
+                '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
+            'inputmask':          ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js']
         },
         // Angular based script (use the right module name)
         modules: [
@@ -1084,7 +1085,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 url: '/settings',
                 templateUrl: ViewBaseURL + '/settings/index',
                 title: 'Settings',
-                resolve: helper.resolveFor('xeditable','toaster'),
+                resolve: helper.resolveFor('xeditable','toaster','inputmask'),
                 controller: ['$scope',
                     function ($scope) {
                     }
@@ -1252,6 +1253,11 @@ App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('SessionTermsSettingsService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/sessions-terms-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
 
 App.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
@@ -1316,15 +1322,11 @@ app.controller('NavBarController', [
 /**
  * Session and Term Settings Controller
  */
-
-app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','SessionTermsSettingsService',
+    function ($scope, SchoolDataService,SessionTermsSettingsService) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
-
+        $scope.current = SessionTermsSettingsService.get();
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {
@@ -1336,6 +1338,18 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService',
                 }
                 return 0;
             });
+        }
+
+        $scope.openStartDate = function($event,sub_session){
+            $event.stopPropagation();
+            $event.preventDefault();
+            sub_session.startDateOpened = true;
+        }
+
+        $scope.openEndDate = function($event,sub_session){
+            $event.stopPropagation();
+            $event.preventDefault();
+            sub_session.endDateOpened = true;
         }
     }
 ]);
@@ -2031,6 +2045,22 @@ app.controller('StudentsImportController',['$scope','SchoolDataService',
 
     }
 ]);
+/**=========================================================
+ * Module: masked,js
+ * Initializes the masked inputs
+ =========================================================*/
+
+App.directive('masked', function() {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element) {
+      var $elem = $($element);
+      if($.fn.inputmask)
+        $elem.inputmask();
+    }
+  };
+});
+
 /**=========================================================
  * Module panel-tools.js
  * Directive tools to control panels. 

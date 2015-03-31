@@ -48,7 +48,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 url: '/settings',
                 templateUrl: ViewBaseURL + '/settings/index',
                 title: 'Settings',
-                resolve: helper.resolveFor('xeditable','toaster'),
+                resolve: helper.resolveFor('xeditable','toaster','inputmask'),
                 controller: ['$scope',
                     function ($scope) {
                     }

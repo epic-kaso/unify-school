@@ -28,6 +28,11 @@ App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('SessionTermsSettingsService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/sessions-terms-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
 
 App.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
