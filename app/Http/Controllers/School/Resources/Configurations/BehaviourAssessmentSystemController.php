@@ -10,16 +10,32 @@ namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 
 use UnifySchool\BehaviourCategory;
+use UnifySchool\Entities\School\ScopedBehaviour;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\BehaviourAssessmentRequest;
 
 class BehaviourAssessmentSystemController extends Controller {
 
+    const ACTION_CATEGORIES = 'categories';
+
     public function index(){
-        return BehaviourCategory::all();
+        $action = \Input::get('action','default');
+
+        switch($action) {
+             case 'default':
+                 return ScopedBehaviour::with('behaviour_category')->get();
+             case self::ACTION_CATEGORIES:
+                 return BehaviourCategory::all();
+        }
     }
 
     public function store(BehaviourAssessmentRequest $request){
+        $behaviour = new ScopedBehaviour();
+        $behaviour->name = $request->get('name');
+        $behaviour->behaviour_category_id = $request->get('behaviour_category_id');
+        $behaviour->save();
+
+        return \Response::json(['all' => ScopedBehaviour::with('behaviour_category')->get()]);
     }
 
     public function show($id){
@@ -28,9 +44,11 @@ class BehaviourAssessmentSystemController extends Controller {
 
     public function update($id, BehaviourAssessmentRequest $request){
 
+        return \Response::json(['all' => ScopedBehaviour::with('behaviour_category')->get()]);
     }
 
-    public function delete($id){
-
+    public function destroy($id){
+        ScopedBehaviour::destroy($id);
+        return \Response::json(['all' => ScopedBehaviour::with('behaviour_category')->get()]);
     }
 }

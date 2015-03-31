@@ -22,7 +22,8 @@ class SkillAssessmentRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'skill_category_id' => 'required|integer',
+			'name' => 'required'
 		];
 	}
 

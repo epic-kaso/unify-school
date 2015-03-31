@@ -25,5 +25,4 @@ class ScopedBehaviour extends BaseModel {
     public function behaviour_category(){
         return $this->belongsTo('UnifySchool\BehaviourCategory');
     }
-
 }

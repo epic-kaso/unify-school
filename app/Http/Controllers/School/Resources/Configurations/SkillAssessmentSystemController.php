@@ -9,18 +9,35 @@
 namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 
+use UnifySchool\Entities\School\ScopedSkill;
 use UnifySchool\SkillCategory;
 use UnifySchool\Http\Requests\SkillAssessmentRequest;
 use UnifySchool\Http\Controllers\Controller;
 
 class SkillAssessmentSystemController extends Controller {
 
+    const ACTION_CATEGORIES = 'categories';
+
     public function index(){
-        return SkillCategory::all();
+        $action = \Input::get('action','default');
+
+        switch($action) {
+            case 'default':
+                return ScopedSkill::with('skill_category')->get();
+            case self::ACTION_CATEGORIES:
+                return SkillCategory::all();
+        }
+
     }
 
     public function store(SkillAssessmentRequest $request){
+        $skill = new ScopedSkill();
+        $skill->name = $request->get('name');
+        $skill->skill_category_id = $request->get('skill_category_id');
+        $skill->save();
 
+
+        return \Response::json(['all' => ScopedSkill::with('skill_category')->get()]);
     }
 
     public function show($id){
@@ -29,9 +46,11 @@ class SkillAssessmentSystemController extends Controller {
 
     public function update($id, SkillAssessmentRequest $request){
 
+        return \Response::json(['all' => ScopedSkill::with('skill_category')->get()]);
     }
 
-    public function delete($id){
-
+    public function destroy($id){
+        ScopedSkill::destroy($id);
+        return \Response::json(['all' => ScopedSkill::with('skill_category')->get()]);
     }
 }

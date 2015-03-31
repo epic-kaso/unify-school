@@ -22,7 +22,8 @@ class BehaviourAssessmentRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'behaviour_category_id' => 'required|integer',
+			'name' => 'required'
 		];
 	}
 

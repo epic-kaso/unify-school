@@ -323,8 +323,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label> Select Category</label>
-                                        <select class="form-control" ng-model="behaviour.category"
-                                                ng-options="system.id as system.name for system in behaviours">
+                                        <select class="form-control" ng-model="behaviour.behaviour_category_id"
+                                                ng-options="system.id as system.name for system in behaviourCategories">
                                             <option value="">Select Behaviour Category</option>
                                         </select>
                                     </div>
@@ -337,7 +337,7 @@
                                             <input id="domain" class="form-control" type="text"
                                                    placeholder="Behaviour Name" ng-model="behaviour.name">
                                                  <span class="input-group-btn">
-                                                      <button class="btn btn-primary">
+                                                      <button class="btn btn-primary" ng-click="addBehaviour(behaviour)">
                                                           <i class="fa fa-plus"></i> Add
                                                       </button>
                                                  </span>
@@ -351,11 +351,12 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <ul class="list-group">
-                                        <li class="list-group-item">
+                                        <li class="list-group-item" ng-repeat="item in behaviours">
                                             <div>
-                                                <span class="pull-right"><button class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button></span>
-                                                <h4>Behaviour Name</h4>
-                                                <p>Behaviour category</p>
+                                                <span class="pull-right">
+                                                    <button class="btn btn-xs btn-danger" ng-click="removeBehaviour(item)"><span class="fa fa-times"></span></button></span>
+                                                <h4>@{{ item.name }}</h4>
+                                                <p>@{{ item.behaviour_category.name }}</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -376,8 +377,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label> Select Category</label>
-                                        <select class="form-control" ng-model="skill.category"
-                                                ng-options="system.id as system.name for system in skills">
+                                        <select class="form-control" ng-model="skill.skill_category_id"
+                                                ng-options="system.id as system.name for system in skillCategories">
                                             <option value="">Select Skill Category</option>
                                         </select>
                                     </div>
@@ -391,7 +392,7 @@
                                                 <input id="domain" class="form-control" type="text"
                                                        placeholder="Skill Name" ng-model="skill.name">
                                                  <span class="input-group-btn">
-                                                     <button class="btn btn-primary">
+                                                     <button class="btn btn-primary" ng-click="addSkill(skill)">
                                                          <i class="fa fa-plus"></i> Add
                                                      </button>
                                                  </span>
@@ -406,11 +407,11 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <ul class="list-group">
-                                        <li class="list-group-item">
+                                        <li class="list-group-item" ng-repeat="item in skills">
                                             <div>
-                                                <span class="pull-right"><button class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button></span>
-                                                <h4>Skill Name</h4>
-                                                <p>skill category</p>
+                                                <span class="pull-right"><button class="btn btn-xs btn-danger" ng-click="removeSkill(item)"><span class="fa fa-times"></span></button></span>
+                                                <h4>@{{ item.name }}</h4>
+                                                <p>@{{ item.skill_category.name }}</p>
                                             </div>
                                         </li>
                                     </ul>

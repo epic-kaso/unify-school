@@ -535,8 +535,64 @@ app.controller('SettingsAcademicsController',
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
 
+        $scope.behaviourCategories  = BehaviourAssessmentSystemService.query({'action': 'categories'});
         $scope.behaviours  = BehaviourAssessmentSystemService.query();
+        $scope.skillCategories  = SkillAssessmentSystemService.query({'action': 'categories'});
         $scope.skills  = SkillAssessmentSystemService.query();
+
+        $scope.addBehaviour = function(behaviour){
+            BehaviourAssessmentSystemService.save(behaviour,function(data){
+                $scope.behaviours  = data.all;
+                toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
+            },function(){
+                toaster.pop('error', "behaviour Assessment System", "Failed to add behaviour");
+            });
+        };
+
+        $scope.removeBehaviour = function(behaviour){
+            BehaviourAssessmentSystemService.delete(behaviour,function(data){
+                $scope.behaviours  = data.all;
+                toaster.pop('success', "Behaviour Assessment System", "Behaviour removed Succesfully");
+            },function(){
+                toaster.pop('error', "behaviour Assessment System", "Failed to remove behaviour");
+            });
+        };
+
+        $scope.updateBehaviour = function(behaviour){
+            BehaviourAssessmentSystemService.update({id: behaviour.id},behaviour).$promise.then(function(data){
+                $scope.behaviours  = data.all;
+                toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
+            },function(){
+                toaster.pop('error', "behaviour Assessment System", "Failed to add behaviour");
+            });
+        };
+
+        $scope.addSkill = function(skill){
+            SkillAssessmentSystemService.save(skill,function(data){
+                $scope.skills  = data.all;
+                toaster.pop('success', "Skill Assessment System", "Added Succesfully");
+            },function(){
+                toaster.pop('error', "Skill Assessment System", "Failed to Add");
+            });
+        };
+
+        $scope.removeSkill = function(skill){
+            SkillAssessmentSystemService.delete(skill,function(data){
+                $scope.skills  = data.all;
+                toaster.pop('success', "Skill Assessment System", "Removed Succesfully");
+            },function(){
+                toaster.pop('error', "Skill Assessment System", "Failed to remove");
+            });
+        };
+
+        $scope.updateSkill = function(skill){
+            SkillAssessmentSystemService.update({id: skill.id},skill).$promise.then(function(data){
+                $scope.skills  = data.all;
+                toaster.pop('success', "Skill Assessment System", "Updated Succesfully");
+            },function(){
+                toaster.pop('error', "Skill Assessment System", "Failed to update");
+            });
+        }
     }
 ]);
 
