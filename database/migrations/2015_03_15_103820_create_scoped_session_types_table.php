@@ -22,6 +22,8 @@ class CreateScopedSessionTypesTable extends Migration
             $table->string('session_divisions_name');
             $table->string('session_divisions_display_name');
             $table->timestamps();
+
+            $table->unique(['school_id','session_name','session_type'],'school_session');
         });
     }
 

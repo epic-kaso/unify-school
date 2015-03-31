@@ -140,6 +140,13 @@
                                 </div>
 
                             </div>
+                            <div class="row">
+                                <div class="col-sm-4 text-center">
+                                    <button class="btn btn-success"
+                                            ng-click="saveAssignedGradingSystem(assignedGradingSystem)">Save Changes
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,6 +283,13 @@
                                 </div>
 
                             </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <button class="btn btn-success"
+                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssessmentSystem)">Save Changes
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -292,3 +306,5 @@
 
     </div>
 </div>
+
+<toaster-container  toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>

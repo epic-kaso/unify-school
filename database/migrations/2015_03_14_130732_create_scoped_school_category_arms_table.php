@@ -21,6 +21,8 @@ class CreateScopedSchoolCategoryArmsTable extends Migration
             $table->string('display_name');
             $table->text('meta');
             $table->timestamps();
+
+            $table->unique(['school_id','scoped_school_category_id','name'],'id_school_category_school_type');
         });
     }
 

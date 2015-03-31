@@ -23,4 +23,41 @@ class ScopedSchoolCategoriesRepository extends BaseRepository {
     {
         return ScopedSchoolCategory::class;
     }
+
+    public function getAssignedGradingSystem()
+    {
+        $response = $this->all(['name','scoped_grading_system_id'])->map(function($item){
+            $i = [];
+            $i[$item->name] = $item->scoped_grading_system_id;
+            return $i;
+        });
+
+        $i = new \stdClass();
+        foreach($response as $item){
+            foreach($item as $key => $value){
+                $i->{$key} = $value;
+            }
+        }
+
+        return $i;
+
+    }
+
+    public function getAssignedGradeAssessmentSystem()
+    {
+        $response = $this->all(['name','scoped_grade_assessment_system_id'])->map(function($item){
+            $i = [];
+            $i[$item->name] = $item->scoped_grade_assessment_system_id;
+            return $i;
+        });
+
+        $i = new \stdClass();
+        foreach($response as $item){
+            foreach($item as $key => $value){
+                $i->{$key} = $value;
+            }
+        }
+
+        return $i;
+    }
 }

@@ -285,8 +285,9 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
         //Grading Systems
 
         $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
-        $scope.assignedGradingSystem = {};
-        $scope.assignedGradeAssignmentSystem = {};
+        $scope.assignedGradingSystem = GradingSystemService.getAssignedGradingSystem();
+        $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+
 
         $scope.gradingSystems = GradingSystemService.query();
 
@@ -389,6 +390,14 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
+            });
+        };
+
+        $scope.saveAssignedGradingSystem = function (assignedGradingSystem){
+            GradingSystemService.assignGradingSystem(assignedGradingSystem).$promise.then(function(){
+                toaster.pop('success', "Assign Grading System", "Assignments Saved Succesfully");
+            },function(){
+                toaster.pop('error', "Assign Grading System", "Failed to save assignments");
             });
         };
         console.log(GradingSystemService.query());
@@ -506,8 +515,17 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
             }
         };
 
+        $scope.saveAssignedGradeAssessmentSystem = function (assignedGradeAssessmentSystem){
+            GradeAssessmentSystemService.assignGradeAssessmentSystem(assignedGradeAssessmentSystem).$promise.then(function(){
+                toaster.pop('success', "Assign Grade Assessment System", "Assignments Saved Succesfully");
+            },function(){
+                toaster.pop('error', "Assign Grade Assessment System", "Failed to save assignments");
+            });
+        };
+        
 
-        console.log(GradeAssessmentSystemService.query());
+        console.log($scope.assignedGradingSystem);
+        console.log($scope.assignedGradeAssignmentSystem);
     }
 ]);
 

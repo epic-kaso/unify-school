@@ -21,6 +21,8 @@ class CreateScopedSchoolTypesTable extends Migration
             $table->integer('school_id');
             $table->text('meta');
             $table->timestamps();
+
+            $table->unique(['school_id','name','scoped_session_type_id'],'school_name_session_type');
         });
     }
 

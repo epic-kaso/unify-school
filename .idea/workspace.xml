@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_03_31_111439_modify_scoped_school_categories_to_hold_default_grading_systems.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedGradeAssessmentSystem.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedGradeAssessmentSystem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_14_130732_create_scoped_school_category_arms_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_14_130732_create_scoped_school_category_arms_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_14_130751_create_scoped_school_category_arm_subdivisions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_14_130751_create_scoped_school_category_arm_subdivisions_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_14_131653_create_scoped_school_types_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_14_131653_create_scoped_school_types_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_15_103820_create_scoped_session_types_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_15_103820_create_scoped_session_types_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js.map" afterPath="$PROJECT_DIR$/public/app/js/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,11 +42,104 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="students.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/students.js">
+      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="76" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="76" />
+              <caret line="532" column="29" selection-start-line="532" selection-start-column="29" selection-end-line="532" selection-end-column="29" />
+              <folding>
+                <element signature="e#9612#9698#0" expanded="false" />
+                <element signature="e#9752#10069#0" expanded="false" />
+                <element signature="e#10133#10289#0" expanded="false" />
+                <element signature="e#10341#12124#0" expanded="false" />
+                <element signature="e#12205#12751#0" expanded="false" />
+                <element signature="e#15118#15389#0" expanded="false" />
+                <element signature="e#15449#16705#0" expanded="false" />
+                <element signature="e#16802#17219#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_03_14_131653_create_scoped_school_types_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_131653_create_scoped_school_types_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="24" column="101" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_03_15_103820_create_scoped_session_types_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_15_103820_create_scoped_session_types_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GradeAssessmentSystemsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4874552">
+              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <folding>
+                <element signature="e#79#89#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScopedGradeAssessmentSystemsRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.423077">
+              <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="41" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="41" />
+              <folding>
+                <element signature="e#900#1452#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GradingSystemsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="31" column="39" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScopedSchoolCategoriesRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.692307">
+              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScopedSchoolCategory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.384615">
+              <caret line="56" column="43" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -46,113 +148,8 @@
       <file leaf-file-name="academics.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8076923">
-              <caret line="269" column="51" selection-start-line="269" selection-start-column="51" selection-end-line="269" selection-end-column="51" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#tab#1;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_14_125237_create_scoped_school_categories_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_31_111439_modify_scoped_school_categories_to_hold_default_grading_systems.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_31_111439_modify_scoped_school_categories_to_hold_default_grading_systems.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.692307">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="162" column="30" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="30" />
-              <folding>
-                <element signature="e#654#2159#0" expanded="false" />
-                <element signature="e#6176#11198#0" expanded="false" />
-                <element signature="e#11427#15434#0" expanded="false" />
-                <element signature="e#15703#16026#0" expanded="false" />
-                <element signature="e#16183#16902#0" expanded="false" />
-                <element signature="e#17204#20852#0" expanded="false" />
-                <element signature="e#21334#22216#0" expanded="false" />
-                <element signature="e#22422#25130#0" expanded="false" />
-                <element signature="e#25370#25484#0" expanded="false" />
-                <element signature="e#25719#26330#0" expanded="false" />
-                <element signature="e#26598#28914#0" expanded="false" />
-                <element signature="e#29189#30985#0" expanded="false" />
-                <element signature="e#31261#35250#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_30_154301_create_scoped_grade_assessment_systems_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_30_154301_create_scoped_grade_assessment_systems_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.8461537">
-              <caret line="14" column="54" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_30_125921_create_scoped_grading_systems_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_30_125921_create_scoped_grading_systems_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.8461537">
-              <caret line="14" column="46" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="274" column="5" selection-start-line="274" selection-start-column="5" selection-end-line="274" selection-end-column="5" />
-              <folding>
-                <element signature="e#9345#9446#0" expanded="false" />
-                <element signature="e#9505#9591#0" expanded="false" />
-                <element signature="e#13992#14078#0" expanded="false" />
-                <element signature="e#14143#14512#0" expanded="false" />
-                <element signature="e#14918#16174#0" expanded="false" />
-                <element signature="e#16271#16688#0" expanded="false" />
-                <element signature="e#16774#17072#0" expanded="false" />
-                <element signature="e#17153#17999#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScopedSchoolCategory.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6702509">
-              <caret line="55" column="82" selection-start-line="55" selection-start-column="82" selection-end-line="55" selection-end-column="82" />
+            <state vertical-scroll-proportion="-70.19231">
+              <caret line="286" column="52" selection-start-line="286" selection-start-column="52" selection-end-line="286" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -178,13 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/Commands/School/CreateNewSchoolTest.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_03_21_094503_create_scoped_sessions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_03_21_071154_create_scoped_sub_session_types_table.php" />
-        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Events/NewSchoolRegistered.php" />
-        <option value="$PROJECT_DIR$/app/Handlers/Events/EmailNewSchoolAccountDetails.php" />
-        <option value="$PROJECT_DIR$/app/Handlers/Events/GenerateDefaultSessionsForSchool.php" />
         <option value="$PROJECT_DIR$/resources/assets/less/school.less" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/grades.blade.php" />
@@ -215,20 +205,27 @@
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedGradeAssessmentSystem.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/GradeAssessmentSystemsRequest.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_30_154301_create_scoped_grade_assessment_systems_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_31_111439_modify_scoped_school_categories_to_hold_default_grading_systems.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_14_130732_create_scoped_school_category_arms_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_14_130751_create_scoped_school_category_arm_subdivisions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_14_131653_create_scoped_school_types_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_03_15_103820_create_scoped_session_types_table.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
+        <option value="$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" />
       </list>
     </option>
   </component>
@@ -310,6 +307,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -466,12 +495,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Slimming down &amp; cacheing">
-      <created>1426884886390</created>
-      <option name="number" value="00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1426884886390</updated>
     </task>
     <task id="LOCAL-00118" summary="Repository pattern implementation">
       <created>1426922565190</created>
@@ -761,7 +784,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427796700937</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="Grade Assessment System Settings">
+      <created>1427797673169</created>
+      <option name="number" value="00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1427797673169</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -786,7 +815,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
@@ -874,55 +903,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/students/import-students.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70071685">
-          <caret line="23" column="22" selection-start-line="9" selection-start-column="16" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/offsidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="17" column="13" selection-start-line="2" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="97" selection-start-line="1" selection-start-column="97" selection-end-line="1" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07692308">
-          <caret line="86" column="95" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/register/wizard/partial/step-two.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="10" selection-start-line="5" selection-start-column="3" selection-end-line="83" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/register/wizard/partial/step-three.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/artisan">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1044,14 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/directives/panel-tools.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1124,20 +1096,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.576923">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="27" selection-end-column="6" />
           <folding>
-            <marker date="1427797496069" expanded="true" signature="-1:-1" placeholder=" UnifySchool\Entities\School\ScopedGradingSystem ..." />
+            <marker date="1427797681343" expanded="true" signature="-1:-1" placeholder=" UnifySchool\Entities\School\ScopedGradingSystem ..." />
           </folding>
         </state>
       </provider>
@@ -1147,7 +1111,7 @@
         <state vertical-scroll-proportion="-15.884615">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
-            <marker date="1427797495978" expanded="true" signature="-1:-1" placeholder=" UnifySchool\Entities\School\ScopedGradeAssessmentSystem ..." />
+            <marker date="1427797681228" expanded="true" signature="-1:-1" placeholder=" UnifySchool\Entities\School\ScopedGradeAssessmentSystem ..." />
           </folding>
         </state>
       </provider>
@@ -1168,42 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="e#132#192#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="41" />
-          <folding>
-            <element signature="e#496#1048#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.423077">
-          <caret line="38" column="80" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.653846">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/register/wizard/partial/step-one.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25448027">
@@ -1216,24 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="76" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8076923">
-          <caret line="269" column="51" selection-start-line="269" selection-start-column="51" selection-end-line="269" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#tab#1;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1262,14 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1292,28 +1194,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="274" column="5" selection-start-line="274" selection-start-column="5" selection-end-line="274" selection-end-column="5" />
-          <folding>
-            <element signature="e#9345#9446#0" expanded="false" />
-            <element signature="e#9505#9591#0" expanded="false" />
-            <element signature="e#13992#14078#0" expanded="false" />
-            <element signature="e#14143#14512#0" expanded="false" />
-            <element signature="e#14918#16174#0" expanded="false" />
-            <element signature="e#16271#16688#0" expanded="false" />
-            <element signature="e#16774#17072#0" expanded="false" />
-            <element signature="e#17153#17999#0" expanded="false" />
-          </folding>
+          <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-83.57692">
+          <caret line="177" column="19" selection-start-line="177" selection-start-column="19" selection-end-line="177" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_15_164220_create_scope_students_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_125237_create_scoped_school_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.038462">
+          <caret line="24" column="97" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_130732_create_scoped_school_category_arms_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="24" column="110" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_130751_create_scoped_school_category_arm_subdivisions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_14_131653_create_scoped_school_types_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="24" column="101" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_15_103820_create_scoped_session_types_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6702509">
-          <caret line="55" column="82" selection-start-line="55" selection-start-column="82" selection-end-line="55" selection-end-column="82" />
+        <state vertical-scroll-proportion="-9.384615">
+          <caret line="56" column="43" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="41" />
+          <folding>
+            <element signature="e#900#1452#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="532" column="29" selection-start-line="532" selection-start-column="29" selection-end-line="532" selection-end-column="29" />
+          <folding>
+            <element signature="e#9612#9698#0" expanded="false" />
+            <element signature="e#9752#10069#0" expanded="false" />
+            <element signature="e#10133#10289#0" expanded="false" />
+            <element signature="e#10341#12124#0" expanded="false" />
+            <element signature="e#12205#12751#0" expanded="false" />
+            <element signature="e#15118#15389#0" expanded="false" />
+            <element signature="e#15449#16705#0" expanded="false" />
+            <element signature="e#16802#17219#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-70.19231">
+          <caret line="286" column="52" selection-start-line="286" selection-start-column="52" selection-end-line="286" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.692307">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4874552">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="e#79#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
