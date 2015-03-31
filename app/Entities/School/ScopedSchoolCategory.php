@@ -24,6 +24,10 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read mixed $classes
  * @property-read \UnifySchool\School $school
+ * @property integer $scoped_grading_system_id 
+ * @property integer $scoped_grade_assessment_system_id 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereScopedGradingSystemId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereScopedGradeAssessmentSystemId($value)
  */
 class ScopedSchoolCategory extends BaseModel
 {
@@ -42,6 +46,14 @@ class ScopedSchoolCategory extends BaseModel
     public function school_category_arms()
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArm');
+    }
+
+    public function grading_system(){
+        return $this->belongsTo('UnifySchool\Entities\School\ScopedGradingSystem');
+    }
+
+    public function grade_assessment_system(){
+        return $this->belongsTo('UnifySchool\Entities\School\ScopedGradeAssessmentSystem');
     }
 
     public function getClassesAttribute(){

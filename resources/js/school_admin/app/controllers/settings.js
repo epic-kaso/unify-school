@@ -279,8 +279,8 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService',
-    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService) {
+app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService','toaster',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster) {
 
         //Grading Systems
 
@@ -361,9 +361,10 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
             GradingSystemService.save(clone, function (response) {
                 if (response.success) {
                     $scope.gradingSystems = response.all;
+                    toaster.pop('success', "New Grading System", "Added Successfully");
                 }
             }, function (data) {
-                //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
+                toaster.pop('error', "New Grading System", "Failed to Add, Try Again");
             });
         };
 
@@ -372,18 +373,22 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
 
             GradingSystemService.delete(gradingSystem, function (data) {
                 console.log('delete success');
+                toaster.pop('success', "Grading System", "Deleted Successfully");
                 gradingSystems.splice(index, 1);
             }, function () {
                 console.log('delete failure');
+                toaster.pop('error', "Grading System", "Failed to Delete, Try Again");
             });
             $scope.preventDefaultAction($event);
         };
 
         $scope.saveGradingSystemChanges = function (gradingSystem) {
             GradingSystemService.update({id: gradingSystem.id}, gradingSystem).$promise.then(function (response) {
-                console.log('Saved Changes')
+                console.log('Saved Changes');
+                toaster.pop('success', "Grading System", "Changes Saved Succesfully");
             }, function (data) {
-                console.log('could not save changes')
+                console.log('could not save changes');
+                toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
             });
         };
         console.log(GradingSystemService.query());
