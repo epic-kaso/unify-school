@@ -23,19 +23,19 @@ class SchoolSystemTableSeeder extends Seeder
     
     public function run()
     {
-//        DB::table('session_types')->truncate();
-//        DB::table('school_types')->truncate();
-//        DB::table('school_categories')->truncate();
-//        DB::table('school_category_arms')->truncate();
-//        DB::table('school_category_arm_subdivisions')->truncate();
-//        DB::table('countries')->truncate();
-//        DB::table('states')->truncate();
+        DB::table('session_types')->truncate();
+        DB::table('school_types')->truncate();
+        DB::table('school_categories')->truncate();
+        DB::table('school_category_arms')->truncate();
+        DB::table('school_category_arm_subdivisions')->truncate();
+        DB::table('countries')->truncate();
+        DB::table('states')->truncate();
         DB::table('behaviour_categories')->truncate();
         DB::table('skill_categories')->truncate();
 
         DB::transaction(function () {
-//            $this->createCountries();
-//            $this->createSessionTypes();
+            $this->createCountries();
+            $this->createSessionTypes();
             $this->createBehaviours();
             $this->createSkills();
         });

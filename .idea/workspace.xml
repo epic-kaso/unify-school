@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -94,11 +93,11 @@
       <file leaf-file-name="SchoolSystemTableSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.827957">
-              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.7616488">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#6#37#0#PHP" expanded="true" />
-                <marker date="1427808672426" expanded="true" signature="476:21760" placeholder="{...}" />
+                <marker date="1427808816038" expanded="true" signature="476:21742" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -463,12 +462,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00122" summary="Repository pattern implementation">
-      <created>1426927375488</created>
-      <option name="number" value="00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1426927375488</updated>
-    </task>
     <task id="LOCAL-00123" summary="Repository pattern implementation">
       <created>1426927391901</created>
       <option name="number" value="00123" />
@@ -757,7 +750,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427808573324</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Grade Assessment System Settings">
+      <created>1427808771036</created>
+      <option name="number" value="00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1427808771036</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1319,11 +1318,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.827957">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.7616488">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#6#37#0#PHP" expanded="true" />
-            <marker date="1427808672426" expanded="true" signature="476:21760" placeholder="{...}" />
+            <marker date="1427808816038" expanded="true" signature="476:21742" placeholder="{...}" />
           </folding>
         </state>
       </provider>
