@@ -319,33 +319,13 @@
                         <div class="col-sm-12" ng-if="cognitive_assessment == 'behaviour'">
                             <h3>Add New Behaviour</h3>
                             <hr>
-                            <div class="form-group">
-                                <label>Select Domain Type </label>
-                            </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label> Select Category</label>
-                                        <select class="form-control">
-                                            <option value="attendance_in_class">ATTENDANCE IN CLASS</option>
-                                            <option value="attentiveness">ATTENTIVENESS</option>
-                                            <option value="honesty">HONESTY</option>
-                                            <option value="initiative">INITIATIVE</option>
-                                            <option value="neatness">NEATNESS</option>
-                                            <option value="organisational_ability">ORGANISATIONAL ABILITY</option>
-                                            <option value="participation_in_school">PARTICIPATION IN SCHOOL ACTIVITIES
-                                            </option>
-                                            <option value="perseverance">PERSEVERANCE</option>
-                                            <option value="politeness">POLITENESS</option>
-                                            <option value="punctuality">PUNCTUALITY</option>
-                                            <option value="relationship_with_other_students">RELATIONSHIP WITH OTHER
-                                                STUDENTS
-                                            </option>
-                                            <option value="relationship_with_staff">RELATIONSHIP WITH STAFF</option>
-                                            <option value="reliabity">RELIABILITY</option>
-                                            <option value="self_control">SELF CONTROL</option>
-                                            <option value="sense_of_responsibility">SENSE OF RESPONSIBILITY</option>
-                                            <option value="spirit_of_cooperation">SPIRIT OF COOPERATION</option>
+                                        <select class="form-control" ng-model="behaviour.category"
+                                                ng-options="system.id as system.name for system in behaviours">
+                                            <option value="">Select Behaviour Category</option>
                                         </select>
                                     </div>
                                 </div>
@@ -355,7 +335,7 @@
 
                                         <div class="input-group">
                                             <input id="domain" class="form-control" type="text"
-                                                   placeholder="Behaviour Name">
+                                                   placeholder="Behaviour Name" ng-model="behaviour.name">
                                                  <span class="input-group-btn">
                                                       <button class="btn btn-primary">
                                                           <i class="fa fa-plus"></i> Add
@@ -374,8 +354,8 @@
                                         <li class="list-group-item">
                                             <div>
                                                 <span class="pull-right"><button class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button></span>
-                                                <h4>Skill Name</h4>
-                                                <p>skill category</p>
+                                                <h4>Behaviour Name</h4>
+                                                <p>Behaviour category</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -396,14 +376,9 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label> Select Category</label>
-                                        <select class="form-control">
-                                            <option value="arts_n_crafts">ARTS AND CRAFTS</option>
-                                            <option value="entertainment">ENTERTAINMENT</option>
-                                            <option value="fluency">FLUENCY</option>
-                                            <option value="hand_writing">HAND WRITING</option>
-                                            <option value="indoor_games">INDOOR GAMES</option>
-                                            <option value="outdoor_games">OUTDOOR GAMES</option>
-                                            <option value="tools_handling">TOOLS HANDLING</option>
+                                        <select class="form-control" ng-model="skill.category"
+                                                ng-options="system.id as system.name for system in skills">
+                                            <option value="">Select Skill Category</option>
                                         </select>
                                     </div>
                                 </div>
@@ -414,7 +389,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <input id="domain" class="form-control" type="text"
-                                                       placeholder="Skill Name">
+                                                       placeholder="Skill Name" ng-model="skill.name">
                                                  <span class="input-group-btn">
                                                      <button class="btn btn-primary">
                                                          <i class="fa fa-plus"></i> Add

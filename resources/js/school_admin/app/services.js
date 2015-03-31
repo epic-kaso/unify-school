@@ -16,6 +16,19 @@ App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
 }]);
 
 
+App.factory('BehaviourAssessmentSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/behaviour-assessment-systems/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
+App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/skill-assessment-systems/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
+
 App.service('TableDataService', ['SchoolDataService', function (SchoolDataService) {
 
     var TableData = {

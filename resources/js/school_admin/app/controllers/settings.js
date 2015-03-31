@@ -279,8 +279,11 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService',
  * Academics Settings Controller
  */
 
-app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService','toaster',
-    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster) {
+app.controller('SettingsAcademicsController',
+    [ '$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService','toaster',
+        'BehaviourAssessmentSystemService','SkillAssessmentSystemService',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster,BehaviourAssessmentSystemService,
+              SkillAssessmentSystemService) {
 
         //Grading Systems
 
@@ -516,8 +519,7 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
         };
 
         $scope.saveAssignedGradeAssessmentSystem = function (assignedGradeAssessmentSystem){
-            console.log(assignedGradeAssessmentSystem);
-            console.log($scope.assignedGradeAssignmentSystem);
+
             GradeAssessmentSystemService.assignGradeAssessmentSystem(assignedGradeAssessmentSystem).$promise.then(function(){
                 toaster.pop('success', "Assign Grade Assessment System", "Assignments Saved Succesfully");
             },function(){
@@ -526,8 +528,15 @@ app.controller('SettingsAcademicsController', ['$scope', 'GradingSystemService',
         };
 
 
-        console.log($scope.assignedGradingSystem);
-        console.log($scope.assignedGradeAssignmentSystem);
+
+        //---------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------
+        //Behaviour and Skill System
+        //---------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------
+
+        $scope.behaviours  = BehaviourAssessmentSystemService.query();
+        $scope.skills  = SkillAssessmentSystemService.query();
     }
 ]);
 

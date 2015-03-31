@@ -66,6 +66,8 @@ Route::group(
     ],
     function () {
         Route::resource('grading-systems', 'Configurations\GradingSystemsController');
+        Route::resource('behaviour-assessment-systems', 'Configurations\BehaviourAssessmentSystemController');
+        Route::resource('skill-assessment-systems', 'Configurations\SkillAssessmentSystemController');
         Route::resource('grade-assessment-systems', 'Configurations\GradeAssessmentSystemsController');
         Route::resource('import-students', 'School\StudentImportController');
     }
