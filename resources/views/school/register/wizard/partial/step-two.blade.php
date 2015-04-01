@@ -83,21 +83,6 @@
         </div>
     </div>
 
-    {{--<div class="row">--}}
-
-    {{--<div class="col-sm-6"  ng-repeat="school_category in school.school_types[school.selected_school_type - 1].school_categories">--}}
-    {{--<div class="panel">--}}
-    {{--<div class="panel-heading">--}}
-    {{--<h4>@{{ school_category.display_name }}</h4>--}}
-    {{--</div>--}}
-
-    {{--<div class="panel-body" style="padding: 0">--}}
-
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
     <div class="row">
         <div class="col-sm-12" style="padding: 0">
             <div class="form-group">

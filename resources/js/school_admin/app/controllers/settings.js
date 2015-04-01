@@ -59,6 +59,34 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
         };
 
 
+        $scope.addNewTerm = function(term){
+            var callback  = function(){
+                $scope.onAddTerm = false;
+                $scope.term.name = null;
+            };
+            //addSubSession
+            SessionTermsSettingsService.addSubSession(term).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "Manage Term", "Saved Succesfully");
+                $scope.sub_sessions = response.all;
+                callback();
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Manage Term", "Failed to save, Try Again");
+            });
+        };
+
+        $scope.removeTerm = function(term){
+            SessionTermsSettingsService.removeSubSession({id: term.id}, term).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "Manage Term", "Removed Succesfully");
+                $scope.sub_sessions = response.all;
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Manage Term", "Failed to remove, Try Again");
+            });
+        };
+
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {
                 if (a.name < b.name) {
@@ -75,7 +103,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
             $event.stopPropagation();
             $event.preventDefault();
             sub_session.startDateOpened = true;
-        }
+        };
 
         $scope.openEndDate = function($event,sub_session){
             $event.stopPropagation();

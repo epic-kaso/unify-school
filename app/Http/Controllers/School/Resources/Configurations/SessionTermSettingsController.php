@@ -9,14 +9,19 @@
 namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
+use UnifySchool\Entities\School\ScopedSessionType;
+use UnifySchool\Entities\School\ScopedSubSessionType;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\SessionTermSettingsRequest;
 use UnifySchool\Repositories\School\ScopedSessionRepository;
 use UnifySchool\Repositories\School\ScopedSubSessionTypeRepository;
+use UnifySchool\School;
 
 class SessionTermSettingsController extends Controller {
 
     public static $action_save_sub_session_dates = "sub_session_start_and_end_dates";
+    public static $action_add_sub_session = "add_sub_session";
 
     public function index(
         ScopedSessionRepository $sessionRepository,
@@ -49,6 +54,8 @@ class SessionTermSettingsController extends Controller {
                 return \Response::json(['success']);
             case static::$action_save_sub_session_dates:
                 return $this->saveSubSessionTimes($request,$subSessionTypeRepository);
+            case static::$action_add_sub_session:
+                return $this->addSubSession($request,$subSessionTypeRepository);
         }
 
     }
@@ -58,9 +65,21 @@ class SessionTermSettingsController extends Controller {
 
     }
 
-    public function destroy($id)
+    public function destroy($id,
+                            SessionTermSettingsRequest $request,
+                            ScopedSubSessionTypeRepository $subSessionTypeRepository)
     {
+        $action = $request->get('action','default');
 
+        switch($action) {
+            case 'default':
+                break;
+            case static::$action_save_sub_session_dates:
+                break;
+            case static::$action_add_sub_session:
+                $subSessionTypeRepository->delete($id);
+                return \Response::json(['all' => ScopedSessionType::with('sub_sessions')->where('school_id',$this->getSchool()->id)->first()->sub_sessions]);
+        }
     }
 
     private function saveSubSessionTimes(
@@ -80,5 +99,21 @@ class SessionTermSettingsController extends Controller {
         }
 
         return \Response::json(['success' => true]);
+    }
+
+    private function addSubSession( SessionTermSettingsRequest $request,
+                                    ScopedSubSessionTypeRepository  $subSessionTypeRepository)
+    {
+
+        $school = $this->getSchool();
+
+        $response =  $subSessionTypeRepository->create([
+            'scoped_session_type_id' => ScopedSessionType::first()->id,
+            'school_id' => $school->id,
+            'display_name' => $request->get('name'),
+            'name' => Str::slug($request->get('name'))
+        ]);
+
+        return \Response::json(['all' => ScopedSessionType::with('sub_sessions')->where('school_id',$this->getSchool()->id)->first()->sub_sessions]);
     }
 }

@@ -81,15 +81,45 @@
                     <em class="fa-gear fa-sm"></em> Add New
                 </tab-heading>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h4>Add Term</h4>
+                                <h3>Manage Term</h3>
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <strong>First Term</strong>
+                                        Add more.. <span class="btn btn-xs btn-primary pull-right" ng-hide="onAddTerm"
+                                                         ng-click="onAddTerm = true">Add</span>
+                    <span class="btn btn-xs btn-primary pull-right" ng-show="onAddTerm"
+                          ng-click="onAddTerm = false">Hide</span>
+
+                                        <div ng-show="onAddTerm">
+                                            <div class="form-group">
+                                                <label>Term Name</label>
+                                                <input type="text" class="form-control" ng-model="term.name"/>
+                                            </div>
+                                            <div>
+                                    <span class="btn btn-info"
+                                          ng-click="
+                                          addNewTerm(term);
+                                          ">
+                                        Save
+                                    </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li
+                                            ng-repeat="sub_session in sub_sessions"
+                                            class="list-group-item">
+                                       <div class="row">
+                                           <div class="col-sm-8">
+                                               <h4>@{{ sub_session.display_name }}</h4></div>
+                                           <div class="col-sm-4">
+                        <span class="btn btn-xs btn-danger pull-right"
+                              ng-click="removeTerm(sub_session)">Remove</span>
+                                           </div>
+                                       </div>
                                     </li>
                                 </ul>
                             </div>
