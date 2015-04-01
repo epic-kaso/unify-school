@@ -66,6 +66,7 @@ Route::group(
     ],
     function () {
         Route::resource('grading-systems', 'Configurations\GradingSystemsController');
+        Route::resource('category-class-settings', 'Configurations\CategoryAndClassesSettingsController');
         Route::resource('sessions-terms-settings', 'Configurations\SessionTermSettingsController');
         Route::resource('behaviour-assessment-systems', 'Configurations\BehaviourAssessmentSystemController');
         Route::resource('skill-assessment-systems', 'Configurations\SkillAssessmentSystemController');

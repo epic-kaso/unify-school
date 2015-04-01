@@ -4,6 +4,15 @@ App.factory('SchoolService', ['$resource', function ($resource) {
     });
 }]);
 
+//
+App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'},
+        'addCategory': {method: 'POST',params: {'action': 'school_category'}},
+        'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
+        'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
+    });
+}]);
 
 App.factory('GradingSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grading-systems/:id', {id: '@id'}, {

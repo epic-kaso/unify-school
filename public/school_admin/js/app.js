@@ -1229,6 +1229,15 @@ App.factory('SchoolService', ['$resource', function ($resource) {
     });
 }]);
 
+//
+App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'},
+        'addCategory': {method: 'POST',params: {'action': 'school_category'}},
+        'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
+        'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
+    });
+}]);
 
 App.factory('GradingSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grading-systems/:id', {id: '@id'}, {
@@ -1580,29 +1589,41 @@ app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
  * Classes Settings Controller
  */
 
-app.controller('SettingsClassesController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','CategoryClassSettingsService','toaster',
+    function ($scope, SchoolDataService,CategoryClassSettingsService,toaster) {
         $scope.school = SchoolDataService.school;
 
         $scope.removeSchoolCategory = function (school_type, indexToRemove) {
+            var parcel =  school_type.school_categories[indexToRemove];
+
             console.log(school_type);
-            school_type.school_categories.splice(indexToRemove, 1);
+
+            CategoryClassSettingsService.removeCategory(parcel).$promise.then(function (response) {
+                console.log('Saved Changes');
+                school_type.school_categories.splice(indexToRemove, 1);
+                toaster.pop('success', "Grading System", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
+            });
+
         };
 
         $scope.addSchoolCategory = function (school_type, school_category_name) {
             console.log(school_type);
-            school_type.school_categories.splice(0,0,{
-                'display_name': school_category_name,
-                'name': school_category_name,
-                'arms': [
-                    {
-                        display_name: 'Default',
-                        name: 'default',
-                        arms: {
-                            default: {}
-                        }
-                    }
-                ]
+
+            var parcel = {
+                'school_type_id': school_type.id,
+                'name': school_category_name
+            };
+
+            CategoryClassSettingsService.addCategory(parcel).$promise.then(function (response) {
+                console.log('Saved Changes');
+                school_type.school_categories.splice(0,0,response.model);
+                toaster.pop('success', "Grading System", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
             });
         };
 
@@ -1614,10 +1635,12 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService',
                     'display_name': ''
                 }
             }
+            console.log($scope.school.school_type);
         };
 
         $scope.removeArm = function (school_category_arms, index) {
             school_category_arms.splice(index, 1);
+            console.log($scope.school.school_type);
         };
 
         $scope.addArm = function (school_category_arms, school_category_name) {
@@ -1626,19 +1649,9 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService',
                 'name': school_category_name,
                 'arms': []
             });
+            console.log($scope.school.school_type);
         };
 
-        function getSessionsFrom(SchoolDataService) {
-            return SchoolDataService.school.sessions.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
     }
 ]);
 

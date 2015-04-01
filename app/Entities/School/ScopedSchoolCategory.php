@@ -40,6 +40,17 @@ class ScopedSchoolCategory extends BaseModel
         'meta' => 'object'
     ];
 
+    public static function boot(){
+        parent::boot();
+
+        static::deleting(function($model){
+            foreach($model->school_category_arms as $arm){
+                $arm->delete();
+            }
+        });
+    }
+
+
     public function school_type()
     {
         return $this->belongsTo('UnifySchool\Entities\School\ScopedSchoolType');

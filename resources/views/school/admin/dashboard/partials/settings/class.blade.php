@@ -132,3 +132,4 @@
 
     </div>
 </div>
+<toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>
