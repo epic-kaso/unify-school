@@ -29,7 +29,7 @@
 
                             </div>
                             <div class="col-sm-4">
-                                <button class="btn btn-primary btn-sm">Update</button>
+                                <button class="btn btn-success btn-sm" ng-click="saveCurrentSessionTerm(current)">Save</button>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,8 @@
                     <div class="col-sm-12">
                         <h3>Set Session & Term Start and End Dates</h3>
                         <hr/>
-                        <div class="form-group">
+                        <div class="row">
+                        <div class="form-group col-sm-12">
                             <label>Terms start & end dates</label>
                             <ul class="list-group">
                                 <li ng-repeat="sub_session in sub_sessions" class="list-group-item">
@@ -67,6 +68,10 @@
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-success btn-sm">Save</button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -97,3 +102,5 @@
 
     </div>
 </div>
+
+<toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>

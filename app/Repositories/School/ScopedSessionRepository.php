@@ -34,7 +34,7 @@ class ScopedSessionRepository extends BaseRepository {
         $item->save();
     });
 
-    $item = $this->model()->firstOrCreate(['name' => $name,'school_id' => $this->getSchool()->id]);
+    $item = $this->makeModel()->firstOrCreate(['name' => $name,'school_id' => $this->getSchool()->id]);
     $item->current_session = true;
     $item->save();
 

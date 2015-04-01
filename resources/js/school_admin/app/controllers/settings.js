@@ -32,11 +32,22 @@ app.controller('NavBarController', [
 /**
  * Session and Term Settings Controller
  */
-app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','SessionTermsSettingsService',
-    function ($scope, SchoolDataService,SessionTermsSettingsService) {
+app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','SessionTermsSettingsService','toaster',
+    function ($scope, SchoolDataService,SessionTermsSettingsService,toaster) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.current = SessionTermsSettingsService.get();
+
+        $scope.saveCurrentSessionTerm = function(current){
+            SessionTermsSettingsService.save(current,function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "Current Session & Term", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Current Session & Term", "Failed to save changes, Try Again");
+            });
+        };
+
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {
