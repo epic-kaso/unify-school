@@ -24,8 +24,8 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArm whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read \UnifySchool\School $school
- * @property-read mixed $has_subdivisions 
- * @property-read mixed $arms_count 
+ * @property-read mixed $has_subdivisions
+ * @property-read mixed $arms_count
  */
 class ScopedSchoolCategoryArm extends BaseModel
 {

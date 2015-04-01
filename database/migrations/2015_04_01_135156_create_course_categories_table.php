@@ -12,12 +12,15 @@ class CreateCourseCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('course_categories', function(Blueprint $table)
+		Schema::create('scoped_course_categories', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('school_type_id');
+			$table->integer('school_id');
+			$table->integer('scoped_school_category_id');
 			$table->string('name');
 			$table->timestamps();
+
+			$table->unique(['school_id','scoped_school_category_id','name'],'unique_course_category');
 		});
 	}
 
@@ -28,7 +31,7 @@ class CreateCourseCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('course_categories');
+		Schema::drop('scoped_course_categories');
 	}
 
 }

@@ -16,13 +16,13 @@ class CreateScopedCoursesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('school_id');
-			$table->integer('course_category_id');
+			$table->integer('scoped_course_category_id');
 			$table->string('name');
 			$table->string('code');
 			$table->string('slug');
 			$table->timestamps();
 
-			$table->unique(['school_id','name']);
+			$table->unique(['school_id','name','scoped_course_category_id'],'unique_course_for_school');
 		});
 	}
 
