@@ -48,6 +48,16 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
             });
         };
 
+        $scope.saveSubSessionsDate = function(subSessions){
+            SessionTermsSettingsService.saveSubSessionDates({'sub_sessions': subSessions}).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "Term Start & End Date", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Term Start & End Date", "Failed to save changes, Try Again");
+            });
+        };
+
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {

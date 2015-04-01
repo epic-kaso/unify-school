@@ -21,10 +21,14 @@ class SessionTermSettingsRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-			'current_session'  => 'required',
-			'current_sub_session'  => 'required|integer'
-		];
+		if($this->get('action','default') === 'default') {
+			return [
+				'current_session' => 'required',
+				'current_sub_session' => 'required|integer'
+			];
+		}else{
+			return [];
+		}
 	}
 
 }

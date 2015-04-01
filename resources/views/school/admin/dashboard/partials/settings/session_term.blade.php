@@ -47,7 +47,7 @@
                                         <div class="col-sm-4">@{{ sub_session.display_name }}</div>
                                         <div class="col-sm-4" id="term_start_date" >
                                             <p class="input-group">
-                                                <input type="text" placeholder="Start Date" class="form-control" datepicker-popup ng-model="sub_session.startDate" is-open="sub_session.startDateOpened"/>
+                                                <input type="text" placeholder="Start Date" class="form-control" datepicker-popup ng-model="sub_session.start_date" is-open="sub_session.startDateOpened"/>
                                                 <span class="input-group-btn">
                                                    <button type="button" ng-click="openStartDate($event,sub_session)" class="btn btn-default">
                                                        <em class="fa fa-calendar"></em>
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <p class="input-group">
-                                                <input type="text" placeholder="End Date" class="form-control" datepicker-popup ng-model="sub_session.endDate" is-open="sub_session.endDateOpened"/>
+                                                <input type="text" placeholder="End Date" class="form-control" datepicker-popup ng-model="sub_session.end_date" is-open="sub_session.endDateOpened"/>
                                                 <span class="input-group-btn">
                                                    <button type="button" ng-click="openEndDate($event,sub_session)" class="btn btn-default">
                                                        <em class="fa fa-calendar"></em>
@@ -70,7 +70,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-4">
-                            <button class="btn btn-success btn-sm">Save</button>
+                            <button class="btn btn-success btn-sm" ng-click="saveSubSessionsDate(sub_sessions)">Save</button>
                         </div>
                         </div>
                     </div>

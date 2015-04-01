@@ -8,6 +8,7 @@
 
 namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
+use Carbon\Carbon;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\SessionTermSettingsRequest;
 use UnifySchool\Repositories\School\ScopedSessionRepository;
@@ -15,7 +16,7 @@ use UnifySchool\Repositories\School\ScopedSubSessionTypeRepository;
 
 class SessionTermSettingsController extends Controller {
 
-    protected static $action_save_sub_session_dates = "sub_session_start_and_end_dates";
+    public static $action_save_sub_session_dates = "sub_session_start_and_end_dates";
 
     public function index(
         ScopedSessionRepository $sessionRepository,
@@ -66,6 +67,18 @@ class SessionTermSettingsController extends Controller {
         SessionTermSettingsRequest $request,
         ScopedSubSessionTypeRepository  $subSessionTypeRepository)
     {
-        return \Response::json(['true']);
+        $subSessions = $request->get('sub_sessions');
+
+        if(is_null($subSessions))
+            return \Response::json(['success' => false],404);
+
+        foreach($subSessions as $sub){
+             $subSession = $subSessionTypeRepository->find($sub['id']);
+             $subSession->start_date = Carbon::parse($sub['start_date']);
+             $subSession->end_date = Carbon::parse($sub['end_date']);
+             $subSession->save();
+        }
+
+        return \Response::json(['success' => true]);
     }
 }
