@@ -283,12 +283,51 @@ app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
 
 app.controller('SettingsClassesController', ['$scope', 'SchoolDataService',
     function ($scope, SchoolDataService) {
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
+        $scope.school = SchoolDataService.school;
+
+        $scope.removeSchoolCategory = function (school_type, indexToRemove) {
+            console.log(school_type);
+            school_type.school_categories.splice(indexToRemove, 1);
         };
 
+        $scope.addSchoolCategory = function (school_type, school_category_name) {
+            console.log(school_type);
+            school_type.school_categories.splice(0,0,{
+                'display_name': school_category_name,
+                'name': school_category_name,
+                'arms': [
+                    {
+                        display_name: 'Default',
+                        name: 'default',
+                        arms: {
+                            default: {}
+                        }
+                    }
+                ]
+            });
+        };
+
+        $scope.createArms = function (baseName, school_arm, count) {
+            school_arm.arms = [];
+            for (var i = 1; i <= count; i++) {
+                school_arm.arms[i - 1] = {
+                    'name': baseName + '_' + i,
+                    'display_name': ''
+                }
+            }
+        };
+
+        $scope.removeArm = function (school_category_arms, index) {
+            school_category_arms.splice(index, 1);
+        };
+
+        $scope.addArm = function (school_category_arms, school_category_name) {
+            school_category_arms.push({
+                'display_name': school_category_name,
+                'name': school_category_name,
+                'arms': []
+            });
+        };
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {

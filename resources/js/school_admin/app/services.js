@@ -1,3 +1,9 @@
+App.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
 
 App.factory('GradingSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grading-systems/:id', {id: '@id'}, {
