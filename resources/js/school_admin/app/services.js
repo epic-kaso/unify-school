@@ -30,7 +30,8 @@ App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
 
 App.factory('SessionTermsSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/sessions-terms-settings/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
+        'update': {method: 'PUT'},
+        'saveSubSessionDates': {method: 'POST',params: {'action': 'sub_session_start_and_end_dates'}}
     });
 }]);
 

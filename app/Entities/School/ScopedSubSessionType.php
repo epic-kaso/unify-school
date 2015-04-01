@@ -22,6 +22,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
+ * @property boolean $current 
+ * @property string $start_date 
+ * @property string $end_date 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereCurrent($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereStartDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereEndDate($value)
  */
 class ScopedSubSessionType extends BaseModel {
 

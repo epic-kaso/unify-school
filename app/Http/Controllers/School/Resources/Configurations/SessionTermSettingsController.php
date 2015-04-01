@@ -15,6 +15,8 @@ use UnifySchool\Repositories\School\ScopedSubSessionTypeRepository;
 
 class SessionTermSettingsController extends Controller {
 
+    protected static $action_save_sub_session_dates = "sub_session_start_and_end_dates";
+
     public function index(
         ScopedSessionRepository $sessionRepository,
         ScopedSubSessionTypeRepository $subSessionTypeRepository)
@@ -32,12 +34,22 @@ class SessionTermSettingsController extends Controller {
 
     }
 
-    public function store(SessionTermSettingsRequest $request, ScopedSessionRepository $sessionRepository,
-                          ScopedSubSessionTypeRepository $subSessionTypeRepository)
+    public function store(
+        SessionTermSettingsRequest $request,
+        ScopedSessionRepository $sessionRepository,
+        ScopedSubSessionTypeRepository $subSessionTypeRepository)
     {
-        $sessionRepository->setCurrentSession($request->get('current_session'));
-        $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
-        return \Response::json(['success']);
+        $action = $request->get('action','default');
+
+        switch($action){
+            case 'default':
+                $sessionRepository->setCurrentSession($request->get('current_session'));
+                $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
+                return \Response::json(['success']);
+            case static::$action_save_sub_session_dates:
+                return $this->saveSubSessionTimes($request,$subSessionTypeRepository);
+        }
+
     }
 
     public function update($id)
@@ -48,5 +60,12 @@ class SessionTermSettingsController extends Controller {
     public function destroy($id)
     {
 
+    }
+
+    private function saveSubSessionTimes(
+        SessionTermSettingsRequest $request,
+        ScopedSubSessionTypeRepository  $subSessionTypeRepository)
+    {
+        return \Response::json(['true']);
     }
 }
