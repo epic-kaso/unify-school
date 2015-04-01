@@ -11,11 +11,14 @@ namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use Illuminate\Support\Str;
 use Input;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\CategoriesAndClassesRequest;
 use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
 
-class CategoryAndClassesSettingsController extends Controller {
+class CategoryAndClassesSettingsController extends Controller
+{
 
     public static $action_school_category = 'school_category';
     public static $action_school_category_arms = 'school_category_arms';
@@ -33,11 +36,15 @@ class CategoryAndClassesSettingsController extends Controller {
 
     public function store(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
-        $action = $request->get('action','default');
+        $action = $request->get('action', 'default');
 
-        switch($action){
+        switch ($action) {
             case static::$action_school_category:
-                return $this->createNewSchoolCategory($request,$schoolCategoriesRepository);
+                return $this->createNewSchoolCategory($request, $schoolCategoriesRepository);
+            case static::$action_school_category_arms:
+                return $this->createNewSchoolCategoryArm($request, $schoolCategoriesRepository);
+            case static::$action_school_category_arm_subarms:
+                return $this->createNewSchoolCategoryArmSubDivision($request, $schoolCategoriesRepository);
         }
     }
 
@@ -46,13 +53,19 @@ class CategoryAndClassesSettingsController extends Controller {
 
     }
 
-    public function destroy($id,ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
+    public function destroy($id, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
-        $action = Input::get('action','default');
+        $action = Input::get('action', 'default');
 
-        switch($action){
+        switch ($action) {
             case static::$action_school_category:
                 $schoolCategoriesRepository->delete($id);
+                return \Response::json(['success' => true]);
+            case static::$action_school_category_arms:
+                ScopedSchoolCategoryArm::destroy($id);
+                return \Response::json(['success' => true]);
+            case static::$action_school_category_arm_subarms:
+                ScopedSchoolCategoryArmSubdivision::destroy($id);
                 return \Response::json(['success' => true]);
         }
     }
@@ -64,10 +77,39 @@ class CategoryAndClassesSettingsController extends Controller {
             'school_id' => $this->getSchool()->id,
             'display_name' => $request->get('name'),
             'name' => Str::slug($request->get('name'))
-            ];
+        ];
 
         $model = $schoolCategoriesRepository->create($data);
         $model->load(['school_category_arms', 'school_category_arms.school_category_arm_subdivisions']);
-        return \Response::json(['success' => true,'model' => $model]);
+        return \Response::json(['success' => true, 'model' => $model]);
+    }
+
+    private function createNewSchoolCategoryArmSubDivision(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
+    {
+        $data = [
+            'scoped_school_category_arm_id' => $request->get('school_category_arm_id'),
+            'school_id' => $this->getSchool()->id,
+            'display_name' => $request->get('name'),
+            'name' => Str::slug($request->get('name'))
+        ];
+
+        $model = ScopedSchoolCategoryArmSubdivision::create($data);
+
+        return \Response::json(['success' => true, 'model' => $model]);
+
+    }
+
+    private function createNewSchoolCategoryArm(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
+    {
+        $data = [
+            'scoped_school_category_id' => $request->get('school_category_id'),
+            'school_id' => $this->getSchool()->id,
+            'display_name' => $request->get('name'),
+            'name' => Str::slug($request->get('name'))
+        ];
+
+        $model = ScopedSchoolCategoryArm::create($data);
+        $model->load(['school_category_arm_subdivisions']);
+        return \Response::json(['success' => true, 'model' => $model]);
     }
 }

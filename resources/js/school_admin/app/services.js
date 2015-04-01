@@ -9,7 +9,11 @@ App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
         'addCategory': {method: 'POST',params: {'action': 'school_category'}},
+        'addCategoryArm': {method: 'POST',params: {'action': 'school_category_arms'}},
+        'addCategoryArmSubDivision': {method: 'POST',params: {'action': 'school_category_arm_subarms'}},
         'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
+        'removeCategoryArm': {method: 'DELETE',params: {'action': 'school_category_arms'}},
+        'removeCategoryArmSubDivision': {method: 'DELETE',params: {'action': 'school_category_arm_subarms'}},
         'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
     });
 }]);

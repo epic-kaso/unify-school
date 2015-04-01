@@ -60,7 +60,7 @@
                                                 <div>
                                     <span class="btn btn-info"
                                           ng-click="
-                                          addArm(school_category.school_category_arms,school_arm_name);
+                                          addArm(school_category,school_arm_name);
                                           onAddCategoryArmType = false;
                                           school_arm_name = null;
                                           ">

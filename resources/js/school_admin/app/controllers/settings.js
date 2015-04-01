@@ -293,10 +293,10 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             CategoryClassSettingsService.removeCategory(parcel).$promise.then(function (response) {
                 console.log('Saved Changes');
                 school_type.school_categories.splice(indexToRemove, 1);
-                toaster.pop('success', "Grading System", "Changes Saved Succesfully");
+                toaster.pop('success', "School Category", "Changes Saved Succesfully");
             }, function (data) {
                 console.log('could not save changes');
-                toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
+                toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
 
         };
@@ -312,10 +312,10 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             CategoryClassSettingsService.addCategory(parcel).$promise.then(function (response) {
                 console.log('Saved Changes');
                 school_type.school_categories.splice(0,0,response.model);
-                toaster.pop('success', "Grading System", "Changes Saved Succesfully");
+                toaster.pop('success', "School Category", "Changes Saved Succesfully");
             }, function (data) {
                 console.log('could not save changes');
-                toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
+                toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
         };
 
@@ -331,17 +331,33 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
         };
 
         $scope.removeArm = function (school_category_arms, index) {
-            school_category_arms.splice(index, 1);
-            console.log($scope.school.school_type);
+            var parcel = school_category_arms[index];
+
+            CategoryClassSettingsService.removeCategoryArm(parcel).$promise.then(function (response) {
+                console.log('Saved Changes');
+                school_category_arms.splice(index, 1);
+                toaster.pop('success', "School Category Arm", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
+            });
+
         };
 
-        $scope.addArm = function (school_category_arms, school_category_name) {
-            school_category_arms.push({
-                'display_name': school_category_name,
-                'name': school_category_name,
-                'arms': []
+        $scope.addArm = function (school_category, school_category_name) {
+            var parcel = {
+                'school_category_id': school_category.id,
+                'name': school_category_name
+            };
+
+            CategoryClassSettingsService.addCategoryArm(parcel).$promise.then(function (response) {
+                console.log('Saved Changes');
+                school_category.school_category_arms.push(response.model);
+                toaster.pop('success', "School Category Arm", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
             });
-            console.log($scope.school.school_type);
         };
 
     }

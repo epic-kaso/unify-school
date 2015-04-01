@@ -35,6 +35,26 @@ class CategoriesAndClassesRequest extends Request {
 				return [
 					//
 				];
+			case CategoryAndClassesSettingsController::$action_school_category_arms:
+				if($this->isMethod('POST')){
+					return [
+						'school_category_id'  => 'required|integer',
+						'name'  => 'required'
+					];
+				}
+				return [
+					//
+				];
+			case CategoryAndClassesSettingsController::$action_school_category_arm_subarms:
+				if($this->isMethod('POST')){
+					return [
+						'school_category_arm_id'  => 'required|integer',
+						'name'  => 'required'
+					];
+				}
+				return [
+					//
+				];
 			default:
 				return [
 					//
