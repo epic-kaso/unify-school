@@ -43,7 +43,7 @@
                                     </h4>
                                 </div>
                                 <div class="panel-body">
-                                    <label>Configure Levels</label>
+                                    <label>Manage Levels</label>
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             Add more.. <span class="btn btn-xs btn-primary pull-right"
