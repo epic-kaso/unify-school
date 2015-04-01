@@ -51,7 +51,7 @@ class SessionTermSettingsController extends Controller {
             case 'default':
                 $sessionRepository->setCurrentSession($request->get('current_session'));
                 $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
-                return \Response::json(['success']);
+                return \Response::json(['success' => true]);
             case static::$action_save_sub_session_dates:
                 return $this->saveSubSessionTimes($request,$subSessionTypeRepository);
             case static::$action_add_sub_session:
