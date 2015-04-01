@@ -78,13 +78,13 @@
             </tab>
             <tab>
                 <tab-heading>
-                    <em class="fa-gear fa-sm"></em> Add New
+                    Manage Terms
                 </tab-heading>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3>Manage Term</h3>
+                                <h3>Manage Terms</h3>
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group">
