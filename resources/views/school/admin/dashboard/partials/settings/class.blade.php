@@ -78,38 +78,25 @@
                               ng-click="removeArm(school_category.school_category_arms,$index)">Remove</span>
                                             <label class="pull-right" style="margin-right: 20px;">Has Arms? <input
                                                         type="checkbox"
-                                                        ng-model="school_arm.has_arms"/></label>
+                                                        ng-model="school_arm.has_subdivisions"/></label>
 
-                                            <div class="row" ng-show="school_arm.has_arms">
+                                            <div class="row" ng-show="school_arm.has_subdivisions">
                                                 <div class="form-group col-sm-12">
-                                                    <label class="sm">How Many Arms?</label>
-                                                    <select ng-model="school_arm.arms_count"
-                                                            ng-change="createArms(school_arm.display_name,school_arm,school_arm.arms_count)"
-                                                            required class="form-control sm">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                    </select>
+                                                    <button ng-click="createArmSubdivision(school_arm.display_name,school_arm)"
+                                                            class="btn btn-sm btn-warning">Add Arm
+                                                    </button>
                                                 </div>
 
-                                                <div ng-if="school_arm.arms_count > 0">
-                                                    <div ng-repeat="arm in school_arm.arms">
-                                                        <div class="col-sm-4">
-                                                            <label class="sm">@{{ $index + 1 }}
-                                                                .   @{{ school_arm.display_name }}</label>
-                                                        </div>
+                                                <div ng-if="school_arm.school_category_arm_subdivisions.length > 1">
+                                                    <div ng-repeat="arm in school_arm.school_category_arm_subdivisions">
                                                         <div class="form-group col-sm-8">
                                                             <input type="text" ng-model="arm.display_name" required
                                                                    placeholder="Arm Name e.g (A)"
                                                                    class="form-control sm"/>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <button class="btn btn-success btn-sm" ng-click="saveArmSubDivision(school_arm,$index)">Save</button>
                                                     </div>
                                                 </div>
                                             </div>

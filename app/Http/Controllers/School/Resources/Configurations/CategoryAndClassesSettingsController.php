@@ -86,17 +86,31 @@ class CategoryAndClassesSettingsController extends Controller
 
     private function createNewSchoolCategoryArmSubDivision(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
-        $data = [
-            'scoped_school_category_arm_id' => $request->get('school_category_arm_id'),
-            'school_id' => $this->getSchool()->id,
-            'display_name' => $request->get('name'),
-            'name' => Str::slug($request->get('name'))
-        ];
+        $arm = $request->get('school_category_arm');
+        $category_Arm = ScopedSchoolCategoryArm::find($arm['id']);
+        if(is_null($category_Arm))
+            abort(404,'Invalid Category arm id');
 
-        $model = ScopedSchoolCategoryArmSubdivision::create($data);
+        $bulk = [];
 
-        return \Response::json(['success' => true, 'model' => $model]);
+        if(count($arm['arms']) > 1) {
+            foreach ($arm['arms'] as $subdivision) {
+                $data = [
+                    'school_id' => $this->getSchool()->id,
+                    'display_name' => $subdivision['display_name'],
+                    'name' => Str::slug($subdivision['name'])
+                ];
 
+                $bulk[] = new ScopedSchoolCategoryArmSubdivision($data);
+            }
+            $category_Arm->deleteDefaultSubdivision();
+
+            $category_Arm->school_category_arm_subdivisions()->saveMany($bulk);
+
+            return \Response::json(['success' => true, 'model' => $category_Arm->school_category_arm_subdivisions]);
+        }else{
+            return \Response::json(['success' => true, 'model' => $category_Arm->school_category_arm_subdivisions]);
+        }
     }
 
     private function createNewSchoolCategoryArm(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)

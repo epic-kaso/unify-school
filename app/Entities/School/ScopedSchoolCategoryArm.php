@@ -30,6 +30,8 @@ class ScopedSchoolCategoryArm extends BaseModel
         'meta' => 'object'
     ];
 
+    protected $appends = ['has_subdivisions','arms_count'];
+
     public static function boot(){
         parent::boot();
 
@@ -48,5 +50,21 @@ class ScopedSchoolCategoryArm extends BaseModel
     public function school_category_arm_subdivisions()
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision');
+    }
+
+    public function getHasSubdivisionsAttribute(){
+        return $this->school_category_arm_subdivisions->count() > 1;
+    }
+
+    public function getArmsCountAttribute(){
+        return $this->school_category_arm_subdivisions->count() == 1 ? 0 : $this->school_category_arm_subdivisions->count();
+    }
+
+    public function deleteDefaultSubdivision(){
+        if($this->school_category_arm_subdivisions->count() == 1){
+            $this->school_category_arm_subdivisions->first(function($item){
+               $item->delete();
+            });
+        }
     }
 }

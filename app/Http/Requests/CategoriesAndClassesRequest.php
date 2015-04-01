@@ -48,8 +48,7 @@ class CategoriesAndClassesRequest extends Request {
 			case CategoryAndClassesSettingsController::$action_school_category_arm_subarms:
 				if($this->isMethod('POST')){
 					return [
-						'school_category_arm_id'  => 'required|integer',
-						'name'  => 'required'
+						'school_category_arm'  => 'required|array'
 					];
 				}
 				return [

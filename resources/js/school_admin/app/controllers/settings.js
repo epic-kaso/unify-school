@@ -319,15 +319,37 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             });
         };
 
-        $scope.createArms = function (baseName, school_arm, count) {
-            school_arm.arms = [];
-            for (var i = 1; i <= count; i++) {
-                school_arm.arms[i - 1] = {
-                    'name': baseName + '_' + i,
-                    'display_name': ''
+        $scope.createArmSubdivision = function(baseName, school_arm) {
+
+            school_arm.school_category_arm_subdivisions = school_arm.school_category_arm_subdivisions || [];
+
+            if(school_arm.school_category_arm_subdivisions.length === 1){
+                school_arm.school_category_arm_subdivisions[0] = {
+                    'name': baseName + '_' + indexToChar(1),
+                    'display_name': baseName + ' ' + indexToChar(1)
                 }
             }
+
+            school_arm.school_category_arm_subdivisions.push({
+                    'name': baseName + '_' + indexToChar(school_arm.school_category_arm_subdivisions.length + 1),
+                    'display_name': baseName + ' ' + indexToChar(school_arm.school_category_arm_subdivisions.length + 1)
+                });
             console.log($scope.school.school_type);
+        };
+
+        $scope.saveArmSubDivision = function(school_arm,index){
+            var parcel = {
+                'school_category_arm': school_arm
+            };
+
+            CategoryClassSettingsService.addCategoryArmSubDivision(parcel).$promise.then(function (response) {
+                console.log('Saved Changes');
+                $scope.school.school_type.school_categories.splice(index,1,response.model);
+                toaster.pop('success', "School Category", "Changes Saved Succesfully");
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "School Category", "Failed to save changes, Try Again");
+            });
         };
 
         $scope.removeArm = function (school_category_arms, index) {
@@ -359,6 +381,11 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
             });
         };
+        
+        function indexToChar(index){
+            var chars = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            return chars[index-1];
+        }
 
     }
 ]);
