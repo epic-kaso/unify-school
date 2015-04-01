@@ -80,7 +80,7 @@
                                                         type="checkbox"
                                                         ng-model="school_arm.has_subdivisions"/></label>
 
-                                            <div class="row" ng-show="school_arm.has_subdivisions">
+                                            <div class="row school_subdivision_settings" ng-show="school_arm.has_subdivisions">
                                                 <div class="form-group col-sm-12">
                                                     <button ng-click="createArmSubdivision(school_arm.display_name,school_arm)"
                                                             class="btn btn-sm btn-warning">Add Arm
@@ -96,7 +96,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <span class="btn btn-xs pull-right" style="color: red;"
-                                                                  ng-click="removeArmSubDivision(school_arm.school_category_arm_subdivisions,$index)">
+                                                                  ng-click="removeArmSubDivision(school_arm.school_category_arm_subdivisions,$index,school_arm)">
                                                                 <i class="fa fa-times"></i>
                                                             </span>
                                                         </div>
@@ -126,3 +126,8 @@
     </div>
 </div>
 <toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>
+<style>
+    .school_subdivision_settings{
+        background-color: rgba(0,0,0,0.05);margin: -10px;padding: 10px 0px; margin-top: 10px;
+    }
+</style>

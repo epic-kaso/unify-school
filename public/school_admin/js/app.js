@@ -1603,7 +1603,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
 
             console.log(school_type);
 
-            CategoryClassSettingsService.removeCategory(parcel).$promise.then(function (response) {
+            CategoryClassSettingsService.removeCategory({id: parcel.id}).$promise.then(function (response) {
                 console.log('Saved Changes');
                 school_type.school_categories.splice(indexToRemove, 1);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
@@ -1665,10 +1665,10 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             });
         };
 
-        $scope.removeArmSubDivision = function (school_category_arm_subdivisions,index){
-            if(school_category_arm_subdivisions.length > 2) {
-                var parcel = school_category_arm_subdivisions[index];
+        $scope.removeArmSubDivision = function (school_category_arm_subdivisions,index,arm){
+            var parcel = school_category_arm_subdivisions[index];
 
+            if(school_category_arm_subdivisions.length > 2) {
                 CategoryClassSettingsService.removeCategoryArmSubDivision(parcel).$promise.then(function (response) {
                     console.log('Saved Changes');
                     school_category_arm_subdivisions.splice(index, 1);
@@ -1681,6 +1681,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 CategoryClassSettingsService.removeAllCategoryArmSubDivisions({id: parcel.scoped_school_category_arm_id}).$promise.then(function (response) {
                     console.log('Saved Changes');
                     school_category_arm_subdivisions.splice(0, 2);
+                    arm.has_subdivisions = false;
                     toaster.pop('success', "School Category Arm Subdivision", "Changes Saved Succesfully");
                 }, function (data) {
                     console.log('could not save changes');
@@ -1692,7 +1693,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
         $scope.removeArm = function (school_category_arms, index) {
             var parcel = school_category_arms[index];
 
-            CategoryClassSettingsService.removeCategoryArm(parcel).$promise.then(function (response) {
+            CategoryClassSettingsService.removeCategoryArm({id: parcel.id}).$promise.then(function (response) {
                 console.log('Saved Changes');
                 school_category_arms.splice(index, 1);
                 toaster.pop('success', "School Category Arm", "Changes Saved Succesfully");
