@@ -14,6 +14,7 @@ App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
         'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
         'removeCategoryArm': {method: 'DELETE',params: {'action': 'school_category_arms'}},
         'removeCategoryArmSubDivision': {method: 'DELETE',params: {'action': 'school_category_arm_subarms'}},
+        'removeAllCategoryArmSubDivisions': {method: 'DELETE',params: {'action': 'remove_all_school_category_arm_subarms'}},
         'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
     });
 }]);

@@ -23,6 +23,7 @@ class CategoryAndClassesSettingsController extends Controller
     public static $action_school_category = 'school_category';
     public static $action_school_category_arms = 'school_category_arms';
     public static $action_school_category_arm_subarms = 'school_category_arm_subarms';
+    public static $action_remove_all_school_category_arm_subarms = 'remove_all_school_category_arm_subarms';
 
     public function index()
     {
@@ -67,6 +68,9 @@ class CategoryAndClassesSettingsController extends Controller
             case static::$action_school_category_arm_subarms:
                 ScopedSchoolCategoryArmSubdivision::destroy($id);
                 return \Response::json(['success' => true]);
+            case static::$action_remove_all_school_category_arm_subarms:
+                ScopedSchoolCategoryArm::find($id)->restoreDefaultSubDivision();
+                return \Response::json(['success' => true]);
         }
     }
 
@@ -93,8 +97,8 @@ class CategoryAndClassesSettingsController extends Controller
 
         $bulk = [];
 
-        if(count($arm['arms']) > 1) {
-            foreach ($arm['arms'] as $subdivision) {
+        if(count($arm['school_category_arm_subdivisions']) > 1) {
+            foreach ($arm['school_category_arm_subdivisions'] as $subdivision) {
                 $data = [
                     'school_id' => $this->getSchool()->id,
                     'display_name' => $subdivision['display_name'],

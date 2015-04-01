@@ -38,7 +38,7 @@
                                         @{{ school_category.display_name }}
                                         <span class="btn btn-xs btn-default pull-right"
                                               ng-click="removeSchoolCategory(school.school_type,$index)">
-                                            <i class="fa fa-times"></i> Remove
+                                            <i class="fa fa-times"></i> Remove Category
                                         </span>
                                     </h4>
                                 </div>
@@ -75,7 +75,7 @@
                                             <span class="school_category_title">@{{ school_arm.display_name }}</span>
 
                         <span class="btn btn-xs btn-danger pull-right"
-                              ng-click="removeArm(school_category.school_category_arms,$index)">Remove</span>
+                              ng-click="removeArm(school_category.school_category_arms,$index)">Remove Arm</span>
                                             <label class="pull-right" style="margin-right: 20px;">Has Arms? <input
                                                         type="checkbox"
                                                         ng-model="school_arm.has_subdivisions"/></label>
@@ -93,6 +93,12 @@
                                                             <input type="text" ng-model="arm.display_name" required
                                                                    placeholder="Arm Name e.g (A)"
                                                                    class="form-control sm"/>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <span class="btn btn-xs pull-right" style="color: red;"
+                                                                  ng-click="removeArmSubDivision(school_arm.school_category_arm_subdivisions,$index)">
+                                                                <i class="fa fa-times"></i>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12">

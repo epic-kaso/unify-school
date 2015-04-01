@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+use Illuminate\Support\Str;
 
 /**
  * UnifySchool\Entities\School\ScopedSchoolCategoryArm
@@ -62,9 +63,34 @@ class ScopedSchoolCategoryArm extends BaseModel
 
     public function deleteDefaultSubdivision(){
         if($this->school_category_arm_subdivisions->count() == 1){
-            $this->school_category_arm_subdivisions->first(function($item){
-               $item->delete();
-            });
+            foreach($this->school_category_arm_subdivisions as $item){
+                $item->delete();
+            }
         }
+    }
+
+    public function restoreDefaultSubDivision()
+    {
+        $this->deleteAllSubdivisions();
+        $this->makeDefaultSubDivision();
+    }
+
+    private function deleteAllSubdivisions()
+    {
+        foreach($this->school_category_arm_subdivisions as $item){
+            $item->delete();
+        }
+    }
+
+    private function makeDefaultSubDivision()
+    {
+        $categoryArm = new ScopedSchoolCategoryArmSubdivision();
+        $categoryArm->scoped_school_category_arm_id = $this->id;
+        $categoryArm->name = Str::slug($this->display_name);
+        $categoryArm->display_name = $this->display_name;
+        $categoryArm->school_id = $this->school->id;
+        $categoryArm->save();
+
+        return $categoryArm;
     }
 }

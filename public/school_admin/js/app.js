@@ -1239,6 +1239,7 @@ App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
         'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
         'removeCategoryArm': {method: 'DELETE',params: {'action': 'school_category_arms'}},
         'removeCategoryArmSubDivision': {method: 'DELETE',params: {'action': 'school_category_arm_subarms'}},
+        'removeAllCategoryArmSubDivisions': {method: 'DELETE',params: {'action': 'remove_all_school_category_arm_subarms'}},
         'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
     });
 }]);
@@ -1662,6 +1663,30 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 console.log('could not save changes');
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
+        };
+
+        $scope.removeArmSubDivision = function (school_category_arm_subdivisions,index){
+            if(school_category_arm_subdivisions.length > 2) {
+                var parcel = school_category_arm_subdivisions[index];
+
+                CategoryClassSettingsService.removeCategoryArmSubDivision(parcel).$promise.then(function (response) {
+                    console.log('Saved Changes');
+                    school_category_arm_subdivisions.splice(index, 1);
+                    toaster.pop('success', "School Category Arm Subdivision", "Changes Saved Succesfully");
+                }, function (data) {
+                    console.log('could not save changes');
+                    toaster.pop('error', "School Category Arm Subdivision", "Failed to save changes, Try Again");
+                });
+            }else{
+                CategoryClassSettingsService.removeAllCategoryArmSubDivisions({id: parcel.scoped_school_category_arm_id}).$promise.then(function (response) {
+                    console.log('Saved Changes');
+                    school_category_arm_subdivisions.splice(0, 2);
+                    toaster.pop('success', "School Category Arm Subdivision", "Changes Saved Succesfully");
+                }, function (data) {
+                    console.log('could not save changes');
+                    toaster.pop('error', "School Category Arm Subdivision", "Failed to save changes, Try Again");
+                });
+            }
         };
 
         $scope.removeArm = function (school_category_arms, index) {
