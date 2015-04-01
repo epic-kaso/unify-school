@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Ak\PhpstormProjects\Unify\app\CourseCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_04_01_134810_create_scoped_courses_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_01_134810_create_scoped_courses_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_04_01_135156_create_course_categories_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_01_135156_create_course_categories_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -42,10 +39,10 @@
       <file leaf-file-name="ScopedCourse.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state vertical-scroll-proportion="-18.961538">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <marker date="1427893567535" expanded="true" signature="50:1577" placeholder=" UnifySchool\Entities\School\ScopedCourse ..." />
+                <marker date="1427894562100" expanded="true" signature="50:1576" placeholder=" UnifySchool\Entities\School\ScopedCourse ..." />
               </folding>
             </state>
           </provider>
@@ -61,23 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScopedCourseCategory.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScopedCourseCategory.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <marker date="1427893567650" expanded="true" signature="50:1255" placeholder=" UnifySchool\CourseCategory ..." />
-              </folding>
+            <state vertical-scroll-proportion="0.6702509">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_04_01_135156_create_course_categories_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2015_04_01_135156_create_course_categories_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_01_135156_create_course_categories_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5430108">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="-19.5">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -200,10 +195,10 @@
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/app/ScopedCourses.php" />
-        <option value="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" />
-        <option value="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_01_135156_create_course_categories_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_01_134810_create_scoped_courses_table.php" />
+        <option value="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" />
+        <option value="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" />
       </list>
     </option>
   </component>
@@ -473,12 +468,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00146" summary="school creation bug fix">
-      <created>1426971136270</created>
-      <option name="number" value="00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1426971136270</updated>
     </task>
     <task id="LOCAL-00147" summary="school creation bug fix">
       <created>1426971814716</created>
@@ -768,7 +757,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427892985884</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Classess Settings Completed">
+      <created>1427893584749</created>
+      <option name="number" value="00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1427893584749</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1298,26 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1427893567650" expanded="true" signature="50:1255" placeholder=" UnifySchool\CourseCategory ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <marker date="1427893567535" expanded="true" signature="50:1577" placeholder=" UnifySchool\Entities\School\ScopedCourse ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_01_134810_create_scoped_courses_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.615385">
@@ -1328,8 +1303,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_01_135156_create_course_categories_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5430108">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="-19.5">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1427894562100" expanded="true" signature="50:1576" placeholder=" UnifySchool\Entities\School\ScopedCourse ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6702509">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
           <folding />
         </state>
       </provider>

@@ -22,7 +22,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedCourse whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedCourse whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
- * @property integer $scoped_course_category_id 
+ * @property integer $scoped_course_category_id
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedCourse whereScopedCourseCategoryId($value)
  */
 class ScopedCourse extends BaseModel {
