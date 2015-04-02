@@ -105,16 +105,19 @@ class CourseSettingsController extends Controller {
             abort(404,'invalid school category');
 
         $assigned_courses =  $request->get('assigned_courses');
-        if(!is_array($schoolCategory->assigned_courses)){
-            $schoolCategory->assigned_courses = [];
+        $current_assigned_courses =  $schoolCategory->assigned_courses;
+
+        if(!is_array($current_assigned_courses)){
+            $current_assigned_courses = [];
         }
 
         foreach($assigned_courses as $id){
-            if(!in_array($id,$schoolCategory->assigned_courses)){
-                array_push($schoolCategory->assigned_courses,$id);
+            if(!in_array($id,$current_assigned_courses)){
+                array_push($current_assigned_courses,$id);
             }
         }
 
+        $schoolCategory->assigned_courses  =  $current_assigned_courses;
         $schoolCategory->save();
 
         return \Response::json(['model' => $schoolCategory]);
