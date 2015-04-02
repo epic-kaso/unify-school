@@ -31,6 +31,7 @@ App.factory('GradingSystemService', ['$resource', function ($resource) {
 App.factory('CoursesSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/courses-settings/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
+        'assignCourse': {method: 'PUT',params: {'action': 'assign_course'}},
         'getCourseCategory': {method: 'GET',params: {'action': 'add_course_category'},'isArray': true},
         'addCourseCategory': {method: 'POST',params: {'action': 'add_course_category'}},
         'removeCourseCategory': {method: 'DELETE',params: {'action': 'add_course_category'}}

@@ -426,8 +426,9 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
         $scope.courses = CoursesSettingsService.query();
         $scope.course_categories = CoursesSettingsService.getCourseCategory();
 
-        $scope.assignCourses = function(assigned_courses,courses_to_assign){
+        $scope.assignCourses = function(school_category_id, assigned_courses,courses_to_assign){
             console.log('Assign Courses Called');
+            var stateChanged = false;
             assigned_courses = assigned_courses || [];
 
             console.log(assigned_courses);
@@ -436,26 +437,24 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
                 console.log(value);
                 if(!inArray(assigned_courses,value)){
                     assigned_courses.push(value);
+                    stateChanged = true;
                 }
             });
 
-            function inArray(array,item){
-                var response = false;
-
-                if(angular.isArray(array) && array.length > 0) {
-                    console.log('looping');
-                    for (var i = 0; i < array.length; i++) {
-                        if (array[i] === item) {
-                            response = true;
-                            break;
-                        }
+            if(stateChanged) {
+                CoursesSettingsService.assignCourse(
+                    {id: school_category_id},
+                    {'assigned_courses': assigned_courses}).$promise.then(
+                    function (response) {
+                        toaster.pop('success', 'Course Assignment', 'Assigned Successfully');
+                        $scope.$emit('refreshSchoolData');
+                    }, function (response) {
+                        toaster.pop('error', 'Course Assignment', 'Failed to Assign');
                     }
-                }
-                console.log('inarray');
-                console.log(response);
-
-                return response;
+                );
             }
+
+
         };
 
         $scope.createCourseCategory = function(school_category_id,name){
@@ -493,6 +492,24 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
         $scope.$on('refreshSchoolDataComplete',function(event){
             $scope.school_categories = SchoolDataService.getCourseCategories();
         });
+
+        function inArray(array,item){
+            var response = false;
+
+            if(angular.isArray(array) && array.length > 0) {
+                console.log('looping');
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i] === item) {
+                        response = true;
+                        break;
+                    }
+                }
+            }
+            console.log('inarray');
+            console.log(response);
+
+            return response;
+        }
     }
 ]);
 
