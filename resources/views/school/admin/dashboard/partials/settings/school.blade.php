@@ -1,105 +1,116 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3>School Settings</h3><hr/>
+        <h3>School Settings</h3>
+        <hr/>
     </div>
     <div class="panel-body">
         <tabset justified="false" type="pills">
             <tab>
                 <tab-heading>
-                    Profile
+                    School Profile
                 </tab-heading>
                 <div class="row">
+                    <div class="col-sm-12">
+                        <h3>School Profile</h3>
+                        <hr/>
+                    </div>
                     <div class="col-md-6">
-                        <div>
-                            <div>
-                                <div class="form-horizontal">
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Email:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-email="user.email">@{{ user.email || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Tel:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-tel="user.tel" e-pattern="\d{3}-\d{2}-\d{2}" e-title="xxx-xx-xx">@{{ user.tel || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Number:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-number="user.number" e-min="18">@{{ user.number || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Range:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-range="user.range" e-step="5">@{{ user.range || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Url:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-url="user.url">@{{ user.url || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Search:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-search="user.search">@{{ user.search || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Color:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-color="user.color">@{{ user.color || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Date:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-date="user.date">@{{ user.date || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Time:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-time="user.time">@{{ user.time || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Datetime:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-datetime="user.datetime">@{{ user.datetime || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Month:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-month="user.month">@{{ user.month || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Week:</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-week="user.week">@{{ user.week || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
+                        <div class="form-horizontal">
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Name:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-text="school.school_profile.name">@{{ school.school_profile.name || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Date Established:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-date="school.school_profile.established_date">@{{ school.school_profile.established_date || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Motto:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-text="school.school_profile.motto">@{{ school.school_profile.motto || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Mission:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-text="school.school_profile.mission">@{{ school.school_profile.mission || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Vision:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-text="school.school_profile.vision">@{{ school.school_profile.vision || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Website:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-url="school.school_profile.website_url">@{{ school.school_profile.website_url || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Contact Email:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-email="school.school_profile.contact_email">@{{ school.school_profile.contact_email || &apos;empty&apos; }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">Contact Phone:</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#"
+                                                                      editable-tel="school.school_profile.contact_phone_number"
+                                                                      e-pattern="\d{11}"
+                                                                      e-title="xxxxxxxxxxx">@{{ school.school_profile.contact_phone_number || &apos;empty&apos; }}</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <img style="max-height: 300px" class="img-responsive" ng-src="@{{school.school_profile.image.dataURL || school.school_profile.logo.dataURL}}"
+                                 type="@{{school.school_profile.image.file.type}}"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="inputImage"
+                                   type="file"
+                                   style="max-width: 250px"
+                                   class="form-control"
+                                   accept="image/*"
+                                   image="school.school_profile.image"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success" ng-click="saveSchoolProfile(school.school_profile)">Save
+                            Changes
+                        </button>
                     </div>
                 </div>
             </tab>
@@ -108,46 +119,30 @@
                     Home Page
                 </tab-heading>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Controls</div>
-                            <div class="panel-body">
-                                <div class="form-horizontal">
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Text</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-text="user.name">@{{ user.name || &apos;empty&apos; }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Local Select</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-select="user2.status" e-ng-options="s.value as s.text for s in statuses">@{{ showStatus() }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Remote Select</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-select="user3.text" ng-init="loadGroups()" e-ng-options="g.text as g.text for g in groups">@{{ user3.text || &apos;not set&apos; }}  </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Textarea</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-textarea="user.desc" e-rows="3" e-cols="30">@{{ user.desc || 'no description' }}    </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m0">
-                                        <label class="col-sm-4 control-label">Typeahead</label>
-                                        <div class="col-sm-8">
-                                            <p class="form-control-static"><a href="#" editable-text="user4.state" e-typeahead="state for state in states | filter:$viewValue | limitTo:8">@{{ user4.state || &apos;empty&apos; }}  </a>
-                                            </p>
-                                        </div>
-                                    </div>
+                    <div class="col-sm-12">
+                        <h3>Home Page Specific Settings</h3>
+                        <hr/>
+                        <div class="form-group">
+                            <img ng-show="image" ng-src="@{{school.school_profile.wallpaper.dataURL}}"
+                                 type="@{{school.school_profile.wallpaper.file.type}}"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="inputImage"
+                                   type="file"
+                                   style="max-width: 250px"
+                                   class="form-control"
+                                   accept="image/*"
+                                   image="school.school_profile.wallpaper"/>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="form-group m0">
+                                <label class="col-sm-5 control-label">About School</label>
+
+                                <div class="col-sm-7">
+                                    <p class="form-control-static"><a href="#" editable-textarea="school.school_profile.about"
+                                                                      e-rows="3"
+                                                                      e-cols="30">@{{ school.school_profile.about || 'no description' }}    </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

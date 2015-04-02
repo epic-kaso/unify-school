@@ -65,6 +65,7 @@ Route::group(
     ],
     function () {
         Route::resource('school', 'School\SchoolController');
+        Route::resource('school-profile', 'Configurations\SchoolProfileController');
         Route::resource('grading-systems', 'Configurations\GradingSystemsController');
         Route::resource('courses-settings', 'Configurations\CourseSettingsController');
         Route::resource('category-class-settings', 'Configurations\CategoryAndClassesSettingsController');

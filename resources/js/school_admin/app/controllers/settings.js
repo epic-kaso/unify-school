@@ -145,12 +145,11 @@ app.controller('SettingsStudentsController', ['$scope', 'SchoolDataService',
  *
  */
 
-app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes',
-    function ($scope, SchoolDataService, editableOptions, editableThemes) {
+app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes','SchoolProfileService',
+    function ($scope, SchoolDataService, editableOptions, editableThemes,SchoolProfileService) {
 
         //template start
         editableOptions.theme = 'bs3';
-
         editableThemes.bs3.inputClass = 'input-sm';
         editableThemes.bs3.buttonsClass = 'btn-sm';
         editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
@@ -158,94 +157,21 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
         '<span class="fa fa-times text-muted"></span>' +
         '</button>';
 
-        $scope.user = {
-            email: 'email@example.com',
-            tel: '123-45-67',
-            number: 29,
-            range: 10,
-            url: 'http://example.com',
-            search: 'blabla',
-            color: '#6a4415',
-            date: null,
-            time: '12:30',
-            datetime: null,
-            month: null,
-            week: null,
-            desc: 'Sed pharetra euismod dolor, id feugiat ante volutpat eget. '
-        };
+        $scope.school = SchoolDataService.school;
+        $scope.school.school_profile = $scope.school.school_profile || {};
+        $scope.school.school_profile.name = $scope.school.name;
 
-        // Local select
-        // -----------------------------------
-
-        $scope.user2 = {
-            status: 2
-        };
-
-        $scope.statuses = [
-            {value: 1, text: 'status1'},
-            {value: 2, text: 'status2'},
-            {value: 3, text: 'status3'},
-            {value: 4, text: 'status4'}
-        ];
-
-        $scope.showStatus = function () {
-            var selected = $filter('filter')($scope.statuses, {value: $scope.user2.status});
-            return ($scope.user2.status && selected.length) ? selected[0].text : 'Not set';
-        };
-
-        // select remote
-        // -----------------------------------
-
-        $scope.user3 = {
-            id: 4,
-            text: 'admin' // original value
-        };
-
-        $scope.groups = [];
-
-        $scope.loadGroups = function () {
-            return $scope.groups.length ? null : $http.get('server/xeditable-groups.json').success(function (data) {
-                $scope.groups = data;
-            });
-        };
-
-        $scope.$watch('user3.id', function (newVal, oldVal) {
-            if (newVal !== oldVal) {
-                var selected = $filter('filter')($scope.groups, {id: $scope.user3.id});
-                $scope.user3.text = selected.length ? selected[0].text : null;
-            }
-        });
-
-        // Typeahead
-        // -----------------------------------
-
-        $scope.user4 = {
-            state: 'Arizona'
-        };
-
-        $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-
-        //template stop
-
-
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
-
-
-        function getSessionsFrom(SchoolDataService) {
-            return SchoolDataService.school.sessions.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
+        if(angular.isUndefined($scope.school.school_profile.logo) || $scope.school.school_profile.logo === null){
+            $scope.school.school_profile.logo = {dataURL: '/img/placeholder.jpg'};
         }
+
+        $scope.saveSchoolProfile = function(school) {
+            SchoolProfileService.save(school,function(data){
+                console.log('success');
+            },function(data){
+                console.log('failure');
+            });
+        };
     }
 ])
 

@@ -153,6 +153,7 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
+            'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
                 '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
@@ -160,6 +161,10 @@ App
         },
         // Angular based script (use the right module name)
         modules: [
+            {
+                name: 'ngUpload',
+                files: ['/framework/vendor/ngUpload/ng-upload.min.js']
+            },
             {
                 name: 'toaster',
                 files: ['/framework/vendor/angularjs-toaster/toaster.js', '/framework/vendor/angularjs-toaster/toaster.css']
@@ -1229,6 +1234,10 @@ App.factory('SchoolService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('SchoolProfileService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/school-profile/:id', {id: '@id'});
+}]);
+
 //
 App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
@@ -1470,12 +1479,11 @@ app.controller('SettingsStudentsController', ['$scope', 'SchoolDataService',
  *
  */
 
-app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes',
-    function ($scope, SchoolDataService, editableOptions, editableThemes) {
+app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes','SchoolProfileService',
+    function ($scope, SchoolDataService, editableOptions, editableThemes,SchoolProfileService) {
 
         //template start
         editableOptions.theme = 'bs3';
-
         editableThemes.bs3.inputClass = 'input-sm';
         editableThemes.bs3.buttonsClass = 'btn-sm';
         editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
@@ -1483,94 +1491,21 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
         '<span class="fa fa-times text-muted"></span>' +
         '</button>';
 
-        $scope.user = {
-            email: 'email@example.com',
-            tel: '123-45-67',
-            number: 29,
-            range: 10,
-            url: 'http://example.com',
-            search: 'blabla',
-            color: '#6a4415',
-            date: null,
-            time: '12:30',
-            datetime: null,
-            month: null,
-            week: null,
-            desc: 'Sed pharetra euismod dolor, id feugiat ante volutpat eget. '
-        };
+        $scope.school = SchoolDataService.school;
+        $scope.school.school_profile = $scope.school.school_profile || {};
+        $scope.school.school_profile.name = $scope.school.name;
 
-        // Local select
-        // -----------------------------------
-
-        $scope.user2 = {
-            status: 2
-        };
-
-        $scope.statuses = [
-            {value: 1, text: 'status1'},
-            {value: 2, text: 'status2'},
-            {value: 3, text: 'status3'},
-            {value: 4, text: 'status4'}
-        ];
-
-        $scope.showStatus = function () {
-            var selected = $filter('filter')($scope.statuses, {value: $scope.user2.status});
-            return ($scope.user2.status && selected.length) ? selected[0].text : 'Not set';
-        };
-
-        // select remote
-        // -----------------------------------
-
-        $scope.user3 = {
-            id: 4,
-            text: 'admin' // original value
-        };
-
-        $scope.groups = [];
-
-        $scope.loadGroups = function () {
-            return $scope.groups.length ? null : $http.get('server/xeditable-groups.json').success(function (data) {
-                $scope.groups = data;
-            });
-        };
-
-        $scope.$watch('user3.id', function (newVal, oldVal) {
-            if (newVal !== oldVal) {
-                var selected = $filter('filter')($scope.groups, {id: $scope.user3.id});
-                $scope.user3.text = selected.length ? selected[0].text : null;
-            }
-        });
-
-        // Typeahead
-        // -----------------------------------
-
-        $scope.user4 = {
-            state: 'Arizona'
-        };
-
-        $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-
-        //template stop
-
-
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
-
-
-        function getSessionsFrom(SchoolDataService) {
-            return SchoolDataService.school.sessions.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
+        if(angular.isUndefined($scope.school.school_profile.logo) || $scope.school.school_profile.logo === null){
+            $scope.school.school_profile.logo = {dataURL: '/img/placeholder.jpg'};
         }
+
+        $scope.saveSchoolProfile = function(school) {
+            SchoolProfileService.save(school,function(data){
+                console.log('success');
+            },function(data){
+                console.log('failure');
+            });
+        };
     }
 ])
 
@@ -2341,6 +2276,143 @@ app.controller('StudentsImportController',['$scope','SchoolDataService',
 
     }
 ]);
+App.directive('image', function($q) {
+        'use strict'
+
+        var URL = window.URL || window.webkitURL;
+
+        var getResizeArea = function () {
+            var resizeAreaId = 'fileupload-resize-area';
+
+            var resizeArea = document.getElementById(resizeAreaId);
+
+            if (!resizeArea) {
+                resizeArea = document.createElement('canvas');
+                resizeArea.id = resizeAreaId;
+                resizeArea.style.visibility = 'hidden';
+                document.body.appendChild(resizeArea);
+            }
+
+            return resizeArea;
+        }
+
+        var resizeImage = function (origImage, options) {
+            var maxHeight = options.resizeMaxHeight || 300;
+            var maxWidth = options.resizeMaxWidth || 250;
+            var quality = options.resizeQuality || 0.7;
+            var type = options.resizeType || 'image/jpg';
+
+            var canvas = getResizeArea();
+
+            var height = origImage.height;
+            var width = origImage.width;
+
+            // calculate the width and height, constraining the proportions
+            if (width > height) {
+                if (width > maxWidth) {
+                    height = Math.round(height *= maxWidth / width);
+                    width = maxWidth;
+                }
+            } else {
+                if (height > maxHeight) {
+                    width = Math.round(width *= maxHeight / height);
+                    height = maxHeight;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            //draw image on canvas
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(origImage, 0, 0, width, height);
+
+            // get the data from canvas as 70% jpg (or specified type).
+            return canvas.toDataURL(type, quality);
+        };
+
+        var createImage = function(url, callback) {
+            var image = new Image();
+            image.onload = function() {
+                callback(image);
+            };
+            image.src = url;
+        };
+
+        var fileToDataURL = function (file) {
+            var deferred = $q.defer();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                deferred.resolve(e.target.result);
+            };
+            reader.readAsDataURL(file);
+            return deferred.promise;
+        };
+
+
+        return {
+            restrict: 'A',
+            scope: {
+                image: '=',
+                resizeMaxHeight: '@?',
+                resizeMaxWidth: '@?',
+                resizeQuality: '@?',
+                resizeType: '@?',
+            },
+            link: function postLink(scope, element, attrs, ctrl) {
+
+                var doResizing = function(imageResult, callback) {
+                    createImage(imageResult.url, function(image) {
+                        var dataURL = resizeImage(image, scope);
+                        imageResult.resized = {
+                            dataURL: dataURL,
+                            type: dataURL.match(/:(.+\/.+);/)[1],
+                        };
+                        callback(imageResult);
+                    });
+                };
+
+                var applyScope = function(imageResult) {
+                    scope.$apply(function() {
+                        //console.log(imageResult);
+                        if(attrs.multiple)
+                            scope.image.push(imageResult);
+                        else
+                            scope.image = imageResult;
+                    });
+                };
+
+
+                element.bind('change', function (evt) {
+                    //when multiple always return an array of images
+                    if(attrs.multiple)
+                        scope.image = [];
+
+                    var files = evt.target.files;
+                    for(var i = 0; i < files.length; i++) {
+                        //create a result object for each file in files
+                        var imageResult = {
+                            file: files[i],
+                            url: URL.createObjectURL(files[i])
+                        };
+
+                        fileToDataURL(files[i]).then(function (dataURL) {
+                            imageResult.dataURL = dataURL;
+                        });
+
+                        if(scope.resizeMaxHeight || scope.resizeMaxWidth) { //resize image
+                            doResizing(imageResult, function(imageResult) {
+                                applyScope(imageResult);
+                            });
+                        }
+                        else { //no resizing
+                            applyScope(imageResult);
+                        }
+                    }
+                });
+            }
+        };
+    });
 /**=========================================================
  * Module: masked,js
  * Initializes the masked inputs

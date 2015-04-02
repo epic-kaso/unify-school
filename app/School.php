@@ -50,6 +50,7 @@ use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
  * @method static \UnifySchool\School isNotActive()
  * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type
  * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\Entities\School\ScopedSession[] $sessions
+ * @property-read SchoolProfile $school_profile 
  */
 class School extends BaseModel
 {
@@ -60,6 +61,7 @@ class School extends BaseModel
         'administrators',
         'school_type',
         'sessions',
+        'school_profile',
         'session_type',
         'session_type.sub_sessions',
         'school_type.session_type',
@@ -149,6 +151,11 @@ class School extends BaseModel
     public function sessions()
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSession');
+    }
+
+    public function school_profile()
+    {
+        return $this->hasOne(SchoolProfile::class);
     }
 
     public function administrator()

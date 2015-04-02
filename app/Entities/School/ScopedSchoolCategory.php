@@ -37,7 +37,6 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereAssignedCourses($value)
  * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourseCategories()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
- *
  */
 
 class ScopedSchoolCategory extends BaseModel

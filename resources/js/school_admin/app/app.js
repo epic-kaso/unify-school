@@ -153,6 +153,7 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
+            'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
                 '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
@@ -160,6 +161,10 @@ App
         },
         // Angular based script (use the right module name)
         modules: [
+            {
+                name: 'ngUpload',
+                files: ['/framework/vendor/ngUpload/ng-upload.min.js']
+            },
             {
                 name: 'toaster',
                 files: ['/framework/vendor/angularjs-toaster/toaster.js', '/framework/vendor/angularjs-toaster/toaster.css']

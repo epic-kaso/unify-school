@@ -4,6 +4,10 @@ App.factory('SchoolService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('SchoolProfileService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/school-profile/:id', {id: '@id'});
+}]);
+
 //
 App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
