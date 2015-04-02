@@ -30,24 +30,6 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        if($this->productionEnvironment()) {
-            return \Cache::tags(
-                Country::table(),
-                State::table(),
-                SchoolAdministrator::table(),
-                ScopedSchoolType::table(),
-                ScopedSession::table(),
-                ScopedSessionType::table(),
-                ScopedSubSessionType::table(),
-                ScopedSchoolType::table(),
-                ScopedSchoolCategoryArmSubdivision::table(),
-                ScopedSchoolCategoryArm::table(),
-                ScopedSchoolCategory::table()
-            )->remember('schools_list', 60 * 24, function () {
-                return School::withData()->get();
-            });
-        }
-
         return School::withData()->get();
     }
 
@@ -95,13 +77,6 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
-        if($this->productionEnvironment()) {
-            return \Cache::tags(School::table())
-                ->remember('schools_by_id_' . $id, 60 * 24, function () use ($id) {
-                return School::withData()->find($id);
-            });
-        }
-
         $school = School::withData()->find($id);
         return $school;
     }
