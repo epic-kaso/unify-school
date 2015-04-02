@@ -18,6 +18,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSkill whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSkill whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedSkill extends BaseModel {
 

@@ -25,6 +25,7 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read \Illuminate\Database\Eloquent\Collection|ScopedSubSessionType[] $sub_sessions
  * @property-read \UnifySchool\School $school
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedSessionType extends BaseModel
 {

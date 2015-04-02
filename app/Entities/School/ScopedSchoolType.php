@@ -27,6 +27,7 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read mixed $classes
  * @property-read \UnifySchool\School $school
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedSchoolType extends BaseModel
 {

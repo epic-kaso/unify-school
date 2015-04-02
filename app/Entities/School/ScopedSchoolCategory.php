@@ -33,10 +33,15 @@
  * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourseCategory()
  * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourses()
  * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dGetWithData()
+ * @property string $assigned_courses 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereAssignedCourses($value)
+ * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourseCategories()
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ *
  */
+
 class ScopedSchoolCategory extends BaseModel
 {
-
     protected $appends = ['classes'];
 
     public static $relationships =
@@ -50,7 +55,8 @@ class ScopedSchoolCategory extends BaseModel
         ];
 
     protected $casts = [
-        'meta' => 'object'
+        'meta' => 'object',
+        'assigned_courses' => 'array'
     ];
 
     public static function boot(){

@@ -102,7 +102,8 @@ class SchoolController extends Controller
             });
         }
 
-        return School::withData()->find($id);
+        $school = School::withData()->find($id);
+        return $school;
     }
 
     /**

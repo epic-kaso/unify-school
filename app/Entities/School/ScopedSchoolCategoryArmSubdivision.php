@@ -22,6 +22,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read \UnifySchool\School $school
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedSchoolCategoryArmSubdivision extends BaseModel
 {

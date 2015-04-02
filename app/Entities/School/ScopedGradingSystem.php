@@ -20,6 +20,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradingSystem whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradingSystem whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedGradingSystem extends BaseModel {
 

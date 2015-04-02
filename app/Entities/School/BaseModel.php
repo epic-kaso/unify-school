@@ -17,6 +17,7 @@ use UnifySchool\Entities\Scopes\School\SchoolScopeTrait;
  *
  * @property-read \UnifySchool\School $school
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class BaseModel extends Model
 {

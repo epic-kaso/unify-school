@@ -9,6 +9,7 @@
 namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 
+use Illuminate\Support\Str;
 use Input;
 use UnifySchool\Entities\School\ScopedCourse;
 use UnifySchool\Entities\School\ScopedCourseCategory;
@@ -41,7 +42,7 @@ class CourseSettingsController extends Controller {
             case static::$action_add_course_category:
                 return $this->addNewCourseCategory($request);
             case 'default':
-                return ScopedCourse::all();
+                return $this->addNewCourse($request);
         }
     }
 
@@ -70,6 +71,21 @@ class CourseSettingsController extends Controller {
 
        ScopedCourseCategory::create($data);
 
-        return \Response::json(['all' => ScopedCourseCategory::with('scoped_school_category')->get()]);
+        return \Response::json(['all' => ScopedCourseCategory::getWithData()]);
+    }
+
+    private function addNewCourse(CourseSettingsRequest $request)
+    {
+        $data = [
+            'school_id'  => $this->getSchool()->id,
+            'name' => $request->get('name'),
+            'code' => $request->get('code'),
+            'scoped_course_category_id' => $request->get('course_category_id'),
+            'slug' => Str::slug($request->get('name'))
+        ];
+
+        ScopedCourse::create($data);
+
+        return \Response::json(['all' => ScopedCourse::getWithData()]);
     }
 }

@@ -62,6 +62,7 @@
  * @property string $remember_token
  * @property-read \UnifySchool\School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereRememberToken($value)
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedStudent extends BaseModel
 {

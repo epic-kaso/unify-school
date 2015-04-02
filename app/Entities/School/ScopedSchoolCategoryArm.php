@@ -26,6 +26,7 @@ use Illuminate\Support\Str;
  * @property-read \UnifySchool\School $school
  * @property-read mixed $has_subdivisions
  * @property-read mixed $arms_count
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedSchoolCategoryArm extends BaseModel
 {

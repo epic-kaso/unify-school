@@ -19,6 +19,7 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\ScopedCourseCategory dSchoolCategory()
  * @method static \UnifySchool\Entities\School\ScopedCourseCategory dCourses()
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedCourseCategory extends BaseModel {
 

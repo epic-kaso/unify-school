@@ -426,6 +426,38 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
         $scope.courses = CoursesSettingsService.query();
         $scope.course_categories = CoursesSettingsService.getCourseCategory();
 
+        $scope.assignCourses = function(assigned_courses,courses_to_assign){
+            console.log('Assign Courses Called');
+            assigned_courses = assigned_courses || [];
+
+            console.log(assigned_courses);
+
+            angular.forEach(courses_to_assign,function(value,key){
+                console.log(value);
+                if(!inArray(assigned_courses,value)){
+                    assigned_courses.push(value);
+                }
+            });
+
+            function inArray(array,item){
+                var response = false;
+
+                if(angular.isArray(array) && array.length > 0) {
+                    console.log('looping');
+                    for (var i = 0; i < array.length; i++) {
+                        if (array[i] === item) {
+                            response = true;
+                            break;
+                        }
+                    }
+                }
+                console.log('inarray');
+                console.log(response);
+
+                return response;
+            }
+        };
+
         $scope.createCourseCategory = function(school_category_id,name){
             var parcel = {
                 'name': name,
@@ -439,6 +471,22 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
                 $scope.course_categories = response.all;
             },function(response){
                     toaster.pop('error','Course Category','Failed to Add');
+            });
+        };
+
+        $scope.createCourse  = function(course){
+            var parcel = {
+                'name': course.name,
+                'code': course.code,
+                'course_category_id': course.course_category.id
+            };
+
+            CoursesSettingsService.save(parcel,function(response){
+                toaster.pop('success', 'Course','Added Successfully');
+                $scope.courses = response.all;
+                course = {};
+            },function(response){
+                toaster.pop('error','Course','Failed to Add');
             });
         };
 

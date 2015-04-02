@@ -35,7 +35,7 @@ class SchoolGlobalScope implements ScopeInterface
     public function apply(Builder $builder, Model $model)
     {
         if (!is_null($this->context->get())) {
-            $builder->where($this->context->column(), $this->context->id());
+            $builder->where($model->getTable().'.'. $this->context->column(), $this->context->id());
         }
     }
 

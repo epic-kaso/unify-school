@@ -25,6 +25,11 @@ class CourseSettingsRequest extends Request {
 		$action = $this->get('action', 'default');
 
 		switch ($action) {
+			case 'default':
+				return [
+					'name' => 'required',
+					'course_category_id' => 'required|integer'
+				];
 			case CourseSettingsController::$action_add_course_category:
 				return [
 					'name' => 'required',

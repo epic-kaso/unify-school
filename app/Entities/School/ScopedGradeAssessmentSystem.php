@@ -20,6 +20,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradeAssessmentSystem whereUpdatedAt($value)
  * @property integer $total_score
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradeAssessmentSystem whereTotalScore($value)
+ * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
 class ScopedGradeAssessmentSystem extends BaseModel {
 

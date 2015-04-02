@@ -26,14 +26,13 @@
                     <div class="col-sm-6">
                         <div class="panel">
                             <div class="panel-heading">
-                                <button class="btn btn-info btn-xs pull-right">Assign</button>
+                                <button class="btn btn-info btn-xs pull-right" ng-click="assignCourses(assign.school_category.assigned_courses,assign.courses_to_assign)">Assign</button>
                                 <strong>All Courses</strong>
                             </div>
                             <div class="panel-body">
-                                <select multiple="" size="15" class="" style="width:100%">
-                                    <option value="1">ENGLISH</option>
-                                    <option value="2">MATHEMATICS</option>
-                                    <option value="7">AGRIC</option>
+                                <select multiple="" size="15" class="form-control" style="width:100%"  ng-model="assign.courses_to_assign"
+                                        ng-options="system as system.name for system in assign.school_category.scoped_courses">
+                                    <option value="">Select Course Category</option>
                                 </select>
                             </div>
                         </div>
@@ -46,10 +45,9 @@
                                 <strong>Assigned Courses</strong>
                             </div>
                             <div class="panel-body">
-                                <select multiple="" size="15" class="" style="width:100%">
-                                    <option value="1">ENGLISH</option>
-                                    <option value="2">MATHEMATICS</option>
-                                    <option value="7">AGRIC</option>
+                                <select multiple="" size="15" class="form-control" style="width:100%" ng-model="assign.courses_to_unassign"
+                                        ng-options="system as system.name for system in assign.school_category.assigned_courses">
+                                    <option value="">Select Course Category</option>
                                 </select>
                             </div>
                         </div>
