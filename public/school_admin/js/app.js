@@ -1751,6 +1751,36 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
         $scope.courses = CoursesSettingsService.query();
         $scope.course_categories = CoursesSettingsService.getCourseCategory();
 
+        $scope.unAssignCourses = function(school_category_id, assigned_courses,courses_to_unassign){
+            console.log('unAssign Courses Called');
+            var stateChanged = false;
+
+            console.log(assigned_courses);
+
+            angular.forEach(courses_to_unassign,function(value,key){
+                console.log(value);
+                if(inArray(assigned_courses,value)){
+                    assigned_courses.pop(value);
+                    stateChanged = true;
+                }
+            });
+
+            if(stateChanged) {
+                CoursesSettingsService.assignCourse(
+                    {id: school_category_id},
+                    {'assigned_courses': assigned_courses}).$promise.then(
+                    function (response) {
+                        toaster.pop('success', 'Course UnAssignment', 'UnAssigned Successfully');
+                        $scope.$emit('refreshSchoolData');
+                    }, function (response) {
+                        toaster.pop('error', 'Course UnAssignment', 'Failed to UnAssign');
+                    }
+                );
+            }
+
+
+        };
+
         $scope.assignCourses = function(school_category_id, assigned_courses,courses_to_assign){
             console.log('Assign Courses Called');
             var stateChanged = false;

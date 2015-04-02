@@ -26,7 +26,12 @@
                     <div class="col-sm-6">
                         <div class="panel">
                             <div class="panel-heading">
-                                <button class="btn btn-info btn-xs pull-right" ng-click="assignCourses(assign.school_category.id,assign.school_category.assigned_courses,assign.courses_to_assign)">Assign</button>
+                                <button class="btn btn-info btn-xs pull-right"
+                                        ng-click="assignCourses(
+                                        assign.school_category.id,
+                                        assign.school_category.assigned_courses,
+                                        assign.courses_to_assign)"
+                                        >Assign</button>
                                 <strong>All Courses</strong>
                             </div>
                             <div class="panel-body">
@@ -41,7 +46,11 @@
                     <div class="col-sm-6">
                         <div class="panel">
                             <div class="panel-heading">
-                                <button class="btn btn-danger btn-xs pull-right">Remove</button>
+                                <button class="btn btn-danger btn-xs pull-right"
+                                        ng-click="unAssignCourses(
+                                        assign.school_category.id,
+                                        assign.school_category.assigned_courses,
+                                        assign.courses_to_unassign)">Remove</button>
                                 <strong>Assigned Courses</strong>
                             </div>
                             <div class="panel-body">
