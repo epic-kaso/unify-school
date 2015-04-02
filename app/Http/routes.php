@@ -31,12 +31,11 @@ Route::group(['middleware' => 'domain_access'], function () {
 Route::group(
     [
         'middleware' => 'domain_access',
-        'prefix' => 'resources',
-        'namespace' => 'School\Resources'
+        'prefix' => 'resources'
     ],
     function () {
-        Route::resource('school', 'School\SchoolController');
-        Route::resource('school-setup', 'Configurations\RegisterSchoolConfigController');
+        Route::resource('school', 'School\Resources\School\SchoolController');
+        Route::resource('school-setup', 'School\Resources\Configurations\RegisterSchoolConfigController');
     }
 );
 
@@ -65,7 +64,9 @@ Route::group(
         'namespace' => 'School\Resources'
     ],
     function () {
+        Route::resource('school', 'School\SchoolController');
         Route::resource('grading-systems', 'Configurations\GradingSystemsController');
+        Route::resource('courses-settings', 'Configurations\CourseSettingsController');
         Route::resource('category-class-settings', 'Configurations\CategoryAndClassesSettingsController');
         Route::resource('sessions-terms-settings', 'Configurations\SessionTermSettingsController');
         Route::resource('behaviour-assessment-systems', 'Configurations\BehaviourAssessmentSystemController');

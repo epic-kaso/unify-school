@@ -24,6 +24,7 @@ class BaseModel extends Model
     use SchoolScopeTrait;
 
     protected $guarded = ['id'];
+    public static $relationships = [];
 
     public static function boot()
     {
@@ -52,6 +53,10 @@ class BaseModel extends Model
     public function scopeUnScoped($query)
     {
         return $query->withAllSchools();
+    }
+
+    public function scopeGetWithData($query){
+        return $query->with(static::$relationships)->get();
     }
 
     public static function table(){

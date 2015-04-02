@@ -420,26 +420,31 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
  Courses Settings Controller
  */
 
-app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
+app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','CoursesSettingsService','toaster',
+    function ($scope, SchoolDataService,CoursesSettingsService,toaster) {
+        $scope.school_categories = SchoolDataService.getCourseCategories();
+        $scope.courses = CoursesSettingsService.query();
+        $scope.course_categories = CoursesSettingsService.getCourseCategory();
+
+        $scope.createCourseCategory = function(school_category_id,name){
+            var parcel = {
+                'name': name,
+                'school_category_id': school_category_id
+            };
+
+            CoursesSettingsService.addCourseCategory(parcel).$promise.then(function(response){
+                toaster.pop('success', 'Course Category','Added Successfully');
+                $scope.$emit('refreshSchoolData');
+
+                $scope.course_categories = response.all;
+            },function(response){
+                    toaster.pop('error','Course Category','Failed to Add');
+            });
         };
 
-
-        function getSessionsFrom(SchoolDataService) {
-            return SchoolDataService.school.sessions.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
+        $scope.$on('refreshSchoolDataComplete',function(event){
+            $scope.school_categories = SchoolDataService.getCourseCategories();
+        });
     }
 ]);
 

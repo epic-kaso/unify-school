@@ -65,6 +65,7 @@ class School extends BaseModel
         'school_type.session_type',
         'school_type.school_categories',
         'school_type.school_categories.school_category_arms',
+        'school_type.school_categories.scoped_course_categories',
         'school_type.school_categories.school_category_arms.school_category_arm_subdivisions'
     ];
     protected $guarded = ['id', 'slug', 'hashcode'];

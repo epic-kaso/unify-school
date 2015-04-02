@@ -1,5 +1,5 @@
 App.factory('SchoolService', ['$resource', function ($resource) {
-    return $resource('/resources/school/:id', {id: '@id'}, {
+    return $resource('/admin/resources/school/:id', {id: '@id'}, {
         'update': {method: 'PUT'}
     });
 }]);
@@ -26,6 +26,17 @@ App.factory('GradingSystemService', ['$resource', function ($resource) {
         'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
     });
 }]);
+
+//
+App.factory('CoursesSettingsService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/courses-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'},
+        'getCourseCategory': {method: 'GET',params: {'action': 'add_course_category'},'isArray': true},
+        'addCourseCategory': {method: 'POST',params: {'action': 'add_course_category'}},
+        'removeCourseCategory': {method: 'DELETE',params: {'action': 'add_course_category'}}
+    });
+}]);
+
 
 App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grade-assessment-systems/:id', {id: '@id'}, {

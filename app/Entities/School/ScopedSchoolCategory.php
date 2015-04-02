@@ -30,11 +30,24 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategory whereScopedGradeAssessmentSystemId($value)
  * @property-read \UnifySchool\Entities\School\ScopedGradingSystem $grading_system
  * @property-read \UnifySchool\Entities\School\ScopedGradeAssessmentSystem $grade_assessment_system
+ * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourseCategory()
+ * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dCourses()
+ * @method static \UnifySchool\Entities\School\ScopedSchoolCategory dGetWithData()
  */
 class ScopedSchoolCategory extends BaseModel
 {
 
     protected $appends = ['classes'];
+
+    public static $relationships =
+        [
+            'school_type',
+            'school_category_arms',
+            'scoped_course_categories',
+            'scoped_courses',
+            'grading_system',
+            'grade_assessment_system'
+        ];
 
     protected $casts = [
         'meta' => 'object'
@@ -59,6 +72,14 @@ class ScopedSchoolCategory extends BaseModel
     public function school_category_arms()
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArm');
+    }
+
+    public function scoped_course_categories(){
+        return $this->hasMany(ScopedCourseCategory::class);
+    }
+
+    public function scoped_courses(){
+        return $this->hasManyThrough(ScopedCourse::class,ScopedCourseCategory::class);
     }
 
     public function grading_system(){
