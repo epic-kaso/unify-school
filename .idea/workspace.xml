@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -25,26 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="511" column="9" selection-start-line="511" selection-start-column="9" selection-end-line="511" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.21731448">
+              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
               <folding>
+                <element signature="e#1202#4585#0" expanded="false" />
                 <element signature="e#3886#4190#0" expanded="false" />
+                <element signature="e#4675#5329#0" expanded="false" />
+                <element signature="e#5418#9202#0" expanded="false" />
+                <element signature="e#9286#9940#0" expanded="false" />
+                <element signature="e#10028#16420#0" expanded="false" />
                 <element signature="e#10308#10945#0" expanded="false" />
                 <element signature="e#11028#11719#0" expanded="false" />
                 <element signature="e#11791#12586#0" expanded="false" />
                 <element signature="e#12651#13290#0" expanded="false" />
                 <element signature="e#13384#14797#0" expanded="false" />
                 <element signature="e#15516#16188#0" expanded="false" />
-                <element signature="e#20975#21061#0" expanded="false" />
-                <element signature="e#21496#21652#0" expanded="false" />
-                <element signature="e#21704#23487#0" expanded="false" />
-                <element signature="e#23568#24114#0" expanded="false" />
-                <element signature="e#25886#25972#0" expanded="false" />
-                <element signature="e#26037#26406#0" expanded="false" />
-                <element signature="e#26481#26752#0" expanded="false" />
+                <element signature="e#21026#21112#0" expanded="false" />
+                <element signature="e#21547#21703#0" expanded="false" />
+                <element signature="e#21755#23538#0" expanded="false" />
+                <element signature="e#23619#24165#0" expanded="false" />
+                <element signature="e#25937#26023#0" expanded="false" />
+                <element signature="e#26088#26457#0" expanded="false" />
+                <element signature="e#26532#26803#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,16 +71,16 @@
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="21" />
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courses.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="courses.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72407407">
+            <state vertical-scroll-proportion="-15.038462">
               <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
               <folding />
             </state>
@@ -210,9 +217,9 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_04_02_133450_add_assigned_courses_column_to_scoped_school_cats.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
       </list>
     </option>
   </component>
@@ -399,12 +406,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00151" summary="settings module">
-      <created>1427129745492</created>
-      <option name="number" value="00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1427129745498</updated>
     </task>
     <task id="LOCAL-00152" summary="settings module">
       <created>1427130576490</created>
@@ -694,7 +695,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427984905319</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="Course Settings">
+      <created>1427985700163</created>
+      <option name="number" value="00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1427985700164</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1197,37 +1204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="511" column="9" selection-start-line="511" selection-start-column="9" selection-end-line="511" selection-end-column="9" />
-          <folding>
-            <element signature="e#3886#4190#0" expanded="false" />
-            <element signature="e#10308#10945#0" expanded="false" />
-            <element signature="e#11028#11719#0" expanded="false" />
-            <element signature="e#11791#12586#0" expanded="false" />
-            <element signature="e#12651#13290#0" expanded="false" />
-            <element signature="e#13384#14797#0" expanded="false" />
-            <element signature="e#15516#16188#0" expanded="false" />
-            <element signature="e#20975#21061#0" expanded="false" />
-            <element signature="e#21496#21652#0" expanded="false" />
-            <element signature="e#21704#23487#0" expanded="false" />
-            <element signature="e#23568#24114#0" expanded="false" />
-            <element signature="e#25886#25972#0" expanded="false" />
-            <element signature="e#26037#26406#0" expanded="false" />
-            <element signature="e#26481#26752#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.884615">
@@ -1248,9 +1224,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72407407">
+        <state vertical-scroll-proportion="-15.038462">
           <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21731448">
+          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding>
+            <element signature="e#1202#4585#0" expanded="false" />
+            <element signature="e#3886#4190#0" expanded="false" />
+            <element signature="e#4675#5329#0" expanded="false" />
+            <element signature="e#5418#9202#0" expanded="false" />
+            <element signature="e#9286#9940#0" expanded="false" />
+            <element signature="e#10028#16420#0" expanded="false" />
+            <element signature="e#10308#10945#0" expanded="false" />
+            <element signature="e#11028#11719#0" expanded="false" />
+            <element signature="e#11791#12586#0" expanded="false" />
+            <element signature="e#12651#13290#0" expanded="false" />
+            <element signature="e#13384#14797#0" expanded="false" />
+            <element signature="e#15516#16188#0" expanded="false" />
+            <element signature="e#21026#21112#0" expanded="false" />
+            <element signature="e#21547#21703#0" expanded="false" />
+            <element signature="e#21755#23538#0" expanded="false" />
+            <element signature="e#23619#24165#0" expanded="false" />
+            <element signature="e#25937#26023#0" expanded="false" />
+            <element signature="e#26088#26457#0" expanded="false" />
+            <element signature="e#26532#26803#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

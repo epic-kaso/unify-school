@@ -483,6 +483,7 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
             CoursesSettingsService.save(parcel,function(response){
                 toaster.pop('success', 'Course','Added Successfully');
                 $scope.courses = response.all;
+                $scope.$emit('refreshSchoolData');
                 course = {};
             },function(response){
                 toaster.pop('error','Course','Failed to Add');
