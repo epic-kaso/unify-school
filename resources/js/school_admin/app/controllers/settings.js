@@ -145,8 +145,8 @@ app.controller('SettingsStudentsController', ['$scope', 'SchoolDataService',
  *
  */
 
-app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes','SchoolProfileService',
-    function ($scope, SchoolDataService, editableOptions, editableThemes,SchoolProfileService) {
+app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes','SchoolProfileService','toaster',
+    function ($scope, SchoolDataService, editableOptions, editableThemes,SchoolProfileService,toaster) {
 
         //template start
         editableOptions.theme = 'bs3';
@@ -168,8 +168,10 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
         $scope.saveSchoolProfile = function(school) {
             SchoolProfileService.save(school,function(data){
                 console.log('success');
+                toaster.pop('success', "School Profile", "Changes Saved Succesfully");
             },function(data){
                 console.log('failure');
+                toaster.pop('error', "School Profile", "Failed Saving Changes");
             });
         };
     }

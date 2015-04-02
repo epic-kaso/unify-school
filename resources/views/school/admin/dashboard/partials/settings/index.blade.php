@@ -8,8 +8,8 @@
             <li><a ui-sref="app.settings.classes" ui-sref-active="active">Classes</a></li>
             <li><a ui-sref="app.settings.courses" ui-sref-active="active">Courses</a></li>
             <li><a ui-sref="app.settings.school" ui-sref-active="active">School Profile</a></li>
-            <li><a ui-sref="app.settings.students" ui-sref-active="active">Students</a></li>
             <li><a ui-sref="app.settings.staff" ui-sref-active="active">Staff</a></li>
+            <li><a ui-sref="app.settings.students" ui-sref-active="active">Students</a></li>
             <li><a ui-sref="app.settings.reports" ui-sref-active="active">Reports</a></li>
             <li><a ui-sref="app.settings.financials" ui-sref-active="active">Financial</a></li>
             <li><a ui-sref="app.settings.notifications" ui-sref-active="active">Notification</a></li>

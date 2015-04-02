@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/placeholder.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_02_201304_create_school_profiles_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SchoolProfile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/SchoolProfileSettingsRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/directives/imageupload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/framework/vendor/ngUpload/ng-upload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/framework/vendor/ngUpload/ng-upload.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/framework/vendor/ngUpload/ng-upload.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/School.php" afterPath="$PROJECT_DIR$/app/School.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SchoolRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/SchoolRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js.map" afterPath="$PROJECT_DIR$/public/app/js/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -46,11 +28,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="session_term.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/session_term.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="70.73077">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9086022">
+              <caret line="34" column="118" selection-start-line="34" selection-start-column="118" selection-end-line="34" selection-end-column="118" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="school.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.0">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+            <state vertical-scroll-proportion="-19.5">
+              <caret line="157" column="118" selection-start-line="157" selection-start-column="118" selection-end-line="157" selection-end-column="118" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -64,37 +66,68 @@
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="20" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
+              <caret line="148" column="101" selection-start-line="148" selection-start-column="101" selection-end-line="148" selection-end-column="101" />
               <folding>
-                <element signature="e#1202#4585#0" expanded="false" />
                 <element signature="e#3886#4190#0" expanded="false" />
                 <element signature="e#4675#5329#0" expanded="false" />
-                <element signature="e#6844#7498#0" expanded="false" />
-                <element signature="e#7586#13978#0" expanded="false" />
-                <element signature="e#7866#8503#0" expanded="false" />
-                <element signature="e#8586#9277#0" expanded="false" />
-                <element signature="e#9349#10144#0" expanded="false" />
-                <element signature="e#10209#10848#0" expanded="false" />
-                <element signature="e#10942#12355#0" expanded="false" />
-                <element signature="e#13074#13746#0" expanded="false" />
-                <element signature="e#14065#18638#0" expanded="false" />
-                <element signature="e#19712#19798#0" expanded="false" />
-                <element signature="e#20233#20389#0" expanded="false" />
-                <element signature="e#20441#22224#0" expanded="false" />
-                <element signature="e#22305#22851#0" expanded="false" />
-                <element signature="e#24623#24709#0" expanded="false" />
-                <element signature="e#24774#25143#0" expanded="false" />
-                <element signature="e#25218#25489#0" expanded="false" />
+                <element signature="e#7030#7684#0" expanded="false" />
+                <element signature="e#7772#14164#0" expanded="false" />
+                <element signature="e#8052#8689#0" expanded="false" />
+                <element signature="e#8772#9463#0" expanded="false" />
+                <element signature="e#9535#10330#0" expanded="false" />
+                <element signature="e#10395#11034#0" expanded="false" />
+                <element signature="e#11128#12541#0" expanded="false" />
+                <element signature="e#13260#13932#0" expanded="false" />
+                <element signature="e#14251#18824#0" expanded="false" />
+                <element signature="e#19898#19984#0" expanded="false" />
+                <element signature="e#20419#20575#0" expanded="false" />
+                <element signature="e#20627#22410#0" expanded="false" />
+                <element signature="e#22491#23037#0" expanded="false" />
+                <element signature="e#24809#24895#0" expanded="false" />
+                <element signature="e#24960#25329#0" expanded="false" />
+                <element signature="e#25404#25675#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="academics.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.884615">
+              <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="429" selection-end-column="118" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5106007">
+            <state vertical-scroll-proportion="0.0">
               <caret line="33" column="22" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courses.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="64.19231">
+              <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -120,58 +153,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_04_02_201304_create_school_profiles_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_02_201304_create_school_profiles_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SchoolProfileController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-              <folding>
-                <element signature="e#160#178#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="116.53846">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="School.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/School.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.5">
-              <caret line="155" column="34" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -192,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/seeds/SchoolSystemTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_31_145659_create_scoped_behaviours_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_31_145802_create_scoped_skills_table.php" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedSkill.php" />
@@ -210,7 +190,6 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/session_term.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SessionTermSettingsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CategoriesAndClassesRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CategoryAndClassesSettingsController.php" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" />
@@ -238,11 +217,13 @@
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/directives/imageupload.js" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_02_201304_create_school_profiles_table.php" />
         <option value="$PROJECT_DIR$/app/SchoolProfile.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" />
       </list>
     </option>
   </component>
@@ -283,10 +264,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -327,6 +308,188 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,12 +606,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00154" summary="settings module">
-      <created>1427704888162</created>
-      <option name="number" value="00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1427704888165</updated>
     </task>
     <task id="LOCAL-00155" summary="settings module">
       <created>1427717504757</created>
@@ -738,7 +895,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427987336267</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="Course Settings">
+      <created>1428012588799</created>
+      <option name="number" value="00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1428012588799</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -762,7 +925,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -773,7 +936,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.273773" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2700454" sideWeight="0.498366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -854,33 +1017,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.923077">
-          <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/class.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.5">
-          <caret line="130" column="93" selection-start-line="130" selection-start-column="93" selection-end-line="130" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_01_011149_add_start_end_dates_to_scoped_sub_session_types.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4874552">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_31_145659_create_scoped_behaviours_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5483871">
@@ -920,14 +1056,6 @@
           <folding>
             <element signature="e#160#187#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.884615">
-          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="429" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,14 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59814817">
-          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.0222223">
@@ -1255,10 +1375,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="101" selection-start-line="148" selection-start-column="101" selection-end-line="148" selection-end-column="101" />
+          <folding>
+            <element signature="e#3886#4190#0" expanded="false" />
+            <element signature="e#4675#5329#0" expanded="false" />
+            <element signature="e#7030#7684#0" expanded="false" />
+            <element signature="e#7772#14164#0" expanded="false" />
+            <element signature="e#8052#8689#0" expanded="false" />
+            <element signature="e#8772#9463#0" expanded="false" />
+            <element signature="e#9535#10330#0" expanded="false" />
+            <element signature="e#10395#11034#0" expanded="false" />
+            <element signature="e#11128#12541#0" expanded="false" />
+            <element signature="e#13260#13932#0" expanded="false" />
+            <element signature="e#14251#18824#0" expanded="false" />
+            <element signature="e#19898#19984#0" expanded="false" />
+            <element signature="e#20419#20575#0" expanded="false" />
+            <element signature="e#20627#22410#0" expanded="false" />
+            <element signature="e#22491#23037#0" expanded="false" />
+            <element signature="e#24809#24895#0" expanded="false" />
+            <element signature="e#24960#25329#0" expanded="false" />
+            <element signature="e#25404#25675#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.884615">
+          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="429" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/courses.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="64.19231">
+          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+        <state vertical-scroll-proportion="-19.5">
+          <caret line="157" column="118" selection-start-line="157" selection-start-column="118" selection-end-line="157" selection-end-column="118" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1267,38 +1448,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/session_term.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="20" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
-          <folding>
-            <element signature="e#1202#4585#0" expanded="false" />
-            <element signature="e#3886#4190#0" expanded="false" />
-            <element signature="e#4675#5329#0" expanded="false" />
-            <element signature="e#6844#7498#0" expanded="false" />
-            <element signature="e#7586#13978#0" expanded="false" />
-            <element signature="e#7866#8503#0" expanded="false" />
-            <element signature="e#8586#9277#0" expanded="false" />
-            <element signature="e#9349#10144#0" expanded="false" />
-            <element signature="e#10209#10848#0" expanded="false" />
-            <element signature="e#10942#12355#0" expanded="false" />
-            <element signature="e#13074#13746#0" expanded="false" />
-            <element signature="e#14065#18638#0" expanded="false" />
-            <element signature="e#19712#19798#0" expanded="false" />
-            <element signature="e#20233#20389#0" expanded="false" />
-            <element signature="e#20441#22224#0" expanded="false" />
-            <element signature="e#22305#22851#0" expanded="false" />
-            <element signature="e#24623#24709#0" expanded="false" />
-            <element signature="e#24774#25143#0" expanded="false" />
-            <element signature="e#25218#25489#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="70.73077">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5106007">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.9086022">
+          <caret line="34" column="118" selection-start-line="34" selection-start-column="118" selection-end-line="34" selection-end-column="118" />
           <folding />
         </state>
       </provider>
