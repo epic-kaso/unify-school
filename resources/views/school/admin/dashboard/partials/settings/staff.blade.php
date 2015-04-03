@@ -10,11 +10,32 @@
                 </tab-heading>
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3>Assign Course</h3><hr/>
+                        <select class="form-control" ng-model="school_category_id"
+                                ng-options="system.id as system.name for system in school_categories">
+                            <option value="">Select Staff</option>
+                        </select>
                     </div>
 
+
                     <div class="col-sm-6">
-                        <h3>Assign Class</h3><hr/>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3>Assign Course</h3><hr/>
+                                <select class="form-control" ng-model="school_category_id"
+                                        ng-options="system.id as system.name for system in school_categories">
+                                    <option value="">Select Staff</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <h3>Assign Class</h3><hr/>
+
+                                <select class="form-control" ng-model="school_category_id"
+                                        ng-options="system.id as system.name for system in school_categories">
+                                    <option value="">Select Staff</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </tab>

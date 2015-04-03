@@ -5,20 +5,20 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * UnifySchool\SchoolProfile
  *
- * @property integer $id 
- * @property integer $school_id 
- * @property string $motto 
- * @property string $mission 
- * @property string $vision 
- * @property string $about 
- * @property string $contact_email 
- * @property string $contact_phone_number 
- * @property string $logo 
- * @property string $wallpaper 
- * @property string $established_date 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read School $school 
+ * @property integer $id
+ * @property integer $school_id
+ * @property string $motto
+ * @property string $mission
+ * @property string $vision
+ * @property string $about
+ * @property string $contact_email
+ * @property string $contact_phone_number
+ * @property string $logo
+ * @property string $wallpaper
+ * @property string $established_date
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolProfile whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolProfile whereSchoolId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolProfile whereMotto($value)
