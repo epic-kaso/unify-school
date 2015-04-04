@@ -190,12 +190,18 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
  */
 
 
-app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+app.controller('SettingsStaffController', ['$scope', 'SchoolDataService','StaffService','toaster',
+    function ($scope, SchoolDataService,StaffService,toaster) {
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.staffs = StaffService.query();
 
         $scope.saveStaff = function (staff) {
             console.log(staff);
+            StaffService.save(staff,function(response){
+                toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
+            },function(error){
+                toaster.pop('error', "Add Staff", "failed to Save Changes");
+            })
         }
     }
 ]);

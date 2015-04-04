@@ -21,33 +21,35 @@ class CreateScopedStaffsTable extends Migration {
 			$table->string('last_name');
 			$table->string('first_name');
 			$table->string('middle_name');
-			$table->date('birth_date');
-			$table->string('religion');
-			$table->string('country');
-			$table->string('state');
-			$table->string('lga');
-			$table->string('marital_status');
-			$table->text('picture');
+			$table->date('birth_date')->nullable();
+			$table->string('religion')->nullable();
+			$table->string('country')->nullable();
+			$table->string('state')->nullable();
+			$table->string('lga')->nullable();
+			$table->string('marital_status')->nullable();
+			$table->text('picture')->nullable();
 
-			$table->string('contact_phone');
-			$table->text('contact_address');
-			$table->string('contact_email');
+			$table->string('contact_phone')->nullable();
+			$table->text('contact_address')->nullable();
+			$table->string('contact_email')->nullable();
 
-			$table->string('blood_group');
-			$table->string('genotype');
-			$table->text('disabilities');
+			$table->string('blood_group')->nullable();
+			$table->string('genotype')->nullable();
+			$table->text('disabilities')->nullable();
+
+			$table->enum('sex',['male','female'])->nullable();
+			$table->date('employment_date')->nullable();
+			$table->text('qualifications')->nullable();
+			$table->enum('status',['active','inactive','on-leave','suspended','sacked','deceased'])->nullable();
 
 
-			$table->enum('sex',['male','female']);
-			$table->date('employment_date');
-			$table->text('qualifications');
-			$table->enum('status',['active','inactive','on-leave','suspended','sacked','deceased']);
+			$table->text('assigned_courses')->nullable();
+			$table->text('assigned_classes')->nullable();
+
 			$table->timestamps();
 
 			$table->unique(['hashcode','school_id']);
 
-			$table->text('assigned_courses');
-			$table->text('assigned_classes');
 		});
 	}
 

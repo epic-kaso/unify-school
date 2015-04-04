@@ -1240,6 +1240,8 @@ App.factory('SchoolProfileService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school-profile/:id', {id: '@id'});
 }]);
 
+
+
 //
 App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
@@ -1271,6 +1273,12 @@ App.factory('CoursesSettingsService', ['$resource', function ($resource) {
         'getCourseCategory': {method: 'GET',params: {'action': 'add_course_category'},'isArray': true},
         'addCourseCategory': {method: 'POST',params: {'action': 'add_course_category'}},
         'removeCourseCategory': {method: 'DELETE',params: {'action': 'add_course_category'}}
+    });
+}]);
+
+App.factory('StaffService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/staff-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
     });
 }]);
 
@@ -1526,12 +1534,18 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
  */
 
 
-app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+app.controller('SettingsStaffController', ['$scope', 'SchoolDataService','StaffService','toaster',
+    function ($scope, SchoolDataService,StaffService,toaster) {
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        $scope.staffs = StaffService.query();
 
         $scope.saveStaff = function (staff) {
             console.log(staff);
+            StaffService.save(staff,function(response){
+                toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
+            },function(error){
+                toaster.pop('error', "Add Staff", "failed to Save Changes");
+            })
         }
     }
 ]);

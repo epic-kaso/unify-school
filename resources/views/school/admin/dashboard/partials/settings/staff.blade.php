@@ -170,8 +170,8 @@
                         <div class="form-horizontal">
                         <div class="form-group mt5">
                             <div class="col-sm-12">
-                                <img style="max-height: 300px" class="img-responsive" ng-src="@{{staff.image.dataURL || '/img/placeholder.jpg'}}"
-                                     type="@{{staff.image.file.type}}"/>
+                                <img style="max-height: 300px" class="img-responsive" ng-src="@{{staff.picture.dataURL || '/img/placeholder.jpg'}}"
+                                     type="@{{staff.picture.file.type}}"/>
                             </div>
                             </div>
                             <div class="form-group mt5">
@@ -184,7 +184,7 @@
                                    style="max-width: 250px"
                                    class="form-control"
                                    accept="image/*"
-                                   image="staff.image"/>
+                                   image="staff.picture"/>
                                 </div>
                         </div>
 

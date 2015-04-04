@@ -8,6 +8,8 @@ App.factory('SchoolProfileService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school-profile/:id', {id: '@id'});
 }]);
 
+
+
 //
 App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
@@ -39,6 +41,12 @@ App.factory('CoursesSettingsService', ['$resource', function ($resource) {
         'getCourseCategory': {method: 'GET',params: {'action': 'add_course_category'},'isArray': true},
         'addCourseCategory': {method: 'POST',params: {'action': 'add_course_category'}},
         'removeCourseCategory': {method: 'DELETE',params: {'action': 'add_course_category'}}
+    });
+}]);
+
+App.factory('StaffService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/staff-settings/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
     });
 }]);
 

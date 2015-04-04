@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+use Carbon\Carbon;
 
 
 /**
@@ -64,6 +65,29 @@
  */
 class ScopedStaff extends BaseModel {
 
-	//
+    protected $casts = [
+        'qualifications' => 'array',
+        'disabilities' => 'array',
+        'picture' => 'array'
+    ];
 
+    public static function boot(){
+        parent::boot();
+
+        static::creating(function(ScopedStaff $model){
+           $model->generateHashcode();
+        });
+    }
+
+    public static $relationships = [
+
+    ];
+
+    public function setBirthDateAttribute($value){
+        $this->attributes['birth_date'] = Carbon::parse($value);
+    }
+
+    public function setEmploymentDateAttribute($value){
+        $this->attributes['employment_date'] = Carbon::parse($value);
+    }
 }
