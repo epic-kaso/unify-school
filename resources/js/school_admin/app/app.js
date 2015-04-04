@@ -153,6 +153,8 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
+            'taginput' :          ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
+                '/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'],
             'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',

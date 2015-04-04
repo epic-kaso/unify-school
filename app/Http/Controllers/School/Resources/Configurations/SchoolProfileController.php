@@ -50,7 +50,8 @@ class SchoolProfileController extends Controller {
         }
         $schoolProfile->save();
 
-        $school->name = $request->get('name');
+
+        $school->name = $request->get('name',$school->name);
         $school->save();
 
         return $schoolProfile;
@@ -60,4 +61,6 @@ class SchoolProfileController extends Controller {
     {
         return SchoolProfile::destroy($id);
     }
+
+
 }

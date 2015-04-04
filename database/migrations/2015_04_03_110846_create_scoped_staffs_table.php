@@ -21,6 +21,7 @@ class CreateScopedStaffsTable extends Migration {
 			$table->string('last_name');
 			$table->string('first_name');
 			$table->string('middle_name');
+			$table->date('birth_date');
 			$table->string('religion');
 			$table->string('country');
 			$table->string('state');

@@ -169,13 +169,21 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
             SchoolProfileService.save(school,function(data){
                 console.log('success');
                 toaster.pop('success', "School Profile", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(data){
                 console.log('failure');
                 toaster.pop('error', "School Profile", "Failed Saving Changes");
             });
         };
+
+
+        $scope.$on('refreshSchoolDataComplete',function(event){
+            $scope.school = SchoolDataService.school;
+            $scope.school.school_profile = $scope.school.school_profile || {};
+            $scope.school.school_profile.name = $scope.school.name;
+        });
     }
-])
+]);
 
 /**
  * Staff Settings Controller
@@ -184,23 +192,10 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
 
 app.controller('SettingsStaffController', ['$scope', 'SchoolDataService',
     function ($scope, SchoolDataService) {
-        $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
 
-
-        function getSessionsFrom(SchoolDataService) {
-            return SchoolDataService.school.sessions.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
+        $scope.saveStaff = function (staff) {
+            console.log(staff);
         }
     }
 ]);

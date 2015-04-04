@@ -90,6 +90,10 @@ class School extends BaseModel
             }
         });
 
+        static::saved(function(School $model){
+            $model->clearCache();
+        });
+
         static::observe(new CacheModelObserver());
     }
 
@@ -204,5 +208,10 @@ class School extends BaseModel
     public static function table(){
         $s = new static;
         return $s->getTable();
+    }
+
+    private function clearCache()
+    {
+        \Cache::forget('global_school_context');
     }
 }

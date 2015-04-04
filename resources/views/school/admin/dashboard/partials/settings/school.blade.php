@@ -128,7 +128,10 @@
                         </div>
                         <div class="form-group">
                             <input id="inputImage"
+                                   filestyle=""
                                    type="file"
+                                   data-classbutton="btn btn-default"
+                                   data-classinput="form-control inline"
                                    style="max-width: 250px"
                                    class="form-control"
                                    accept="image/*"

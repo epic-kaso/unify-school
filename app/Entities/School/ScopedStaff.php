@@ -4,33 +4,33 @@
 /**
  * UnifySchool\Entities\School\ScopedStaff
  *
- * @property integer $id 
- * @property integer $hashcode 
- * @property integer $school_id 
- * @property string $last_name 
- * @property string $first_name 
- * @property string $middle_name 
- * @property string $religion 
- * @property string $country 
- * @property string $state 
- * @property string $lga 
- * @property string $marital_status 
- * @property string $picture 
- * @property string $contact_phone 
- * @property string $contact_address 
- * @property string $contact_email 
- * @property string $blood_group 
- * @property string $genotype 
- * @property string $disabilities 
- * @property string $sex 
- * @property string $employment_date 
- * @property string $qualifications 
- * @property string $status 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property string $assigned_courses 
- * @property string $assigned_classes 
- * @property-read \UnifySchool\School $school 
+ * @property integer $id
+ * @property integer $hashcode
+ * @property integer $school_id
+ * @property string $last_name
+ * @property string $first_name
+ * @property string $middle_name
+ * @property string $religion
+ * @property string $country
+ * @property string $state
+ * @property string $lga
+ * @property string $marital_status
+ * @property string $picture
+ * @property string $contact_phone
+ * @property string $contact_address
+ * @property string $contact_email
+ * @property string $blood_group
+ * @property string $genotype
+ * @property string $disabilities
+ * @property string $sex
+ * @property string $employment_date
+ * @property string $qualifications
+ * @property string $status
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $assigned_courses
+ * @property string $assigned_classes
+ * @property-read \UnifySchool\School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereHashcode($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereSchoolId($value)
@@ -59,6 +59,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereAssignedClasses($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property string $birth_date 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereBirthDate($value)
  */
 class ScopedStaff extends BaseModel {
 
