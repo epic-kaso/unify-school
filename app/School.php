@@ -84,7 +84,7 @@ class School extends BaseModel
     {
         parent::boot();
 
-        static::saving(function (School $model) {
+        static::creating(function (School $model) {
             if ($model->isDirty('name')) {
                 return $model->generateSlug();
             }
