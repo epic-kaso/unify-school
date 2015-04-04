@@ -153,6 +153,7 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
+            'slimscroll':         ['/framework/vendor/slimScroll/jquery.slimscroll.min.js'],
             'taginput' :          ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
                 '/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'],
             'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],

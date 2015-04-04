@@ -153,6 +153,7 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
+            'slimscroll':         ['/framework/vendor/slimScroll/jquery.slimscroll.min.js'],
             'taginput' :          ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
                 '/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'],
             'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
@@ -1092,7 +1093,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 url: '/settings',
                 templateUrl: ViewBaseURL + '/settings/index',
                 title: 'Settings',
-                resolve: helper.resolveFor('xeditable','toaster','inputmask','taginput','filestyle'),
+                resolve: helper.resolveFor('xeditable','toaster','inputmask','taginput','filestyle','slimscroll'),
                 controller: ['$scope',
                     function ($scope) {
                     }
@@ -2461,6 +2462,25 @@ App.directive('masked', function() {
   };
 });
 
+/**
+ * Created by Ak on 4/4/2015.
+ */
+/**=========================================================
+ * Module: scroll.js
+ * Make a content box scrollable
+ =========================================================*/
+
+App.directive('scrollable', function(){
+    return {
+        restrict: 'EA',
+        link: function(scope, elem, attrs) {
+            var defaultHeight = 250;
+            elem.slimScroll({
+                height: (attrs.height || defaultHeight)
+            });
+        }
+    };
+});
 /**=========================================================
  * Module panel-tools.js
  * Directive tools to control panels. 

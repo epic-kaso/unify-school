@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/StaffSettingsRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_04_03_110846_create_scoped_staffs_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_03_110846_create_scoped_staffs_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" afterPath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedStaff.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedStaff.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/framework/vendor/slimScroll/jquery.slimscroll.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/directives/others.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/css/school.css.map" afterPath="$PROJECT_DIR$/public/school_admin/css/school.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/css/school.css" afterPath="$PROJECT_DIR$/public/school_admin/css/school.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/themes/theme-a.less" afterPath="$PROJECT_DIR$/resources/assets/less/themes/theme-a.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" afterPath="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -39,67 +31,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="staff.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="staff.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="82" column="83" selection-start-line="82" selection-start-column="83" selection-end-line="82" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.1218638">
+              <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
+      <file leaf-file-name="others.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/directives/others.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="195" column="45" selection-start-line="195" selection-start-column="45" selection-end-line="195" selection-end-column="45" />
-              <folding>
-                <element signature="e#3886#4190#0" expanded="false" />
-                <element signature="e#4675#5329#0" expanded="false" />
-                <element signature="e#8335#8972#0" expanded="false" />
-                <element signature="e#9055#9746#0" expanded="false" />
-                <element signature="e#9818#10613#0" expanded="false" />
-                <element signature="e#10678#11317#0" expanded="false" />
-                <element signature="e#11411#12824#0" expanded="false" />
-                <element signature="e#13543#14215#0" expanded="false" />
-                <element signature="e#14534#19107#0" expanded="false" />
-                <element signature="e#20181#20267#0" expanded="false" />
-                <element signature="e#20702#20858#0" expanded="false" />
-                <element signature="e#20910#22693#0" expanded="false" />
-                <element signature="e#22774#23320#0" expanded="false" />
-                <element signature="e#25092#25178#0" expanded="false" />
-                <element signature="e#25243#25612#0" expanded="false" />
-                <element signature="e#25687#25958#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="83" selection-start-line="68" selection-start-column="83" selection-end-line="68" selection-end-column="83" />
+              <caret line="50" column="113" selection-start-line="50" selection-start-column="113" selection-end-line="50" selection-end-column="113" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaffSettingsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="155" column="13" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaffSettingsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3649374">
+            <state vertical-scroll-proportion="-23.538462">
               <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
               <folding>
                 <element signature="e#6#84#0#PHP" expanded="true" />
@@ -179,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/BehaviourAssessmentSystemController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SkillAssessmentSystemController.php" />
         <option value="$PROJECT_DIR$/app/Handlers/Events/GenerateDefaultSessionsForSchool.php" />
         <option value="$PROJECT_DIR$/app/Repositories/School/ScopedSubSessionTypeRepository.php" />
@@ -213,15 +187,12 @@
         <option value="$PROJECT_DIR$/app/SchoolProfile.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/school.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php" />
         <option value="$PROJECT_DIR$/resources/assets/less/school.less" />
         <option value="$PROJECT_DIR$/app/School.php" />
         <option value="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" />
         <option value="$PROJECT_DIR$/resources/assets/less/themes/theme-a.less" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/services.js" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
@@ -230,6 +201,10 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/StaffSettingsRequest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_03_110846_create_scoped_staffs_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/directives/others.js" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/routes.js" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
       </list>
     </option>
   </component>
@@ -346,21 +321,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
+              <option name="myItemId" value="school_admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -378,11 +343,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school_admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
+              <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -396,15 +373,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,19 +391,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,57 +405,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
+              <option name="myItemId" value="framework" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Configurations" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,8 +439,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ak\PhpstormProjects\Unify\resources\js\school_admin\app\directives" />
       <recent name="C:\Users\Ak\PhpstormProjects\Unify\public\framework\vendor" />
+      <recent name="C:\Users\Ak\PhpstormProjects\Unify\resources\js\school_admin\app\directives" />
       <recent name="C:\Users\Ak\PhpstormProjects\Unify\app\Repositories\School" />
       <recent name="C:\Users\Ak\PhpstormProjects\Unify\app\Http\Controllers\School\Resources\Configurations" />
       <recent name="C:\Users\Ak\PhpstormProjects\Unify\resources\views\school\admin\dashboard\partials\settings" />
@@ -596,12 +515,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00160" summary="Grading System Settings">
-      <created>1427727153427</created>
-      <option name="number" value="00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1427727153427</updated>
     </task>
     <task id="LOCAL-00161" summary="Grading System Settings">
       <created>1427727286179</created>
@@ -891,7 +804,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428151405037</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="Staff Settings">
+      <created>1428160077343</created>
+      <option name="number" value="00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1428160077346</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -916,8 +835,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -934,7 +854,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -998,7 +917,8 @@
     <MESSAGE value="Session and Term Settings" />
     <MESSAGE value="Classess Settings Completed" />
     <MESSAGE value="Course Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Course Settings" />
+    <MESSAGE value="Staff Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1007,14 +927,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSessionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4982079">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSchoolType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.384615">
@@ -1234,20 +1146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="98" selection-start-line="50" selection-start-column="98" selection-end-line="50" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="171" column="37" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/directives/filestyle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1386,14 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="82" column="83" selection-start-line="82" selection-start-column="83" selection-end-line="82" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_03_110846_create_scoped_staffs_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.730769">
@@ -1404,12 +1294,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3649374">
+        <state vertical-scroll-proportion="-23.538462">
           <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
           <folding>
             <element signature="e#6#84#0#PHP" expanded="true" />
             <element signature="e#160#204#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/directives/others.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="113" selection-start-line="50" selection-start-column="113" selection-end-line="50" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="155" column="13" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1218638">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
