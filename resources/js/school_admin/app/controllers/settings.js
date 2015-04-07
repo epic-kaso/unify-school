@@ -190,10 +190,19 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
  */
 
 
-app.controller('SettingsStaffController', ['$scope', 'SchoolDataService','StaffService','toaster',
-    function ($scope, SchoolDataService,StaffService,toaster) {
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+app.controller('SettingsStaffController', [
+    '$scope', 'SchoolDataService','StaffService','toaster','CoursesSettingsService',
+    function ($scope, SchoolDataService,StaffService,toaster,CoursesSettingsService) {
+        $scope.classes = SchoolDataService.school.school_type.classes;
         $scope.staffs = StaffService.query();
+        $scope.courses = CoursesSettingsService.query();
+        $scope.currentStaff = null;
+
+        $scope.setCurrentStaff = function($event,staff){
+            $scope.currentStaff = staff;
+            $event.stopPropagation();
+            $event.preventDefault();
+        }
 
         $scope.saveStaff = function (staff) {
             console.log(staff);

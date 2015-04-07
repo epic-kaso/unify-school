@@ -1,6 +1,12 @@
 @extends('school.admin.dashboard.layout')
 
+@section('assets')
+    <script>
+        {!! $assets !!}
+    </script>
+@stop
 @section('script')
+<script>
 
     angular.module('SchoolAdminApp')
     .factory('SchoolDataService',[ '$rootScope','SchoolService', function($rootScope,SchoolService){
@@ -24,15 +30,17 @@
 
         data.getCourseCategories = function(){
             return data.school.school_type.school_categories;
-        }
+        };
     return data;
-    }]).factory('ResourcesService',[function(){
+    }])
+    .factory('ResourcesService',[function(){
         return {
             getMenuResourceUrl: function(){
              return '/admin/resources/menu';
             }
         }
     }]);
+</script>
 @stop
 
 @section('content')

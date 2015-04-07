@@ -60,7 +60,7 @@ use Carbon\Carbon;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereAssignedClasses($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
- * @property string $birth_date 
+ * @property string $birth_date
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereBirthDate($value)
  */
 class ScopedStaff extends BaseModel {

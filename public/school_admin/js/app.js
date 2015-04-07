@@ -275,7 +275,7 @@ App.controller('AppController',
                 // list of available languages
                 available: {
                     'en': 'English',
-                    'es_AR': 'Español'
+                    'es_AR': 'Espaï¿½ol'
                 },
                 // display always the current ui language
                 init: function () {
@@ -1073,10 +1073,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 url: '/home',
                 templateUrl: ViewBaseURL + '/home',
                 title: 'School Dashboard',
-                controller: ['$scope',
-                    function ($scope) {
-
-                    }]
+                controller: 'HomeController'
             })
             .state('app.viewClassArm',
             {
@@ -1343,6 +1340,16 @@ App.factory('SchoolService', ['$resource', function ($resource) {
         'update': {method: 'PUT'}
     });
 }]);
+/**
+ * Created by Ak on 4/7/2015.
+ */
+
+App.controller('HomeController',['$scope','SchoolDataService','$window',
+    function ($scope,SchoolDataService,$window) {
+        $scope.school = SchoolDataService.school;
+        console.log($scope.school);
+    }]
+);
 var app = angular.module('SchoolAdminApp');
 /**
  * Controllers
@@ -1535,10 +1542,19 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
  */
 
 
-app.controller('SettingsStaffController', ['$scope', 'SchoolDataService','StaffService','toaster',
-    function ($scope, SchoolDataService,StaffService,toaster) {
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+app.controller('SettingsStaffController', [
+    '$scope', 'SchoolDataService','StaffService','toaster','CoursesSettingsService',
+    function ($scope, SchoolDataService,StaffService,toaster,CoursesSettingsService) {
+        $scope.classes = SchoolDataService.school.school_type.classes;
         $scope.staffs = StaffService.query();
+        $scope.courses = CoursesSettingsService.query();
+        $scope.currentStaff = null;
+
+        $scope.setCurrentStaff = function($event,staff){
+            $scope.currentStaff = staff;
+            $event.stopPropagation();
+            $event.preventDefault();
+        }
 
         $scope.saveStaff = function (staff) {
             console.log(staff);
@@ -2241,55 +2257,6 @@ app.controller('SettingsAdministratorsController', ['$scope', 'SchoolDataService
     }
 ]);
 
-var app = angular.module('SchoolAdminApp');
-
-app.controller('StudentsImportController',['$scope','SchoolDataService',
-    function ($scope,SchoolDataService) {
-
-        console.log(SchoolDataService.school.school_type.school_categories);
-
-        $scope.current_school_classes = null;
-        $scope.school_categories = SchoolDataService.school.school_type.school_categories;
-        $scope.sessions = getSessionsFrom(SchoolDataService);
-
-        $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.form = {
-            school_category: null
-        };
-
-        $scope.$watch('form.school_category',function(newV,oldV){
-            setCurrentSchoolClassesForSchoolType(newV);
-        });
-
-        function getSessionsFrom(SchoolDataService){
-            return SchoolDataService.school.sessions.sort(function(a,b){
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
-
-
-        function setCurrentSchoolClassesForSchoolType(newV){
-            var school_type = null;
-            angular.forEach($scope.school_categories,function(value,key){
-                if(value.id == newV){
-                    school_type = value;
-                    return ;
-                }
-            });
-
-            if(angular.isDefined(school_type) && school_type != null){
-                $scope.current_school_classes = school_type.classes;
-            }
-        }
-
-    }
-]);
 /**=========================================================
  * Module: filestyle.js
  * Initializes the fielstyle plugin

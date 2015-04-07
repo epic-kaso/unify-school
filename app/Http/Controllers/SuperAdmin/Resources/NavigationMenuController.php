@@ -31,13 +31,12 @@ class NavigationMenuController extends Controller
                 "text" => "Schools",
                 "sref" => "app.schools",
                 "icon" => "icon-users"
+            ],
+            [
+                "text" => "Modules",
+                "sref" => "app.modules.list",
+                "icon" => "fa fa-file-o"
             ]
-//            [
-//                "text" => "Single View",
-//                "sref" => "app.singleview",
-//                "icon" => "fa fa-file-o",
-//                "translate" => "sidebar.nav.SINGLEVIEW"
-//            ],
 //            [
 //                "text" => "Menu",
 //                "sref" => "#",

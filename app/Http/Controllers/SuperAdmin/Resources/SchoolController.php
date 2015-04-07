@@ -8,6 +8,7 @@ use UnifySchool\School;
 class SchoolController extends Controller
 {
     protected $action_updateActiveState = 'updateActiveState';
+    protected $action_updateModules = 'updateModules';
 
     /**
      * Display a listing of the resource.
@@ -82,6 +83,10 @@ class SchoolController extends Controller
         switch ($action) {
             case $this->action_updateActiveState:
                 $school->setActivateState(\Request::get('active'));
+                break;
+            case $this->action_updateModules:
+                $school->modules = \Input::get('modules');
+                $school->save();
                 break;
         }
 

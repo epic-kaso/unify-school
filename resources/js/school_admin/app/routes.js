@@ -28,10 +28,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 url: '/home',
                 templateUrl: ViewBaseURL + '/home',
                 title: 'School Dashboard',
-                controller: ['$scope',
-                    function ($scope) {
-
-                    }]
+                controller: 'HomeController'
             })
             .state('app.viewClassArm',
             {

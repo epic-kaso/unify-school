@@ -5,7 +5,7 @@
         </div>
 
         <div class="panel-body">
-            <form action="{{ route('resources.import-students.store') }}" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label>Select Session</label>

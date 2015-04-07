@@ -6,6 +6,7 @@ use UnifySchool\Entities\Resources\NonTertiary\SessionGenerator;
 use UnifySchool\Entities\School\CacheModelObserver;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
+use UnifySchool\Services\Modules\Loader;
 
 /**
  * UnifySchool\School
@@ -51,6 +52,8 @@ use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
  * @property-read \UnifySchool\Entities\School\ScopedSessionType $session_type
  * @property-read \Illuminate\Database\Eloquent\Collection|\UnifySchool\Entities\School\ScopedSession[] $sessions
  * @property-read SchoolProfile $school_profile
+ * @property array $modules
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereModules($value)
  */
 class School extends BaseModel
 {
@@ -76,9 +79,10 @@ class School extends BaseModel
     protected $casts = [
         'school_object' => 'object',
         'active' => 'boolean',
+        'modules' => 'array',
     ];
 
-    protected $appends = ['website', 'admin_website', 'student_website'];
+    protected $appends = ['website', 'admin_website', 'student_website','loaded_modules'];
 
     public static function boot()
     {
@@ -205,6 +209,19 @@ class School extends BaseModel
         }
     }
 
+    public function getLoadedModulesAttribute(){
+        $modules = [];
+        if(empty($this->modules))
+            return $modules;
+
+        foreach($this->modules as $key => $value){
+            if(is_bool($value) && $value && is_numeric($key)){
+                $modules[] = Module::find($key);
+            }
+        }
+
+        return $modules;
+    }
     public static function table(){
         $s = new static;
         return $s->getTable();

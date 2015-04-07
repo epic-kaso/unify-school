@@ -1,7 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-title">
-            <h2>Schools</h2>
+            <h2>Modules</h2>
+            
         </div>
         <div class="row">
             <div class="col-lg-2">
@@ -17,18 +18,22 @@
                    </span>
                 </div>
             </div>
-            <div class="col-lg-10"></div>
+            <div class="col-lg-10">
+                <div class="btn-group pull-right">
+                    <a ui-sref="app.modules.add" class="btn btn-default">New Module</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="table-responsive">
-        <table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+        <table class="table table-striped table-bordered table-hover">
             <thead>
         <tr>
             <th>
                 <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
                     <label>
-                        <input type="checkbox" ng-model="selectAll" ng-change="$parent.selectAllSchool(selectAll)"/>
+                        <input type="checkbox" ng-model="selectAll"/>
                         <span class="fa fa-check"></span>
                     </label>
                 </div>
@@ -38,34 +43,26 @@
         </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="school in $data" ng-class="{'whirl standard': school.updating}">
+            <tr ng-repeat="module in modules" ng-class="{'whirl standard': module.updating}">
                 <td>
                     <div class="checkbox c-checkbox">
                         <label>
-                            <input type="checkbox" ng-model="school.$selected"/>
+                            <input type="checkbox" ng-model="module.selected"/>
                             <span class="fa fa-check"></span>
                         </label>
                     </div>
             </td>
                 <td>
                     <div class="media">
-                        <a ui-sref="app.show_school({id: school.id})" class="pull-left">
-                            <img ng-src="@{{ school.logo.dataURL }}" alt="" class="media-object img-responsive img-circle"/>
-                        </a>
-
                         <div class="media-body">
-                            <div class="pull-right badge baed-info">@{{ school.school_type.name }}</div>
-                            <a ui-sref="app.show_school({id: school.id})">
-                                <h4 class="media-heading">@{{ school.name }}</h4>
-                            </a>
-                            <p>Website: <a ng-href="@{{ school.website }}">@{{ school.website }}</a></p>
+                            <h4 class="media-heading">@{{ module.name }}</h4>
                         </div>
                     </div>
                 </td>
                 <td class="text-center">
                     <label class="switch">
-                        <input type="checkbox" ng-model="school.active"
-                               ng-change="$parent.UpdateSchoolActiveState(school)"/>
+                        <input type="checkbox" ng-model="module.active"
+                               ng-change="updateModule(module)"/>
                         <span></span>
                     </label>
                 </td>
@@ -75,4 +72,3 @@
     </div>
 </div>
 
-<toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="@{{ app.description }}">
     <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
-    <title data-ng-bind="pageTitle()">Angle - Angular Bootstrap Admin Template</title>
+    <title data-ng-bind="pageTitle()">Unify School Project</title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('super_admin/css/super_admin.css') }}" rel="stylesheet">
@@ -14,18 +14,14 @@
 
 @yield('content')
 <script src="{{ asset('super_admin/app/js/base.js') }}"></script>
-<script src="{{ asset('super_admin/app/js/app.js') }}"></script>
+
+<script src="{{ asset('super_admin/js/app.js') }}"></script>
 <script>
     @yield('script')
 </script>
 <script>
     angular.module('SuperAdminApp').constant('CSRF_TOKEN', '{{ csrf_token() }}');
 </script>
-
-
-{{--<script src="{{ asset('app/libs/core.js') }}"></script>--}}
-{{--<script src="{{ asset('app/libs/others.js') }}"></script>--}}
-{{--<script src="{{ asset('super_admin/js/main.js') }}"></script>--}}
 
 </body>
 </html>

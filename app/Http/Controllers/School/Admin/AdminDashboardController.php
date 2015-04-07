@@ -11,6 +11,7 @@ namespace UnifySchool\Http\Controllers\School\Admin;
 
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\School;
+use UnifySchool\Services\Modules\Loader;
 
 class AdminDashboardController extends Controller
 {
@@ -26,7 +27,15 @@ class AdminDashboardController extends Controller
         $school = $this->getSchool();
         $school->load(School::$relationData);
 
-        return view('school.admin.dashboard.index', compact('school'));
+        $modules = Loader::loadSchoolModule($school);
+        $assets = '';
+        if(!is_null($modules)) {
+            foreach ($modules as $module) {
+                $assets .= Loader::prepareAssetsLink($module);
+            }
+        }
+
+        return view('school.admin.dashboard.index', compact('school','assets','modules'));
     }
 
     public function getPartial($first, $second = null, $third = null)
@@ -41,5 +50,11 @@ class AdminDashboardController extends Controller
             abort(404);
             return null;
         }
+    }
+
+    public function getLoadModule(){
+        $argmuments = func_get_args();
+        $ui_path = implode('.',$argmuments);
+        return view("school.modules.$ui_path");
     }
 }

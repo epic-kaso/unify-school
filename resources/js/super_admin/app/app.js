@@ -1,6 +1,9 @@
+/**
+ * Created by Ak on 4/5/2015.
+ */
 /*!
  *
- * SchoolAdminApp - Bootstrap Admin App + AngularJS
+ * SuperAdminApp - Bootstrap Admin App + AngularJS
  *
  * Author: @themicon_co
  * Website: http://themicon.co
@@ -15,7 +18,7 @@ if (typeof $ === 'undefined') {
 // APP START
 // -----------------------------------
 
-var App = angular.module('SchoolAdminApp', [
+var App = angular.module('SuperAdminApp', [
     'ngRoute',
     'ngAnimate',
     'ngStorage',
@@ -31,8 +34,8 @@ var App = angular.module('SchoolAdminApp', [
 ]);
 
 App.run(
-    ["$rootScope", "$state", "$stateParams", '$window', '$templateCache', 'SchoolDataService',
-        function ($rootScope, $state, $stateParams, $window, $templateCache, SchoolDataService) {
+    ["$rootScope", "$state", "$stateParams", '$window', '$templateCache', 'SchoolsDataService',
+        function ($rootScope, $state, $stateParams, $window, $templateCache, SchoolsDataService) {
             // Set reference to access them from any scope
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
@@ -48,8 +51,8 @@ App.run(
             // Scope Globals
             // -----------------------------------
             $rootScope.app = {
-                name: 'SchoolAdminApp',
-                description: 'UnifySchools Admin App',
+                name: 'SuperAdminApp',
+                description: 'Unify Super Admin App',
                 year: ((new Date()).getFullYear()),
                 layout: {
                     isFixed: true,
@@ -65,7 +68,7 @@ App.run(
                 hiddenFooter: false,
                 viewAnimation: 'ng-fadeInUp'
             };
-            $rootScope.user = SchoolDataService.adminUser;
+            $rootScope.user = SchoolsDataService.adminUser;
 
         }]);
 
@@ -74,7 +77,7 @@ App.run(
  * App routes and resources configuration
  =========================================================*/
 
-App.constant('ViewBaseURL', '/admin/dashboard/partial');
+App.constant('ViewBaseURL', '/unify/dashboard/partial');
 App.constant('AssetsBaseURL', '/framework');
 
 App.config(['$ocLazyLoadProvider', 'APP_REQUIRES', function ($ocLazyLoadProvider, APP_REQUIRES) {
@@ -153,21 +156,12 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
-            'slimscroll':         ['/framework/vendor/slimScroll/jquery.slimscroll.min.js'],
-            'taginput' :          ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
-                '/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'],
-            'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
-                '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
-            'inputmask':          ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js']
+                '/framework/vendor/simple-line-icons/css/simple-line-icons.css']
         },
         // Angular based script (use the right module name)
         modules: [
-            {
-                name: 'ngUpload',
-                files: ['/framework/vendor/ngUpload/ng-upload.min.js']
-            },
             {
                 name: 'toaster',
                 files: ['/framework/vendor/angularjs-toaster/toaster.js', '/framework/vendor/angularjs-toaster/toaster.css']
@@ -176,9 +170,7 @@ App
                 name: 'ngTable', files: ['/framework/vendor/ng-table/dist/ng-table.min.js',
                 '/framework/vendor/ng-table/dist/ng-table.min.css']
             },
-            {name: 'ngTableExport', files: ['/framework/vendor/ng-table-export/ng-table-export.js']},
-            {name: 'xeditable',files: ['/framework/vendor/angular-xeditable/dist/js/xeditable.js',
-                '/framework/vendor/angular-xeditable/dist/css/xeditable.css']},
+            {name: 'ngTableExport', files: ['/framework/vendor/ng-table-export/ng-table-export.js']}
         ]
 
     })
@@ -275,7 +267,7 @@ App.controller('AppController',
                 // list of available languages
                 available: {
                     'en': 'English',
-                    'es_AR': 'Espaï¿½ol'
+                    'es_AR': 'Español'
                 },
                 // display always the current ui language
                 init: function () {
@@ -321,33 +313,6 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 closeAllBut(-1);
             }
         });
-
-        $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
-            console.log('event selectedSchoolCat received');
-
-            if (angular.isDefined($scope.menuItems)) {
-                angular.forEach($scope.menuItems, function (value, key) {
-                    if (value.text == 'Classes') {
-                        value.submenu = prepareSubmenuItems(obj.value.school_category_arms);
-                    }
-                });
-            }
-        });
-
-        function prepareSubmenuItems(school_cat_arms) {
-            var response = [];
-
-            angular.forEach(school_cat_arms, function (value, key) {
-                var item = {};
-                item.text = value.display_name;
-                item.sref = 'app.viewClassArm';
-                item.params = {id: value.id};
-
-                this.push(item);
-            }, response);
-
-            return response;
-        }
 
         // Check item and children active state
         var isActive = function (item) {
@@ -1040,5 +1005,7 @@ App.service('Utils', ["$window", "APP_MEDIAQUERY", function ($window, APP_MEDIAQ
 // To run this code, edit file
 // index.html or index.jade and change
 // html data-ng-app attribute from
-// SchoolAdminApp to myAppName
+// SuperAdminApp to myAppName
 // -----------------------------------
+
+var myApp = angular.module('SuperAdminApp');

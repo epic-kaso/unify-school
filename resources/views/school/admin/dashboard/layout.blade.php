@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="@{{ app.description }}">
     <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
-    <title data-ng-bind="pageTitle()">Angle - Angular Bootstrap Admin Template</title>
+    <title data-ng-bind="pageTitle()">Unify School Project</title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('school_admin/css/school.css') }}" rel="stylesheet">
@@ -15,9 +15,8 @@
 @yield('content')
 <script src="{{ asset('school_admin/app/js/base.js') }}"></script>
 <script src="{{ asset('school_admin/js/app.js') }}"></script>
-<script>
-    @yield('script')
-</script>
+@yield('assets')
+@yield('script')
 <script>
     angular.module('SchoolAdminApp').constant('CSRF_TOKEN', '{{ csrf_token() }}');
 </script>

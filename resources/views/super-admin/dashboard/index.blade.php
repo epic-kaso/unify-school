@@ -1,14 +1,26 @@
 @extends('super-admin.dashboard.layout')
 
 @section('script')
-    document.data = {};
-    document.data.schools = {!! $schools->toJson() !!};
-    document.data.adminUser = {!! Auth::user()->toJson() !!};
-
-
     angular.module('SuperAdminApp')
-    .factory('SchoolsDataService',[function(){
-    return document.data;
+    .factory('SchoolsDataService',[ '$rootScope','SchoolService', function($rootScope,SchoolService){
+
+        var data = {};
+        data.schools = {!! $schools->toJson() !!};
+
+        $rootScope.$on('refreshSchoolsData',
+            function(evt){
+                 SchoolService.query({},
+                        function(response){
+                            data.schools = response;
+                            console.log('schools successfully refreshed');
+                            $rootScope.$broadcast('refreshSchoolsDataComplete');
+                        },
+                        function(){
+                            console.log('could not refresh school data');
+                        }
+                 );
+        });
+    return data;
     }])
     .factory('ResourcesService',[function(){
     return {
