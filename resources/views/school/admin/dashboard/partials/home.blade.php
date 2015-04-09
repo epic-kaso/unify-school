@@ -6,31 +6,31 @@
     <!-- START row-->
     <div class="row">
         <!-- START widget-->
-        <div class="col-sm-4">
-        <div id="panelPortlet5" class="panel widget">
-            <div class="portlet-handler">
-                <div class="row row-table row-flush">
-                    <div class="col-xs-4 bg-inverse text-center">
-                        <em class="fa fa-code-fork fa-2x"></em>
-                    </div>
-                    <div class="col-xs-8">
-                        <div class="panel-body text-center bg-inverse">
-                            <h4 class="mt0">150</h4>
+        {{--<div class="col-sm-4">--}}
+        {{--<div id="panelPortlet5" class="panel widget">--}}
+            {{--<div class="portlet-handler">--}}
+                {{--<div class="row row-table row-flush">--}}
+                    {{--<div class="col-xs-4 bg-inverse text-center">--}}
+                        {{--<em class="fa fa-code-fork fa-2x"></em>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-xs-8">--}}
+                        {{--<div class="panel-body text-center bg-inverse">--}}
+                            {{--<h4 class="mt0">150</h4>--}}
 
-                            <p class="mb0 text-muted">Students</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+                            {{--<p class="mb0 text-muted">Students</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
         <!-- END widget-->
     </div>
     <div class="row">
             <!-- START panel-->
             <div class="col-sm-4" ng-repeat="module in school.loaded_modules">
                 <div id="panelPortlet6" class="panel panel-inverse">
-                    <div class="panel-heading portlet-handler">@{{ module.name }}</div>
+                    <div class="panel-heading portlet-handler" style="text-transform: uppercase;">@{{ module.name }}</div>
                     <div class="panel-body">
                         <div class="list-group">
                             <a class="list-group-item" ui-sref="app.@{{ module.name }}.@{{ value.route }}" ng-repeat="value in module.menu">@{{ value.name }}</a>

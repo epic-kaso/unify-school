@@ -1,4 +1,4 @@
-<div>
+<div class="col-sm-12">
     <div class="panel">
         <div class="panel-heading">
             <h3>Import Students From Excel</h3>

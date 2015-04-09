@@ -105,8 +105,20 @@ App.service('TableDataService', ['SchoolDataService', function (SchoolDataServic
 
 }]);
 
-App.factory('SchoolService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/school/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });
+App.factory('SchoolContextService', ['$rootScope', function ($rootScope) {
+    var context = {
+        'school_category': 'all',
+        'category_level': 'all',
+        'level_class': 'all'
+    };
+
+    return {
+        setContext: function(newContext){
+            context = newContext;
+            $rootScope.$broadcast('SCHOOL_CONTEXT_CHANGED',newContext);
+        },
+        getContext: function(){
+            return context;
+        }
+    }
 }]);

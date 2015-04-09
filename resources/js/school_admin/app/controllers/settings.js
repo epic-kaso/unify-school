@@ -9,16 +9,36 @@ app.controller('NavBarController', [
         function ($scope, $rootScope, SchoolDataService) {
             $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
             $scope.selectedSchoolCategory = $scope.schoolCategories[0];
+            $scope.classItems = {
+                submenu: $scope.selectedSchoolCategory.school_category_arms,
+                selected: $scope.selectedSchoolCategory.school_category_arms[0]
+            };
 
             $scope.prepareSchoolCategory = function ($event, category) {
                 $scope.selectedSchoolCategory = category;
                 $event.preventDefault();
             };
 
+            $scope.prepareSchoolLevel = function ($event, level) {
+                $scope.classItems.selected = level;
+                $event.preventDefault();
+            };
+
+
             $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
                 console.log('selectedSchoolCategoryChanged event');
                 $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
                 console.log('selectedSchoolCategoryChanged raised');
+            });
+
+
+            $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
+                console.log('event selectedSchoolCat received');
+
+                if (angular.isDefined($scope.classItems)) {
+                    $scope.classItems.submenu = obj.value.school_category_arms;
+                    $scope.classItems.selected = obj.value.school_category_arms[0];
+                }
             });
         }]
 );

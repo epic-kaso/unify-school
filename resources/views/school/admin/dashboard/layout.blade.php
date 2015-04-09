@@ -10,7 +10,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('school_admin/css/school.css') }}" rel="stylesheet">
 </head>
-<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : true, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
 
 @yield('content')
 <script src="{{ asset('school_admin/app/js/base.js') }}"></script>

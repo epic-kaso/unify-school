@@ -35,6 +35,11 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 function ($scope) {
                 }
             ]
+        }).state('app.students.manage',{
+                url: '/manage',
+                templateUrl: ViewBaseURL + '/manage-students',
+                title: 'Manage Students',
+                controller: 'ManageStudentsController'
         }).state('app.students.import',{
             url: '/import',
             templateUrl: ViewBaseURL + '/import-students',
@@ -99,3 +104,7 @@ App.controller('StudentsImportController',['$scope','SchoolDataService',
 
     }
 ]);
+
+App.controller('ManageStudentsController',['$scope',function($scope){
+
+}]);
