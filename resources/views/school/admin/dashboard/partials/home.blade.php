@@ -33,7 +33,7 @@
                     <div class="panel-heading portlet-handler">@{{ module.name }}</div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a class="list-group-item" ui-sref="app.students.@{{ value.route }}" ng-repeat="value in module.menu">@{{ value.name }}</a>
+                            <a class="list-group-item" ui-sref="app.@{{ module.name }}.@{{ value.route }}" ng-repeat="value in module.menu">@{{ value.name }}</a>
                         </div>
                     </div>
                     <div class="panel-footer"><span class="btn-btn-sm"><span class="fa fa-gear"></span> Configure</span></div>
