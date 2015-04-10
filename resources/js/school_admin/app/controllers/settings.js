@@ -5,8 +5,14 @@ var app = angular.module('SchoolAdminApp');
  */
 
 app.controller('NavBarController', [
-        '$scope', '$rootScope', 'SchoolDataService',
-        function ($scope, $rootScope, SchoolDataService) {
+        '$scope', '$rootScope', 'SchoolDataService','SchoolContextService',
+        function ($scope, $rootScope, SchoolDataService,SchoolContextService) {
+            var context = {
+                'school_category': 'all',
+                'category_level': 'all',
+                'level_class': 'all'
+            };
+
             $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
             $scope.selectedSchoolCategory = $scope.schoolCategories[0];
             $scope.classItems = {
@@ -26,6 +32,9 @@ app.controller('NavBarController', [
 
 
             $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
+
+
+
                 console.log('selectedSchoolCategoryChanged event');
                 $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
                 console.log('selectedSchoolCategoryChanged raised');
@@ -38,6 +47,11 @@ app.controller('NavBarController', [
                 if (angular.isDefined($scope.classItems)) {
                     $scope.classItems.submenu = obj.value.school_category_arms;
                     $scope.classItems.selected = obj.value.school_category_arms[0];
+
+                    context.school_category = obj.value;
+                    context.category_level = obj.value.school_category_arms[0];
+
+                    SchoolContextService.setContext(context);
                 }
             });
         }]

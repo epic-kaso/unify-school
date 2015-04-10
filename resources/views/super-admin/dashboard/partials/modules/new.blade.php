@@ -43,12 +43,20 @@
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="menu in module.menu">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <input class="form-control" placeholder="Display Name" ng-model="menu.name" ng-blur="module.menu.push({name: '',route: ''})"/>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <input class="form-control" placeholder="Route Name" ng-model="menu.route" />
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button ng-show="module.menu.length > 1"
+                                    class="btn btn-danger"
+                                    ng-click="module.menu.splice($index,1)">
+                                <span class="fa fa-lg fa-times"></span>
+                            </button>
                         </div>
                     </div>
                 </li>
@@ -61,12 +69,20 @@
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="menu in module.data">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <input class="form-control" placeholder="Name" ng-model="menu.name" ng-blur="module.data.push({name: '',value: ''})"/>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <input class="form-control" placeholder="Value" ng-model="menu.value" />
+                        </div>
+                        <div class="col-sm-2">
+                            <button ng-show="module.data.length > 1"
+                                    class="btn btn-danger"
+                                    ng-click="module.data.splice($index,1)"
+                                    >
+                                <span class="fa fa-lg fa-times"></span>
+                            </button>
                         </div>
                     </div>   
                 </li>

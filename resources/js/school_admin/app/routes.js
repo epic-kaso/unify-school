@@ -27,6 +27,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
             {
                 url: '/home',
                 templateUrl: ViewBaseURL + '/home',
+                resolve: helper.resolveFor('toaster','slimscroll'),
                 title: 'School Dashboard',
                 controller: 'HomeController'
             })

@@ -9,12 +9,16 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             url: '/students',
             templateUrl: ViewBaseURL + '/home',
             title: 'Student Module',
-            controller: ['$scope','$window',
-                function ($scope,$window) {
+            controller: ['$scope','$window','$rootScope',
+                function ($scope,$window,$rootScope) {
                     $scope.goBack = function($event){
                         $window.history.back();
                         $event.preventDefault();
-                    }
+                    };
+
+                    $rootScope.$on('SCHOOL_CONTEXT_CHANGED',function(event,obj){
+                        console.log('I hear ya @ Student Module');
+                    });
                 }]
         })
             .state('app.students.enroll_student',
