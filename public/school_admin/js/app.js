@@ -2133,11 +2133,20 @@ app.controller('SettingsAcademicsController',
         };
 
         $scope.saveGradeAssessmentSystemChanges = function (gradeAssessmentSystem) {
-            GradeAssessmentSystemService.update({id: gradeAssessmentSystem.id}, gradeAssessmentSystem).$promise.then(function (response) {
-                console.log('Saved Changes')
-            }, function (data) {
-                console.log('could not save changes')
-            });
+            var isValid =  validateGradeAssessmentSystem(gradeAssessmentSystem);
+            if(isValid){
+                gradeAssessmentSystem.errors = null;
+                GradeAssessmentSystemService.update({id: gradeAssessmentSystem.id}, gradeAssessmentSystem).$promise.then(function (response) {
+                    console.log('Saved Changes');
+                    toaster.pop('success', "Grade Assessment System", "Changes Saved Succesfully");
+                }, function (data) {
+                    console.log('could not save changes');
+                    toaster.pop('error', "Grade Assessment System", "Changes Failed");
+                });
+            }else{
+                gradeAssessmentSystem.errors = {sum: true};
+                toaster.pop('error', "Grade Assessment System", "Validation Failed");
+            }
         };
 
         $scope.updateGradeDivisions = function (count, gradeAssessmentSystem) {
@@ -2184,19 +2193,26 @@ app.controller('SettingsAcademicsController',
         $scope.skills  = SkillAssessmentSystemService.query();
 
         $scope.addBehaviour = function(behaviour){
+            behaviour.adding =  true;
             BehaviourAssessmentSystemService.save(behaviour,function(data){
                 $scope.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
+                behaviour.adding = false;
+                behaviour.name = '';
             },function(){
+                behaviour.adding = false;
                 toaster.pop('error', "behaviour Assessment System", "Failed to add behaviour");
             });
         };
 
         $scope.removeBehaviour = function(behaviour){
+            behaviour.removing =  true;
             BehaviourAssessmentSystemService.delete(behaviour,function(data){
+                behaviour.removing =  false;
                 $scope.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "Behaviour removed Succesfully");
             },function(){
+                behaviour.removing =  false;
                 toaster.pop('error', "behaviour Assessment System", "Failed to remove behaviour");
             });
         };
@@ -2211,19 +2227,26 @@ app.controller('SettingsAcademicsController',
         };
 
         $scope.addSkill = function(skill){
+            skill.adding =  true;
             SkillAssessmentSystemService.save(skill,function(data){
+                skill.adding =  false;
+                skill.name =  '';
                 $scope.skills  = data.all;
                 toaster.pop('success', "Skill Assessment System", "Added Succesfully");
             },function(){
+                skill.adding =  false;
                 toaster.pop('error', "Skill Assessment System", "Failed to Add");
             });
         };
 
         $scope.removeSkill = function(skill){
+            skill.removing =  true;
             SkillAssessmentSystemService.delete(skill,function(data){
                 $scope.skills  = data.all;
+                skill.removing =  false;
                 toaster.pop('success', "Skill Assessment System", "Removed Succesfully");
             },function(){
+                skill.removing =  false;
                 toaster.pop('error', "Skill Assessment System", "Failed to remove");
             });
         };
@@ -2235,6 +2258,20 @@ app.controller('SettingsAcademicsController',
             },function(){
                 toaster.pop('error', "Skill Assessment System", "Failed to update");
             });
+        }
+
+
+
+
+        function validateGradeAssessmentSystem(gradeAssessmentSystem){
+            var total_score = parseInt(gradeAssessmentSystem.total_score);
+            var sum =  0;
+
+            angular.forEach(gradeAssessmentSystem.divisions,function(grade,key){
+                sum += parseInt(grade.score);
+            });
+
+            return sum === total_score; 
         }
     }
 ]);

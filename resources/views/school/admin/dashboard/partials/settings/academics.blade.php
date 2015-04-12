@@ -64,6 +64,7 @@
                                             </span>
                                         </accordion-heading>
                                         <div class="batch">
+                                            <form name="GradeForm@{{ $index }}">
                                             <div class="row" style="padding-top:10px">
                                                 <section class="col-sm-3 text-center">
                                                     <label>
@@ -94,22 +95,16 @@
                                                 </section>
                                                 <section class="col-sm-2">
                                                     <label class="select">
-                                                        <select class="form-control from-range"
-                                                                ng-model="grade.lowerRange">
-                                                            @for($i = 0;$i <= 100;$i++ )
-                                                                <option value="{{ $i }}">{{ $i }}</option>
-                                                            @endfor
-                                                        </select>
+                                                        <input type="number" 
+                                                        ng-model="grade.lowerRange"
+                                                        class="form-control from-range" >
                                                     </label>
                                                 </section>
                                                 <section class="col-sm-2">
                                                     <label class="select">
-                                                        <select class="form-control to-range"
-                                                                ng-model="grade.upperRange">
-                                                            @for($i = 0;$i <= 100;$i++ )
-                                                                <option value="{{ $i }}">{{ $i }}</option>
-                                                            @endfor
-                                                        </select>
+                                                        <input type="number" 
+                                                        class="form-control to-range"
+                                                        ng-model="grade.upperRange">
                                                     </label>
                                                 </section>
                                                 <section class="col-sm-4">
@@ -131,11 +126,13 @@
                                                         Add Grade
                                                     </button>
                                                     <button class="btn btn-success"
+                                                            ng-disabled="GradeForm@{{ $index }}.$invalid"
                                                             ng-click="saveGradingSystemChanges(gradingSystem)">Save
                                                         Changes
                                                     </button>
                                                 </div>
                                             </div>
+                                            </form>
                                         </div>
                                     </accordion-group>
                                 </accordion>
@@ -163,6 +160,7 @@
                                     <div class="form-group">
                                         <label>@{{ schoolCategory.display_name }} Grading System</label>
                                         <select class="form-control" required
+                                                ng-disabled="gradingSystems.loading"
                                                 ng-model="assignedGradingSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradingSystems.data">
                                             <option value="">Select Grading System</option>
@@ -262,6 +260,13 @@
                                                 </div>
                                             </div>
                                             <hr/>
+                                            <div class="row" style="padding-top:10px" ng-show="gradeAssessmentSystem.errors.sum">
+                                                <div class="col-sm-6 col-sm-offset-3">
+                                                    <div class="alert alert-danger">
+                                                        <p>The Sum of All Division's Max Score Must be equal to Total Grand Score.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row" style="padding-top:10px">
                                                 <section class="col-sm-4 text-center">
                                                     <label>
@@ -333,6 +338,7 @@
                                     <div class="form-group">
                                         <label>Set @{{ schoolCategory.display_name }} Assessment</label>
                                         <select class="form-control" required
+                                                ng-disabled="gradeAssessmentSystems.loading"
                                                 ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradeAssessmentSystems.data">
                                             <option value="">Select Grade Assessment System</option>
@@ -385,11 +391,14 @@
                                         <label>Enter Behaviour Name</label>
 
                                         <div class="input-group">
-                                            <input id="domain" class="form-control" type="text"
+                                            <input ng-disabled="behaviour.adding" id="domain" class="form-control" type="text"
                                                    placeholder="Behaviour Name" ng-model="behaviour.name">
                                                  <span class="input-group-btn">
-                                                      <button class="btn btn-primary" ng-click="addBehaviour(behaviour)">
+                                                      <button ng-show="!behaviour.adding" class="btn btn-primary" ng-click="addBehaviour(behaviour)">
                                                           <i class="fa fa-plus"></i> Add
+                                                      </button>
+                                                      <button class="btn btn-primary" disabled   ng-show="behaviour.adding"> 
+                                                        <span class="fa fa-spin fa-spinner"></span> Adding..
                                                       </button>
                                                  </span>
                                         </div>
@@ -405,7 +414,11 @@
                                         <li class="list-group-item" ng-repeat="item in behaviours">
                                             <div>
                                                 <span class="pull-right">
-                                                    <button class="btn btn-xs btn-danger" ng-click="removeBehaviour(item)"><span class="fa fa-times"></span></button></span>
+                                                    <button ng-show="!item.removing" class="btn btn-xs btn-danger" ng-click="removeBehaviour(item)"><span class="fa fa-times"></span></button>
+                                                    <span  ng-show="item.removing"> 
+                                                        <span class="fa fa-spin fa-spinner"></span> Removing..
+                                                    </span>
+                                                </span>
                                                 <h4>@{{ item.name }}</h4>
                                                 <p>@{{ item.behaviour_category.name }}</p>
                                             </div>
@@ -440,12 +453,15 @@
 
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input id="domain" class="form-control" type="text"
+                                                <input ng-disabled="skill.adding" id="domain" class="form-control" type="text"
                                                        placeholder="Skill Name" ng-model="skill.name">
                                                  <span class="input-group-btn">
-                                                     <button class="btn btn-primary" ng-click="addSkill(skill)">
+                                                     <button ng-hide="skill.adding" class="btn btn-primary" ng-click="addSkill(skill)">
                                                          <i class="fa fa-plus"></i> Add
                                                      </button>
+                                                     <button class="btn btn-primary" disabled ng-show="skill.adding"> 
+                                                        <span class="fa fa-spin fa-spinner"></span> Adding..
+                                                    </button>
                                                  </span>
                                             </div>
                                         </div>
@@ -460,7 +476,16 @@
                                     <ul class="list-group">
                                         <li class="list-group-item" ng-repeat="item in skills">
                                             <div>
-                                                <span class="pull-right"><button class="btn btn-xs btn-danger" ng-click="removeSkill(item)"><span class="fa fa-times"></span></button></span>
+                                                <span class="pull-right">
+                                                    <button ng-show="!item.removing" class="btn btn-xs btn-danger" ng-click="removeSkill(item)">
+                                                        <span class="fa fa-times"></span>
+                                                    </button>
+
+                                                    <span  ng-show="item.removing"> 
+                                                        <span class="fa fa-spin fa-spinner"></span> Removing..
+                                                    </span>
+
+                                                </span>
                                                 <h4>@{{ item.name }}</h4>
                                                 <p>@{{ item.skill_category.name }}</p>
                                             </div>

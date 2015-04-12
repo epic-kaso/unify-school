@@ -25,6 +25,21 @@ class ScopedGradingSystemsRepository extends BaseRepository {
         return ScopedGradingSystem::class;
     }
 
+    public function all($cols = ['*'])
+    {
+        $gradingSystems = parent::all($cols);
+
+        return 
+        $gradingSystems
+            ->each(
+            function($gradingSystem){
+                $collection = collect($gradingSystem->grades);
+                $gradingSystem->grades =  $collection->sortBy(function($item){return $item['lowerRange'];})->all();
+                return $gradingSystem;
+                }
+            )->all();
+    }    
+
     public function getGrades($id){
         $gradingSystem = $this->find($id);
         if(is_null($gradingSystem))
