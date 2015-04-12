@@ -16,9 +16,27 @@
                             <hr/>
                             <div id="rowinfo">
                                 <accordion>
-                                    <accordion-group ng-repeat="gradingSystem in gradingSystems">
+                                    <accordion-group ng-if="gradingSystems.loading">
+                                        <accordion-heading>
+                                            <span class="fa fa-spin fa-spinner"></span> Loading..
+                                        </accordion-heading>
+                                    </accordion-group>
+
+                                    <accordion-group ng-if="gradingSystems.empty">
+                                        <accordion-heading>
+                                            <span class="fa fa-question-circle"></span> No Grading System Added yet
+                                        </accordion-heading>
+                                    </accordion-group>
+
+                                    <accordion-group ng-repeat="gradingSystem in gradingSystems.data" is-open="gradingSystem.accordionState">
                                         <accordion-heading>
                                             <span class="display_box" ng-hide="gradingSystem.edit">
+                                                <span class="fa"
+                                                      ng-class="{
+                                                      'fa-minus': gradingSystem.accordionState,
+                                                      'fa-plus': !gradingSystem.accordionState
+                                                      }" ng-attr-tooltip="@{{ gradingSystem.accordionState ? 'Click to close' : 'Click to Expand' }}">
+                                                </span>
                                                 @{{ gradingSystem.name }}
                                                 <button class="btn btn-default btn-xs"
                                                         ng-click="setGradingSystemEditMode($event,gradingSystem,true)">
@@ -35,8 +53,13 @@
                                                       style="width: 60px"
                                                       ng-click="setGradingSystemEditMode($event,gradingSystem,false)">Save</span>
                                             </span>
+                                            <span class="pull-right" ng-show="gradingSystem.deleting">
+                                                <span class="fa fa-spin fa-spinner"></span> Deleting..
+                                            </span>
                                             <span class="pull-right"
-                                                  ng-click="deleteGradingSystem($event,gradingSystems,$index)">
+                                                  ng-show="!gradingSystem.deleting"
+                                                  tooltip="Delete Grading System"
+                                                  ng-click="gradingSystem.deleting = true;deleteGradingSystem($event,gradingSystems.data,$index)">
                                                 <i class="fa fa-times"></i>
                                             </span>
                                         </accordion-heading>
@@ -116,12 +139,17 @@
                                         </div>
                                     </accordion-group>
                                 </accordion>
-
                                 <div>
-                                    <button class="btn btn-primary" ng-click="addNewGradingSystem()"
-                                            ng-disabled="isAddingNewGradingSystem">
+                                    <span ng-show="gradingSystems.isAddingNewGradingSystem"> 
+                                            <span class="fa fa-spin fa-spinner"></span> Adding New Grading System..
+                                    </span>
+                                </div>
+                                <div>
+                                    <button ng-hide="gradingSystems.isAddingNewGradingSystem" class="btn btn-primary" 
+                                            ng-click="addNewGradingSystem()"
+                                            >
                                         Add New Grading System
-                                        <span class="icon-reload fa fa-spin" ng-show="isAddingNewGradingSystem"></span>
+
                                     </button>
                                 </div>
 
@@ -136,7 +164,7 @@
                                         <label>@{{ schoolCategory.display_name }} Grading System</label>
                                         <select class="form-control" required
                                                 ng-model="assignedGradingSystem[schoolCategory.name]"
-                                                ng-options="system.id as system.name for system in gradingSystems">
+                                                ng-options="system.id as system.name for system in gradingSystems.data">
                                             <option value="">Select Grading System</option>
                                         </select>
                                     </div>
@@ -161,11 +189,31 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="row">
+                            <h4>Configure Grade Assessment Systems</h4>
+                            <hr/>
                             <div id="rowinfo">
                                 <accordion>
-                                    <accordion-group ng-repeat="gradeAssessmentSystem in gradeAssessmentSystems">
+                                     <accordion-group ng-if="gradeAssessmentSystems.loading">
+                                        <accordion-heading>
+                                            <span class="fa fa-spin fa-spinner"></span> Loading..
+                                        </accordion-heading>
+                                    </accordion-group>
+
+                                    <accordion-group ng-if="gradeAssessmentSystems.empty">
+                                        <accordion-heading>
+                                            <span class="fa fa-question-circle"></span> No Continous Assessment System Added yet
+                                        </accordion-heading>
+                                    </accordion-group>
+
+                                    <accordion-group ng-repeat="gradeAssessmentSystem in gradeAssessmentSystems.data" is-open="gradeAssessmentSystem.accordionState">
                                         <accordion-heading>
                                             <span class="display_box" ng-hide="gradeAssessmentSystem.edit">
+                                                <span class="fa"
+                                                      ng-class="{
+                                                      'fa-minus': gradeAssessmentSystem.accordionState,
+                                                      'fa-plus': !gradeAssessmentSystem.accordionState
+                                                      }" ng-attr-tooltip="@{{ gradeAssessmentSystem.accordionState ? 'Click to close' : 'Click to Expand' }}">
+                                                </span> 
                                                 @{{ gradeAssessmentSystem.name }}
                                                 <button class="btn btn-default btn-xs"
                                                         ng-click="setGradeAssessmentEditMode($event,gradeAssessmentSystem,true)">
@@ -182,8 +230,12 @@
                                                       style="width: 60px"
                                                       ng-click="setGradeAssessmentEditMode($event,gradeAssessmentSystem,false)">Save</span>
                                             </span>
+                                            <span class="pull-right" ng-show="gradeAssessmentSystem.deleting">
+                                                <span class="fa fa-spin fa-spinner"></span> Deleting..
+                                            </span>
                                             <span class="pull-right"
-                                                  ng-click="deleteGradeAssessmentSystem($event,gradeAssessmentSystems,$index)">
+                                                    ng-show="!gradeAssessmentSystem.deleting"
+                                                  ng-click="gradeAssessmentSystem.deleting = true;deleteGradeAssessmentSystem($event,gradeAssessmentSystems.data,$index)">
                                                 <i class="fa fa-times"></i>
                                             </span>
                                         </accordion-heading>
@@ -262,13 +314,12 @@
                                         </div>
                                     </accordion-group>
                                 </accordion>
-
-                                <div>
-                                    <button class="btn btn-primary" ng-click="addNewGradeAssessmentSystem()"
-                                            ng-disabled="isAddingNewGradeAssessmentSystem">
+                                <div ng-show="gradeAssessmentSystems.isAddingNewGradeAssessmentSystem">
+                                    <span class="fa fa-spin fa-spinner"></span> Adding..
+                                </div>
+                                <div ng-show="!gradeAssessmentSystems.isAddingNewGradeAssessmentSystem">
+                                    <button class="btn btn-primary" ng-click="addNewGradeAssessmentSystem()">
                                         Add New Grade Assessment System
-                                        <span class="icon-reload fa fa-spin"
-                                              ng-show="isAddingNewGradeAssessmentSystem"></span>
                                     </button>
                                 </div>
 
@@ -283,7 +334,7 @@
                                         <label>Set @{{ schoolCategory.display_name }} Assessment</label>
                                         <select class="form-control" required
                                                 ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
-                                                ng-options="system.id as system.name for system in gradeAssessmentSystems">
+                                                ng-options="system.id as system.name for system in gradeAssessmentSystems.data">
                                             <option value="">Select Grade Assessment System</option>
                                         </select>
                                     </div>

@@ -531,9 +531,25 @@ app.controller('SettingsAcademicsController',
         $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
         $scope.assignedGradingSystem = GradingSystemService.getAssignedGradingSystem();
         $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+        
+        $scope.gradingSystems = 
+        {
+            loading: true,
+            data: null,
+            empty: false,
+            isAddingNewGradingSystem: false
+        };
 
-
-        $scope.gradingSystems = GradingSystemService.query();
+        GradingSystemService.query({},function(response){
+            $scope.gradingSystems.loading = false;
+            if(response.length > 0){
+                 $scope.gradingSystems.data = response;
+            }else{
+                $scope.gradingSystems.empty = true;
+            }
+        },function(error){
+            toaster.pop('error', "Grading System", "Failed to Load Grading Systems, Try Again");
+        });
 
         $scope.setGradingSystemEditMode = function ($event, gradingSystem, isEdit) {
             gradingSystem.edit = isEdit;
@@ -563,7 +579,7 @@ app.controller('SettingsAcademicsController',
         };
 
         $scope.addNewGradingSystem = function () {
-            $scope.isAddingNewGradingSystem = true;
+            $scope.gradingSystems.isAddingNewGradingSystem = true;
             var clone = {
                 name: 'Default Grading System',
                 grades: [
@@ -599,16 +615,16 @@ app.controller('SettingsAcademicsController',
                     }
                 ]
             };
-            clone.name += ' ' + $scope.gradingSystems.length;
+            clone.name += ' ' + $scope.gradingSystems.data.length;
             //$scope.gradingSystems.push(clone);
-
-            $scope.isAddingNewGradingSystem = false;
             GradingSystemService.save(clone, function (response) {
                 if (response.success) {
-                    $scope.gradingSystems = response.all;
+                    $scope.gradingSystems.data = response.all;
                     toaster.pop('success', "New Grading System", "Added Successfully");
+                    $scope.gradingSystems.isAddingNewGradingSystem = false;
                 }
             }, function (data) {
+                $scope.gradingSystems.isAddingNewGradingSystem = false;
                 toaster.pop('error', "New Grading System", "Failed to Add, Try Again");
             });
         };
@@ -652,7 +668,24 @@ app.controller('SettingsAcademicsController',
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
 
-        $scope.gradeAssessmentSystems = GradeAssessmentSystemService.query();
+        $scope.gradeAssessmentSystems = 
+        {
+            loading: true,
+            data: null,
+            empty: false,
+            isAddingNewGradeAssessmentSystem: false
+        };
+
+        GradeAssessmentSystemService.query({},function(response){
+            $scope.gradeAssessmentSystems.loading = false;
+            if(response.length > 0){
+                 $scope.gradeAssessmentSystems.data = response;
+            }else{
+                $scope.gradeAssessmentSystems.empty = true;
+            }
+        },function(error){
+            toaster.pop('error', "Grading System", "Failed to Load Grading Systems, Try Again");
+        });
 
         $scope.setGradeAssessmentEditMode = function ($event, gradeAssessmentSystem, isEdit) {
             gradeAssessmentSystem.edit = isEdit;
@@ -682,7 +715,7 @@ app.controller('SettingsAcademicsController',
         };
 
         $scope.addNewGradeAssessmentSystem = function () {
-            $scope.isAddingNewGradeAssessmentSystem = true;
+            $scope.gradeAssessmentSystems.isAddingNewGradeAssessmentSystem = true;
             var clone = {
                 name: 'Default Grade Assessment System',
                 total_score: 100,
@@ -705,15 +738,15 @@ app.controller('SettingsAcademicsController',
                     }
                 ]
             };
-            clone.name += ' ' + $scope.gradeAssessmentSystems.length;
+            clone.name += ' ' + $scope.gradeAssessmentSystems.data.length;
             //$scope.gradingSystems.push(clone);
-
-            $scope.isAddingNewGradeAssessmentSystem = false;
             GradeAssessmentSystemService.save(clone, function (response) {
+                $scope.gradeAssessmentSystems.isAddingNewGradeAssessmentSystem = false;
                 if (response.success) {
-                    $scope.gradeAssessmentSystems = response.all;
+                    $scope.gradeAssessmentSystems.data = response.all;
                 }
             }, function (data) {
+                $scope.gradeAssessmentSystems.isAddingNewGradeAssessmentSystem = false;
                 //$scope.gradingSystems.splice($scope.gradingSystems.length -1 ,1);
             });
         };
