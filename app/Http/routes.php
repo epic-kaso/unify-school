@@ -117,15 +117,4 @@ Route::group(
         Route::resource('resources/modules', 'Resources\ModulesController');
     }
 );
-
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-Route::get('flush-cache',function(){
-    Cache::flush();
-    return 'Done';
-});
-
-Route::get('queue',function(){
-   Mail::queue('emails.ticket',[],function($message){
-       $message->to('kasoprecede47@gmail.com');
-   });
-});
