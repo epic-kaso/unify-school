@@ -153,14 +153,14 @@ App
     .constant('APP_REQUIRES', {
         // jQuery based and standalone scripts
         scripts: {
-            'slimscroll':         ['/framework/vendor/slimScroll/jquery.slimscroll.min.js'],
-            'taginput' :          ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
+            'slimscroll': ['/framework/vendor/slimScroll/jquery.slimscroll.min.js'],
+            'taginput': ['/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
                 '/framework/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'],
-            'filestyle':          ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
+            'filestyle': ['/framework/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js'],
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
                 '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
-            'inputmask':          ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js']
+            'inputmask': ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js']
         },
         // Angular based script (use the right module name)
         modules: [
@@ -177,8 +177,10 @@ App
                 '/framework/vendor/ng-table/dist/ng-table.min.css']
             },
             {name: 'ngTableExport', files: ['/framework/vendor/ng-table-export/ng-table-export.js']},
-            {name: 'xeditable',files: ['/framework/vendor/angular-xeditable/dist/js/xeditable.js',
-                '/framework/vendor/angular-xeditable/dist/css/xeditable.css']},
+            {
+                name: 'xeditable', files: ['/framework/vendor/angular-xeditable/dist/js/xeditable.js',
+                '/framework/vendor/angular-xeditable/dist/css/xeditable.css']
+            },
         ]
 
     })
@@ -310,10 +312,11 @@ App.controller('AppController',
  * Handle sidebar collapsible elements
  =========================================================*/
 
-App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout', 'Utils', 'ResourcesService',
-    function ($rootScope, $scope, $state, $http, $timeout, Utils, ResourcesService) {
+App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout', 'Utils', 'SchoolDataService',
+    function ($rootScope, $scope, $state, $http, $timeout, Utils, SchoolDataService) {
 
         var collapseList = [];
+        var modules = SchoolDataService.school.loaded_modules;
 
         // demo: when switch from collapse to hover, close all items
         $rootScope.$watch('app.layout.asideHover', function (oldVal, newVal) {
@@ -374,15 +377,42 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
         };
 
         $scope.loadSidebarMenu = function () {
+            $scope.menuItems = [
+                {
+                    "text": "Main Navigation",
+                    "heading": "true"
+                },
+                {
+                    "text": "Home",
+                    "sref": "app.home",
+                    "icon": "fa fa-house"
+                }
+            ];
 
-            var menuURL = ResourcesService.getMenuResourceUrl();
-            $http.get(menuURL)
-                .success(function (items) {
-                    $scope.menuItems = items;
-                })
-                .error(function (data, status, headers, config) {
-                    alert('Failure loading menu');
+            angular.forEach(modules,function(value,key){
+                var temp = {
+                    "text": value.name,
+                    "sref": "#",
+                    "icon": ".fa .fa-star-o",
+                    "submenu": []
+                };
+
+                angular.forEach(value.menu,function(item,key){
+                    temp.submenu.push({
+                        "text": item.name,
+                        "sref": "app."+temp.text+"."+item.route
+                    });
                 });
+
+                this.push(temp);
+            },$scope.menuItems);
+
+            $scope.menuItems.push( {
+                "text": "Settings",
+                "sref": "app.settings",
+                "icon": "fa fa-gears"
+            });
+
         };
 
         $scope.loadSidebarMenu();

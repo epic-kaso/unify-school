@@ -7,7 +7,7 @@
                 <img src="{{ asset('app/img/klipboard.png') }}" alt="App Logo" class="img-responsive"/>
             </div>
             <div class="brand-logo-collapsed">
-                <img src="{{ asset('app/img/klipboard.png') }}" alt="App Logo" class="img-responsive"/>
+                <img src="{{ asset('app/img/klipboard_small.png') }}" alt="App Logo" class="img-responsive"/>
             </div>
         </a>
     </div>
