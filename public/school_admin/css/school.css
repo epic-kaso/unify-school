@@ -16989,5 +16989,17 @@ body {
   background-color: #4285f4;
   color: #ffffff;
 }
+.fa-students:before {
+  content: "SS";
+}
+.fa-academics:before {
+  content: "AC";
+}
+.fa-staff:before {
+  content: "ST";
+}
+.fa-reports:before {
+  content: "RE";
+}
 
 /*# sourceMappingURL=school.css.map */

@@ -381,11 +381,6 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 {
                     "text": "Main Navigation",
                     "heading": "true"
-                },
-                {
-                    "text": "Home",
-                    "sref": "app.home",
-                    "icon": "fa fa-house"
                 }
             ];
 
@@ -393,7 +388,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 var temp = {
                     "text": value.name,
                     "sref": "#",
-                    "icon": "fa fa-star-o",
+                    "icon": "fa fa-"+value.name,
                     "submenu": []
                 };
 

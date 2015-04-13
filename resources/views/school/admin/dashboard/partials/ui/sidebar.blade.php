@@ -8,7 +8,7 @@
         <span>@{{(item.translate | translate) || item.text}}</span></a>
     <ul ng-if="item.submenu" collapse="isCollapse(pIndex)" ng-init="addCollapse(pIndex, item)"
         class="nav sidebar-subnav">
-        <li class="sidebar-subnav-header">@{{(item.translate | translate) || item.text}}</li>
+        <li class="sidebar-subnav-header" style="text-transform: uppercase">@{{(item.translate | translate) || item.text}}</li>
         <li ng-repeat="item in item.submenu" ng-include="'sidebar-renderer.html'"
             ng-class="getMenuItemPropClasses(item)" ng-init="pIndex=(pIndex+'-'+$index); inSubmenu = true"
             ng-click="toggleCollapse(pIndex)"></li>
