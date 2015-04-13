@@ -29,8 +29,8 @@ use Carbon\Carbon;
  * @property string $status
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property string $assigned_courses
- * @property string $assigned_classes
+ * @property array $assigned_courses
+ * @property array $assigned_classes
  * @property-read \UnifySchool\School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereHashcode($value)
@@ -68,7 +68,9 @@ class ScopedStaff extends BaseModel {
     protected $casts = [
         'qualifications' => 'array',
         'disabilities' => 'array',
-        'picture' => 'array'
+        'picture' => 'array',
+        'assigned_courses' => 'array',
+        'assigned_classes' => 'array',
     ];
 
     public static function boot(){
@@ -89,5 +91,32 @@ class ScopedStaff extends BaseModel {
 
     public function setEmploymentDateAttribute($value){
         $this->attributes['employment_date'] = Carbon::parse($value);
+    }
+
+    public function loadAssignedCourses(){
+        if(!is_null($this->assigned_courses)){
+            $input = [];
+            foreach($this->assigned_courses as $key => $value){
+                $temp = ScopedCourse::find($value);
+                if(!is_null($temp)) {
+                    $input[] = $temp;
+                }
+            }
+            $this->assigned_courses = $input;
+        }
+    }
+
+    public function loadAssignedClasses()
+    {
+        if(!is_null($this->assigned_classes)){
+            $input = [];
+            foreach($this->assigned_classes as $key => $value){
+                $temp = ScopedSchoolCategoryArmSubdivision::find($value);
+                if(!is_null($temp)) {
+                    $input[] = $temp;
+                }
+            }
+            $this->assigned_classes = $input;
+        }
     }
 }

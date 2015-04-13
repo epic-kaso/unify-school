@@ -46,7 +46,9 @@ App.factory('CoursesSettingsService', ['$resource', function ($resource) {
 
 App.factory('StaffService', ['$resource', function ($resource) {
     return $resource('/admin/resources/staff-settings/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
+        'update': {method: 'PUT'},
+        'assign_courses': {method: 'PUT',params: {'action': 'action_assign_course'}},
+        'assign_classes': {method: 'PUT',params: {'action': 'action_assign_class'}}
     });
 }]);
 

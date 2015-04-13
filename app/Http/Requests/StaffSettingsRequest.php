@@ -21,13 +21,17 @@ class StaffSettingsRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-			'last_name'  		=> 'required',
-			'first_name' 		=> 'required',
-			'sex' 		 		=> 'required',
-			'contact_phone' 	=> 'required',
-			'contact_address' 	=> 'required',
-		];
+		if($this->is('post')){
+            return [
+                'last_name'  		=> 'required',
+                'first_name' 		=> 'required',
+                'sex' 		 		=> 'required',
+                'contact_phone' 	=> 'required',
+                'contact_address' 	=> 'required',
+            ];
+        }else{
+            return [];
+        }
 	}
 
 }

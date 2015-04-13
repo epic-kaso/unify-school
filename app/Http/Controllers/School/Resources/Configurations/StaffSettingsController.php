@@ -12,17 +12,24 @@ namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 use UnifySchool\Entities\School\ScopedStaff;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\StaffSettingsRequest;
+use UnifySchool\Repositories\School\ScopedStaffRepository;
 
 class StaffSettingsController extends Controller {
 
-    public function index()
+    const ACTION_ASSIGN_COURSE = "action_assign_course";
+    const ACTION_ASSIGN_CLASS = "action_assign_class";
+
+    public function index(ScopedStaffRepository $repository)
     {
-        return ScopedStaff::getWithData();
+        return $repository->loadAll();
     }
 
     public function show($id)
     {
-        return ScopedStaff::find($id);
+        $item = ScopedStaff::findOrFail($id);
+        $item->loadAssignedCourses();
+        $item->loadAssignedClasses();
+        return $item;
     }
 
     public function store(StaffSettingsRequest $request)
@@ -69,11 +76,45 @@ class StaffSettingsController extends Controller {
 
     public function update($id,StaffSettingsRequest $request)
     {
+        $item = ScopedStaff::findOrFail($id);
+        $action = $request->get('action','default');
 
+        switch($action){
+            case static::ACTION_ASSIGN_CLASS:
+                return $this->assignClass($item,$request);
+            case static::ACTION_ASSIGN_COURSE:
+                return $this->assignCourse($item,$request);
+            default:
+
+        }
     }
 
     public function destroy($id)
     {
         return ScopedStaff::destroy($id);
+    }
+
+    private function assignClass(ScopedStaff $item,StaffSettingsRequest $request)
+    {
+        $class_ids = $request->get('assigned_classes',[]);
+        $input = [];
+        foreach($class_ids as $value){
+            $input[] = $value['id'];
+        }
+        $item->assigned_classes = $input;
+        $item->save();
+        return $item;
+    }
+
+    private function assignCourse(ScopedStaff $item,StaffSettingsRequest $request)
+    {
+        $course_ids = $request->get('assigned_courses',[]);
+        $input = [];
+        foreach($course_ids as $value){
+            $input[] = $value['id'];
+        }
+        $item->assigned_courses = $input;
+        $item->save();
+        return $item;
     }
 }

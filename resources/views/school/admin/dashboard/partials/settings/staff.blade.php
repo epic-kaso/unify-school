@@ -96,13 +96,27 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <span class="btn btn-primary">
+                                <span class="btn btn-primary" ng-click="
+                                currentStaff.assigned_courses.push(courses.selected);
+                                assignCourses(currentStaff,currentStaff.assigned_courses);
+                                ">
                                     Assign
                                 </span>
                             </div>
                             <!-- START list group-->
-                            <scrollable height="360" class="list-group" ng-init="filterCourse = null">
+                            <scrollable height="360" class="list-group">
                                 <span>Assigned Courses</span>
+                                <!-- START list group item-->
+                                <a href="#" class="list-group-item"
+                                   ng-if="!currentStaff.assigned_courses">
+                                    <div class="media-box">
+                                        <div class="media-box-body clearfix">
+                                            <p class="media-box-heading text-primary text-center">
+                                                No Assigned Courses yet
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                                 <!-- START list group item-->
                                 <a href="#" class="list-group-item"
                                    ng-repeat="course in currentStaff.assigned_courses">
@@ -122,7 +136,7 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <div class="panel" ng-init="filterClass = null;">
+                        <div class="panel">
                             <div class="panel-heading" style="padding-left: 0;padding-right: 0">
                                 <div class="pull-right label label-success">@{{ classes.length}}</div>
                                 <div class="panel-title"><h4>Assign Class</h4></div>
@@ -144,14 +158,30 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <span class="btn btn-primary">
+                                <span ng-click="
+                                currentStaff.assigned_classes.push(classes.selected);
+                                assignClasses(currentStaff,currentStaff.assigned_classes);
+                                "
+                                      class="btn btn-primary">
                                     Assign
                                 </span>
                             </div>
                             <!-- START list group-->
-                            <scrollable height="360" class="list-group">
+                            <scrollable height="360"
+                                        class="list-group">
                                 <span>Assigned Classes</span>
+
                                 <!-- START list group item-->
+                                <a href="#" class="list-group-item"
+                                   ng-if="!currentStaff.assigned_classes">
+                                    <div class="media-box">
+                                        <div class="media-box-body clearfix">
+                                            <p class="media-box-heading text-primary text-center">
+                                                No Assigned Class yet
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                                 <a href="#" class="list-group-item"
                                    ng-repeat="class in currentStaff.assigned_classes">
                                     <div class="media-box">

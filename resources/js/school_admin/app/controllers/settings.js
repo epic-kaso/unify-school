@@ -283,6 +283,8 @@ app.controller('SettingsStaffController', [
 
         $scope.setCurrentStaff = function($event,staff){
             $scope.currentStaff = staff;
+            $scope.currentStaff.assigned_courses = $scope.currentStaff.assigned_courses || [];
+            $scope.currentStaff.assigned_classes = $scope.currentStaff.assigned_classes || [];
             $event.stopPropagation();
             $event.preventDefault();
         }
@@ -294,6 +296,30 @@ app.controller('SettingsStaffController', [
             },function(error){
                 toaster.pop('error', "Add Staff", "failed to Save Changes");
             })
+        };
+
+        $scope.assignCourses = function (staff,courses){
+            staff.saving  = true;
+            StaffService.assign_courses({id: staff.id},{assigned_courses: courses}).$promise.then(function(response){
+                staff.saving = false;
+                staff  = response;
+                toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
+            },function(error){
+                staff.saving = false;
+                toaster.pop('error', "Add Staff", "failed to Save Changes");
+            });
+        };
+
+        $scope.assignClasses = function (staff,classes){
+            staff.saving  = true;
+            StaffService.assign_classes({id: staff.id},{assigned_classes: classes}).$promise.then(function(response){
+                staff.saving = false;
+                staff  = response;
+                toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
+            },function(error){
+                staff.saving = false;
+                toaster.pop('error', "Add Staff", "failed to Save Changes");
+            });
         }
     }
 ]);
