@@ -17,7 +17,6 @@
 <!-- START Sidebar (left)-->
 <div class="aside-inner">
     <nav sidebar="" class="sidebar">
-
         <!-- START sidebar nav-->
         <ul class="nav">
             <!-- Iterates over all sidebar items-->

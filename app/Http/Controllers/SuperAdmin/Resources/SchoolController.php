@@ -17,12 +17,6 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        if($this->productionEnvironment()) {
-            return \Cache::tags(School::$relationData)->remember('schools_list_admin', 60 * 24, function () {
-                return School::withData()->get();
-            });
-        }
-
         return School::withData()->get();
     }
 
@@ -44,12 +38,6 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
-        if($this->productionEnvironment()) {
-            return \Cache::tags('admin_school_by_id', $id)->remember('admin_schools_by_id_' . $id, 60 * 24, function () use ($id) {
-                return School::withData()->find($id);
-            });
-        }
-
         return School::withData()->find($id);
     }
 
@@ -101,7 +89,7 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
 
