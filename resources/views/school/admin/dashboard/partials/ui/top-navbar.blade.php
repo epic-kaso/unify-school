@@ -84,7 +84,7 @@
         <!-- START Right Navbar-->
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a ui-sref="app.menu">
+                <a ui-sref="app.home">
                     <em class="fa fa-home fa-lg"></em>
                 </a>
             </li>
