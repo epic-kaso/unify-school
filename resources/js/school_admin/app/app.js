@@ -400,7 +400,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 angular.forEach(value.menu,function(item,key){
                     temp.submenu.push({
                         "text": item.name,
-                        "sref": "app."+temp.text+"."+item.route
+                        "sref": "app."+value.name+"."+item.route
                     });
                 });
 

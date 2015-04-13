@@ -400,7 +400,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 angular.forEach(value.menu,function(item,key){
                     temp.submenu.push({
                         "text": item.name,
-                        "sref": "app."+temp.text+"."+item.route
+                        "sref": "app."+value.name+"."+item.route
                     });
                 });
 
@@ -1211,61 +1211,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 templateUrl: ViewBaseURL + '/settings/administrators',
                 title: 'Administrators Settings',
                 controller: 'SettingsAdministratorsController'
-            })
-            //Student Module Routes
-            .state('app.enroll_student',
-            {
-                url: '/students/enroll-student',
-                templateUrl: ViewBaseURL + '/students/enroll_student',
-                title: 'Enroll A New Student',
-                controller: ['$scope',
-                    function ($scope) {
-                    }
-                ]
-            })
-            .state('app.enroll_students',
-            {
-                url: '/students/enroll-students',
-                templateUrl: ViewBaseURL + '/students/enroll_students',
-                title: 'Enroll Many Students',
-                controller: ['$scope',
-                    function ($scope) {
-                    }
-                ]
-            })
-            .state('app.import_students',
-            {
-                url: '/students/import',
-                templateUrl: ViewBaseURL + '/students/import-students',
-                title: 'Import Students',
-                controller: 'StudentsImportController'
-            })
-            .state('app.export_students',
-            {
-                url: '/students/export',
-                templateUrl: ViewBaseURL + '/students/export-students',
-                title: 'Export Students',
-                controller: ['$scope',
-                    function ($scope) {
-                    }
-                ]
             });
-        //
-        // CUSTOM RESOLVES
-        //   Add your own resolves properties
-        //   following this object extend
-        //   method
-        // -----------------------------------
-        // .state('app.someroute', {
-        //   url: '/some_url',
-        //   templateUrl: 'path_to_template.html',
-        //   controller: 'someController',
-        //   resolve: angular.extend(
-        //     helper.resolveFor(), {
-        //     // YOUR RESOLVES GO HERE
-        //     }
-        //   )
-        // })
 }]);
 App.factory('SchoolService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school/:id', {id: '@id'}, {
