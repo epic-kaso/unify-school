@@ -393,7 +393,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                 var temp = {
                     "text": value.name,
                     "sref": "#",
-                    "icon": ".fa .fa-star-o",
+                    "icon": "fa fa-star-o",
                     "submenu": []
                 };
 
