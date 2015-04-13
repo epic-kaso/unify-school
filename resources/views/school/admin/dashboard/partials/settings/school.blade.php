@@ -108,8 +108,15 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-click="saveSchoolProfile(school.school_profile)">Save
-                            Changes
+                        <button type="submit" class="btn btn-success"
+                                ng-disabled="school.saving"
+                                ng-click="saveSchoolProfile(school.school_profile)">
+                            <span ng-show="!school.saving">
+                                Save Changes
+                            </span>
+                            <span ng-show="school.saving">
+                                <span class="fa fa-spin fa-spinner"></span> Loading..
+                            </span>
                         </button>
                     </div>
                 </div>

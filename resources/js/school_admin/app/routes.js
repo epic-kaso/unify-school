@@ -47,8 +47,16 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 templateUrl: ViewBaseURL + '/settings/index',
                 title: 'Settings',
                 resolve: helper.resolveFor('xeditable','toaster','inputmask','taginput','filestyle','slimscroll'),
-                controller: ['$scope',
-                    function ($scope) {
+                controller: ['$scope','editableOptions', 'editableThemes',
+                    function ($scope,editableOptions, editableThemes) {
+                        //template start
+                        editableOptions.theme = 'bs3';
+                        editableThemes.bs3.inputClass = 'input-sm';
+                        editableThemes.bs3.buttonsClass = 'btn-sm';
+                        editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
+                        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
+                        '<span class="fa fa-times text-muted"></span>' +
+                        '</button>';
                     }
                 ]
             })

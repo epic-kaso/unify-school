@@ -14,15 +14,24 @@
                         <h3>Add School Category</h3><hr/>
                         <div class="row">
                             <div class="form-group col-sm-6">
-                                <input type="text" placeholder="Enter School Category Name" class="form-control" ng-model="school_category_name"/>
+                                <input type="text"
+                                       ng-disabled="school_category_model.saving"
+                                       placeholder="Enter School Category Name"
+                                       class="form-control"
+                                       ng-model="school_category_model.name"/>
                             </div>
                             <div class="form-group col-sm-2">
                                 <button class="btn btn-info"
-                                      ng-click="
-                                      addSchoolCategory(school.school_type,school_category_name);
-                                      school_category_name = null;
-                                      ">
-                                    Save
+                                        ng-disabled="school_category_model.saving"
+                                        ng-click="
+                                          addSchoolCategory(school.school_type,school_category_model);
+                                          school_category_name = null;
+                                          "
+                                 >
+                                    <span ng-show="!school_category_model.saving">Save</span>
+                                    <span ng-show="school_category_model.saving">
+                                        <span class="fa fa-spin fa-spinner"></span> Loading..
+                                    </span>
                                 </button>
                             </div>
                         </div>
@@ -37,8 +46,14 @@
                                     <h4>
                                         @{{ school_category.display_name }}
                                         <span class="btn btn-xs btn-default pull-right"
+                                              ng-disabled="school_category.saving"
                                               ng-click="removeSchoolCategory(school.school_type,$index)">
-                                            <i class="fa fa-times"></i> Remove Category
+                                            <span ng-show="!school_category.saving">
+                                                <i class="fa fa-times"></i> Remove Category
+                                            </span>
+                                             <span ng-show="school_category.saving">
+                                                <span class="fa fa-spin fa-spinner"></span> Loading..
+                                            </span>
                                         </span>
                                     </h4>
                                 </div>
@@ -90,9 +105,10 @@
                                                 <div ng-if="school_arm.school_category_arm_subdivisions.length > 1">
                                                     <div ng-repeat="arm in school_arm.school_category_arm_subdivisions">
                                                         <div class="form-group col-sm-8">
-                                                            <input type="text" ng-model="arm.display_name" required
-                                                                   placeholder="Arm Name e.g (A)"
-                                                                   class="form-control sm"/>
+                                                            <p class="form-control-static">
+                                                                <a href="#"
+                                                                   editable-text="arm.display_name">@{{ arm.display_name || &apos;empty&apos; }}</a>
+                                                            </p>
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <span class="btn btn-xs pull-right" style="color: red;"

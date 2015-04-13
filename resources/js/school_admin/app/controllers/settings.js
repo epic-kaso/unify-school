@@ -70,25 +70,41 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
     function ($scope, SchoolDataService,SessionTermsSettingsService,toaster) {
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
-        $scope.current = SessionTermsSettingsService.get();
+        $scope.current = {loading: true,saving: false};
+        SessionTermsSettingsService.get({},function(response){
+            $scope.current = response;
+            $scope.loading = false;
+            $scope.saving = false;
+
+        },function(error){
+                $scope.loading = false;
+                toaster.pop('error', "Current Session & Term", "Failed to Load Current Session & Term, Try Again");
+        });
+
 
         $scope.saveCurrentSessionTerm = function(current){
+            current.saving = true;
             SessionTermsSettingsService.save(current,function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "Current Session & Term", "Changes Saved Succesfully");
+                current.saving = false;
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Current Session & Term", "Failed to save changes, Try Again");
+                current.saving = false;
             });
         };
 
         $scope.saveSubSessionsDate = function(subSessions){
+            subSessions.saving = true;
             SessionTermsSettingsService.saveSubSessionDates({'sub_sessions': subSessions}).$promise.then(function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "Term Start & End Date", "Changes Saved Succesfully");
+                subSessions.saving = false;
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Term Start & End Date", "Failed to save changes, Try Again");
+                subSessions.saving = false;
             });
         };
 
@@ -98,26 +114,33 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 $scope.onAddTerm = false;
                 $scope.term.name = null;
             };
+
+            term.saving = true;
             //addSubSession
             SessionTermsSettingsService.addSubSession(term).$promise.then(function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "Manage Term", "Saved Succesfully");
+                term.saving = false;
                 $scope.sub_sessions = response.all;
                 callback();
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Manage Term", "Failed to save, Try Again");
+                term.saving = false;
             });
         };
 
         $scope.removeTerm = function(term){
+            term.saving = true;
             SessionTermsSettingsService.removeSubSession({id: term.id}, term).$promise.then(function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "Manage Term", "Removed Succesfully");
+                term.saving = false;
                 $scope.sub_sessions = response.all;
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Manage Term", "Failed to remove, Try Again");
+                term.saving = false;
             });
         };
 
@@ -179,17 +202,8 @@ app.controller('SettingsStudentsController', ['$scope', 'SchoolDataService',
  *
  */
 
-app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'editableOptions', 'editableThemes','SchoolProfileService','toaster',
-    function ($scope, SchoolDataService, editableOptions, editableThemes,SchoolProfileService,toaster) {
-
-        //template start
-        editableOptions.theme = 'bs3';
-        editableThemes.bs3.inputClass = 'input-sm';
-        editableThemes.bs3.buttonsClass = 'btn-sm';
-        editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
-        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
-        '<span class="fa fa-times text-muted"></span>' +
-        '</button>';
+app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService','SchoolProfileService','toaster',
+    function ($scope, SchoolDataService, SchoolProfileService,toaster) {
 
         $scope.school = SchoolDataService.school;
         $scope.school.school_profile = $scope.school.school_profile || {};
@@ -200,11 +214,14 @@ app.controller('SettingsSchoolController', ['$scope', 'SchoolDataService', 'edit
         }
 
         $scope.saveSchoolProfile = function(school) {
+            school.saving = true;
             SchoolProfileService.save(school,function(data){
                 console.log('success');
+                school.saving = false;
                 toaster.pop('success', "School Profile", "Changes Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(data){
+                school.saving = false;
                 console.log('failure');
                 toaster.pop('error', "School Profile", "Failed Saving Changes");
             });
@@ -228,9 +245,41 @@ app.controller('SettingsStaffController', [
     '$scope', 'SchoolDataService','StaffService','toaster','CoursesSettingsService',
     function ($scope, SchoolDataService,StaffService,toaster,CoursesSettingsService) {
         $scope.classes = SchoolDataService.school.school_type.classes;
-        $scope.staffs = StaffService.query();
-        $scope.courses = CoursesSettingsService.query();
+        $scope.classes.selected = $scope.classes[0];
+
+        $scope.staffs = {loading: true};
+
+        StaffService.query({},function(response){
+            $scope.staffs.loading = true;
+            $scope.staffs = response;
+
+        },function(data){
+            $scope.staffs.loading = false;
+        });
+
+        $scope.courses = {loading: true};
+
+        CoursesSettingsService.query({},function(response){
+
+            $scope.courses.loading = false;
+            $scope.courses = response;
+            $scope.courses.selected = response[0];
+
+        },function(err){
+            $scope.courses.loading = false;
+        });
+
         $scope.currentStaff = null;
+
+        $scope.selectCourse = function(event,course,courses){
+            courses.selected = course;
+            event.preventDefault();
+        };
+
+        $scope.selectClass = function(event,arm,classes){
+            classes.selected = arm;
+            event.preventDefault();
+        };
 
         $scope.setCurrentStaff = function($event,staff){
             $scope.currentStaff = staff;
@@ -259,34 +308,41 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
 
         $scope.removeSchoolCategory = function (school_type, indexToRemove) {
             var parcel =  school_type.school_categories[indexToRemove];
-
             console.log(school_type);
+            parcel.saving = true;
 
             CategoryClassSettingsService.removeCategory({id: parcel.id}).$promise.then(function (response) {
                 console.log('Saved Changes');
+                parcel.saving = false;
                 school_type.school_categories.splice(indexToRemove, 1);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
             }, function (data) {
                 console.log('could not save changes');
+                parcel.saving = false;
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
 
         };
 
-        $scope.addSchoolCategory = function (school_type, school_category_name) {
+        $scope.addSchoolCategory = function (school_type, school_category) {
             console.log(school_type);
 
             var parcel = {
                 'school_type_id': school_type.id,
-                'name': school_category_name
+                'name': school_category.name
             };
+
+            school_category.saving = true;
 
             CategoryClassSettingsService.addCategory(parcel).$promise.then(function (response) {
                 console.log('Saved Changes');
                 school_type.school_categories.splice(0,0,response.model);
+                school_category.saving = false;
+                school_category.name = '';
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
             }, function (data) {
                 console.log('could not save changes');
+                school_category.saving = false;
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
         };
@@ -459,19 +515,23 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
 
         };
 
-        $scope.createCourseCategory = function(school_category_id,name){
+        $scope.createCourseCategory = function(school_category_id,courseCategory){
             var parcel = {
-                'name': name,
+                'name': courseCategory.name,
                 'school_category_id': school_category_id
             };
 
+            courseCategory.saving = true;
+
             CoursesSettingsService.addCourseCategory(parcel).$promise.then(function(response){
+                courseCategory.saving = false;
                 toaster.pop('success', 'Course Category','Added Successfully');
                 $scope.$emit('refreshSchoolData');
 
                 $scope.course_categories = response.all;
             },function(response){
-                    toaster.pop('error','Course Category','Failed to Add');
+                courseCategory.saving = false;
+                toaster.pop('error','Course Category','Failed to Add');
             });
         };
 
@@ -482,13 +542,17 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
                 'course_category_id': course.course_category.id
             };
 
+            course.saving = true;
+
             CoursesSettingsService.save(parcel,function(response){
                 toaster.pop('success', 'Course','Added Successfully');
+                course.saving = false;
                 $scope.courses = response.all;
                 $scope.$emit('refreshSchoolData');
                 course = {};
             },function(response){
                 toaster.pop('error','Course','Failed to Add');
+                course.saving = false;
             });
         };
 

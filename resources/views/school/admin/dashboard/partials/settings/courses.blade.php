@@ -74,30 +74,35 @@
                                 <h3>Add New Course</h3>
                                 <hr/>
                                 <div class="form-group col-sm-6">
-                                    <select class="form-control" ng-model="course.school_category"
+                                    <select ng-disabled="course.saving"
+                                            class="form-control" ng-model="course.school_category"
                                             ng-options="system as system.name for system in school_categories">
                                         <option value="">Select School Category</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-sm-6">
-                                    <select class="form-control" ng-model="course.course_category"
+                                    <select ng-disabled="course.saving"
+                                            class="form-control" ng-model="course.course_category"
                                             ng-options="system as system.name for system in course.school_category.scoped_course_categories">
                                         <option value="">Select Course Category</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control" ng-model="course.name" placeholder="Course Name"/>
+                                    <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.name" placeholder="Course Name"/>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control" ng-model="course.code" placeholder="Course Code"/>
+                                    <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.code" placeholder="Course Code"/>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <button
                                             class="btn btn-success"
                                             ng-click="createCourse(course)">
-                                        Add Course
+                                        <span ng-show="!course.saving">Add Course</span>
+                                         <span ng-show="course.saving">
+                                                <span class="fa fa-spin fa-spinner"></span> Loading..
+                                            </span>
                                     </button>
                                 </div>
                             </div>
@@ -134,19 +139,27 @@
                             <h3>Add New Course Category</h3>
                             <hr/>
                             <div class="form-group col-sm-4">
-                                <select class="form-control" ng-model="school_category_id"
+                                <select ng-disabled="course_category_model.saving"
+                                        class="form-control" ng-model="school_category_id"
                                         ng-options="system.id as system.name for system in school_categories">
                                     <option value="">Select School Category</option>
                                 </select>
                             </div>
                             <div class="form-group col-sm-4">
-                                <input type="text" class="form-control" ng-model="course_category_name" placeholder="Course Category Name"/>
+                                <input type="text" ng-disabled="course_category_model.saving"
+                                       class="form-control" ng-model="course_category_model.name"
+                                       placeholder="Course Category Name"/>
                             </div>
                             <div class="form-group col-sm-4">
                                 <button
                                         class="btn btn-success"
-                                        ng-click="createCourseCategory(school_category_id,course_category_name)">
-                                    Add Course Category
+                                        ng-click="createCourseCategory(school_category_id,course_category_model)">
+                                    <span ng-show="!course_category_model.saving">
+                                        Add Course Category
+                                    </span>
+                                    <span ng-show="course_category_model.saving">
+                                        <span class="fa fa-spin fa-spinner"></span> Loading..
+                                    </span>
                                 </button>
                             </div>
                         </div>
@@ -163,7 +176,14 @@
                                 </select>
                             </li>
                             <li class="list-group-item" ng-repeat="course_category in course_categories">
-                                <span class="btn pull-right"><i class="fa fa-times"></i></span>
+                                <span class="btn pull-right">
+                                    <span ng-show="!course_category.saving">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                    <span ng-show="course_category.saving">
+                                        <span class="fa fa-spin fa-spinner"></span> Loading..
+                                    </span>
+                                </span>
                                 <strong>@{{ course_category.name }}</strong>
                                 <p>@{{ course_category.scoped_school_category.display_name }}</p>
                             </li>
