@@ -122,10 +122,17 @@
                                    ng-repeat="course in currentStaff.assigned_courses">
                                     <div class="media-box">
                                         <div class="media-box-body clearfix">
-                                            <small class="pull-right">@{{ course.code }}</small>
+                                            <span class="pull-right">
+                                                <span class="fa fa-times" tooltip="Delete"
+                                                      ng-click="
+                                currentStaff.assigned_courses.splice($index,1);
+                                assignCourses(currentStaff,currentStaff.assigned_courses);
+                                "></span>
+                                            </span>
                                             <strong class="media-box-heading text-primary">
                                                 @{{ course.name }}
                                             </strong>
+                                            <small>@{{ course.code }}</small>
                                         </div>
                                     </div>
                                 </a>
@@ -186,10 +193,17 @@
                                    ng-repeat="class in currentStaff.assigned_classes">
                                     <div class="media-box">
                                         <div class="media-box-body clearfix">
-                                            <small class="pull-right">@{{ class.has_subdivisions }}</small>
+                                            <span class="pull-right">
+                                                <span class="fa fa-times" tooltip="Delete"
+                                                      ng-click="
+                                currentStaff.assigned_classes.splice($index,1);
+                                assignClasses(currentStaff,currentStaff.assigned_classes);
+                                "></span>
+                                            </span>
                                             <strong class="media-box-heading text-primary">
                                                 @{{ class.display_name }}
                                             </strong>
+                                            <small>@{{ class.has_subdivisions }}</small>
                                         </div>
                                     </div>
                                 </a>
