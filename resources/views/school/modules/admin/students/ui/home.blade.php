@@ -1,8 +1,12 @@
 <div>
     <div>
         <ul class="nav nav-pills">
-            <li><a href="#" ng-click="goBack($event)"><span class="fa fa-chevron-left"></span> Back</a></li>
-            <li><a ui-sref="app.menu"><span class="fa fa-home"></span> Home</a></li>
+            <li><a href="#" ng-click="goBack($event)"><span class="fa fa-chevron-left fa-2x"></span></a></li>
+            <li>
+                <a ui-sref="app.home">
+                    Home
+                </a>
+            </li>
             <li>
                 <a ui-sref="app.students.enroll_student" ui-sref-active="active">
                     Enroll A New Student

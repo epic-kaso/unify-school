@@ -32,8 +32,7 @@
                 <div class="btn-group btn-block" dropdown>
                     <button type="button" class="btn btn-primary navbar-btn"
                             style="background-color: #4285f4;
-                            font-size: 15px;font-weight: 600;"><span
-                                ng-bind="selectedSchoolCategory.display_name"></span></button>
+                            font-size: 15px;font-weight: 600;"><span>@{{ selectedSchoolCategory.display_name || 'All' }}</span></button>
                     <button type="button"
                             class="btn btn-primary navbar-btn dropdown-toggle"
                             style="background-color: #4285f4"
@@ -43,7 +42,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li ng-if="schoolCategories.length > 1">
-                            <a href="#">All</a>
+                            <a href="#" ng-click="prepareAllSchoolCategory($event)">All</a>
                         </li>
                         <li ng-repeat="category in schoolCategories">
                             <a href="#" ng-click="prepareSchoolCategory($event,category)">@{{ category.display_name }}</a>
@@ -52,7 +51,7 @@
                 </div>
             </li>
 
-            <li>
+            <li ng-show="selectedSchoolCategory">
                 <div class="btn-group btn-block" dropdown>
                     <button type="button" class="btn btn-primary navbar-btn"
                             style="background-color: #4285f4;

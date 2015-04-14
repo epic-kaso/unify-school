@@ -20,6 +20,11 @@ app.controller('NavBarController', [
                 selected: $scope.selectedSchoolCategory.school_category_arms[0]
             };
 
+            $scope.prepareAllSchoolCategory = function ($event){
+                    $scope.selectedSchoolCategory = null;
+                    $event.preventDefault();
+            };
+
             $scope.prepareSchoolCategory = function ($event, category) {
                 $scope.selectedSchoolCategory = category;
                 $event.preventDefault();
@@ -32,9 +37,6 @@ app.controller('NavBarController', [
 
 
             $scope.$watch('selectedSchoolCategory', function (newV, oldV) {
-
-
-
                 console.log('selectedSchoolCategoryChanged event');
                 $rootScope.$broadcast('selectedSchoolCategoryChanged', {value: newV});
                 console.log('selectedSchoolCategoryChanged raised');
@@ -44,14 +46,14 @@ app.controller('NavBarController', [
             $rootScope.$on('selectedSchoolCategoryChanged', function (event, obj) {
                 console.log('event selectedSchoolCat received');
 
-                if (angular.isDefined($scope.classItems)) {
+                if (angular.isDefined($scope.classItems) && angular.isDefined(obj.value) && obj.value !== null) {
                     $scope.classItems.submenu = obj.value.school_category_arms;
                     $scope.classItems.selected = obj.value.school_category_arms[0];
-
                     context.school_category = obj.value;
                     context.category_level = obj.value.school_category_arms[0];
-
                     SchoolContextService.setContext(context);
+                }else{
+                    SchoolContextService.setContext(null);
                 }
             });
         }]

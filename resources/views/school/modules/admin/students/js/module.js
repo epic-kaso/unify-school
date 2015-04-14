@@ -9,6 +9,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             url: '/students',
             templateUrl: ViewBaseURL + '/home',
             title: 'Student Module',
+            resolve: helper.resolveFor('toaster','inputmask','taginput','filestyle','slimscroll','ngUpload'),
             controller: ['$scope','$window','$rootScope',
                 function ($scope,$window,$rootScope) {
                     $scope.goBack = function($event){
@@ -26,8 +27,16 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             url: '/enroll-student',
             templateUrl: ViewBaseURL + '/enroll_student',
             title: 'Enroll A New Student',
-            controller: ['$scope',
-                function ($scope) {
+            controller: ['$scope','toaster',
+                function ($scope,toaster) {
+                    $scope.enrollStudentCompleted = function(content){
+                        var r =  angular.fromJson(content);
+                        console.log(r);
+                    };
+
+                    $scope.loading = function(){
+                        toaster.pop('wait','Enroll Student','Upload Started...',3000);
+                    }
                 }
             ]
         }).state('app.students.enroll_students',

@@ -75,8 +75,23 @@ Route::group(
         Route::resource('skill-assessment-systems', 'Configurations\SkillAssessmentSystemController');
         Route::resource('grade-assessment-systems', 'Configurations\GradeAssessmentSystemsController');
         Route::resource('import-students', 'School\StudentImportController');
+
     }
 );
+
+
+//School Admin Modules
+Route::group(
+    [
+        'middleware' => 'domain_access',
+        'prefix' => 'admin/modules',
+        'namespace' => 'School\Modules'
+    ],
+    function(){
+        Route::resource('students', 'Admin\Students\StudentsController');
+    }
+);
+
 
 //School Student Pages routes
 Route::group(
