@@ -29,32 +29,33 @@ class AdminDashboardController extends Controller
 
         $modules = Loader::loadSchoolModule($school);
         $assets = '';
-        if(!is_null($modules)) {
+        if (!is_null($modules)) {
             foreach ($modules as $module) {
                 $assets .= Loader::prepareAssetsLink($module);
             }
         }
 
-        return view('school.admin.dashboard.index', compact('school','assets','modules'));
+        return view('school.admin.dashboard.index', compact('school', 'assets', 'modules'));
     }
 
     public function getPartial($first, $second = null, $third = null)
     {
-        if(!is_null($first) && is_null($second) && is_null($third)) {
+        if (!is_null($first) && is_null($second) && is_null($third)) {
             return view('school.admin.dashboard.partials.' . $first);
-        }elseif(!is_null($first) && !is_null($second) && is_null($third)){
+        } elseif (!is_null($first) && !is_null($second) && is_null($third)) {
             return view("school.admin.dashboard.partials.$first.$second");
-        }elseif(!is_null($first) && !is_null($second) && !is_null($third)){
+        } elseif (!is_null($first) && !is_null($second) && !is_null($third)) {
             return view("school.admin.dashboard.partials.$first.$second.$third");
-        }else{
+        } else {
             abort(404);
             return null;
         }
     }
 
-    public function getLoadModule(){
+    public function getLoadModule()
+    {
         $argmuments = func_get_args();
-        $ui_path = implode('.',$argmuments);
+        $ui_path = implode('.', $argmuments);
         return view("school.modules.$ui_path");
     }
 }

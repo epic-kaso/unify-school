@@ -10,7 +10,6 @@ namespace UnifySchool\Entities\School;
 
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use UnifySchool\Entities\Scopes\School\SchoolScopeTrait;
 
 /**
@@ -57,20 +56,23 @@ class BaseModel extends Model
         return $query->withAllSchools();
     }
 
-    public function scopeGetWithData($query){
+    public function scopeGetWithData($query)
+    {
         return $query->with(static::$relationships)->get();
     }
 
-    public static function table(){
+    public static function table()
+    {
         $s = new static;
         return $s->getTable();
     }
 
-    public function generateHashcode(){
-        $hashcode = rand(10000000,99999999);
-        if(!static::whereHashcode($hashcode)->first()){
+    public function generateHashcode()
+    {
+        $hashcode = rand(10000000, 99999999);
+        if (!static::whereHashcode($hashcode)->first()) {
             $this->attributes['hashcode'] = $hashcode;
-            return  $hashcode;
+            return $hashcode;
         }
         return $this->generateHashcode();
     }

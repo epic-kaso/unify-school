@@ -8,13 +8,13 @@
 
 namespace UnifySchool\Repositories\School;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use UnifySchool\Entities\School\ScopedSessionType;
 use UnifySchool\Entities\School\ScopedSubSessionType;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedSessionTypeRepository extends BaseRepository {
+class ScopedSessionTypeRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -67,12 +67,13 @@ class ScopedSessionTypeRepository extends BaseRepository {
     {
         $subSessionsCount = $this->mapNumberWordToDigit($model->session_type);
 
-        if(is_numeric($subSessionsCount)){
-            $this->createSubSession($model,$subSessionsCount);
+        if (is_numeric($subSessionsCount)) {
+            $this->createSubSession($model, $subSessionsCount);
         }
     }
 
-    private function mapNumberWordToDigit($numberInWord){
+    private function mapNumberWordToDigit($numberInWord)
+    {
         return $this->numberMapping[strtolower($numberInWord)];
     }
 
@@ -80,7 +81,7 @@ class ScopedSessionTypeRepository extends BaseRepository {
     {
         $subDivisionsName = $model->session_divisions_display_name;
 
-        for($i = 1;$i <= $subSessionsCount;$i++){
+        for ($i = 1; $i <= $subSessionsCount; $i++) {
             $display_name = "{$this->mapNumberToWordPosition($i)} {$subDivisionsName}";
             ScopedSubSessionType::create([
                 'scoped_session_type_id' => $model->id,

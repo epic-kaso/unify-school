@@ -7,7 +7,8 @@ use UnifySchool\School;
 class DomainAccess
 {
 
-    protected $specialSubDomains = ['www', 'unify','localhost','app'];
+    protected $specialSubDomains = ['www', 'unify', 'localhost', 'app'];
+
     /**
      * Handle an incoming request.
      *
@@ -22,7 +23,7 @@ class DomainAccess
         if (!$validProgram) {
             return \Redirect::to('/');
         } else {
-            if(is_object($validProgram) && is_subclass_of($validProgram, Model::class)){
+            if (is_object($validProgram) && is_subclass_of($validProgram, Model::class)) {
                 $this->bindContextToSchool($validProgram);
             }
         }

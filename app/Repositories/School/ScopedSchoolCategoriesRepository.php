@@ -12,7 +12,8 @@ namespace UnifySchool\Repositories\School;
 use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedSchoolCategoriesRepository extends BaseRepository {
+class ScopedSchoolCategoriesRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -26,15 +27,15 @@ class ScopedSchoolCategoriesRepository extends BaseRepository {
 
     public function getAssignedGradingSystem()
     {
-        $response = $this->all(['name','scoped_grading_system_id'])->map(function($item){
+        $response = $this->all(['name', 'scoped_grading_system_id'])->map(function ($item) {
             $i = [];
             $i[$item->name] = $item->scoped_grading_system_id;
             return $i;
         });
 
         $i = new \stdClass();
-        foreach($response as $item){
-            foreach($item as $key => $value){
+        foreach ($response as $item) {
+            foreach ($item as $key => $value) {
                 $i->{$key} = $value;
             }
         }
@@ -45,15 +46,15 @@ class ScopedSchoolCategoriesRepository extends BaseRepository {
 
     public function getAssignedGradeAssessmentSystem()
     {
-        $response = $this->all(['name','scoped_grade_assessment_system_id'])->map(function($item){
+        $response = $this->all(['name', 'scoped_grade_assessment_system_id'])->map(function ($item) {
             $i = [];
             $i[$item->name] = $item->scoped_grade_assessment_system_id;
             return $i;
         });
 
         $i = new \stdClass();
-        foreach($response as $item){
-            foreach($item as $key => $value){
+        foreach ($response as $item) {
+            foreach ($item as $key => $value) {
                 $i->{$key} = $value;
             }
         }

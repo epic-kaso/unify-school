@@ -22,19 +22,21 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereData($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereUpdatedAt($value)
- * @property boolean $active 
+ * @property boolean $active
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereActive($value)
  */
-class Module extends BaseModel {
+class Module extends BaseModel
+{
 
-	protected $casts =  [
-        'data'    => 'array',
-        'menu'    => 'array',
+    protected $casts = [
+        'data' => 'array',
+        'menu' => 'array',
         'actions' => 'array',
     ];
 
 
-    public function school_type(){
+    public function school_type()
+    {
         return $this->belongsTo(SchoolType::class);
     }
 

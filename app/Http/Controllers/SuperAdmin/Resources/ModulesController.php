@@ -12,16 +12,17 @@ use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\ModuleSettingsRequest;
 use UnifySchool\Module;
 
-class ModulesController extends Controller {
-	
-	public function index()
+class ModulesController extends Controller
+{
+
+    public function index()
     {
-    	return Module::all();
+        return Module::all();
     }
 
     public function show($id)
     {
-    	return Module::find($id);
+        return Module::find($id);
     }
 
     public function store(ModuleSettingsRequest $request)
@@ -45,7 +46,7 @@ class ModulesController extends Controller {
 
     public function destroy($id)
     {
-    	return Module::destroy($id);
+        return Module::destroy($id);
     }
 
 }

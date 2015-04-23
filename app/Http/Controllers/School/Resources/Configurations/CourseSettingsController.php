@@ -17,7 +17,8 @@ use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\CourseSettingsRequest;
 
-class CourseSettingsController extends Controller {
+class CourseSettingsController extends Controller
+{
 
     public static $action_add_course_category = "add_course_category";
     public static $action_assign_course = "assign_course";
@@ -53,13 +54,13 @@ class CourseSettingsController extends Controller {
 
     }
 
-    public function update($id,CourseSettingsRequest $request)
+    public function update($id, CourseSettingsRequest $request)
     {
         $action = Input::get('action', 'default');
 
         switch ($action) {
             case static::$action_assign_course:
-                return $this->assignCourse($id,$request);
+                return $this->assignCourse($id, $request);
             case 'default':
                 break;
         }
@@ -73,12 +74,12 @@ class CourseSettingsController extends Controller {
     private function addNewCourseCategory(CourseSettingsRequest $request)
     {
         $data = [
-            'school_id'  => $this->getSchool()->id,
+            'school_id' => $this->getSchool()->id,
             'name' => $request->get('name'),
             'scoped_school_category_id' => $request->get('school_category_id')
         ];
 
-       ScopedCourseCategory::create($data);
+        ScopedCourseCategory::create($data);
 
         return \Response::json(['all' => ScopedCourseCategory::getWithData()]);
     }
@@ -86,7 +87,7 @@ class CourseSettingsController extends Controller {
     private function addNewCourse(CourseSettingsRequest $request)
     {
         $data = [
-            'school_id'  => $this->getSchool()->id,
+            'school_id' => $this->getSchool()->id,
             'name' => $request->get('name'),
             'code' => $request->get('code'),
             'scoped_course_category_id' => $request->get('course_category_id'),
@@ -101,12 +102,12 @@ class CourseSettingsController extends Controller {
     private function assignCourse($id, CourseSettingsRequest $request)
     {
         $schoolCategory = ScopedSchoolCategory::find($id);
-        if(is_null($schoolCategory))
-            abort(404,'invalid school category');
+        if (is_null($schoolCategory))
+            abort(404, 'invalid school category');
 
-        $assigned_courses =  $request->get('assigned_courses');
+        $assigned_courses = $request->get('assigned_courses');
 
-        $schoolCategory->assigned_courses  =  $assigned_courses;
+        $schoolCategory->assigned_courses = $assigned_courses;
         $schoolCategory->save();
 
         return \Response::json(['model' => $schoolCategory]);

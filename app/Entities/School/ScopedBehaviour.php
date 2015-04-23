@@ -1,4 +1,4 @@
-<?php namespace  UnifySchool\Entities\School;
+<?php namespace UnifySchool\Entities\School;
 
 /**
  * UnifySchool\Entities\School\ScopedBehaviour
@@ -20,10 +20,12 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedBehaviour extends BaseModel {
+class ScopedBehaviour extends BaseModel
+{
 
 
-    public function behaviour_category(){
+    public function behaviour_category()
+    {
         return $this->belongsTo('UnifySchool\BehaviourCategory');
     }
 }

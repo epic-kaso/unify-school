@@ -22,7 +22,8 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedGradingSystem extends BaseModel {
+class ScopedGradingSystem extends BaseModel
+{
 
     protected $casts = [
         'grades' => 'array'

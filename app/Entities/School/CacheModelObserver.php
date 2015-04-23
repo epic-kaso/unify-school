@@ -11,12 +11,14 @@ namespace UnifySchool\Entities\School;
 
 use UnifySchool\Entities\Context\SchoolContextTrait;
 
-class CacheModelObserver {
+class CacheModelObserver
+{
 
     use SchoolContextTrait;
 
-    public function clearCacheTags($tags){
-        if($this->productionEnvironment()){
+    public function clearCacheTags($tags)
+    {
+        if ($this->productionEnvironment()) {
             \Cache::tags($tags)->flush();
         }
     }

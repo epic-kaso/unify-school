@@ -21,7 +21,8 @@
  * @method static \UnifySchool\Entities\School\ScopedCourseCategory dCourses()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedCourseCategory extends BaseModel {
+class ScopedCourseCategory extends BaseModel
+{
 
     public static $relationships =
         [
@@ -29,11 +30,13 @@ class ScopedCourseCategory extends BaseModel {
             'scoped_courses'
         ];
 
-	public function scoped_school_category(){
+    public function scoped_school_category()
+    {
         return $this->belongsTo(ScopedSchoolCategory::class);
     }
 
-    public function scoped_courses(){
+    public function scoped_courses()
+    {
         return $this->hasMany(ScopedCourse::class);
     }
 

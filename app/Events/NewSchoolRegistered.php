@@ -5,9 +5,10 @@ use Log;
 use UnifySchool\Entities\School\SchoolAdministrator;
 use UnifySchool\School;
 
-class NewSchoolRegistered extends Event {
+class NewSchoolRegistered extends Event
+{
 
-	use SerializesModels;
+    use SerializesModels;
 
     protected $school;
     /**
@@ -21,9 +22,9 @@ class NewSchoolRegistered extends Event {
      * @param School $school
      * @param SchoolAdministrator $administrator
      */
-	public function __construct(School $school,SchoolAdministrator $administrator)
-	{
-		Log::debug('NewSchoolRegistered event raised');
+    public function __construct(School $school, SchoolAdministrator $administrator)
+    {
+        Log::debug('NewSchoolRegistered event raised');
         $this->school = $school;
         $this->administrator = $administrator;
     }

@@ -11,11 +11,12 @@ namespace UnifySchool\Entities\Resources\NonTertiary;
 
 use Carbon\Carbon;
 
-class SessionGenerator {
+class SessionGenerator
+{
 
     protected $newSessionEndMonth;
-    const SEPTEMBER =  9;
-    const AUGUST =  8;
+    const SEPTEMBER = 9;
+    const AUGUST = 8;
 
     /**
      * SessionGenerator constructor.
@@ -25,41 +26,45 @@ class SessionGenerator {
     public function __construct(Carbon $newSessionEndMonth = null)
     {
 
-        if(!is_null($newSessionEndMonth))
+        if (!is_null($newSessionEndMonth))
             $this->newSessionEndMonth = $newSessionEndMonth;
         else
-            $this->newSessionEndMonth = Carbon::create(null,static::AUGUST);
+            $this->newSessionEndMonth = Carbon::create(null, static::AUGUST);
     }
 
 
-    public function generatePastSession($count = 1){
-        return $this->generateSessions($count,'subYear');
+    public function generatePastSession($count = 1)
+    {
+        return $this->generateSessions($count, 'subYear');
     }
 
-    public function generateFutureSession($count = 1){
-        return $this->generateSessions($count,'addYear');
+    public function generateFutureSession($count = 1)
+    {
+        return $this->generateSessions($count, 'addYear');
     }
 
-    public function generateCurrentSession(){
+    public function generateCurrentSession()
+    {
         return $this->generateSession(Carbon::now());
     }
 
-    private function generateSessions($count, $action = 'subYear'){
-        if(!is_numeric($count)){
+    private function generateSessions($count, $action = 'subYear')
+    {
+        if (!is_numeric($count)) {
             return null;
         }
 
-        if($count == 1) {
+        if ($count == 1) {
             $year = Carbon::now()->{$action}();
             return $this->generateSession($year);
         }
 
         $response = [];
 
-        if($count > 1){
+        if ($count > 1) {
             $year = Carbon::now()->{$action}();
 
-            for($i = 0; $i < $count;$i++){
+            for ($i = 0; $i < $count; $i++) {
                 $response[] = $this->generateSession($year);
                 $year->{$action}();
             }
@@ -68,12 +73,13 @@ class SessionGenerator {
         }
     }
 
-    private function generateSession(Carbon $date){
+    private function generateSession(Carbon $date)
+    {
         $currentYear = $date;
         $lastYear = Carbon::parse($date->toDayDateTimeString())->subYear();
         $nextYear = Carbon::parse($date->toDayDateTimeString())->addYear();
 
-        if($currentYear->month <=  $this->newSessionEndMonth->month){
+        if ($currentYear->month <= $this->newSessionEndMonth->month) {
             return "{$lastYear->year}/{$currentYear->year}";
         }
 

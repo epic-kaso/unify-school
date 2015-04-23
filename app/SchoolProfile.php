@@ -1,7 +1,5 @@
 <?php namespace UnifySchool;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * UnifySchool\SchoolProfile
  *
@@ -33,13 +31,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolProfile whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SchoolProfile whereUpdatedAt($value)
  */
-class SchoolProfile extends BaseModel {
+class SchoolProfile extends BaseModel
+{
 
     protected $guarded = ['id'];
     protected $hidden = ['id'];
     protected $casts = ['logo' => 'array'];
 
-    public function school(){
+    public function school()
+    {
         return $this->belongsTo(School::class);
-	}
+    }
 }

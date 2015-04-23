@@ -30,16 +30,18 @@
 class ScopedSessionType extends BaseModel
 {
 
-    public static function boot(){
+    public static function boot()
+    {
         parent::boot();
 
-        static::deleted(function($model){
-           $model->sub_sessions()->delete();
+        static::deleted(function ($model) {
+            $model->sub_sessions()->delete();
         });
     }
 
 
-    public function sub_sessions(){
+    public function sub_sessions()
+    {
         return $this->hasMany(ScopedSubSessionType::class);
     }
 }

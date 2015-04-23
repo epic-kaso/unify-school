@@ -58,10 +58,11 @@ class ScopedSchoolType extends BaseModel
         );
     }
 
-    public function getClassesAttribute(){
+    public function getClassesAttribute()
+    {
         $response = [];
-        foreach($this->school_categories as $category){
-            $response = array_merge($response,$category->classes);
+        foreach ($this->school_categories as $category) {
+            $response = array_merge($response, $category->classes);
         }
         return $response;
     }

@@ -11,7 +11,9 @@ namespace UnifySchool\Repositories\School;
 
 use UnifySchool\Entities\School\ScopedSession;
 use UnifySchool\Repositories\BaseRepository;
-class ScopedSessionRepository extends BaseRepository {
+
+class ScopedSessionRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -23,21 +25,23 @@ class ScopedSessionRepository extends BaseRepository {
         return ScopedSession::class;
     }
 
-    public function getCurrentSession(){
-        return $this->findBy('current_session',true);
+    public function getCurrentSession()
+    {
+        return $this->findBy('current_session', true);
     }
 
-    public function setCurrentSession($name = null){
+    public function setCurrentSession($name = null)
+    {
 
-    $this->all()->each(function($item){
-        $item->current_session = false;
+        $this->all()->each(function ($item) {
+            $item->current_session = false;
+            $item->save();
+        });
+
+        $item = $this->makeModel()->firstOrCreate(['name' => $name, 'school_id' => $this->getSchool()->id]);
+        $item->current_session = true;
         $item->save();
-    });
 
-    $item = $this->makeModel()->firstOrCreate(['name' => $name,'school_id' => $this->getSchool()->id]);
-    $item->current_session = true;
-    $item->save();
-
-    return $item;
-}
+        return $item;
+    }
 }

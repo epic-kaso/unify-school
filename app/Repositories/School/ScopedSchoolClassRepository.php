@@ -9,11 +9,11 @@
 namespace UnifySchool\Repositories\School;
 
 
-use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
 use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedSchoolClassRepository extends BaseRepository {
+class ScopedSchoolClassRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name

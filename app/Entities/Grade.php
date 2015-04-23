@@ -9,7 +9,8 @@
 namespace UnifySchool\Entities;
 
 
-class Grade {
+class Grade
+{
 
     public $symbol;
     public $lowerRange;

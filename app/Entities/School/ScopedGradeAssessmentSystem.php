@@ -22,7 +22,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedGradeAssessmentSystem whereTotalScore($value)
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedGradeAssessmentSystem extends BaseModel {
+class ScopedGradeAssessmentSystem extends BaseModel
+{
 
     protected $casts = [
         'divisions' => 'array'

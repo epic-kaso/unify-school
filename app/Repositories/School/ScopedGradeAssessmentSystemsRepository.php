@@ -12,7 +12,8 @@ namespace UnifySchool\Repositories\School;
 use UnifySchool\Entities\School\ScopedGradeAssessmentSystem;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedGradeAssessmentSystemsRepository extends BaseRepository {
+class ScopedGradeAssessmentSystemsRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name

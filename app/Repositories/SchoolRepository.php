@@ -13,7 +13,8 @@ use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\School;
 use UnifySchool\SchoolProfile;
 
-class SchoolRepository extends BaseRepository {
+class SchoolRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -28,13 +29,12 @@ class SchoolRepository extends BaseRepository {
     public function create(array $data)
     {
         $school = parent::create($data);
-        SchoolProfile::create(['school_id'=> $school->id]);
+        SchoolProfile::create(['school_id' => $school->id]);
         return $school;
     }
 
 
-
-    public function setSchoolType(School $school,ScopedSchoolType $schoolType)
+    public function setSchoolType(School $school, ScopedSchoolType $schoolType)
     {
         $school->setSchoolType($schoolType);
     }

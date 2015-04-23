@@ -1,7 +1,5 @@
 <?php namespace UnifySchool;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * UnifySchool\SkillCategory
  *
@@ -16,8 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SkillCategory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\SkillCategory whereUpdatedAt($value)
  */
-class SkillCategory extends BaseModel {
+class SkillCategory extends BaseModel
+{
 
-	//
+    //
 
 }

@@ -58,11 +58,12 @@ class ScopedSchoolCategory extends BaseModel
         'assigned_courses' => 'array'
     ];
 
-    public static function boot(){
+    public static function boot()
+    {
         parent::boot();
 
-        static::deleting(function($model){
-            foreach($model->school_category_arms as $arm){
+        static::deleting(function ($model) {
+            foreach ($model->school_category_arms as $arm) {
                 $arm->delete();
             }
         });
@@ -79,33 +80,39 @@ class ScopedSchoolCategory extends BaseModel
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArm');
     }
 
-    public function scoped_course_categories(){
+    public function scoped_course_categories()
+    {
         return $this->hasMany(ScopedCourseCategory::class);
     }
 
-    public function scoped_courses(){
-        return $this->hasManyThrough(ScopedCourse::class,ScopedCourseCategory::class);
+    public function scoped_courses()
+    {
+        return $this->hasManyThrough(ScopedCourse::class, ScopedCourseCategory::class);
     }
 
-    public function grading_system(){
+    public function grading_system()
+    {
         return $this->belongsTo('UnifySchool\Entities\School\ScopedGradingSystem');
     }
 
-    public function grade_assessment_system(){
+    public function grade_assessment_system()
+    {
         return $this->belongsTo('UnifySchool\Entities\School\ScopedGradeAssessmentSystem');
     }
 
-    public function getAssignedCoursesAttribute(){
-        if(empty($this->attributes['assigned_courses'])){
+    public function getAssignedCoursesAttribute()
+    {
+        if (empty($this->attributes['assigned_courses'])) {
             return [];
         }
-        return $this->castAttribute('assigned_courses',$this->attributes['assigned_courses']);
+        return $this->castAttribute('assigned_courses', $this->attributes['assigned_courses']);
     }
 
-    public function getClassesAttribute(){
+    public function getClassesAttribute()
+    {
         $response = [];
-        foreach($this->school_category_arms as $arm){
-            $response = array_merge($response,$arm->school_category_arm_subdivisions->toArray());
+        foreach ($this->school_category_arms as $arm) {
+            $response = array_merge($response, $arm->school_category_arm_subdivisions->toArray());
         }
 
         return $response;

@@ -25,11 +25,13 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedCourse extends BaseModel {
+class ScopedCourse extends BaseModel
+{
 
     public static $relationships = ['scoped_course_category'];
 
-    public function scoped_course_category(){
+    public function scoped_course_category()
+    {
         return $this->belongsTo(ScopedCourseCategory::class);
     }
 

@@ -10,11 +10,12 @@ namespace UnifySchool\Http\Controllers\School\Modules\Admin\Students;
 
 use UnifySchool\Entities\School\ScopedClassStudent;
 use UnifySchool\Entities\School\ScopedSession;
-use UnifySchool\Http\Requests\Modules\Admin\Students\StudentsRequest;
 use UnifySchool\Entities\School\ScopedStudent;
 use UnifySchool\Http\Controllers\Controller;
+use UnifySchool\Http\Requests\Modules\Admin\Students\StudentsRequest;
 
-class StudentsController extends Controller {
+class StudentsController extends Controller
+{
 
     public function index()
     {
@@ -48,13 +49,13 @@ class StudentsController extends Controller {
         $requiredData['school_id'] = $currentSchool->id;
         $requiredData['reg_number'] = $this->generateRegNumber();
 
-        
+
         $student = ScopedStudent::create($requiredData);
 
         $classStudent = $this->createClassStudent($request, $currentSchool, $student, $requiredClassStudentData);
         $classStudent->save();
 
-        return  $student;
+        return $student;
     }
 
     public function update($id)
@@ -86,7 +87,7 @@ class StudentsController extends Controller {
 
     private function generateRegNumber()
     {
-        $reg  = ScopedSession::currentSession();
+        $reg = ScopedSession::currentSession();
         $studentCount = ScopedStudent::count() + 1;
         return "$reg/$studentCount";
     }

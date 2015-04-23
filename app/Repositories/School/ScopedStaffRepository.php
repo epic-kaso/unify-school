@@ -9,12 +9,11 @@
 namespace UnifySchool\Repositories\School;
 
 
-use UnifySchool\Entities\School\ScopedCourse;
-use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Entities\School\ScopedStaff;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedStaffRepository extends BaseRepository {
+class ScopedStaffRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -26,9 +25,10 @@ class ScopedStaffRepository extends BaseRepository {
         return ScopedStaff::class;
     }
 
-    public function loadAll(){
+    public function loadAll()
+    {
         $staffs = ScopedStaff::getWithData();
-        return $staffs->each(function($item){
+        return $staffs->each(function ($item) {
             $item->loadAssignedCourses();
             $item->loadAssignedClasses();
         })->all();

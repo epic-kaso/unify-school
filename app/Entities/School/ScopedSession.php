@@ -20,11 +20,13 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedSession extends BaseModel {
+class ScopedSession extends BaseModel
+{
 
-    public function scopeCurrentSession($query){
+    public function scopeCurrentSession($query)
+    {
         $data = $query->whereCurrentSession(true)->first();
         return empty($data) ? '' : $data->name;
-	}
+    }
 
 }

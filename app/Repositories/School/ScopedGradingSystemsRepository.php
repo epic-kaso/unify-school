@@ -13,7 +13,8 @@ use UnifySchool\Entities\Grade;
 use UnifySchool\Entities\School\ScopedGradingSystem;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedGradingSystemsRepository extends BaseRepository {
+class ScopedGradingSystemsRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name
@@ -29,30 +30,34 @@ class ScopedGradingSystemsRepository extends BaseRepository {
     {
         $gradingSystems = parent::all($cols);
 
-        return 
-        $gradingSystems
-            ->each(
-            function($gradingSystem){
-                $collection = collect($gradingSystem->grades);
-                $gradingSystem->grades =  $collection->sortBy(function($item){return $item['lowerRange'];})->all();
-                return $gradingSystem;
-                }
-            )->all();
-    }    
+        return
+            $gradingSystems
+                ->each(
+                    function ($gradingSystem) {
+                        $collection = collect($gradingSystem->grades);
+                        $gradingSystem->grades = $collection->sortBy(function ($item) {
+                            return $item['lowerRange'];
+                        })->all();
+                        return $gradingSystem;
+                    }
+                )->all();
+    }
 
-    public function getGrades($id){
+    public function getGrades($id)
+    {
         $gradingSystem = $this->find($id);
-        if(is_null($gradingSystem))
+        if (is_null($gradingSystem))
             return null;
         return $gradingSystem->grades;
     }
 
-    public function addGrade($id,Grade $grade){
+    public function addGrade($id, Grade $grade)
+    {
         $gradingSystem = $this->find($id);
-        if(is_null($gradingSystem))
+        if (is_null($gradingSystem))
             return null;
 
-        array_push($gradingSystem->grades,$grade);
+        array_push($gradingSystem->grades, $grade);
 
         $gradingSystem->save();
     }

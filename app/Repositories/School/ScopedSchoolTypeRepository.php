@@ -12,7 +12,8 @@ namespace UnifySchool\Repositories\School;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedSchoolTypeRepository extends BaseRepository {
+class ScopedSchoolTypeRepository extends BaseRepository
+{
 
     /**
      * Specify Model class name

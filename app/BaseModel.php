@@ -11,9 +11,11 @@ namespace UnifySchool;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseModel extends Model{
+abstract class BaseModel extends Model
+{
 
-    public static function table(){
+    public static function table()
+    {
         $s = new static;
         return $s->getTable();
     }

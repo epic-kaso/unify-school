@@ -10,7 +10,6 @@ namespace UnifySchool\Entities\Legacy\Adapters;
 
 
 use Illuminate\Support\Str;
-use Maatwebsite\Excel\Collections\ExcelCollection;
 
 class StudentExcelObjectAdapter
 {
@@ -82,10 +81,10 @@ class StudentExcelObjectAdapter
 
     protected function adapt($rowobject)
     {
-        foreach($this->keys as $key){
-            $slug = Str::slug($key,'_');
+        foreach ($this->keys as $key) {
+            $slug = Str::slug($key, '_');
             //if(property_exists($rowobject,$slug)){
-                $this->{$slug} = $rowobject->{$slug};
+            $this->{$slug} = $rowobject->{$slug};
             //}
         }
     }

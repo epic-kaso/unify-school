@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             'UnifySchool\Services\Registrar'
         );
 
-        $this->app->singleton(SessionGenerator::class,function(){
+        $this->app->singleton(SessionGenerator::class, function () {
             return new SessionGenerator();
         });
 

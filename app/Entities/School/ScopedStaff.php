@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+
 use Carbon\Carbon;
 
 
@@ -63,7 +64,8 @@ use Carbon\Carbon;
  * @property string $birth_date
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStaff whereBirthDate($value)
  */
-class ScopedStaff extends BaseModel {
+class ScopedStaff extends BaseModel
+{
 
     protected $casts = [
         'qualifications' => 'array',
@@ -73,11 +75,12 @@ class ScopedStaff extends BaseModel {
         'assigned_classes' => 'array',
     ];
 
-    public static function boot(){
+    public static function boot()
+    {
         parent::boot();
 
-        static::creating(function(ScopedStaff $model){
-           $model->generateHashcode();
+        static::creating(function (ScopedStaff $model) {
+            $model->generateHashcode();
         });
     }
 
@@ -85,20 +88,23 @@ class ScopedStaff extends BaseModel {
 
     ];
 
-    public function setBirthDateAttribute($value){
+    public function setBirthDateAttribute($value)
+    {
         $this->attributes['birth_date'] = Carbon::parse($value);
     }
 
-    public function setEmploymentDateAttribute($value){
+    public function setEmploymentDateAttribute($value)
+    {
         $this->attributes['employment_date'] = Carbon::parse($value);
     }
 
-    public function loadAssignedCourses(){
-        if(!is_null($this->assigned_courses)){
+    public function loadAssignedCourses()
+    {
+        if (!is_null($this->assigned_courses)) {
             $input = [];
-            foreach($this->assigned_courses as $key => $value){
+            foreach ($this->assigned_courses as $key => $value) {
                 $temp = ScopedCourse::find($value);
-                if(!is_null($temp)) {
+                if (!is_null($temp)) {
                     $input[] = $temp;
                 }
             }
@@ -108,11 +114,11 @@ class ScopedStaff extends BaseModel {
 
     public function loadAssignedClasses()
     {
-        if(!is_null($this->assigned_classes)){
+        if (!is_null($this->assigned_classes)) {
             $input = [];
-            foreach($this->assigned_classes as $key => $value){
+            foreach ($this->assigned_classes as $key => $value) {
                 $temp = ScopedSchoolCategoryArmSubdivision::find($value);
-                if(!is_null($temp)) {
+                if (!is_null($temp)) {
                     $input[] = $temp;
                 }
             }

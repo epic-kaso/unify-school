@@ -1,4 +1,4 @@
-<?php namespace  UnifySchool\Entities\School;
+<?php namespace UnifySchool\Entities\School;
 
 /**
  * UnifySchool\Entities\School\ScopedSkill
@@ -20,9 +20,11 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedSkill extends BaseModel {
+class ScopedSkill extends BaseModel
+{
 
-    public function skill_category(){
+    public function skill_category()
+    {
         return $this->belongsTo('UnifySchool\SkillCategory');
     }
 

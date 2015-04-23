@@ -1,12 +1,9 @@
 <?php namespace UnifySchool;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use UnifySchool\Entities\Resources\NonTertiary\SessionGenerator;
 use UnifySchool\Entities\School\CacheModelObserver;
 use UnifySchool\Entities\School\ScopedSchoolType;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
-use UnifySchool\Services\Modules\Loader;
 
 /**
  * UnifySchool\School
@@ -82,7 +79,7 @@ class School extends BaseModel
         'modules' => 'array',
     ];
 
-    protected $appends = ['website', 'admin_website', 'student_website','loaded_modules'];
+    protected $appends = ['website', 'admin_website', 'student_website', 'loaded_modules'];
 
     public static function boot()
     {
@@ -94,7 +91,7 @@ class School extends BaseModel
             }
         });
 
-        static::saved(function(School $model){
+        static::saved(function (School $model) {
             $model->clearCache();
         });
 
@@ -204,25 +201,28 @@ class School extends BaseModel
         $this->school_type_id = $schoolType->id;
         $this->save();
 
-        if($schoolType->name != SchoolType::SCHOOL_CUSTOM){
+        if ($schoolType->name != SchoolType::SCHOOL_CUSTOM) {
             \Event::fire(new TertiaryOrNonTertiarySchoolTypeDetected($this));
         }
     }
 
-    public function getLoadedModulesAttribute(){
+    public function getLoadedModulesAttribute()
+    {
         $modules = [];
-        if(empty($this->modules))
+        if (empty($this->modules))
             return $modules;
 
-        foreach($this->modules as $key => $value){
-            if(is_bool($value) && $value && is_numeric($key)){
+        foreach ($this->modules as $key => $value) {
+            if (is_bool($value) && $value && is_numeric($key)) {
                 $modules[] = Module::find($key);
             }
         }
 
         return $modules;
     }
-    public static function table(){
+
+    public static function table()
+    {
         $s = new static;
         return $s->getTable();
     }

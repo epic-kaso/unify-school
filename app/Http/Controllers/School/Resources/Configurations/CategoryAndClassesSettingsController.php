@@ -92,12 +92,12 @@ class CategoryAndClassesSettingsController extends Controller
     {
         $arm = $request->get('school_category_arm');
         $category_Arm = ScopedSchoolCategoryArm::find($arm['id']);
-        if(is_null($category_Arm))
-            abort(404,'Invalid Category arm id');
+        if (is_null($category_Arm))
+            abort(404, 'Invalid Category arm id');
 
         $bulk = [];
 
-        if(count($arm['school_category_arm_subdivisions']) > 1) {
+        if (count($arm['school_category_arm_subdivisions']) > 1) {
             foreach ($arm['school_category_arm_subdivisions'] as $subdivision) {
                 $data = [
                     'school_id' => $this->getSchool()->id,
@@ -112,7 +112,7 @@ class CategoryAndClassesSettingsController extends Controller
             $category_Arm->school_category_arm_subdivisions()->saveMany($bulk);
 
             return \Response::json(['success' => true, 'model' => $category_Arm->school_category_arm_subdivisions]);
-        }else{
+        } else {
             return \Response::json(['success' => true, 'model' => $category_Arm->school_category_arm_subdivisions]);
         }
     }

@@ -13,11 +13,6 @@
                 </a>
             </li>
             <li>
-                <a ui-sref="app.students.enroll_students" ui-sref-active="active">
-                    Enroll Many Students
-                </a>
-            </li>
-            <li>
                 <a ui-sref="app.students.manage" ui-sref-active="active">
                     Manage Students
                 </a>

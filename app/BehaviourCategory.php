@@ -1,7 +1,5 @@
 <?php namespace UnifySchool;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * UnifySchool\BehaviourCategory
  *
@@ -16,8 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\BehaviourCategory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\BehaviourCategory whereUpdatedAt($value)
  */
-class BehaviourCategory extends BaseModel {
+class BehaviourCategory extends BaseModel
+{
 
-	//
+    //
 
 }

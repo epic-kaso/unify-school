@@ -2,8 +2,136 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminDashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminDashboardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminPasswordController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminPasswordController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Auth/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateSchool.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateSchool.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateStudent.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateStudent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateUnify.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateUnify.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/BaseModel.php" afterPath="$PROJECT_DIR$/app/BaseModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" afterPath="$PROJECT_DIR$/app/Entities/School/BaseModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/BehaviourAssessmentRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/BehaviourAssessmentRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/BehaviourAssessmentSystemController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/BehaviourAssessmentSystemController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/BehaviourCategory.php" afterPath="$PROJECT_DIR$/app/BehaviourCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/BindContext.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/BindContext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/BusServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/BusServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php" afterPath="$PROJECT_DIR$/app/Entities/School/CacheModelObserver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/CategoriesAndClassesRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/CategoriesAndClassesRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CategoryAndClassesSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CategoryAndClassesSettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/ConfigServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/ConfigServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Context/ContextInterface.php" afterPath="$PROJECT_DIR$/app/Entities/Context/ContextInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/ContextServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/ContextServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Country.php" afterPath="$PROJECT_DIR$/app/Country.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/CourseSettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/CourseSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/CourseSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" afterPath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Dashboard/DashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Dashboard/DashboardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/DomainAccess.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/DomainAccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Handlers/Events/EmailNewSchoolAccountDetails.php" afterPath="$PROJECT_DIR$/app/Handlers/Events/EmailNewSchoolAccountDetails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Handlers/Events/GenerateDefaultSessionsForSchool.php" afterPath="$PROJECT_DIR$/app/Handlers/Events/GenerateDefaultSessionsForSchool.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Grade.php" afterPath="$PROJECT_DIR$/app/Entities/Grade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/GradeAssessmentSystemsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/GradeAssessmentSystemsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/GradingSystemsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/Inspire.php" afterPath="$PROJECT_DIR$/app/Console/Commands/Inspire.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Kernel.php" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LandingPageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LandingPageController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Modules/Loader.php" afterPath="$PROJECT_DIR$/app/Services/Modules/Loader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Module.php" afterPath="$PROJECT_DIR$/app/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/ModuleSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/ModuleSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/ModulesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/ModulesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/Dashboard/NavigationMenuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/Dashboard/NavigationMenuController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Student/Dashboard/NavigationMenuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Student/Dashboard/NavigationMenuController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/NewSchoolRegistered.php" afterPath="$PROJECT_DIR$/app/Events/NewSchoolRegistered.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Auth/PasswordController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Auth/PasswordController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedSchool.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedSchool.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedStudent.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedStudent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedUnify.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedUnify.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/RegisterSchoolConfigController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/RegisterSchoolConfigController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Registrar.php" afterPath="$PROJECT_DIR$/app/Services/Registrar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/RegistrationWizardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/RegistrationWizardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Request.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/School.php" afterPath="$PROJECT_DIR$/app/School.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/SchoolAdministrator.php" afterPath="$PROJECT_DIR$/app/Entities/School/SchoolAdministrator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SchoolCategory.php" afterPath="$PROJECT_DIR$/app/SchoolCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SchoolCategoryArm.php" afterPath="$PROJECT_DIR$/app/SchoolCategoryArm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SchoolCategoryArmSubdivision.php" afterPath="$PROJECT_DIR$/app/SchoolCategoryArmSubdivision.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Context/SchoolContext.php" afterPath="$PROJECT_DIR$/app/Entities/Context/SchoolContext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Context/SchoolContextTrait.php" afterPath="$PROJECT_DIR$/app/Entities/Context/SchoolContextTrait.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/SchoolController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Scopes/School/SchoolGlobalScope.php" afterPath="$PROJECT_DIR$/app/Entities/Scopes/School/SchoolGlobalScope.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SchoolProfile.php" afterPath="$PROJECT_DIR$/app/SchoolProfile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SchoolProfileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/SchoolProfileSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/SchoolProfileSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SchoolRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/SchoolRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SchoolType.php" afterPath="$PROJECT_DIR$/app/SchoolType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/SchoolTypeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedBehaviour.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedBehaviour.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedClassStudentsRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedClassStudentsRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedCourse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedCourseCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedGradeAssessmentSystem.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedGradeAssessmentSystem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedGradeAssessmentSystemsRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedGradingSystem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedGradingSystemsRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolAdministratorRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolAdministratorRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolCategoryArm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolClassRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolClassRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSchoolType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolTypeRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSchoolTypeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSession.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSession.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSessionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSessionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSessionType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSessionType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSessionTypeRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSessionTypeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSkill.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSkill.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedStaff.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedStaff.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedStaffRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedStaffRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedStudentsRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedStudentsRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedSubSessionType.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedSubSessionType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/School/ScopedSubSessionTypeRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/School/ScopedSubSessionTypeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Resources/NonTertiary/SessionGenerator.php" afterPath="$PROJECT_DIR$/app/Entities/Resources/NonTertiary/SessionGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SessionTermSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SessionTermSettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SessionType.php" afterPath="$PROJECT_DIR$/app/SessionType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/SkillAssessmentRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/SkillAssessmentRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SkillAssessmentSystemController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SkillAssessmentSystemController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SkillCategory.php" afterPath="$PROJECT_DIR$/app/SkillCategory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/StaffSettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/StaffSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/StaffSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/State.php" afterPath="$PROJECT_DIR$/app/State.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentAuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentDashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentDashboardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Resources/Excel/StudentExcelImport.php" afterPath="$PROJECT_DIR$/app/Entities/Resources/Excel/StudentExcelImport.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Legacy/Adapters/StudentExcelObjectAdapter.php" afterPath="$PROJECT_DIR$/app/Entities/Legacy/Adapters/StudentExcelObjectAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/StudentImportController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/School/StudentImportController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentPasswordController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Student/StudentPasswordController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Modules/Admin/Students/StudentsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Modules/Admin/Students/StudentsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/TertiaryOrNonTertiarySchoolTypeDetected.php" afterPath="$PROJECT_DIR$/app/Events/TertiaryOrNonTertiarySchoolTypeDetected.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" afterPath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolCategories.php" afterPath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolCategories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/UploadStudentsExcelImportDocument.php" afterPath="$PROJECT_DIR$/app/Commands/UploadStudentsExcelImportDocument.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/UploadStudentsExcelRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/UploadStudentsExcelRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" afterPath="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -32,18 +160,50 @@
       <file leaf-file-name="module.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3485">
-              <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enroll_student.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseModel.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/BaseModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="enroll_student.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37587413" vertical-offset="2947" max-vertical-offset="6698">
-              <caret line="186" column="45" selection-start-line="186" selection-start-column="45" selection-end-line="186" selection-end-column="45" />
+            <state vertical-scroll-proportion="-12.846154" vertical-offset="2947" max-vertical-offset="6698">
+              <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="578">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="663">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -62,10 +222,10 @@
       <file leaf-file-name="StudentsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0384614" vertical-offset="482" max-vertical-offset="1581">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.0384614" vertical-offset="499" max-vertical-offset="1598">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
-                <element signature="e#159#210#0#PHP" expanded="true" />
+                <marker date="1429830611226" expanded="true" signature="159:419" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -101,16 +261,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScopedSession.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedSession.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.846154" vertical-offset="40" max-vertical-offset="612">
-              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -131,7 +281,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/layout.blade.php" />
         <option value="$PROJECT_DIR$/app/Services/Modules/Loader.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/index.blade.php" />
@@ -171,7 +320,6 @@
         <option value="$PROJECT_DIR$/public/school_admin/css/school.css" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/top-navbar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$USER_HOME$/Documents/WB04HF123/backend-angular/vendor/angularjs-toaster/toaster.js" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedSession.php" />
@@ -180,8 +328,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_23_231345_add_columns_to_scoped_students.php" />
         <option value="$PROJECT_DIR$/app/Entities/School/ScopedStudent.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" />
+        <option value="$PROJECT_DIR$/app/BaseModel.php" />
       </list>
     </option>
   </component>
@@ -655,140 +805,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="School" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Students" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -889,12 +905,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00182" summary="Session and Term Settings">
-      <created>1427851093681</created>
-      <option name="number" value="00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1427851093681</updated>
     </task>
     <task id="LOCAL-00183" summary="Session and Term Settings">
       <created>1427851667167</created>
@@ -1184,7 +1194,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429829408860</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="Seting Up Modules">
+      <created>1429830336587</created>
+      <option name="number" value="00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1429830336588</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1305,20 +1321,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/queue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5362776" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/libs/others/ui-bootstrap-tpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7264297" vertical-offset="1383" max-vertical-offset="29342">
-          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/academics.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5555556" vertical-offset="0" max-vertical-offset="8687">
@@ -1543,13 +1545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4352" vertical-offset="0" max-vertical-offset="748">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5062696" vertical-offset="2380" max-vertical-offset="18139">
@@ -1611,10 +1606,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0384614" vertical-offset="482" max-vertical-offset="1581">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.0384614" vertical-offset="499" max-vertical-offset="1598">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#159#210#0#PHP" expanded="true" />
+            <marker date="1429830611226" expanded="true" signature="159:419" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1659,18 +1654,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3485">
-          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+        <state vertical-scroll-proportion="-12.846154" vertical-offset="2947" max-vertical-offset="6698">
+          <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37587413" vertical-offset="2947" max-vertical-offset="6698">
-          <caret line="186" column="45" selection-start-line="186" selection-start-column="45" selection-end-line="186" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="598">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="663">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/BaseModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="598">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

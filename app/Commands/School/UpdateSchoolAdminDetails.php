@@ -51,7 +51,7 @@ class UpdateSchoolAdminDetails extends Command implements SelfHandling
         $admin->save();
 
         //raise new school event
-        \Event::fire(new NewSchoolRegistered($this->school,$admin));
+        \Event::fire(new NewSchoolRegistered($this->school, $admin));
 
         return $admin;
 

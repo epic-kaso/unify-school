@@ -3,20 +3,10 @@
 use UnifySchool\Commands\School\CreateNewSchool;
 use UnifySchool\Commands\School\UpdateSchoolAdminDetails;
 use UnifySchool\Commands\School\UpdateSchoolCategories;
-use UnifySchool\Country;
-use UnifySchool\Entities\School\SchoolAdministrator;
-use UnifySchool\Entities\School\ScopedSchoolCategory;
-use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
-use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
-use UnifySchool\Entities\School\ScopedSchoolType;
-use UnifySchool\Entities\School\ScopedSession;
-use UnifySchool\Entities\School\ScopedSessionType;
-use UnifySchool\Entities\School\ScopedSubSessionType;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\CreateSchoolRequest;
 use UnifySchool\School;
-use UnifySchool\State;
 
 class SchoolController extends Controller
 {

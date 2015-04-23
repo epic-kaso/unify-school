@@ -15,7 +15,8 @@ use UnifySchool\Entities\Resources\Excel\StudentExcelImport;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\UploadStudentsExcelRequest;
 
-class StudentImportController extends Controller{
+class StudentImportController extends Controller
+{
 
     /**
      * Store a newly created resource in storage.
@@ -30,7 +31,7 @@ class StudentImportController extends Controller{
         $response = [];
         $results = $excelImport->get();
 
-        foreach($results as $result){
+        foreach ($results as $result) {
             $response[] = new  StudentExcelObjectAdapter($result);
         }
 

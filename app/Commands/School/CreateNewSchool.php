@@ -2,10 +2,7 @@
 
 use Illuminate\Contracts\Bus\SelfHandling;
 use UnifySchool\Commands\Command;
-use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Entities\School\ScopedSchoolType;
-use UnifySchool\Entities\School\ScopedSessionType;
-use UnifySchool\Events\NewSchoolRegistered;
 use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
 use UnifySchool\Repositories\School\ScopedSchoolTypeRepository;
 use UnifySchool\Repositories\School\ScopedSessionTypeRepository;
@@ -92,8 +89,8 @@ class CreateNewSchool extends Command implements SelfHandling
     )
     {
         $school = $this->createSchool($schoolRepository);
-        $schoolType = $this->createScopedSchoolType($schoolTypeRepository,$this->school_type, $school,$sessionTypeRepository);
-        $schoolRepository->setSchoolType($school,$schoolType);
+        $schoolType = $this->createScopedSchoolType($schoolTypeRepository, $this->school_type, $school, $sessionTypeRepository);
+        $schoolRepository->setSchoolType($school, $schoolType);
         $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
 
 
@@ -129,16 +126,16 @@ class CreateNewSchool extends Command implements SelfHandling
         $cat = [];
         $cat['name'] = $school_type['name'];
         $cat['display_name'] = $school_type['display_name'];
-        $cat['scoped_session_type_id'] = $this->createSessionType($school_type,$sessionTypeRepository)->id;
+        $cat['scoped_session_type_id'] = $this->createSessionType($school_type, $sessionTypeRepository)->id;
         $cat['school_id'] = $school->id;
 
         $model = $schoolTypeRepository->create($cat);
         return $model;
     }
 
-    private function createSessionType(array $school_type,ScopedSessionTypeRepository $sessionTypeRepository)
+    private function createSessionType(array $school_type, ScopedSessionTypeRepository $sessionTypeRepository)
     {
-        
+
         $sessionData = [];
 
         $sessionData['school_id'] = $this->school->id;
@@ -156,7 +153,7 @@ class CreateNewSchool extends Command implements SelfHandling
         }
 
         $session = $sessionTypeRepository->create($sessionData);
-        return  $session;
+        return $session;
     }
 
     private function createScopedSchoolCategories(

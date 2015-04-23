@@ -26,7 +26,7 @@ class StudentsRequest extends Request
             'last_name' => 'required',
             'first_name' => 'required',
             'birth_date' => 'required',
-            'sex'        => 'required',
+            'sex' => 'required',
             'school_class' => 'required',
         ];
     }

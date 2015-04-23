@@ -1,29 +1,28 @@
 <?php namespace UnifySchool\Http\Requests;
 
-use UnifySchool\Http\Requests\Request;
+class UploadStudentsExcelRequest extends Request
+{
 
-class UploadStudentsExcelRequest extends Request {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return true;
-	}
-
-	/**
-	 * Get the validation rules that apply to the request.
-	 *
-	 * @return array
-	 */
-	public function rules()
-	{
-		return [
-			'excel_file' => 'required'
-		];
-	}
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'excel_file' => 'required'
+        ];
+    }
 
 }

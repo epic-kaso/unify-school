@@ -14,7 +14,8 @@ use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\SchoolProfileSettingsRequest;
 use UnifySchool\SchoolProfile;
 
-class SchoolProfileController extends Controller {
+class SchoolProfileController extends Controller
+{
 
     public function index()
     {
@@ -29,7 +30,7 @@ class SchoolProfileController extends Controller {
 
     public function store(SchoolProfileSettingsRequest $request)
     {
-        $school  = $this->getSchool();
+        $school = $this->getSchool();
         $schoolProfile = SchoolProfile::firstOrCreate(['school_id' => $school->id]);
         $schoolProfile->motto = $request->get('motto');
         $schoolProfile->mission = $request->get('mission');
@@ -39,19 +40,19 @@ class SchoolProfileController extends Controller {
         $schoolProfile->contact_phone_number = $request->get('contact_phone_number');
         $schoolProfile->established_date = Carbon::parse($request->get('established_date'));
 
-        $logoImage = $request->get('image',null);
+        $logoImage = $request->get('image', null);
 
-        if(!is_null($logoImage) && isset($logoImage['dataURL'])) {
+        if (!is_null($logoImage) && isset($logoImage['dataURL'])) {
             $logo = \Image::make($logoImage['dataURL'])->resize(300, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->encode('data-url');
 
-            $schoolProfile->logo = [ 'dataURL' => $logo->encoded ,'file' => ['type' => $logo->extension ]];
+            $schoolProfile->logo = ['dataURL' => $logo->encoded, 'file' => ['type' => $logo->extension]];
         }
         $schoolProfile->save();
 
 
-        $school->name = $request->get('name',$school->name);
+        $school->name = $request->get('name', $school->name);
         $school->save();
 
         return $schoolProfile;

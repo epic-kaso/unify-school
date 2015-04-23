@@ -1,7 +1,5 @@
 <?php namespace UnifySchool;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * UnifySchool\SessionType
  *

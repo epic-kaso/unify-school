@@ -23,8 +23,8 @@ Route::resource('/wizard', 'School\RegistrationWizardController');
 
 //Basic Routes
 Route::group(['middleware' => 'domain_access'], function () {
-        Route::get('home', 'LandingPageController@getIndex');
-    }
+    Route::get('home', 'LandingPageController@getIndex');
+}
 );
 
 //School Basic Resources API Route
@@ -87,7 +87,7 @@ Route::group(
         'prefix' => 'admin/modules',
         'namespace' => 'School\Modules'
     ],
-    function(){
+    function () {
         Route::resource('students', 'Admin\Students\StudentsController');
     }
 );

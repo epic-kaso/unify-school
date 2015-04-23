@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+
 use Illuminate\Support\Str;
 
 /**
@@ -34,13 +35,14 @@ class ScopedSchoolCategoryArm extends BaseModel
         'meta' => 'object'
     ];
 
-    protected $appends = ['has_subdivisions','arms_count'];
+    protected $appends = ['has_subdivisions', 'arms_count'];
 
-    public static function boot(){
+    public static function boot()
+    {
         parent::boot();
 
-        static::deleting(function($model){
-            foreach($model->school_category_arm_subdivisions as $arm){
+        static::deleting(function ($model) {
+            foreach ($model->school_category_arm_subdivisions as $arm) {
                 $arm->delete();
             }
         });
@@ -56,17 +58,20 @@ class ScopedSchoolCategoryArm extends BaseModel
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision');
     }
 
-    public function getHasSubdivisionsAttribute(){
+    public function getHasSubdivisionsAttribute()
+    {
         return $this->school_category_arm_subdivisions->count() > 1;
     }
 
-    public function getArmsCountAttribute(){
+    public function getArmsCountAttribute()
+    {
         return $this->school_category_arm_subdivisions->count() == 1 ? 0 : $this->school_category_arm_subdivisions->count();
     }
 
-    public function deleteDefaultSubdivision(){
-        if($this->school_category_arm_subdivisions->count() == 1){
-            foreach($this->school_category_arm_subdivisions as $item){
+    public function deleteDefaultSubdivision()
+    {
+        if ($this->school_category_arm_subdivisions->count() == 1) {
+            foreach ($this->school_category_arm_subdivisions as $item) {
                 $item->delete();
             }
         }
@@ -80,7 +85,7 @@ class ScopedSchoolCategoryArm extends BaseModel
 
     private function deleteAllSubdivisions()
     {
-        foreach($this->school_category_arm_subdivisions as $item){
+        foreach ($this->school_category_arm_subdivisions as $item) {
             $item->delete();
         }
     }

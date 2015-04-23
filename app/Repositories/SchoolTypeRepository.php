@@ -25,9 +25,9 @@ class SchoolTypeRepository extends BaseRepository
      */
     private $country;
 
-    public function __construct(App $app, Collection $collection,SchoolType $school, Country $country)
+    public function __construct(App $app, Collection $collection, SchoolType $school, Country $country)
     {
-        parent::__construct($app,$collection);
+        parent::__construct($app, $collection);
 
         $this->school = $school;
         $this->country = $country;
@@ -36,7 +36,7 @@ class SchoolTypeRepository extends BaseRepository
 
     public function fetchDefaultSchoolConfig()
     {
-        if($this->productionEnvironment()) {
+        if ($this->productionEnvironment()) {
             return \Cache::tags(SchoolType::table())
                 ->remember('schools_default_config', 60 * 24, function () {
                     return $this->school->withDefaults()->get();
@@ -49,9 +49,9 @@ class SchoolTypeRepository extends BaseRepository
     public function fetchSupportedCountries()
     {
 
-        if($this->productionEnvironment()) {
+        if ($this->productionEnvironment()) {
             return \Cache::tags(Country::table())
-                ->remember('schools_default_config', 60 * 24, function (){
+                ->remember('schools_default_config', 60 * 24, function () {
                     return $this->country->withStates()->get();
                 });
         }
@@ -66,6 +66,6 @@ class SchoolTypeRepository extends BaseRepository
      */
     public function model()
     {
-       return SchoolType::class;
+        return SchoolType::class;
     }
 }

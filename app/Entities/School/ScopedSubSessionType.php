@@ -1,7 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * UnifySchool\Entities\School\ScopedSubSessionType
  *
@@ -30,9 +28,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSubSessionType whereEndDate($value)
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
  */
-class ScopedSubSessionType extends BaseModel {
+class ScopedSubSessionType extends BaseModel
+{
 
-    public function session_type(){
+    public function session_type()
+    {
         return $this->belongsTo(ScopedSessionType::class);
     }
 }

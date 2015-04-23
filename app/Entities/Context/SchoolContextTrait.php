@@ -11,7 +11,8 @@ namespace UnifySchool\Entities\Context;
 
 use UnifySchool\School;
 
-trait SchoolContextTrait {
+trait SchoolContextTrait
+{
 
 
     public function getSchool()
@@ -26,7 +27,8 @@ trait SchoolContextTrait {
         $context->set($school);
     }
 
-    protected function productionEnvironment(){
-        return env('APP_ENV','local') != 'local';
+    protected function productionEnvironment()
+    {
+        return env('APP_ENV', 'local') != 'local';
     }
 }
