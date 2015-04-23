@@ -1,0 +1,478 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"col-s",
+				"col-sm-12"
+			],
+			[
+				"Quick",
+				"StudentQuickEnrollController"
+			],
+			[
+				"pri",
+				"prisoner"
+			],
+			[
+				"b",
+				"bail_date"
+			],
+			[
+				"calcu",
+				"calculateJailTime"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"setPrisoner",
+				"setPrisonerMugShots"
+			],
+			[
+				"Priso",
+				"PrisonerRequest"
+			],
+			[
+				"dis",
+				"disabilities"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"pr",
+				"prisoner"
+			],
+			[
+				"reg",
+				"regex2"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"share",
+				"shareViaFacebook"
+			],
+			[
+				"hi",
+				"hideSheet"
+			],
+			[
+				"sha",
+				"shareViaFacebook"
+			],
+			[
+				"Po",
+				"PostPage"
+			],
+			[
+				"direct",
+				"directives"
+			],
+			[
+				"co",
+				"collection"
+			],
+			[
+				"gradin",
+				"gradingSystem"
+			],
+			[
+				"gr",
+				"gradingSystem"
+			],
+			[
+				"total",
+				"total_score"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"opt",
+				"option	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
+			"settings":
+			{
+				"buffer_size": 1259,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 209.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/ui/enroll_student.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/js/module.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/Modules/Admin/Students/StudentsRequest.php",
+		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/AdminLoginRequest.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/partials/settings/session_term.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/settings.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/routes.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/Modules/Admin/StudentsRequest.php",
+		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/All Hallow's Eve.tmTheme",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/app.js",
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/master/js/custom/custom.js",
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/master/js/app.init.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/controllers.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/services.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/Http/routes.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/app.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/Http/Requests/PrisonerRequest.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/Http/Requests/AdviserRequest.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/Http/Controllers/Resources/PrisonerController.php",
+		"/C/xampp/phpMyAdmin/config.inc.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/ticket/add/step-one.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/Prisoner.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/app/BaseModel.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/.env",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/database/migrations/2015_04_22_141206_create_prisoners_table.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/vendor/nesbot/carbon/src/Carbon/Carbon.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/views/admin/layout.blade.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/views/app.blade.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/views/admin/dashboard.blade.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/ticket/menu.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/ticket/dashboard.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/advisers/dashboard.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/advisers/menu.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/ticket/add/base.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/assets/less/admin.less",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/public/partials/ticket/add/step-two.html",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/directives/imageupload.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/gulpfile.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/directives/tags-input.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/partials/settings/school.blade.php",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/directives.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/directives/filestyle.js",
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/vendor/angular-file-upload/angular-file-upload.js",
+		"/E/PhpProjects/FashionJunkie/bower.json",
+		"/E/PhpProjects/FashionJunkie/ionic.project",
+		"/E/PhpProjects/BusinessSME/backend/vendor/illuminate/support/composer.json",
+		"/E/PhpProjects/BusinessSME/backend/bootstrap/app.php",
+		"/E/PhpProjects/BusinessSME/backend/.env",
+		"/E/PhpProjects/BusinessSME/backend/composer.json",
+		"/E/PhpProjects/BusinessSME/backend/vendor/barryvdh/laravel-cors/src/CorsServiceProvider.php",
+		"/E/PhpProjects/FashionJunkie/www/index.html",
+		"/E/PhpProjects/FashionJunkie/www/templates/tab-view.html",
+		"/E/PhpProjects/FashionJunkie/www/templates/tab-dash.html",
+		"/E/PhpProjects/FashionJunkie/www/lib/ionic/css/ionic.css",
+		"/E/PhpProjects/FashionJunkie/www/js/controllers.js",
+		"/E/PhpProjects/FashionJunkie/www/templates/tab-account.html",
+		"/E/PhpProjects/FashionJunkie/www/templates/tab-chats.html",
+		"/C/Users/Ak/.ssh/github_rsa.pub",
+		"/E/PhpProjects/FashionJunkieAppBackEnd/App/app/Http/routes.php",
+		"/C/Users/Ak/.ssh/id_rsa.pub",
+		"/C/Users/Ak/.ssh/known_hosts",
+		"/E/PhpProjects/FashionJunkie/www/templates/tabs.html",
+		"/E/PhpProjects/FashionJunkie/www/css/style.css",
+		"/E/PhpProjects/FashionJunkie/www/js/app.js",
+		"/E/PhpProjects/FashionJunkie/config.xml",
+		"/E/PhpProjects/FashionJunkie/www/templates/about.html",
+		"/E/PhpProjects/FashionJunkie/www/templates/contact.html",
+		"/C/Users/Ak/PhpstormProjects/Klipboard/app/SchoolBoard/www/templates/login.html",
+		"/E/PhpProjects/FashionJunkie/platforms/android/AndroidManifest.xml",
+		"/E/PhpProjects/FashionJunkie/platforms/android/build.xml",
+		"/E/PhpProjects/FashionJunkie/www/js/services.js",
+		"/C/Users/Ak/.ssh/id_rsa",
+		"/C/Users/Ak/PhpstormProjects/Klipboard/app/SchoolBoard/www/templates/directives/browse-file.html",
+		"/C/Users/Ak/PhpstormProjects/Klipboard/app/SchoolBoard/www/js/directives.js",
+		"/C/Users/Ak/PhpstormProjects/Klipboard/app/SchoolBoard/www/templates/user/login.html",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/app/Http/Kernel.php",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/sample-client.txt",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/app/Http/routes.php",
+		"/C/Users/Ak/PhpstormProjects/SupergeeksGadgetProtection/app/Http/Kernel.php",
+		"/C/Users/Ak/PhpstormProjects/SupergeeksGadgetProtection/app/Http/routes.php",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/app/Console/Kernel.php",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/config/oauth2.php",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/.env",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/config/app.php",
+		"/C/Users/Ak/PhpstormProjects/SchoolBoard/composer.json",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/composer.json",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/public/index.php",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/bootstrap/app.php",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/app/Http/routes.php",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/.env.example",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/.env",
+		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/vendor/laravel/lumen-framework/src/Application.php",
+		"/E/Ak/Documents/y5nhbg/y5nhbg/DHLLINK.html",
+		"/E/Ak/Documents/dhl (2)/dhl/cache_main.php",
+		"/E/Ak/Documents/dhl (2)/dhl/cache.php",
+		"/E/Ak/Documents/y5nhbg/y5nhbg/decrypted/dhl-login.htm",
+		"/E/Ak/Documents/dhl (2)/dhl/decrypted/dhl-login-a.htm",
+		"/E/Ak/Documents/dhl (2)/dhl/dhl-login-a.html",
+		"/E/Ak/Documents/dhl (2)/dhl/dhl-login.html",
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/vendor/angularjs-toaster/toaster.js",
+		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/views/errors/404.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/partials/settings/academics.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/GradeAssessmentSystemsRequest.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Repositories/School/ScopedGradingSystemsRepository.php",
+		"/C/Users/Ak/Downloads/Chrome/sendy_mailer/includes/config.php",
+		"/C/Users/Ak/Downloads/Chrome/404-white-pack/404-white-pack/web/index.html",
+		"/C/Bitnami/nginxstack-1.6.2-1/php/php.ini",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/layout.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/students.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/routes.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/controllers/modules_controller.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/controllers/school_controller.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/services/TableService.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/app.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/services/Services.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/index.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/partials/modules/list.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/partials/modules/new.blade.php",
+		"/C/Users/Ak/Desktop/sinclair.html",
+		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/nginx.conf",
+		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/bitnami/bitnami.conf",
+		"/C/Users/Ak/Downloads/Chrome/sendy-2.0.2/sendy/includes/config.php",
+		"/C/Users/Ak/Downloads/Chrome/baba.html",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tpl",
+			"ngDialog",
+			"tpl",
+			"ngDialog",
+			"DialogIntroCtrl",
+			"modify",
+			"add",
+			"UserTicketForm",
+			"',\n",
+			"rightMugShot",
+			"centerMugShot",
+			"ticket.",
+			"jpeg",
+			"loader.gif",
+			"Device",
+			"ico",
+			"icon",
+			"button",
+			"post.featured_image.attachment_meta.sizes.medium.url",
+			"Storage",
+			"staff",
+			";\n",
+			"gradeAssessmentSystems",
+			"gradingSystems",
+			"$scope.gradeAssessmentSystems",
+			"$scope.gradingSystems",
+			"Tickets",
+			"fileinfo",
+			"list",
+			"school",
+			"'/',",
+			"var",
+			"slimscroll",
+			"Team messages",
+			"direct",
+			"video",
+			"direct-or",
+			"Video Source",
+			"pm-video-con",
+			"btn",
+			"pm-video-con",
+			"filestyle",
+			"img",
+			"<img",
+			"inputmask",
+			"xeditable",
+			"FormxEditableController",
+			"portlet",
+			"mschooltype",
+			"ngTableParams",
+			"NGTableCtrl",
+			"ngTableDataService",
+			"localhost",
+			"radio",
+			"schooltype",
+			"scholltype",
+			"classcategories"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"UserPrisonerForm",
+			"right_mug_shot",
+			"center_mug_shot",
+			"prisoner.",
+			"jpg",
+			"placeholder.jpeg",
+			"Prisoner",
+			"student"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1062,
+								1062
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 333.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 194.0,
+	"status_bar_visible": true
+}

@@ -165,6 +165,13 @@ App
         // Angular based script (use the right module name)
         modules: [
             {
+                name: 'ngDialog',
+                files: ['/framework/vendor/ngDialog/js/ngDialog.min.js',
+                        '/framework/vendor/ngDialog/css/ngDialog.min.css',
+                        '/framework/vendor/ngDialog/css/ngDialog-theme-default.min.css'
+                        ] 
+            },
+            {
                 name: 'ngUpload',
                 files: ['/framework/vendor/ngUpload/ng-upload.min.js']
             },

@@ -2,21 +2,43 @@
     <div class="col-sm-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3>Enroll Student</h3>
+              <a href="" 
+                ng-click="quickEnroll.openDialog($event)" 
+                class="btn btn-default pull-right">Quick Enroll</a>
+                
+                <h3 style="display: inline">Enroll Student</h3>
                 <hr/>
             </div>
 
             <div class="panel-body">
-                <form action="{{ route('admin.modules.students.store',[],false)  }}"
+                <form
+                      ng-init="EnrollStudentPostUrl = '{{ route('admin.modules.students.store',[],false)  }}'"
                       name="enrollStudentForm"
-                      ng-upload="enrollStudentCompleted(content)"
-                      ng-upload-loading="loading()"
+                      ng-submit="enrollStudent(student)"
                         >
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-horizontal">
                                 <h5 class="mt5"><strong>Personal Information</strong></h5>
                                 <hr/>
+                                <div class="form-group mt5">
+                                    <div class="col-sm-4">
+                                        <img style="max-height: 120px" class="img-responsive"
+                                             ng-src="@{{student.picture.dataURL || '/img/placeholder.jpg'}}"
+                                             type="@{{student.picture.file.type}}"/>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input id="inputImage"
+                                               filestyle=""
+                                               type="file"
+                                               data-classbutton="btn btn-default"
+                                               data-classinput="form-control inline"
+                                               class="form-control"
+                                               accept="image/*"
+                                               name="student.picture"
+                                               image="student.picture"/>
+                                    </div>
+                                </div>
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
                                         <input type="text"
@@ -59,10 +81,19 @@
                                 </div>
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
-                                        <input type="date"
-                                               class="form-control"
-                                               ng-model="student.birth_date" name="student.birth_date"
-                                               placeholder="Birth Date"/>
+                                        <p class="input-group">
+                                                <input  ng-disabled="student.saving" type="text"
+                                                        placeholder="Birth Date" class="form-control"
+                                                        datepicker-popup ng-model="student.birth_date"
+                                                        is-open="student.birthDateOpened"/>
+                                                <span class="input-group-btn">
+                                                   <button type="button"
+                                                           ng-click="openBirthDate($event,student)"
+                                                           class="btn btn-default">
+                                                       <em class="fa fa-calendar"></em>
+                                                   </button>
+                                                </span>
+                                            </p>
                                     </div>
 
                                     <div class="col-sm-6">
@@ -118,9 +149,9 @@
                                         <select class="form-control"
                                                 required=""
                                                 ng-model="student.sub_session"
+                                                ng-options="category.id as category.display_name for category in sub_sessions"
                                                 name="student.sub_session">
-                                            <option value="">Term</option>
-                                            <option value="first">First</option>
+                                            <option value="">Select Term</option>
                                         </select>
                                     </div>
                                 </div>
@@ -130,18 +161,18 @@
                                         <select class="form-control"
                                                 required=""
                                                 ng-model="student.school_category"
+                                                ng-options="category.id as category.display_name for category in schoolCategories"
                                                 name="student.school_category">
-                                            <option value="">Nursery</option>
-                                            <option value="active">Primary</option>
+                                            <option value="">Select School Category</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="form-control"
                                                 required=""
                                                 ng-model="student.school_class"
+                                                ng-options="category.id as category.display_name for category in classes"
                                                 name="student.school_class">
-                                            <option value="">Class</option>
-                                            <option value="active">JSS 1</option>
+                                            <option value="">Select a Class</option>
                                         </select>
                                     </div>
                                 </div>
@@ -191,7 +222,8 @@
 
                                 <div class="form-group mt5">
                                     <div class="col-sm-12">
-                                        <input type="text" tagsinput="tagsinput" ng-value="student.disabilities.join(',')"
+                                        <input type="text" tagsinput="tagsinput"
+                                               ng-value="student.disabilities.join(',')"
                                                ng-model="student.disabilities"
                                                name="student.disabilities"
                                                placeholder="Disabilities"
@@ -203,26 +235,7 @@
 
                         <div class="col-sm-4">
                             <div class="form-horizontal">
-                                <div class="form-group mt5">
-                                    <div class="col-sm-12">
-                                        <img style="max-height: 120px" class="img-responsive"
-                                             ng-src="@{{student.picture.dataURL || '/img/placeholder.jpg'}}"
-                                             type="@{{student.picture.file.type}}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group mt5">
-                                    <div class="col-sm-12 mt5">
-                                        <input id="inputImage"
-                                               filestyle=""
-                                               type="file"
-                                               data-classbutton="btn btn-default"
-                                               data-classinput="form-control inline"
-                                               class="form-control"
-                                               accept="image/*"
-                                               name="student.picture"
-                                               image="student.picture"/>
-                                    </div>
-                                </div>
+                                
 
                                 <h5 class="mt5"><strong>Contact Information</strong></h5>
                                 <hr/>
@@ -261,7 +274,8 @@
                             <input type="submit"
                                    value="Save"
                                    class="btn btn-success"
-                                   ng-disabled="$isUploading" />
+                                   ng-click="enrollStudent(student)"
+                                   ng-disabled="student.isUploading" />
                             </span>
                         </div>
                     </div>
@@ -270,3 +284,93 @@
         </div>
     </div>
 </div>
+
+   <!-- Templates -->
+   <script type="text/ng-template" id="StudentQuickEnrollDialog">
+      <div class="row" style="padding: 15px">
+        <h3 class="mt0">Quickly Enroll a Student</h3>
+        <form>
+          <div class="form-group row">
+                <div class="col-sm-6">
+                    <input type="text"
+                           required=""
+                           ng-model="quickStudent.last_name"
+                           name="quickStudent.last_name"
+                           class="form-control"
+                           placeholder="Last Name"/>
+                </div>
+
+                <div class="col-sm-6">
+                    <input type="text"
+                           required=""
+                           ng-model="quickStudent.first_name"
+                           name="quickStudent.first_name"
+                           class="form-control"
+                           placeholder="First Name"/>
+                </div>
+            </div>
+            <div class="form-group row mt5">
+                <div class="col-sm-6">
+                    <select class="form-control"
+                            required=""
+                            ng-model="quickStudent.sex"
+                            name="quickStudent.sex">
+                        <option value="">Sex</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <p class="input-group">
+                        <input  ng-disabled="quickStudent.saving" type="text"
+                                placeholder="Start Date" class="form-control"
+                                datepicker-popup ng-model="quickStudent.birth_date"
+                                is-open="quickStudent.birthDateOpened"/>
+                        <span class="input-group-btn">
+                           <button type="button"
+                                   ng-click="openBirthDate($event,quickStudent)"
+                                   class="btn btn-default">
+                               <em class="fa fa-calendar"></em>
+                           </button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group row mt5">
+                <div class="col-sm-6">
+                    <select class="form-control"
+                            required=""
+                            ng-model="quickStudent.school_category"
+                            ng-options="category.id as category.display_name for category in schoolCategories"
+                            name="quickStudent.school_category">
+                        <option value="">Select School Category</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control"
+                            required=""
+                            ng-model="quickStudent.school_class"
+                            ng-options="category.id as category.display_name for category in classes"
+                            name="quickStudent.school_class">
+                        <option value="">Select a Class</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt5">
+              <div class="col-sm-12">
+                   <button type="button" 
+                        ng-click="closeThisDialog('cancel')" 
+                        class="btn btn-default mr">Cancel
+                  </button>
+                  <button type="button" 
+                          ng-click="enrollStudent(quickStudent,closeThisDialog);"
+                          class="btn btn-primary">Save
+                  </button>
+              </div>
+            </div>
+       
+          </div>    
+        </form>
+      </div>
+   </script>

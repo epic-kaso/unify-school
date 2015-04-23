@@ -17,30 +17,28 @@ class CreateScopeStudentsTable extends Migration
             $table->increments('id');
             $table->integer('school_id');
             $table->string('reg_number');
-            $table->string('password');
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('other_names');
-            $table->string('religion');
-            $table->string('complexion');
-            $table->string('height');
-            $table->boolean('disabled');
-            $table->text('disabilities');
-            $table->text('blood_group');
-            $table->text('genotype');
-            $table->date('birth_date');
-            $table->text('place_of_birth');
-            $table->text('hometown');
-            $table->text('state_of_origin');
-            $table->text('country_of_origin');
-
-            $table->text('residential_address');
-            $table->text('residential_city');
-            $table->text('residential_state');
-            $table->text('residential_country');
-
-            $table->date('registration_date');
+            $table->string('password')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('other_names')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('complexion')->nullable();
+            $table->string('height')->nullable();
+            $table->boolean('disabled')->nullable();
+            $table->text('disabilities')->nullable();
+            $table->text('blood_group')->nullable();
+            $table->text('genotype')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->text('place_of_birth')->nullable();
+            $table->text('hometown')->nullable();
+            $table->text('state_of_origin')->nullable();
+            $table->text('country_of_origin')->nullable();
+            $table->text('residential_address')->nullable();
+            $table->text('residential_city')->nullable();
+            $table->text('residential_state')->nullable();
+            $table->text('residential_country')->nullable();
+            $table->date('registration_date')->nullable();
 
             $table->timestamps();
 

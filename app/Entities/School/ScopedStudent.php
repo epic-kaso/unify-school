@@ -67,6 +67,8 @@
 class ScopedStudent extends BaseModel
 {
 
-    //
+    protected $casts = [
+        'picture' => 'array'
+    ];
 
 }

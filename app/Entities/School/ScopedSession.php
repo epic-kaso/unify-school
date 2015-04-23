@@ -22,6 +22,9 @@
  */
 class ScopedSession extends BaseModel {
 
-	//
+    public function scopeCurrentSession($query){
+        $data = $query->whereCurrentSession(true)->first();
+        return empty($data) ? '' : $data->name;
+	}
 
 }

@@ -27,16 +27,83 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
             url: '/enroll-student',
             templateUrl: ViewBaseURL + '/enroll_student',
             title: 'Enroll A New Student',
-            controller: ['$scope','toaster',
-                function ($scope,toaster) {
-                    $scope.enrollStudentCompleted = function(content){
-                        var r =  angular.fromJson(content);
-                        console.log(r);
+            controller: ['$scope','toaster','$rootScope','SchoolDataService','ngDialog','$http',
+                function ($scope,toaster,$rootScope,SchoolDataService,ngDialog,$http) {
+                    console.log('School::');
+                    console.log(SchoolDataService.school);
+                    $scope.EnrollStudentPostUrl = "";
+
+                    $scope.quickEnroll =    {
+                                                openDialog: function($event){
+                                                    ngDialog.open({
+                                                        template: 'StudentQuickEnrollDialog',
+                                                        className: 'ngdialog-theme-default',
+                                                        controller: 'StudentQuickEnrollController',
+                                                        scope: $scope
+                                                    });
+
+                                                    $event.preventDefault();
+                                                }
+                                            };
+
+
+
+                    $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+                    $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+                    $scope.selectedSchoolCategory = $scope.schoolCategories[0];
+                    $scope.classes = $scope.selectedSchoolCategory.classes;
+
+                    $scope.student = {
+                        school_category: '',
+                        school_class: '',
+                        admission_date: new Date()
+                    };
+
+                    $scope.enrollStudent = function(student,callback){
+                        student.isUploading =  true;
+                        $scope.loading();
+
+                        $http.post($scope.EnrollStudentPostUrl,student)
+                        .success(function(response){
+
+                        })
+                        .error(function(response){
+
+                        })
+                        .finally(function(){
+                            student.isUploading =  false;
+                                if(angular.isDefined(callback) && callback !== null && angular.isFunction(callback)){
+                                    callback();
+                                }
+                        });
                     };
 
                     $scope.loading = function(){
                         toaster.pop('wait','Enroll Student','Upload Started...',3000);
-                    }
+                    };
+
+                    $scope.openBirthDate = function($event,student){
+                        $event.stopPropagation();
+                        $event.preventDefault();
+                        student.birthDateOpened = true;
+                    };
+
+
+                    $rootScope.$on('SCHOOL_CONTEXT_CHANGED',function(event,obj){
+                        console.log('Context changed');
+                        console.log(obj);
+                        $scope.student.school_class =  obj.category_level.id;
+                        $scope.student.school_category =  obj.school_category.id;
+                    });
+
+                    $scope.$watch('student.school_category',function(newV,oldV){
+                        angular.forEach($scope.schoolCategories,function(value,key){
+                            if(value.id == newV ){
+                                $scope.selectedSchoolCategory = value;
+                                $scope.classes = $scope.selectedSchoolCategory.classes;
+                            }
+                        });
+                    });
                 }
             ]
         }).state('app.students.enroll_students',
@@ -121,3 +188,7 @@ App.controller('StudentsImportController',['$scope','SchoolDataService',
 App.controller('ManageStudentsController',['$scope',function($scope){
 
 }]);
+
+App.controller('StudentQuickEnrollController',['$scope',function($scope){
+
+}])
