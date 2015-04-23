@@ -138,12 +138,14 @@
                                 <hr/>
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
-                                        <input type="date"
+                                        <input type="text"
                                                ng-model="student.session"
                                                required=""
+                                               data-inputmask="'mask': '9999/9999'"
+                                               masked=""
                                                name="student.session"
                                                class="form-control"
-                                               placeholder="Session"/>
+                                               placeholder="Session eg 2014/2015"/>
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="form-control"
@@ -179,12 +181,23 @@
 
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
-                                        <input type="date"
-                                               required=""
-                                               ng-model="student.admission_date"
-                                               name="student.admission_date"
-                                               class="form-control"
-                                               placeholder="Date of Admission"/>
+                                        <p class="input-group">
+                                            <input  ng-disabled="student.saving"
+                                                    type="text"
+                                                    name="student.admission_date"
+                                                    placeholder="Date of Admission"
+                                                    class="form-control"
+                                                    datepicker-popup
+                                                    ng-model="student.admission_date"
+                                                    is-open="student.admissionDateOpened"/>
+                                                <span class="input-group-btn">
+                                                   <button type="button"
+                                                           ng-click="openAdmissionDate($event,student)"
+                                                           class="btn btn-default">
+                                                       <em class="fa fa-calendar"></em>
+                                                   </button>
+                                                </span>
+                                        </p>
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="form-control"

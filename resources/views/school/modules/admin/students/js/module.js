@@ -88,6 +88,12 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                         student.birthDateOpened = true;
                     };
 
+                    $scope.openAdmissionDate = function($event,student){
+                        $event.stopPropagation();
+                        $event.preventDefault();
+                        student.admissionDateOpened = true;
+                    };
+
 
                     $rootScope.$on('SCHOOL_CONTEXT_CHANGED',function(event,obj){
                         console.log('Context changed');
