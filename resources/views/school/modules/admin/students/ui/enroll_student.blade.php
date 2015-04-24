@@ -163,7 +163,7 @@
                                         <select class="form-control"
                                                 required=""
                                                 ng-model="student.school_category"
-                                                ng-options="category.id as category.display_name for category in schoolCategories"
+                                                ng-options="category as category.display_name for category in schoolCategories"
                                                 name="student.school_category">
                                             <option value="">Select School Category</option>
                                         </select>
@@ -172,7 +172,7 @@
                                         <select class="form-control"
                                                 required=""
                                                 ng-model="student.school_class"
-                                                ng-options="category.id as category.display_name for category in classes"
+                                                ng-options="category.id as category.display_name for category in student.school_category.classes"
                                                 name="student.school_class">
                                             <option value="">Select a Class</option>
                                         </select>
@@ -365,7 +365,7 @@
                     <select class="form-control"
                             required=""
                             ng-model="quickStudent.school_category"
-                            ng-options="category.id as category.display_name for category in schoolCategories"
+                            ng-options="category as category.display_name for category in schoolCategories"
                             name="quickStudent.school_category">
                         <option value="">Select School Category</option>
                     </select>

@@ -102,6 +102,7 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
         };
 
         $scope.enrollStudent = function (student, callback) {
+            student.school_category = student.school_category.id;
             student.isUploading = true;
             $scope.loading();
 
