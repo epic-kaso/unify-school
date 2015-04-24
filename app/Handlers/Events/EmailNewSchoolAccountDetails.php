@@ -33,10 +33,11 @@ class EmailNewSchoolAccountDetails
         
         $admin_email = $event->getAdministrator()->email;
 
-        Mail::queue('emails.school.new_school', ['school' => $school], function ($message) use ($admin_email) {
-            $message
-                ->to($admin_email)
-                ->subject('Successful School Registration, School Details');
+        Mail::queue('emails.school.new_school', ['school' => $school], 
+            function ($message) use ($admin_email) {
+                $message
+                    ->to($admin_email)
+                    ->subject('Successful School Registration, School Details');
         });
 
     }

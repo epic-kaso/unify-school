@@ -110,7 +110,9 @@ class School extends BaseModel
 
     public function scopeBySlug($query, $slug)
     {
-        return $query->where('slug', $slug)->first();
+        return $query->where('slug', $slug)
+                     ->with(static::$relationData)
+                     ->first();
     }
 
     public function scopeIsActive($query)
