@@ -51,11 +51,12 @@ class SchoolController extends Controller
         );
         $school = $this->dispatch($createSchool);
 
-        $this->setGlobalContext($school);
-
         $school->load(School::$relationData);
 
+        $this->setGlobalContext($school);
+
         $this->cleanUpCache();
+
         return $school;
     }
 
@@ -142,6 +143,5 @@ class SchoolController extends Controller
     {
         \Cache::flush();
     }
-
 
 }
