@@ -111,7 +111,8 @@ class StudentsController extends Controller
     private function generateRegNumber()
     {
         $reg = ScopedSession::currentSession();
-        $studentCount = ScopedStudent::count() + 1;
+        $count = ScopedStudent::all()->count();
+        $studentCount = is_int($count) ? $count + 1 : 1;
         return "$reg/$studentCount";
     }
 
