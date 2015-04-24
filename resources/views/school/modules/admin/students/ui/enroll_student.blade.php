@@ -347,7 +347,7 @@
                 <div class="col-sm-6">
                     <p class="input-group">
                         <input  ng-disabled="quickStudent.saving" type="text"
-                                placeholder="Start Date" class="form-control"
+                                placeholder="Birth Date" class="form-control"
                                 datepicker-popup ng-model="quickStudent.birth_date"
                                 is-open="quickStudent.birthDateOpened"/>
                         <span class="input-group-btn">
@@ -374,7 +374,7 @@
                     <select class="form-control"
                             required=""
                             ng-model="quickStudent.school_class"
-                            ng-options="category.id as category.display_name for category in classes"
+                            ng-options="category.id as category.display_name for category in quickStudent.school_category.classes"
                             name="quickStudent.school_class">
                         <option value="">Select a Class</option>
                     </select>

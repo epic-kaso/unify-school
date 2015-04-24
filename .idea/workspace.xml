@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new_school.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php">
+      <file leaf-file-name="enroll_student.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7072" vertical-offset="0" max-vertical-offset="625">
-              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state vertical-scroll-proportion="2.36" vertical-offset="4645" max-vertical-offset="6885">
+              <caret line="360" column="22" selection-start-line="360" selection-start-column="22" selection-end-line="360" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -97,7 +97,6 @@
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/home.blade.php" />
         <option value="$PROJECT_DIR$/app/BaseModel.php" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" />
-        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_23_231345_add_columns_to_scoped_students.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/manage-students.blade.php" />
@@ -109,6 +108,7 @@
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js" />
         <option value="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php" />
       </list>
     </option>
   </component>
@@ -246,11 +246,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="super-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="school" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -272,15 +268,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="super-admin" />
+              <option name="myItemId" value="school" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,19 +294,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="super-admin" />
+              <option name="myItemId" value="school" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="schools" />
+              <option name="myItemId" value="students" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,7 +332,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="super-admin" />
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="students" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,116 +441,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SuperAdmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SuperAdmin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -613,12 +545,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00192" summary="Session and Term Settings">
-      <created>1427891713381</created>
-      <option name="number" value="00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1427891713381</updated>
     </task>
     <task id="LOCAL-00193" summary="Classess Settings Completed">
       <created>1427892329596</created>
@@ -908,7 +834,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429871228305</updated>
     </task>
-    <option name="localTasksCounter" value="241" />
+    <task id="LOCAL-00241" summary="Seting Up Modules">
+      <created>1429871505194</created>
+      <option name="number" value="00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1429871505194</updated>
+    </task>
+    <option name="localTasksCounter" value="242" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1240,14 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3091" max-vertical-offset="3706">
-          <caret line="207" column="19" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="952">
@@ -1268,14 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4755245" vertical-offset="238" max-vertical-offset="1088">
           <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.951049" vertical-offset="3893" max-vertical-offset="6885">
-          <caret line="261" column="32" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1623,8 +1539,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7072" vertical-offset="0" max-vertical-offset="625">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.7344" vertical-offset="0" max-vertical-offset="625">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding>
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429871492224" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7910906" vertical-offset="1100" max-vertical-offset="3706">
+          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+          <folding>
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/students'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/enroll-student'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/enroll-students'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/manage'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/import'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: '/export'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;template&quot;: 'StudentQuickEnrollDialog'...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;school_category&quot;: ''...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{&quot;school_category&quot;: null...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429831566818" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/enroll_student.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.36" vertical-offset="4645" max-vertical-offset="6885">
+          <caret line="360" column="22" selection-start-line="360" selection-start-column="22" selection-end-line="360" selection-end-column="22" />
           <folding />
         </state>
       </provider>
