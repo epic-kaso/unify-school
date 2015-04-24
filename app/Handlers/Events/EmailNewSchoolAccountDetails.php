@@ -29,7 +29,7 @@ class EmailNewSchoolAccountDetails
 
         Log::debug('New School Register Event handler called');
 
-        $school = $event->getSchool();
+        $school = $event->getSchool()->toArray();
         
         $admin_email = $event->getAdministrator()->email;
 
