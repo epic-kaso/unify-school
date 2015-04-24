@@ -119,7 +119,7 @@
 			"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 			"settings":
 			{
-				"buffer_size": 1259,
+				"buffer_size": 1378,
 				"line_ending": "Windows"
 			}
 		}
@@ -156,6 +156,9 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Entities/Context/SchoolContextTrait.php",
+		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/ui/enroll_student.blade.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/js/module.js",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/Modules/Admin/Students/StudentsRequest.php",
@@ -280,10 +283,7 @@
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/partials/modules/new.blade.php",
 		"/C/Users/Ak/Desktop/sinclair.html",
 		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/nginx.conf",
-		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/bitnami/bitnami.conf",
-		"/C/Users/Ak/Downloads/Chrome/sendy-2.0.2/sendy/includes/config.php",
-		"/C/Users/Ak/Downloads/Chrome/baba.html",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/SuperAdmin/Resources/NavigationMenuController.php"
+		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/bitnami/bitnami.conf"
 	],
 	"find":
 	{
@@ -390,15 +390,15 @@
 					"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 					"settings":
 					{
-						"buffer_size": 1259,
+						"buffer_size": 1378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1062,
-								1062
+								1204,
+								1204
 							]
 						],
 						"settings":
@@ -409,7 +409,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 333.0,
+						"translation.y": 309.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

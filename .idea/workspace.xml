@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/manage-students.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/manage-students.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -832,12 +831,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00187" summary="Session and Term Settings">
-      <created>1427876995862</created>
-      <option name="number" value="00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1427876995862</updated>
-    </task>
     <task id="LOCAL-00188" summary="Session and Term Settings">
       <created>1427877029144</created>
       <option name="number" value="00188" />
@@ -1126,7 +1119,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429834490178</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="Seting Up Modules">
+      <created>1429834567944</created>
+      <option name="number" value="00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1429834567944</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">

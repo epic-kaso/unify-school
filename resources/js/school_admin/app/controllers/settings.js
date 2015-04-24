@@ -627,7 +627,7 @@ app.controller('SettingsAcademicsController',
         $scope.gradingSystems = 
         {
             loading: true,
-            data: null,
+            data: [],
             empty: false,
             isAddingNewGradingSystem: false
         };
@@ -763,7 +763,7 @@ app.controller('SettingsAcademicsController',
         $scope.gradeAssessmentSystems = 
         {
             loading: true,
-            data: null,
+            data: [],
             empty: false,
             isAddingNewGradeAssessmentSystem: false
         };
