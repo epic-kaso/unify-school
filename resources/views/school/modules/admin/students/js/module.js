@@ -98,7 +98,7 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
         $scope.student = {
             school_category: '',
             school_class: '',
-            admission_date: new Date()
+            admission_date: null
         };
 
         $scope.enrollStudent = function (student, callback) {
