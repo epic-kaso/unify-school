@@ -4,12 +4,10 @@
     <div class="block-center mt-xl wd-xl">
         <!-- START panel-->
         <div class="panel panel-dark panel-flat">
-            <div class="panel-heading text-center">
-                <a href="#">
-                    <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-rounded"/>
-                </a>
-            </div>
             <div class="panel-body">
+                <a href="#">
+                    <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-responsive" style="height: 50px"/>
+                </a>
                 <h2 style="text-align: center">Super Admin Login</h2>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">

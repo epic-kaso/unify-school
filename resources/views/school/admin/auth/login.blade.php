@@ -7,7 +7,8 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <a href="#">
-                            <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-rounded"/>
+                            <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-responsive"
+                                 style="height: 50px"/>
                         </a>
                         <h2 style="text-align: center">{{ $school->name }}</h2>
 
