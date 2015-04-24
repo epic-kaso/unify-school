@@ -5,7 +5,10 @@
         </div>
         <div class="row">
             <div class="col-lg-10">
-                <button class="btn btn-danger" ng-click="deleteSchool(schoo.id)">Delete</button>
+                <button ng-disabled="school.deleting" class="btn btn-danger" ng-click="deleteSchool(school)">
+                    <span ng-show="!school.deleting">Delete</span>
+                    <span ng-show="school.deleting"><span class="fa fa-spinner fa-spin"></span> Deleting</span>
+                </button>
             </div>
         </div>
     </div>

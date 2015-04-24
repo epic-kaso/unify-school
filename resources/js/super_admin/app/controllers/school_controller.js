@@ -1,6 +1,6 @@
 App.controller('SchoolController', ['$scope', 'SchoolsDataService', 'ngTableParams', 'TableDataService', 'SchoolService', 'toaster',
                     function ($scope, SchoolsDataService, ngTableParams, ngTableDataService, SchoolService, toaster) {
-                        $scope.schools = SchoolsDataService.schools;
+                        $scope.schools = SchoolService.query({});//SchoolsDataService.schools;
                         $scope.tableParams = new ngTableParams({
                             page: 1,            // show first page
                             count: 10           // count per page
@@ -53,12 +53,16 @@ App.controller('ViewSchoolController',[
             });
         };
 
-        $scope.deleteSchool =  function(school_id){
-            SchoolService.delete({id: school_id},function(response){
+        $scope.deleteSchool =  function(school){
+            school.deleting = true;
+            console.log(school);
+            SchoolService.delete({id: school.id},function(response){
                 toaster.pop('success','School','Deleted Successfully');
+                school.deleting = false;
                 $state.go('app.schools');
             },function(){
                 toaster.pop('error','School','Failed');
+                school.deleting = false;
             })
         };
 }]);
