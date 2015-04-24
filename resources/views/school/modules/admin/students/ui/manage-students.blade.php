@@ -13,7 +13,7 @@
                             <div class="portlet-handler">
                                 <div class="row row-table row-flush">
                                     <div class="col-xs-4 bg-inverse text-center">
-                                        <em class="fa fa-code-fork fa-2x"></em>
+                                        <img style="height: 55px;border-radius: 100px;" class="img-responsive img-rounded img-thumbnail" ng-src="@{{ student.picture.dataURL || 'img/placeholder.jpg'}}" alt=""/>
                                     </div>
                                     <div class="col-xs-8">
                                         <div class="panel-body text-center bg-inverse">
