@@ -25,9 +25,4 @@
         <td>Students Portal</td>
         <td>{{ $school['student_website'] or $school->student_website }}</td>
     </tr>
-
-    <tr>
-        <td>Admin Email</td>
-        <td>{{ $school['administrator']['email'] or $school->administrator->email }}</td>
-    </tr>
 </table>

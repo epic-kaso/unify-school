@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/super_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/super_admin/js/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/super_admin/js/app.js" afterPath="$PROJECT_DIR$/public/super_admin/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js" afterPath="$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" afterPath="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -31,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="school_controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js">
+      <file leaf-file-name="new_school.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3655914" vertical-offset="0" max-vertical-offset="1241">
-              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.7072" vertical-offset="0" max-vertical-offset="625">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -61,7 +58,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/staff/js/module.js" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/academics/js/module.js" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/academics/ui/home.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
@@ -112,6 +108,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
         <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js" />
+        <option value="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" />
       </list>
     </option>
   </component>
@@ -356,30 +353,12 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="super_admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="emails" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,19 +376,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="super_admin" />
+              <option name="myItemId" value="emails" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="school" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -424,10 +399,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,12 +613,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00191" summary="Session and Term Settings">
-      <created>1427891485254</created>
-      <option name="number" value="00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1427891485254</updated>
     </task>
     <task id="LOCAL-00192" summary="Session and Term Settings">
       <created>1427891713381</created>
@@ -937,7 +902,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429870725615</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="Seting Up Modules">
+      <created>1429871228305</created>
+      <option name="number" value="00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1429871228305</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1058,13 +1029,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Entities/School/ScopedStaff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.728" vertical-offset="1415" max-vertical-offset="2176">
-          <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/settings/staff.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.5555553" vertical-offset="0" max-vertical-offset="7055">
@@ -1632,6 +1596,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3655914" vertical-offset="0" max-vertical-offset="1241">
           <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+          <folding>
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{&quot;page&quot;: 1...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{&quot;total&quot;: 0...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{&quot;action&quot;: 'updateActiveState'...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429871188307" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7072" vertical-offset="0" max-vertical-offset="625">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding />
         </state>
       </provider>
