@@ -6,7 +6,7 @@
         <div class="panel panel-dark panel-flat">
             <div class="panel-heading text-center">
                 <a href="#">
-                    <img src="app/img/logo.png" alt="Image" class="block-center img-rounded"/>
+                    <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-rounded"/>
                 </a>
             </div>
             <div class="panel-body">

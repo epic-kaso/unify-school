@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"with",
+				"withData"
+			],
+			[
 				"Re",
 				"Request"
 			],
@@ -119,8 +123,32 @@
 			"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 			"settings":
 			{
-				"buffer_size": 1378,
+				"buffer_size": 3625,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
+			"settings":
+			{
+				"buffer_size": 3716,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Commands/School/CreateNewSchool.php",
+			"settings":
+			{
+				"buffer_size": 5593,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Handlers/Events/EmailNewSchoolAccountDetails.php",
+			"settings":
+			{
+				"buffer_size": 953,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -156,7 +184,24 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Ak/.ssh/id_rsa.pub",
+		"/C/Users/Ak/PhpstormProjects/Unify/.env",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/app.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Events/NewSchoolRegistered.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Handlers/Events/EmailNewSchoolAccountDetails.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/config/queue.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/emails/school/new_school.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/LandingPageController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/School/SchoolController.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Entities/Context/SchoolContextTrait.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Middleware/DomainAccess.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/School.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/routes.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/RegistrationWizardController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/register/wizard/partial/step-one.blade.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/settings.js",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Commands/School/CreateNewSchool.php",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/User/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/ui/enroll_student.blade.php",
@@ -165,12 +210,10 @@
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/AdminLoginRequest.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/partials/settings/session_term.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/settings.js",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/routes.js",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/Modules/Admin/StudentsRequest.php",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/All Hallow's Eve.tmTheme",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/app.js",
 		"/C/Users/Ak/Documents/WB04HF123/backend-angular/master/js/custom/custom.js",
 		"/C/Users/Ak/Documents/WB04HF123/backend-angular/master/js/app.init.js",
 		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/js/admin/app/controllers.js",
@@ -220,7 +263,6 @@
 		"/E/PhpProjects/FashionJunkie/www/templates/tab-chats.html",
 		"/C/Users/Ak/.ssh/github_rsa.pub",
 		"/E/PhpProjects/FashionJunkieAppBackEnd/App/app/Http/routes.php",
-		"/C/Users/Ak/.ssh/id_rsa.pub",
 		"/C/Users/Ak/.ssh/known_hosts",
 		"/E/PhpProjects/FashionJunkie/www/templates/tabs.html",
 		"/E/PhpProjects/FashionJunkie/www/css/style.css",
@@ -269,21 +311,7 @@
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Repositories/School/ScopedGradingSystemsRepository.php",
 		"/C/Users/Ak/Downloads/Chrome/sendy_mailer/includes/config.php",
 		"/C/Users/Ak/Downloads/Chrome/404-white-pack/404-white-pack/web/index.html",
-		"/C/Bitnami/nginxstack-1.6.2-1/php/php.ini",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/layout.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/students.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/routes.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/controllers/modules_controller.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/controllers/school_controller.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/services/TableService.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/app.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/super_admin/app/services/Services.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/index.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/partials/modules/list.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/super-admin/dashboard/partials/modules/new.blade.php",
-		"/C/Users/Ak/Desktop/sinclair.html",
-		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/nginx.conf",
-		"/C/Bitnami/nginxstack-1.6.2-1/nginx/conf/bitnami/bitnami.conf"
+		"/C/Bitnami/nginxstack-1.6.2-1/php/php.ini"
 	],
 	"find":
 	{
@@ -301,6 +329,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bindContextToSchool",
 			"tpl",
 			"ngDialog",
 			"tpl",
@@ -383,6 +412,7 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -390,15 +420,15 @@
 					"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 					"settings":
 					{
-						"buffer_size": 1378,
+						"buffer_size": 3625,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1204,
-								1204
+								0,
+								0
 							]
 						],
 						"settings":
@@ -410,6 +440,93 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 309.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
+					"settings":
+					{
+						"buffer_size": 3716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1502,
+								1502
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 593.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Commands/School/CreateNewSchool.php",
+					"settings":
+					{
+						"buffer_size": 5593,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2846,
+								2846
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 956.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Handlers/Events/EmailNewSchoolAccountDetails.php",
+					"settings":
+					{
+						"buffer_size": 953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								949,
+								949
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 152.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

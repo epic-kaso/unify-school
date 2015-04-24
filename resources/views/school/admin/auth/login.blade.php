@@ -6,6 +6,9 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <a href="#">
+                            <img src="/app/img/klipboard-purple.png" alt="Image" class="block-center img-rounded"/>
+                        </a>
                         <h2 style="text-align: center">{{ $school->name }}</h2>
 
                         <h3 style="text-align: center">Admin Login</h3>

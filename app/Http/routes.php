@@ -130,6 +130,7 @@ Route::group(
         Route::resource('resources/menu', 'Resources\NavigationMenuController');
         Route::resource('resources/school', 'Resources\SchoolController');
         Route::resource('resources/modules', 'Resources\ModulesController');
+
+        Route::get('logs', ['middleware'=>'auth.unify', 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);
     }
 );
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
