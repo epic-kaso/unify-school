@@ -29,7 +29,8 @@ class EmailNewSchoolAccountDetails
 
         Log::debug('New School Register Event handler called');
 
-        $school = $event->getSchool()->load(School::$relationData);
+        $school = $event->getSchool();
+        
         $admin_email = $event->getAdministrator()->email;
 
         Mail::queue('emails.school.new_school', ['school' => $school], function ($message) use ($admin_email) {
