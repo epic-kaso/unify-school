@@ -43,6 +43,23 @@ class StudentsController extends Controller
             'school_class'
         ];
 
+        $optionalKeys = [
+            'middle_name' => 'middle_name',
+            'other_name' => 'other_names',
+            'religion' => 'religion',
+            'country' => 'country_of_origin',
+            'state' => 'state_of_origin',
+            'lga' => 'hometown',
+            'admission_date' => 'registration_date',
+            'blood_group' => 'blood_group',
+            'genotype' => 'genotype',
+            'disabilities' => 'disabilities',
+            'medical_conditions' => 'medical_conditions',
+            'contact_phone'  => 'contact_phone',
+            'contact_email' => 'contact_email',
+            'contact_address' => 'contact_email',
+        ];
+
         $requiredData = $request->only($requiredKeys);
         $requiredClassStudentData = $request->only($requiredClassStudentKeys);
 
@@ -54,6 +71,12 @@ class StudentsController extends Controller
 
         $classStudent = $this->createClassStudent($request, $currentSchool, $student, $requiredClassStudentData);
         $classStudent->save();
+
+        foreach($optionalKeys as $key => $value){
+            $student->{$value} = $request->get($key,'');
+        }
+        $this->preparePicture($student,$request);
+        $student->save();
 
         return $student;
     }
@@ -81,7 +104,7 @@ class StudentsController extends Controller
         $classStudent->school_id = $currentSchool->id;
         $classStudent->scoped_student_id = $student->id;
         $classStudent->scoped_school_category_arm_subdivision_id = $requiredClassStudentKeys['school_class'];
-        $classStudent->academic_session = $request->get('academic_session', ScopedSession::currentSession());
+        $classStudent->academic_session = $request->get('session', ScopedSession::currentSession());
         return $classStudent;
     }
 
@@ -90,5 +113,15 @@ class StudentsController extends Controller
         $reg = ScopedSession::currentSession();
         $studentCount = ScopedStudent::count() + 1;
         return "$reg/$studentCount";
+    }
+
+    private function preparePicture($student, $request)
+    {
+        $picture = $request->get('picture');
+        if(!empty($picture)){
+            $student->picture = ['dataURL' => $picture['dataURL']];
+        }
+
+        return $student;
     }
 }

@@ -16,6 +16,10 @@ class AddColumnsToScopedStudents extends Migration {
 		{
 			$table->string('sex')->nullable();
             $table->longText('picture')->nullable();
+            $table->longText('medical_conditions')->nullable();
+            $table->text('contact_phone')->nullable();
+            $table->text('contact_email')->nullable();
+            $table->text('contact_address')->nullable();
 		});
 	}
 
@@ -28,7 +32,7 @@ class AddColumnsToScopedStudents extends Migration {
 	{
 		Schema::table('scoped_students', function(Blueprint $table)
 		{
-			$table->dropColumn(['sex','picture']);
+			$table->dropColumn(['sex','picture','medical_conditions','contact_phone','contact_email','contact_address']);
 		});
 	}
 

@@ -199,15 +199,15 @@
                                                 </span>
                                         </p>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <select class="form-control"
-                                                required=""
-                                                ng-model="student.admission_status"
-                                                name="student.admission_status">
-                                            <option value="">Active</option>
-                                            <option value="first">First</option>
-                                        </select>
-                                    </div>
+                                    {{--<div class="col-sm-6">--}}
+                                        {{--<select class="form-control"--}}
+                                                {{--required=""--}}
+                                                {{--ng-model="student.admission_status"--}}
+                                                {{--name="student.admission_status">--}}
+                                            {{--<option value="">Active</option>--}}
+                                            {{--<option value="first">First</option>--}}
+                                        {{--</select>--}}
+                                    {{--</div>--}}
                                 </div>
 
 
@@ -240,6 +240,17 @@
                                                ng-model="student.disabilities"
                                                name="student.disabilities"
                                                placeholder="Disabilities"
+                                               class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group mt5">
+                                    <div class="col-sm-12">
+                                        <input type="text" tagsinput="tagsinput"
+                                               ng-value="student.medical_conditions.join(',')"
+                                               ng-model="student.medical_conditions"
+                                               name="student.medical_conditions"
+                                               placeholder="Medical Conditions"
                                                class="form-control">
                                     </div>
                                 </div>
