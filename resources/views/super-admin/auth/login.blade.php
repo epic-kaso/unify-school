@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <div class="col-md-12" style="margin-bottom: 10px">
                             <input type="email" placeholder="E-Mail Address" class="form-control" name="email"
-                                   value="{{ old('email') }}">
+                                   value="{{ old('e mail') }}">
                         </div>
                     </div>
 

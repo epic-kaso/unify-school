@@ -89,7 +89,7 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-
+        return School::destroy($id);
     }
 
 

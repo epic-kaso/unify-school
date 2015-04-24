@@ -36,8 +36,8 @@ App.controller('SchoolController', ['$scope', 'SchoolsDataService', 'ngTablePara
                     }]);
 
 App.controller('ViewSchoolController',[
-    '$scope','school','modules','SchoolService','toaster',
-    function($scope,school,modules,SchoolService,toaster){
+    '$scope','school','modules','SchoolService','toaster','$state',
+    function($scope,school,modules,SchoolService,toaster,$state){
         $scope.school = school;
         $scope.modules = modules;
 
@@ -51,5 +51,14 @@ App.controller('ViewSchoolController',[
             },function(data){
                 toaster.pop('error','School','Failed');
             });
-        }
+        };
+
+        $scope.deleteSchool =  function(school_id){
+            SchoolService.delete({id: school_id},function(response){
+                toaster.pop('success','School','Deleted Successfully');
+                $state.go('app.schools');
+            },function(){
+                toaster.pop('error','School','Failed');
+            })
+        };
 }]);

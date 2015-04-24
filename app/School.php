@@ -2,7 +2,21 @@
 
 use Illuminate\Support\Str;
 use UnifySchool\Entities\School\CacheModelObserver;
+use UnifySchool\Entities\School\ScopedBehaviour;
+use UnifySchool\Entities\School\ScopedClassStudent;
+use UnifySchool\Entities\School\ScopedCourse;
+use UnifySchool\Entities\School\ScopedCourseCategory;
+use UnifySchool\Entities\School\ScopedGradeAssessmentSystem;
+use UnifySchool\Entities\School\ScopedGradingSystem;
+use UnifySchool\Entities\School\ScopedSchoolCategory;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArm;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Entities\School\ScopedSchoolType;
+use UnifySchool\Entities\School\ScopedSession;
+use UnifySchool\Entities\School\ScopedSkill;
+use UnifySchool\Entities\School\ScopedStaff;
+use UnifySchool\Entities\School\ScopedStudent;
+use UnifySchool\Entities\School\ScopedSubSessionType;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
 
 /**
@@ -93,6 +107,26 @@ class School extends BaseModel
 
         static::saved(function (School $model) {
             $model->clearCache();
+        });
+
+        static::deleting(function (School $model) {
+            \DB::transaction(function() use ($model) {
+                ScopedSchoolType::whereSchoolId($model->id)->delete();
+                ScopedStudent::whereSchoolId($model->id)->delete();
+                ScopedSession::whereSchoolId($model->id)->delete();
+                ScopedBehaviour::whereSchoolId($model->id)->delete();
+                ScopedClassStudent::whereSchoolId($model->id)->delete();
+                ScopedCourse::whereSchoolId($model->id)->delete();
+                ScopedCourseCategory::whereSchoolId($model->id)->delete();
+                ScopedGradeAssessmentSystem::whereSchoolId($model->id)->delete();
+                ScopedGradingSystem::whereSchoolId($model->id)->delete();
+                ScopedSchoolCategory::whereSchoolId($model->id)->delete();
+                ScopedSchoolCategoryArm::whereSchoolId($model->id)->delete();
+                ScopedSchoolCategoryArmSubdivision::whereSchoolId($model->id)->delete();
+                ScopedSkill::whereSchoolId($model->id)->delete();
+                ScopedStaff::whereSchoolId($model->id)->delete();
+                ScopedSubSessionType::whereSchoolId($model->id)->delete();
+            });
         });
 
         static::observe(new CacheModelObserver());

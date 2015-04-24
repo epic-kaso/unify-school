@@ -4,8 +4,9 @@
             <h2>@{{ school.name }}</h2>
         </div>
         <div class="row">
-
-            <div class="col-lg-10"></div>
+            <div class="col-lg-10">
+                <button class="btn btn-danger" ng-click="deleteSchool(schoo.id)">Delete</button>
+            </div>
         </div>
     </div>
     <div class="panel-body">
