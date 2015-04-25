@@ -12,6 +12,7 @@
 */
 
 Route::get('/', ['middleware' => 'domain_access', 'uses' => 'LandingPageController@getIndex']);
+Route::get('/flush-cache',[ 'uses' => 'LandingPageController@getFlushCache']);
 
 Route::get('/wizard/partials/{name}.html', 'School\RegistrationWizardController@partial');
 Route::resource('/wizard', 'School\RegistrationWizardController');
@@ -134,8 +135,3 @@ Route::group(
         Route::get('logs', ['middleware'=>'auth.unify', 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);
     }
 );
-
-Route::get('flush-cache',function(){
-    Cache::flush();
-    return 'Done';
-});
