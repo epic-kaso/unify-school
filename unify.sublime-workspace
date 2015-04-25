@@ -123,7 +123,7 @@
 			"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 			"settings":
 			{
-				"buffer_size": 3625,
+				"buffer_size": 4043,
 				"line_ending": "Windows"
 			}
 		},
@@ -131,7 +131,7 @@
 			"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
 			"settings":
 			{
-				"buffer_size": 3716,
+				"buffer_size": 3103,
 				"line_ending": "Windows"
 			}
 		},
@@ -148,6 +148,22 @@
 			"settings":
 			{
 				"buffer_size": 953,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/js/app.js",
+			"settings":
+			{
+				"buffer_size": 208851,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
+			"settings":
+			{
+				"buffer_size": 25469,
 				"line_ending": "Unix"
 			}
 		}
@@ -184,6 +200,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
 		"/C/Users/Ak/.ssh/id_rsa.pub",
 		"/C/Users/Ak/PhpstormProjects/Unify/.env",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/app.js",
@@ -310,8 +327,7 @@
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Repositories/School/ScopedGradingSystemsRepository.php",
 		"/C/Users/Ak/Downloads/Chrome/sendy_mailer/includes/config.php",
-		"/C/Users/Ak/Downloads/Chrome/404-white-pack/404-white-pack/web/index.html",
-		"/C/Bitnami/nginxstack-1.6.2-1/php/php.ini"
+		"/C/Users/Ak/Downloads/Chrome/404-white-pack/404-white-pack/web/index.html"
 	],
 	"find":
 	{
@@ -329,6 +345,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"parsley",
 			"bindContextToSchool",
 			"tpl",
 			"ngDialog",
@@ -412,7 +429,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -420,7 +437,7 @@
 					"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
 					"settings":
 					{
-						"buffer_size": 3625,
+						"buffer_size": 4043,
 						"regions":
 						{
 						},
@@ -449,15 +466,15 @@
 					"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
 					"settings":
 					{
-						"buffer_size": 3716,
+						"buffer_size": 3103,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1502,
-								1502
+								0,
+								0
 							]
 						],
 						"settings":
@@ -526,7 +543,63 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 152.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/js/app.js",
+					"settings":
+					{
+						"buffer_size": 208851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160052,
+								160055
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 74222.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
+					"settings":
+					{
+						"buffer_size": 25469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7517,
+								7523
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

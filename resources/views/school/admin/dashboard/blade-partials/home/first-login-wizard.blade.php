@@ -27,6 +27,10 @@
                     <!-- START Wizard Step inputs -->
                     <div id="step1" ng-show="wizard.active(1)">
                         <div class="row" style="margin-top: 50px;">
+                            <div class="col-sm-12">
+                                <h4>Introduction</h4>
+                                <hr/>
+                            </div>
                             <div class="col-sm-3 text-center">
                                 <span class="fa fa-5x fa-bell-o"></span>
                             </div>
@@ -58,19 +62,38 @@
                     <div id="step2" ng-show="wizard.active(2)">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p>Setup data goes here</p>
+                                <h4>Academic Settings</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <table class="table">
+                                    <tr>
+                                        <td><label>Create a Default Grading system</label></td>
+                                        <td><button class="btn btn-primary">Create</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><label>Create a Default Grade Assessment System</label></td>
+                                        <td><button class="btn btn-primary">Create</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><label>Create a Default Behaviour Assessment System</label></td>
+                                        <td><button class="btn btn-primary">Create</button></td>
+                                    </tr>
+                                </table>
+
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12">
 
+
                                 <span class="btn btn-labeled btn-default pull-left"
                                       ng-click="wizard.go(1)">
                                     <span class="btn-label btn-label-right">
                                        <i class="fa fa-arrow-left"></i>
-                                   </span>
-                                    Previous
+                                   </span> Previous
                                 </span>
 
                                 <span class="btn btn-labeled btn-default pull-right"
@@ -88,7 +111,36 @@
                     <div id="step3" ng-show="wizard.active(3)">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p>Setup 3</p>
+                                <div class="col-sm-12">
+                                    <h4>Session & Term Settings</h4>
+                                </div>
+                                <div class="col-sm-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td><label>Set current session</label></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="2014/2015">2014/2015</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button title="Add New Session" class="btn btn-default btn-xs"><span class="fa fa-plus"></span></button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><label>Select current term</label></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="first">First Term</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button title="Add New Term" class="btn btn-default btn-xs"><span class="fa fa-plus"></span></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -137,14 +189,6 @@
 
                             </div>
                         </div>
-
-                        <ul class="pager">
-                            <li class="previous">
-                                <a href="#" ng-click="wizard.go(3)">
-                                    <span>&larr; Previous</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                     <!-- END Wizard Step inputs -->
                 </div>
