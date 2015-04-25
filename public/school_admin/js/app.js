@@ -1099,7 +1099,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 abstract: true,
                 templateUrl: ViewBaseURL + '/ui/app',
                 controller: 'AppController',
-                resolve: helper.resolveFor('modernizr', 'icons','toaster','ngDialog')
+                resolve: helper.resolveFor('modernizr', 'icons','toaster','ngDialog','parsley')
             })
             .state('app.home',
             {
@@ -2971,6 +2971,22 @@ App.directive('tagsinput', function($timeout) {
         element.tagsinput();
       });
 
+    }
+  };
+});
+
+/**=========================================================
+ * Module: validate-form.js
+ * Initializes the validation plugin Parsley
+ =========================================================*/
+
+App.directive('validateForm', function() {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element) {
+      var $elem = $($element);
+      if($.fn.parsley)
+        $elem.parsley();
     }
   };
 });

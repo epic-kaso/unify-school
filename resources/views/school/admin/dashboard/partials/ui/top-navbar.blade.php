@@ -31,11 +31,11 @@
             <li>
                 <div class="btn-group btn-block" dropdown>
                     <button type="button" class="btn btn-primary navbar-btn"
-                            style="background-color: #4285f4;
+                            style="background-color: inherit;
                             font-size: 15px;font-weight: 600;"><span>@{{ selectedSchoolCategory.display_name || 'All' }}</span></button>
                     <button type="button"
                             class="btn btn-primary navbar-btn dropdown-toggle"
-                            style="background-color: #4285f4"
+                            style="background-color: inherit"
                             dropdown-toggle>
                         <span class="caret"></span>
                         <span class="sr-only">Split button!</span>
