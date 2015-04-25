@@ -160,7 +160,8 @@ App
             'modernizr': ['/framework/vendor/modernizr/modernizr.js'],
             'icons': ['/framework/vendor/fontawesome/css/font-awesome.min.css',
                 '/framework/vendor/simple-line-icons/css/simple-line-icons.css'],
-            'inputmask': ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js']
+            'inputmask': ['/framework/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js'],
+            'parsley':            ['/framework/vendor/parsleyjs/dist/parsley.min.js']
         },
         // Angular based script (use the right module name)
         modules: [
