@@ -44,4 +44,13 @@ class ScopedSessionRepository extends BaseRepository
 
         return $item;
     }
+
+    public function isCurrentSessionConfigured()
+    {
+        $value = $this->getCurrentSession();
+
+        if(empty($value))
+            return false;
+        return true;
+    }
 }

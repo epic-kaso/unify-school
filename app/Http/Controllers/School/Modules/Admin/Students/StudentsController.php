@@ -8,6 +8,7 @@
 
 namespace UnifySchool\Http\Controllers\School\Modules\Admin\Students;
 
+use Carbon\Carbon;
 use UnifySchool\Entities\School\ScopedClassStudent;
 use UnifySchool\Entities\School\ScopedSession;
 use UnifySchool\Entities\School\ScopedStudent;
@@ -29,6 +30,11 @@ class StudentsController extends Controller
 
     public function store(StudentsRequest $request)
     {
+        if(!$this->validateRequirements()){
+            abort(422,['error' => 'Make Sure You have completed system setup']);
+            return;
+        }
+
         $currentSchool = $this->getSchool();
 
         $requiredKeys = [
@@ -111,6 +117,7 @@ class StudentsController extends Controller
     private function generateRegNumber()
     {
         $reg = ScopedSession::currentSession();
+
         $count = ScopedStudent::all()->count();
         $studentCount = is_int($count) ? $count + 1 : 1;
         return "$reg/$studentCount";
@@ -124,5 +131,16 @@ class StudentsController extends Controller
         }
 
         return $student;
+    }
+
+    private function validateRequirements()
+    {
+        $reg = ScopedSession::currentSession();
+        if(empty($reg)){
+            return false;
+        }
+
+        return true;
+
     }
 }

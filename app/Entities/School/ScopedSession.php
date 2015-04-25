@@ -19,6 +19,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSession whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @method static \UnifySchool\Entities\School\ScopedSession currentSession()
  */
 class ScopedSession extends BaseModel
 {

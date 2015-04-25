@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Input;
+use UnifySchool\Events\Academics\GradingSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\GradingSystemsRequest;
@@ -105,7 +106,8 @@ class GradingSystemsController extends Controller
      * @param ScopedSchoolCategoriesRepository $schoolCategoriesRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function assignGradeAssessmentSystem(GradingSystemsRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
+    private function assignGradeAssessmentSystem(GradingSystemsRequest $request,
+                                                 ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
         $data = $request->input();
         foreach ($data as $key => $value) {
@@ -131,6 +133,9 @@ class GradingSystemsController extends Controller
             'slug' => Str::slug($request->get('name')),
             'grades' => $request->get('grades')
         ]);
+
+        event(new GradingSystemAdded());
+
         return \Response::json(['all' => $repository->all(), 'success' => true]);
     }
 }

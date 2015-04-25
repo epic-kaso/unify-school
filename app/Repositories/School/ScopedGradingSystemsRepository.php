@@ -61,4 +61,9 @@ class ScopedGradingSystemsRepository extends BaseRepository
 
         $gradingSystem->save();
     }
+
+    public function isGradingSystemConfigured()
+    {
+        return $this->all()->count() > 0;
+    }
 }

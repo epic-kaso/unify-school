@@ -50,30 +50,6 @@
                     </ul>
                 </div>
             </li>
-
-            <li ng-show="selectedSchoolCategory">
-                <div class="btn-group btn-block" dropdown>
-                    <button type="button" class="btn btn-primary navbar-btn"
-                            style="background-color: #4285f4;
-                            font-size: 15px;font-weight: 600;"><span
-                                ng-bind="classItems.selected.display_name"></span></button>
-                    <button type="button"
-                            class="btn btn-primary navbar-btn dropdown-toggle"
-                            style="background-color: #4285f4"
-                            dropdown-toggle>
-                        <span class="caret"></span>
-                        <span class="sr-only">Split button!</span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li ng-if="classItems.submenu.length > 1">
-                            <a href="#">All</a>
-                        </li>
-                        <li ng-repeat="category in classItems.submenu">
-                            <a href="#" ng-click="prepareSchoolLevel($event,category)">@{{ category.display_name }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
         </ul>
         <!-- END Left navbar-->
 

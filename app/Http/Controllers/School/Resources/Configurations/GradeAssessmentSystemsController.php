@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use Input;
+use UnifySchool\Events\Academics\GradeAssessmentSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\GradeAssessmentSystemsRequest;
@@ -130,6 +131,9 @@ class GradeAssessmentSystemsController extends Controller
             'total_score' => $request->get('total_score'),
             'divisions' => $request->get('divisions')
         ]);
+
+        event(new GradeAssessmentSystemAdded());
+
         return \Response::json(['all' => $repository->all(), 'success' => true]);
     }
 

@@ -6,6 +6,7 @@ use UnifySchool\Commands\School\UpdateSchoolCategories;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\CreateSchoolRequest;
+use UnifySchool\Repositories\SchoolRepository;
 use UnifySchool\School;
 
 class SchoolController extends Controller
@@ -16,22 +17,14 @@ class SchoolController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param SchoolRepository $schoolRepository
      * @return Response
      */
-    public function index()
+    public function index(SchoolRepository $schoolRepository)
     {
-        return School::withData()->get();
+        return $schoolRepository->all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -64,42 +57,34 @@ class SchoolController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
+     * @param SchoolRepository $schoolRepository
      * @return Response
      */
-    public function show($id)
+    public function show($id,SchoolRepository $schoolRepository)
     {
-        $school = School::withData()->find($id);
+        $school = $schoolRepository->find($id);
         return $school;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  int $id
      * @param CreateSchoolRequest $request
+     * @param SchoolRepository $schoolRepository
      * @return Response
      */
-    public function update($id, CreateSchoolRequest $request)
+    public function update($id, CreateSchoolRequest $request,SchoolRepository $schoolRepository)
     {
         $action = $request->get('action');
 
         switch ($action) {
             case $this->action_admin_login_details_update:
-                $this->updateAdminLoginDetails($request);
+                $schoolRepository->updateAdminLoginDetails($request);
                 break;
             case $this->action_school_categories_update:
-                $this->updateSchoolCategories($request);
+                $schoolRepository->updateSchoolCategories($request);
                 break;
         }
 
@@ -108,35 +93,18 @@ class SchoolController extends Controller
         return School::withData()->find($request->get('id'));
     }
 
-    private function updateAdminLoginDetails($request)
-    {
-        $admin_email = $request->get('admin_email');
-        $admin_password = $request->get('admin_password');
-
-        $updateAdminDetailsCmd = new UpdateSchoolAdminDetails($admin_email, $admin_password, $this->getSchool());
-        $this->dispatch($updateAdminDetailsCmd);
-    }
-
-    private function updateSchoolCategories($request)
-    {
-        $school_type = $request->get('school_type');
-
-        if (isset($school_type['school_categories'])) {
-            $updateSchoolCategoriesCommand =
-                new UpdateSchoolCategories($school_type['school_categories'], $this->getSchool());
-            $this->dispatch($updateSchoolCategoriesCommand);
-        }
-    }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     * @param SchoolRepository $schoolRepository
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id,SchoolRepository $schoolRepository)
     {
         $this->cleanUpCache();
+        return $schoolRepository->delete($id);
     }
 
     private function cleanUpCache()

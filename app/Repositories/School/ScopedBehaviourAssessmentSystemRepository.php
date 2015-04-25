@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Ak
- * Date: 3/21/2015
- * Time: 7:28 AM
+ * Date: 4/25/2015
+ * Time: 11:57 AM
  */
 
 namespace UnifySchool\Repositories\School;
 
 
-use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
+use UnifySchool\Entities\School\ScopedBehaviour;
 use UnifySchool\Repositories\BaseRepository;
 
-class ScopedSchoolClassRepository extends BaseRepository
-{
+class ScopedBehaviourAssessmentSystemRepository extends BaseRepository{
 
     /**
      * Specify Model class name
@@ -22,10 +21,11 @@ class ScopedSchoolClassRepository extends BaseRepository
      */
     public function model()
     {
-        return ScopedSchoolCategoryArmSubdivision::class;
+        return ScopedBehaviour::class;
     }
 
-    public function isSchoolClassConfigured(){
+    public function isBehaviourAssessmentSystemConfigured()
+    {
         return $this->all()->count() > 0;
     }
 }

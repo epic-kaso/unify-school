@@ -11,6 +11,7 @@ namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use UnifySchool\BehaviourCategory;
 use UnifySchool\Entities\School\ScopedBehaviour;
+use UnifySchool\Events\Academics\BehaviourAssessmentSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\BehaviourAssessmentRequest;
 
@@ -37,6 +38,8 @@ class BehaviourAssessmentSystemController extends Controller
         $behaviour->name = $request->get('name');
         $behaviour->behaviour_category_id = $request->get('behaviour_category_id');
         $behaviour->save();
+
+        event(new BehaviourAssessmentSystemAdded());
 
         return \Response::json(['all' => ScopedBehaviour::with('behaviour_category')->get()]);
     }

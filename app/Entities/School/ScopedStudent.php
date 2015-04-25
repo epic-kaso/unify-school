@@ -63,6 +63,18 @@
  * @property-read \UnifySchool\School $school
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereRememberToken($value)
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property string $sex 
+ * @property string $picture 
+ * @property string $medical_conditions 
+ * @property string $contact_phone 
+ * @property string $contact_email 
+ * @property string $contact_address 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereSex($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent wherePicture($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereMedicalConditions($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactPhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactAddress($value)
  */
 class ScopedStudent extends BaseModel
 {

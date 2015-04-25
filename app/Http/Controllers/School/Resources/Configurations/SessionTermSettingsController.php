@@ -11,6 +11,7 @@ namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use UnifySchool\Entities\School\ScopedSessionType;
+use UnifySchool\Events\SessionAndTerm\CurrentSessionSet;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\SessionTermSettingsRequest;
 use UnifySchool\Repositories\School\ScopedSessionRepository;
@@ -48,9 +49,7 @@ class SessionTermSettingsController extends Controller
 
         switch ($action) {
             case 'default':
-                $sessionRepository->setCurrentSession($request->get('current_session'));
-                $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
-                return \Response::json(['success' => true]);
+                return $this->setOrCreateCurrentSession($request, $sessionRepository, $subSessionTypeRepository);
             case static::$action_save_sub_session_dates:
                 return $this->saveSubSessionTimes($request, $subSessionTypeRepository);
             case static::$action_add_sub_session:
@@ -114,5 +113,21 @@ class SessionTermSettingsController extends Controller
         ]);
 
         return \Response::json(['all' => ScopedSessionType::with('sub_sessions')->where('school_id', $this->getSchool()->id)->first()->sub_sessions]);
+    }
+
+    /**
+     * @param SessionTermSettingsRequest $request
+     * @param ScopedSessionRepository $sessionRepository
+     * @param ScopedSubSessionTypeRepository $subSessionTypeRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function setOrCreateCurrentSession(SessionTermSettingsRequest $request, ScopedSessionRepository $sessionRepository, ScopedSubSessionTypeRepository $subSessionTypeRepository)
+    {
+        $sessionRepository->setCurrentSession($request->get('current_session'));
+        $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
+
+        event(new CurrentSessionSet());
+
+        return \Response::json(['success' => true]);
     }
 }

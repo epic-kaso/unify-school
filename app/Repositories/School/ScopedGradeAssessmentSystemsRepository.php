@@ -24,4 +24,9 @@ class ScopedGradeAssessmentSystemsRepository extends BaseRepository
     {
         return ScopedGradeAssessmentSystem::class;
     }
+
+    public function isGradeAssessmentSystemConfigured()
+    {
+        return $this->all()->count() > 0;
+    }
 }

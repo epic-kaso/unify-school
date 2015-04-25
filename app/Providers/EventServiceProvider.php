@@ -2,10 +2,15 @@
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use UnifySchool\Events\Academics\BehaviourAssessmentSystemAdded;
+use UnifySchool\Events\Academics\GradeAssessmentSystemAdded;
+use UnifySchool\Events\Academics\GradingSystemAdded;
 use UnifySchool\Events\NewSchoolRegistered;
+use UnifySchool\Events\SessionAndTerm\CurrentSessionSet;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
 use UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails;
 use UnifySchool\Handlers\Events\GenerateDefaultSessionsForSchool;
+use UnifySchool\Handlers\Events\SchoolConfigStatusHandler;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -21,6 +26,18 @@ class EventServiceProvider extends ServiceProvider
         ],
         TertiaryOrNonTertiarySchoolTypeDetected::class => [
             GenerateDefaultSessionsForSchool::class
+        ],
+        BehaviourAssessmentSystemAdded::class  => [
+            SchoolConfigStatusHandler::class
+        ],
+        GradeAssessmentSystemAdded::class  => [
+            SchoolConfigStatusHandler::class
+        ],
+        GradingSystemAdded::class  => [
+            SchoolConfigStatusHandler::class
+        ],
+        CurrentSessionSet::class  => [
+            SchoolConfigStatusHandler::class
         ],
     ];
 
