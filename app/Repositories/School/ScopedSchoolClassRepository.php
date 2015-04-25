@@ -26,6 +26,6 @@ class ScopedSchoolClassRepository extends BaseRepository
     }
 
     public function isSchoolClassConfigured(){
-        return $this->all()->count() > 0;
+        return count($this->all()) > 0;
     }
 }

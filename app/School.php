@@ -95,6 +95,8 @@ class School extends BaseModel
     protected $casts = [
         'school_object' => 'object',
         'active' => 'boolean',
+        'first_login' => 'boolean',
+        'setup_complete' => 'boolean',
         'modules' => 'array',
     ];
 

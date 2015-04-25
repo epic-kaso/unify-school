@@ -64,6 +64,6 @@ class ScopedGradingSystemsRepository extends BaseRepository
 
     public function isGradingSystemConfigured()
     {
-        return $this->all()->count() > 0;
+        return count($this->all()) > 0;
     }
 }

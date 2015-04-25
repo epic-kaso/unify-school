@@ -134,3 +134,8 @@ Route::group(
         Route::get('logs', ['middleware'=>'auth.unify', 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);
     }
 );
+
+Route::get('flush-cache',function(){
+    Cache::flush();
+    return 'Done';
+});

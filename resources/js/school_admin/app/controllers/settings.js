@@ -90,6 +90,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 console.log('Saved Changes');
                 toaster.pop('success', "Current Session & Term", "Changes Saved Succesfully");
                 current.saving = false;
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Current Session & Term", "Failed to save changes, Try Again");
@@ -103,6 +104,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 console.log('Saved Changes');
                 toaster.pop('success', "Term Start & End Date", "Changes Saved Succesfully");
                 subSessions.saving = false;
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Term Start & End Date", "Failed to save changes, Try Again");
@@ -125,6 +127,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 term.saving = false;
                 $scope.sub_sessions = response.all;
                 callback();
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Manage Term", "Failed to save, Try Again");
@@ -139,6 +142,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 toaster.pop('success', "Manage Term", "Removed Succesfully");
                 term.saving = false;
                 $scope.sub_sessions = response.all;
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Manage Term", "Failed to remove, Try Again");
@@ -344,6 +348,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 parcel.saving = false;
                 school_type.school_categories.splice(indexToRemove, 1);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 parcel.saving = false;
@@ -368,6 +373,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 school_category.saving = false;
                 school_category.name = '';
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 school_category.saving = false;
@@ -402,6 +408,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 console.log('Saved Changes');
                 $scope.school.school_type.school_categories.splice(index,1,response.model);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
@@ -416,6 +423,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                     console.log('Saved Changes');
                     school_category_arm_subdivisions.splice(index, 1);
                     toaster.pop('success', "School Category Arm Subdivision", "Changes Saved Succesfully");
+                    $scope.$emit('refreshSchoolData');
                 }, function (data) {
                     console.log('could not save changes');
                     toaster.pop('error', "School Category Arm Subdivision", "Failed to save changes, Try Again");
@@ -457,6 +465,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 console.log('Saved Changes');
                 school_category.school_category_arms.push(response.model);
                 toaster.pop('success', "School Category Arm", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
@@ -714,6 +723,7 @@ app.controller('SettingsAcademicsController',
                     $scope.gradingSystems.data = response.all;
                     toaster.pop('success', "New Grading System", "Added Successfully");
                     $scope.gradingSystems.isAddingNewGradingSystem = false;
+                    $scope.$emit('refreshSchoolData');
                 }
             }, function (data) {
                 $scope.gradingSystems.isAddingNewGradingSystem = false;
@@ -728,6 +738,7 @@ app.controller('SettingsAcademicsController',
                 console.log('delete success');
                 toaster.pop('success', "Grading System", "Deleted Successfully");
                 gradingSystems.splice(index, 1);
+                $scope.$emit('refreshSchoolData');
             }, function () {
                 console.log('delete failure');
                 toaster.pop('error', "Grading System", "Failed to Delete, Try Again");
@@ -739,6 +750,7 @@ app.controller('SettingsAcademicsController',
             GradingSystemService.update({id: gradingSystem.id}, gradingSystem).$promise.then(function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "Grading System", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "Grading System", "Failed to save changes, Try Again");
@@ -748,6 +760,7 @@ app.controller('SettingsAcademicsController',
         $scope.saveAssignedGradingSystem = function (assignedGradingSystem){
             GradingSystemService.assignGradingSystem(assignedGradingSystem).$promise.then(function(){
                 toaster.pop('success', "Assign Grading System", "Assignments Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 toaster.pop('error', "Assign Grading System", "Failed to save assignments");
             });
@@ -836,6 +849,7 @@ app.controller('SettingsAcademicsController',
                 $scope.gradeAssessmentSystems.isAddingNewGradeAssessmentSystem = false;
                 if (response.success) {
                     $scope.gradeAssessmentSystems.data = response.all;
+                    $scope.$emit('refreshSchoolData');
                 }
             }, function (data) {
                 $scope.gradeAssessmentSystems.isAddingNewGradeAssessmentSystem = false;
@@ -849,6 +863,7 @@ app.controller('SettingsAcademicsController',
             GradeAssessmentSystemService.delete(gradeAssessmentSystem, function (data) {
                 console.log('delete success');
                 gradeAssessmentSystems.splice(index, 1);
+                $scope.$emit('refreshSchoolData');
             }, function () {
                 console.log('delete failure');
             });
@@ -862,6 +877,7 @@ app.controller('SettingsAcademicsController',
                 GradeAssessmentSystemService.update({id: gradeAssessmentSystem.id}, gradeAssessmentSystem).$promise.then(function (response) {
                     console.log('Saved Changes');
                     toaster.pop('success', "Grade Assessment System", "Changes Saved Succesfully");
+                    $scope.$emit('refreshSchoolData');
                 }, function (data) {
                     console.log('could not save changes');
                     toaster.pop('error', "Grade Assessment System", "Changes Failed");
@@ -922,6 +938,7 @@ app.controller('SettingsAcademicsController',
                 toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
                 behaviour.adding = false;
                 behaviour.name = '';
+                $scope.$emit('refreshSchoolData');
             },function(){
                 behaviour.adding = false;
                 toaster.pop('error', "behaviour Assessment System", "Failed to add behaviour");
@@ -934,6 +951,7 @@ app.controller('SettingsAcademicsController',
                 behaviour.removing =  false;
                 $scope.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "Behaviour removed Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 behaviour.removing =  false;
                 toaster.pop('error', "behaviour Assessment System", "Failed to remove behaviour");
@@ -944,6 +962,7 @@ app.controller('SettingsAcademicsController',
             BehaviourAssessmentSystemService.update({id: behaviour.id},behaviour).$promise.then(function(data){
                 $scope.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 toaster.pop('error', "behaviour Assessment System", "Failed to add behaviour");
             });
@@ -956,6 +975,7 @@ app.controller('SettingsAcademicsController',
                 skill.name =  '';
                 $scope.skills  = data.all;
                 toaster.pop('success', "Skill Assessment System", "Added Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 skill.adding =  false;
                 toaster.pop('error', "Skill Assessment System", "Failed to Add");
@@ -968,6 +988,7 @@ app.controller('SettingsAcademicsController',
                 $scope.skills  = data.all;
                 skill.removing =  false;
                 toaster.pop('success', "Skill Assessment System", "Removed Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 skill.removing =  false;
                 toaster.pop('error', "Skill Assessment System", "Failed to remove");
@@ -978,10 +999,11 @@ app.controller('SettingsAcademicsController',
             SkillAssessmentSystemService.update({id: skill.id},skill).$promise.then(function(data){
                 $scope.skills  = data.all;
                 toaster.pop('success', "Skill Assessment System", "Updated Succesfully");
+                $scope.$emit('refreshSchoolData');
             },function(){
                 toaster.pop('error', "Skill Assessment System", "Failed to update");
             });
-        }
+        };
 
 
 

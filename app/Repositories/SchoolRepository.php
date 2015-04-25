@@ -65,6 +65,8 @@ class SchoolRepository extends BaseRepository
         $school = $this->model->where($attribute, '=', $id)->first();
         $data['setup_complete'] = $schoolInfo->isSetupComplete($school);
 
+        \Cache::flush();
+
         return $school->update($data);
     }
 
