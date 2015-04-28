@@ -10,6 +10,10 @@ App.controller('HomeController',['$scope','SchoolDataService','$window','$rootSc
         $rootScope.$on('SCHOOL_CONTEXT_CHANGED',function(event,obj){
             console.log('I hear ya @ HomeController');
         });
+
+        $scope.$on('refreshSchoolDataComplete',function(){
+            $scope.school = SchoolDataService.school;
+        });
     }]
 );
 

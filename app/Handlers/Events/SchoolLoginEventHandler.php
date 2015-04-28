@@ -17,7 +17,7 @@ class SchoolLoginEventHandler {
 
     use SchoolContextTrait;
 
-    public function handle($event)
+    public function handle($event = null)
     {
         Log::debug(static::class . ' Called Successfully');
 
