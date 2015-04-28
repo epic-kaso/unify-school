@@ -14,13 +14,14 @@ use UnifySchool\Entities\School\ScopedSession;
 use UnifySchool\Entities\School\ScopedStudent;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\Modules\Admin\Students\StudentsRequest;
+use UnifySchool\Repositories\School\ScopedStudentsRepository;
 
 class StudentsController extends Controller
 {
 
-    public function index()
+    public function index(ScopedStudentsRepository $studentsRepository)
     {
-        return ScopedStudent::all();
+        return $studentsRepository->all();
     }
 
     public function show($id)

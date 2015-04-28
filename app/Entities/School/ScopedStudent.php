@@ -78,6 +78,15 @@
  */
 class ScopedStudent extends BaseModel
 {
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saved(function($model){
+            \Cache::forget('scoped_students_'.$model->getSchool()->id);
+        });
+    }
+
 
     protected $casts = [
         'picture' => 'array'

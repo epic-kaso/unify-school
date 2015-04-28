@@ -9,6 +9,7 @@
 namespace UnifySchool\Repositories\School;
 
 
+use Carbon\Carbon;
 use UnifySchool\Entities\School\ScopedStudent;
 use UnifySchool\Repositories\BaseRepository;
 
@@ -24,4 +25,13 @@ class ScopedStudentsRepository extends BaseRepository
     {
         return ScopedStudent::class;
     }
+
+    public function all($columns = array('*'))
+    {
+        return \Cache::rememberForever('scoped_students_'.$this->getSchool()->id, function() use($columns) {
+            return parent::all($columns);
+        });
+    }
+
+
 }
