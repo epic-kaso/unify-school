@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" afterPath="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" afterPath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" afterPath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/super_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/super_admin/js/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/super_admin/js/app.js" afterPath="$PROJECT_DIR$/public/super_admin/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js.map" afterPath="$PROJECT_DIR$/public/app/js/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -43,8 +34,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2962383" vertical-offset="6245" max-vertical-offset="18377">
-              <caret line="424" column="14" selection-start-line="424" selection-start-column="14" selection-end-line="424" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.4968652" vertical-offset="6381" max-vertical-offset="18394">
+              <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,7 +102,6 @@
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/app/Handlers/Events/SchoolLoginEventHandler.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_28_101030_add_is_fundamental_column_to_modules.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/config/mail.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
@@ -120,6 +110,7 @@
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" />
         <option value="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
       </list>
     </option>
@@ -450,12 +441,6 @@
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
     </task>
-    <task id="LOCAL-00204" summary="Course Settings">
-      <created>1428013856920</created>
-      <option name="number" value="00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1428013856921</updated>
-    </task>
     <task id="LOCAL-00205" summary="Course Settings">
       <created>1428013935513</created>
       <option name="number" value="00205" />
@@ -744,7 +729,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430212403804</updated>
     </task>
-    <option name="localTasksCounter" value="253" />
+    <task id="LOCAL-00253" summary="Seting Up Modules">
+      <created>1430214079205</created>
+      <option name="number" value="00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1430214079205</updated>
+    </task>
+    <option name="localTasksCounter" value="254" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -769,7 +760,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
@@ -1862,20 +1853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="612">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5712" vertical-offset="0" max-vertical-offset="2210">
@@ -2073,10 +2050,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3888889" vertical-offset="0" max-vertical-offset="612">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <marker date="1430214254424" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430214254424" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430214254424" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430214254424" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430214254424" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2962383" vertical-offset="6245" max-vertical-offset="18377">
-          <caret line="424" column="14" selection-start-line="424" selection-start-column="14" selection-end-line="424" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.4968652" vertical-offset="6381" max-vertical-offset="18394">
+          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
           <folding />
         </state>
       </provider>
