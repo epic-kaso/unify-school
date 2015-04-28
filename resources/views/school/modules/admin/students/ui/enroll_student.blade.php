@@ -138,14 +138,24 @@
                                 <hr/>
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
-                                        <input type="text"
-                                               ng-model="student.session"
-                                               required=""
-                                               data-inputmask="'mask': '9999/9999'"
-                                               masked=""
-                                               name="student.session"
-                                               class="form-control"
-                                               placeholder="Session eg 2014/2015"/>
+                                        <div class="input-group">
+                                            <select required=""
+                                                    ng-model="student.session"
+                                                    name="student.session"
+                                                    class="form-control"
+                                                    ng-options="session.name as session.name for session in sessions">
+                                                <option value="">Select Session</option>
+                                            </select>
+
+                                            <span class="input-group-btn">
+                                                <button title="Add New Session"
+                                                        ng-dialog="addNewSessionDialog.html"
+                                                        ng-dialog-class="ngdialog-theme-default"
+                                                        ng-dialog-controller="AddSessionDialogController"
+                                                        ng-dialog-close-previous
+                                                        class="btn btn-default pull-right"><span class="fa fa-plus"></span></button>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="form-control"
@@ -215,21 +225,19 @@
                                 <hr/>
                                 <div class="form-group mt5">
                                     <div class="col-sm-6">
-                                        <select class="form-control"
-                                                ng-model="student.blood_group"
-                                                name="student.blood_group">
-                                            <option value="">Blood Group</option>
-                                            <option value="active">Active</option>
-                                        </select>
+                                        <input type="text"
+                                               ng-model="student.blood_group"
+                                               name="student.blood_group"
+                                               class="form-control"
+                                               placeholder="Blood Group eg O-Negative"/>
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <select class="form-control"
-                                                ng-model="student.genotype"
-                                                name="student.genotype">
-                                            <option value="">Genotype</option>
-                                            <option value="active">Active</option>
-                                        </select>
+                                        <input type="text"
+                                               ng-model="student.genotype"
+                                               name="student.genotype"
+                                               class="form-control"
+                                               placeholder="Genotype eg AS"/>
                                     </div>
                                 </div>
 

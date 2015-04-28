@@ -91,6 +91,7 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
 
 
         $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+        $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.selectedSchoolCategory = $scope.schoolCategories[0];
         $scope.classes = $scope.selectedSchoolCategory.classes;
@@ -153,6 +154,23 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
                 }
             });
         });
+
+        $scope.$on('refreshSchoolDataComplete',function(){
+            $scope.sessions = getSessionsFrom(SchoolDataService);
+            $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        });
+
+        function getSessionsFrom(SchoolDataService) {
+            return SchoolDataService.school.sessions.sort(function (a, b) {
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
     }
 ]);
 

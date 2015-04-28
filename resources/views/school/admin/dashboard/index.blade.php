@@ -49,4 +49,5 @@
             <h1><span class="fa fa-spin fa-spinner fa-lg"></span> Loading..</h1>
         </div>
     </div>
+    @include('school.admin.dashboard.blade-partials.home.dialogs')
 @endsection

@@ -223,6 +223,4 @@
     <!-- END panel -->
 </div>
 
-@include('school.admin.dashboard.blade-partials.home.dialogs')
-
 <toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>
