@@ -8,7 +8,7 @@
 
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-sm-3" ng-repeat="student in Students">
+                    <div class="col-sm-4" ng-repeat="student in Students">
                         <div id="panelPortlet5" class="panel widget">
                             <div class="portlet-handler">
                                 <div class="row row-table row-flush">
@@ -19,7 +19,8 @@
                                         <div class="panel-body text-left bg-inverse">
                                             <h4 class="mt0">@{{ student.last_name }} @{{ student.first_name }}</h4>
 
-                                            <p class="mb0 text-muted">@{{ student.reg_number }}</p>
+                                            <p class="mb0 text-muted"><strong>Reg Number:</strong> @{{ student.reg_number }}</p>
+                                            <p class="mb0 text-muted"><strong>Class:</strong> @{{ student.current_class_student.school_class.display_name || 'N/A' }}</p>
                                         </div>
                                     </div>
                                 </div>
