@@ -22,9 +22,13 @@ class SchoolLoginEventHandler {
         Log::debug(static::class . ' Called Successfully');
 
         $school = $this->getSchool();
-        $school->first_login = false;
-        $school->save();
+
+        if($school->first_login) {
+            $school->first_login = false;
+            $school->save();
+        }
 
         return true;
     }
+
 }
