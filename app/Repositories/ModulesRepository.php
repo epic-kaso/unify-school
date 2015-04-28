@@ -30,7 +30,7 @@ class ModulesRepository extends BaseRepository {
         $temp = Module::whereIsFundamental(true)->get();
 
         foreach($temp as $t){
-            $response[] = $t->id;
+            $response["{$t->id}"] = true;
         }
 
         return $response;

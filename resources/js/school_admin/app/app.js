@@ -397,6 +397,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
                     "text": value.name,
                     "sref": "#",
                     "icon": "fa fa-"+value.name,
+                    'disable': !SchoolDataService.school.setup_complete,
                     "submenu": []
                 };
 
@@ -419,6 +420,11 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
         };
 
         $scope.loadSidebarMenu();
+
+        $scope.$on('refreshSchoolDataComplete',function(){
+            modules = SchoolDataService.school.loaded_modules;
+            $scope.loadSidebarMenu();
+        });
 
         // Handle sidebar collapse items
         // -----------------------------------

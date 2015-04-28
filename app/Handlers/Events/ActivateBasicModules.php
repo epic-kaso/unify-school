@@ -19,9 +19,11 @@ class ActivateBasicModules {
 
     use SchoolContextTrait;
 
-    public function handle(NewSchoolRegistered $event, ModulesRepository $modulesRepository)
+    public function handle(NewSchoolRegistered $event)
     {
         Log::debug(static::class . ' Called Successfully');
+
+        $modulesRepository = \App::make(ModulesRepository::class);
 
         $school = $event->getSchool();
         $school->modules = $modulesRepository->getBasicModules();

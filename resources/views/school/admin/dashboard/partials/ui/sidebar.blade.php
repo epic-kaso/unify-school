@@ -20,7 +20,7 @@
         <!-- START sidebar nav-->
         <ul class="nav">
             <!-- Iterates over all sidebar items-->
-            <li ng-class="getMenuItemPropClasses(item)" ng-repeat="item in menuItems" ng-init="pIndex = $index"
+            <li ng-class="getMenuItemPropClasses(item)" ng-disabled="item.disable" ng-repeat="item in menuItems" ng-init="pIndex = $index"
                 ng-include="'sidebar-renderer.html'" ng-click="toggleCollapse(pIndex, true)"></li>
         </ul>
         <!-- END sidebar nav-->

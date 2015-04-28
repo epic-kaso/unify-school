@@ -2,29 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff1fe75-e178-43f4-9d27-7a4711a964e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_28_101030_add_is_fundamental_column_to_modules.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Handlers/Events/SchoolLoginEventHandler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/dialogs.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/dialogs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" afterPath="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" afterPath="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Module.php" afterPath="$PROJECT_DIR$/app/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/School.php" afterPath="$PROJECT_DIR$/app/School.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/SchoolSetupInfo.php" afterPath="$PROJECT_DIR$/app/Services/SchoolSetupInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/School/ScopedStudent.php" afterPath="$PROJECT_DIR$/app/Entities/School/ScopedStudent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SessionTermSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/School/Resources/Configurations/SessionTermSettingsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" afterPath="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js.map" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/school_admin/js/app.js" afterPath="$PROJECT_DIR$/public/school_admin/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/first-login-wizard.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/first-login-wizard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/home_controller.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/home_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js.map" afterPath="$PROJECT_DIR$/public/app/js/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" afterPath="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unify.sublime-project" afterPath="$PROJECT_DIR$/unify.sublime-project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unify.sublime-workspace" afterPath="$PROJECT_DIR$/unify.sublime-workspace" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Unify.iws" />
@@ -50,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EventServiceProvider.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2256" vertical-offset="131" max-vertical-offset="952">
-              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            <state vertical-scroll-proportion="1.2962383" vertical-offset="6245" max-vertical-offset="18377">
+              <caret line="424" column="14" selection-start-line="424" selection-start-column="14" selection-end-line="424" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -80,11 +70,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/ui/manage-students.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/school/admin/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/super-admin/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php" />
-        <option value="$PROJECT_DIR$/resources/views/super-admin/dashboard/partials/schools/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/super_admin/app/controllers/school_controller.js" />
         <option value="$PROJECT_DIR$/resources/views/emails/school/new_school.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/modules/admin/students/js/module.js" />
@@ -108,7 +93,6 @@
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/modules.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/incomplete-setup.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
         <option value="$PROJECT_DIR$/resources/assets/less/bootstrap/variables.less" />
         <option value="$PROJECT_DIR$/resources/assets/less/themes/theme-a.less" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/top-navbar.blade.php" />
@@ -124,13 +108,19 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/SessionTermSettingsRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/blade-partials/home/first-login-wizard.blade.php" />
         <option value="$PROJECT_DIR$/app/Services/SchoolSetupInfo.php" />
-        <option value="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
         <option value="$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js" />
         <option value="$PROJECT_DIR$/app/Handlers/Events/SchoolLoginEventHandler.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
-        <option value="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_28_101030_add_is_fundamental_column_to_modules.php" />
+        <option value="$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/config/mail.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php" />
+        <option value="$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php" />
+        <option value="$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ModulesRepository.php" />
+        <option value="$PROJECT_DIR$/resources/js/school_admin/app/app.js" />
       </list>
     </option>
   </component>
@@ -242,222 +232,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school_admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school_admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -476,7 +250,85 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Providers" />
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="School" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -597,12 +449,6 @@
       <created>1425919015994</created>
       <option name="number" value="Default" />
       <updated>1425919015994</updated>
-    </task>
-    <task id="LOCAL-00203" summary="Course Settings">
-      <created>1428012588799</created>
-      <option name="number" value="00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1428012588799</updated>
     </task>
     <task id="LOCAL-00204" summary="Course Settings">
       <created>1428013856920</created>
@@ -892,7 +738,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429999514920</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="Seting Up Modules">
+      <created>1430212403641</created>
+      <option name="number" value="00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1430212403804</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -919,6 +771,7 @@
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25340393" sideWeight="0.501634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -935,7 +788,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1013,48 +865,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSchoolCategoriesRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6864" vertical-offset="429" max-vertical-offset="1054">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSchoolClassRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5984" vertical-offset="0" max-vertical-offset="625">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSchoolTypeRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="651">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSessionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3472" vertical-offset="225" max-vertical-offset="935">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedSessionTypeRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/School/ScopedStaffRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="651">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/SchoolRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2384" vertical-offset="871" max-vertical-offset="1496">
@@ -1171,13 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2012289" vertical-offset="816" max-vertical-offset="2227">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36363637" vertical-offset="2403" max-vertical-offset="18275">
-          <caret line="163" column="20" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1697,45 +1500,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/EventServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4166666" vertical-offset="714" max-vertical-offset="3196">
-          <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.2384" vertical-offset="293" max-vertical-offset="1139">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
           <folding>
-            <marker date="1430210452775" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @var ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" Create a new command instance. ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" Execute the command. ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder=" @param SchoolRepository $schoolRepository ..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430210452775" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426718323406" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" The event handler mappings for the application. ..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" The subscriber classes to register. ..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" Register the application's event listeners. ..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" {@inheritdoc} ..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" Get the events and handlers. ..." />
+            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/SchoolConfigStatusHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6608" vertical-offset="114" max-vertical-offset="765">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1429962072800" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1429962072800" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @var SchoolSetupInfo ..." />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @var School ..." />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @param SchoolSetupInfo $schoolSetupInfo ..." />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/EmailNewSchoolAccountDetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3616" vertical-offset="165" max-vertical-offset="816">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="53" />
+          <folding>
+            <marker date="1429866507409" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder=" Create the event handler. ..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder=" Handle the event. ..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_05_081217_create_modules_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428218470596" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
+            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_28_101030_add_is_fundamental_column_to_modules.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68" vertical-offset="0" max-vertical-offset="663">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <marker date="1430212285769" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/controllers/settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026645768" vertical-offset="425" max-vertical-offset="19329">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.37304077" vertical-offset="2431" max-vertical-offset="19329">
+          <caret line="157" column="11" selection-start-line="154" selection-start-column="7" selection-end-line="157" selection-end-column="11" />
           <folding>
             <marker date="1430210705315" expanded="true" signature="-1:-1" placeholder="/** Controllers ...*/" />
             <marker date="1430210705315" expanded="true" signature="-1:-1" placeholder="[...]" />
@@ -2000,49 +1862,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/EventServiceProvider.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/school/admin/dashboard/partials/ui/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2384" vertical-offset="293" max-vertical-offset="1139">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="612">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
-            <marker date="1426718323406" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" The event handler mappings for the application. ..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" The subscriber classes to register. ..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" Register the application's event listeners. ..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" {@inheritdoc} ..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder=" Get the events and handlers. ..." />
-            <marker date="1426718323406" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212906674" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/SchoolConfigStatusHandler.php">
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6608" vertical-offset="114" max-vertical-offset="765">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5712" vertical-offset="0" max-vertical-offset="2210">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
-            <marker date="1429962072800" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
-            <marker date="1429962072800" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @var SchoolSetupInfo ..." />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @var School ..." />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder=" @param SchoolSetupInfo $schoolSetupInfo ..." />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1429962072800" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430212991128" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3655914" vertical-offset="0" max-vertical-offset="651">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Commands/School/CreateNewSchool.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68" vertical-offset="1377" max-vertical-offset="3196">
+          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <marker date="1430213383165" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" Create a new command instance. ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" Execute the command. ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder=" @param SchoolRepository $schoolRepository ..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213383165" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Commands/School/UpdateSchoolCategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.544" vertical-offset="340" max-vertical-offset="1581">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1426918738871" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder=" @var array ..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder=" @var School ..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder=" Create a new command instance. ..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder=" Execute the command. ..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1426918738871" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Commands/School/UpdateSchoolAdminDetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5792" vertical-offset="522" max-vertical-offset="1207">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <marker date="1430213397317" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder=" @var ..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder=" @var School ..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder=" Create a new command instance. ..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder=" Execute the command. ..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213397317" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/School/Admin/AdminAuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6608" vertical-offset="726" max-vertical-offset="1377">
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding>
+            <marker date="1430213673741" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1430213673741" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder=" Create a new authentication controller instance. ..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213673741" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7152" vertical-offset="301" max-vertical-offset="952">
+          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+          <folding>
+            <marker date="1430213633009" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder=" The event handler mappings for the application. ..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder=" Register any other events for your application. ..." />
+            <marker date="1430213633009" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Handlers/Events/SchoolLoginEventHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5984" vertical-offset="0" max-vertical-offset="625">
-          <caret line="28" column="5" selection-start-line="17" selection-start-column="3" selection-end-line="28" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.6256" vertical-offset="0" max-vertical-offset="625">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
           <folding>
             <marker date="1430211179617" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
             <marker date="1430211179617" expanded="false" signature="-1:-1" placeholder="..." />
@@ -2052,93 +2045,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/EmailNewSchoolAccountDetails.php">
+    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3616" vertical-offset="165" max-vertical-offset="816">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.4352" vertical-offset="0" max-vertical-offset="625">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding>
-            <marker date="1429866507409" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder=" Create the event handler. ..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder=" Handle the event. ..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1429866507409" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_05_081217_create_modules_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1428218470596" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
-            <marker date="1428218470596" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_28_101030_add_is_fundamental_column_to_modules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68" vertical-offset="0" max-vertical-offset="663">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <marker date="1430212285769" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430212285769" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213258161" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1430213258161" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1430213258161" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213258161" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/ModulesRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4624" vertical-offset="0" max-vertical-offset="646">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.7344" vertical-offset="0" max-vertical-offset="646">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding>
-            <marker date="1430211937831" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
-            <marker date="1430211937831" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430211937831" expanded="true" signature="-1:-1" placeholder=" Specify Model class name ..." />
-            <marker date="1430211937831" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430211937831" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1430211937831" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213815200" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1430213815200" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430213815200" expanded="true" signature="-1:-1" placeholder=" Specify Model class name ..." />
+            <marker date="1430213815200" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213815200" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1430213815200" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Handlers/Events/ActivateBasicModules.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/school_admin/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5984" vertical-offset="0" max-vertical-offset="625">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding>
-            <marker date="1430211981370" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
-            <marker date="1430211981370" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1430211981370" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1430211981370" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2256" vertical-offset="131" max-vertical-offset="952">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        <state vertical-scroll-proportion="1.2962383" vertical-offset="6245" max-vertical-offset="18377">
+          <caret line="424" column="14" selection-start-line="424" selection-start-column="14" selection-end-line="424" selection-end-column="14" />
           <folding />
         </state>
       </provider>

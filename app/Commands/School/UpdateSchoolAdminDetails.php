@@ -43,15 +43,24 @@ class UpdateSchoolAdminDetails extends Command implements SelfHandling
      */
     public function handle()
     {
-        $admin = new SchoolAdministrator();
-        $admin->email = $this->admin_email;
-        $admin->password = $this->admin_password;
-        $admin->school_id = $this->school->id;
+        \DB::beginTransaction();
+        try {
+            $admin = new SchoolAdministrator();
+            $admin->email = $this->admin_email;
+            $admin->password = $this->admin_password;
+            $admin->school_id = $this->school->id;
 
-        $admin->save();
+            $admin->save();
 
-        //raise new school event
-        \Event::fire(new NewSchoolRegistered($this->school, $admin));
+            //raise new school event
+            \Event::fire(new NewSchoolRegistered($this->school, $admin));
+
+            \DB::commit();
+
+        }catch (\Exception $ex){
+            \DB::rollBack();
+            throw $ex;
+        }
 
         return $admin;
 

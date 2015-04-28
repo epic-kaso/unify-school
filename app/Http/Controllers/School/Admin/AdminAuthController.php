@@ -77,7 +77,7 @@ class AdminAuthController extends Controller
     public function getLogout()
     {
         $this->auth->logout();
-
+        event('school.auth.logout');
         return redirect($this->loginPath());
     }
 }

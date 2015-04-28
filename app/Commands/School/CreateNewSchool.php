@@ -98,6 +98,8 @@ class CreateNewSchool extends Command implements SelfHandling
             $schoolRepository->setSchoolType($school, $schoolType);
             $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
 
+            \DB::commit();
+
             if (is_null($school)) {
                 \DB::rollBack();
                 throw new \Exception('Could not create school');
@@ -107,8 +109,6 @@ class CreateNewSchool extends Command implements SelfHandling
             \DB::rollBack();
             throw new \Exception('Could not create school');
         }
-
-        \DB::commit();
 
         return $school;
     }
