@@ -24,6 +24,19 @@
 class ScopedClassStudent extends BaseModel
 {
 
-    //
+    public static $relationships = [
+        'school_class'
+    ];
+
+    public function scoped_student()
+    {
+        return $this->belongsTo(ScopedStudent::class);
+    }
+
+    public function school_class()
+    {
+        return $this->belongsTo(ScopedSchoolCategoryArmSubdivision::class,'scoped_school_category_arm_subdivision_id');
+    }
+
 
 }

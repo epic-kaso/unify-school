@@ -116,6 +116,7 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
                 })
                 .finally(function () {
                     student.isUploading = false;
+                    student = null;
                     if (angular.isDefined(callback) && callback !== null && angular.isFunction(callback)) {
                         callback();
                     }
