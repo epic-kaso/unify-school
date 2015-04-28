@@ -88,15 +88,28 @@ class CreateNewSchool extends Command implements SelfHandling
         ScopedSchoolCategoriesRepository $schoolCategoriesRepository
     )
     {
-        $school = $this->createSchool($schoolRepository);
-        $schoolType = $this->createScopedSchoolType($schoolTypeRepository, $this->school_type, $school, $sessionTypeRepository);
-        $schoolRepository->setSchoolType($school, $schoolType);
-        $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
 
+        \DB::beginTransaction();
 
-        if (is_null($school))
+        try {
+
+            $school = $this->createSchool($schoolRepository);
+            $schoolType = $this->createScopedSchoolType($schoolTypeRepository, $this->school_type, $school, $sessionTypeRepository);
+            $schoolRepository->setSchoolType($school, $schoolType);
+            $this->createScopedSchoolCategories($schoolCategoriesRepository, $school, $schoolType);
+
+            if (is_null($school)) {
+                \DB::rollBack();
+                throw new \Exception('Could not create school');
+            }
+
+        }catch (\Exception $exception){
+            \DB::rollBack();
             throw new \Exception('Could not create school');
-        
+        }
+
+        \DB::commit();
+
         return $school;
     }
 

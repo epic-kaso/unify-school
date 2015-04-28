@@ -2,7 +2,7 @@
     <!-- START panel-->
     <div class="panel panel-default">
         <div class="panel-body">
-            <form action="/" method="POST" form-wizard="" validate-steps="true" validate-form="" steps="4">
+            <form form-wizard="" validate-steps="true" validate-form="" steps="4">
                 <div class="form-wizard wizard-horizontal">
                     <!-- START wizard steps indicator-->
                     <ol class="row">
@@ -64,22 +64,31 @@
                             <div class="col-sm-12">
                                 <h4>Academic Settings</h4>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" ng-controller="SettingsAcademicsController">
                                 <table class="table">
                                     <tr>
                                         <td><label>Create a Default Grading system</label></td>
-                                        <td><button class="btn btn-primary">Create</button></td>
+                                        <td>
+                                            <button ng-show="gradingSystems.data.length <= 0"
+                                                    class="btn btn-primary" ng-click="addNewGradingSystem()" >Create</button>
+
+                                            <span ng-show="gradingSystems.data.length > 0" class="alert" style="color: #27c24c"><span class="fa fa-lg fa-check"></span></span>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td><label>Create a Default Grade Assessment System</label></td>
-                                        <td><button class="btn btn-primary">Create</button></td>
+                                        <td>
+                                            <button ng-show="gradeAssessmentSystems.data.length <= 0" class="btn btn-primary" ng-click="addNewGradeAssessmentSystem()">Create</button>
+
+                                            <span ng-show="gradeAssessmentSystems.data.length > 0" class="alert" style="color: #27c24c"><span class="fa fa-lg fa-check"></span></span>
+                                        </td>
                                     </tr>
 
-                                    <tr>
-                                        <td><label>Create a Default Behaviour Assessment System</label></td>
-                                        <td><button class="btn btn-primary">Create</button></td>
-                                    </tr>
+                                    {{--<tr>--}}
+                                        {{--<td><label>Create a Default Behaviour Assessment System</label></td>--}}
+                                        {{--<td><button class="btn btn-primary">Create</button></td>--}}
+                                    {{--</tr>--}}
                                 </table>
 
                             </div>
@@ -110,7 +119,7 @@
                     <!-- START Wizard Step inputs -->
                     <div id="step3" ng-show="wizard.active(3)">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" ng-controller="SettingsSessionTermController">
                                 <div class="col-sm-12">
                                     <h4>Session & Term Settings</h4>
                                 </div>
@@ -118,24 +127,40 @@
                                     <table class="table">
                                         <tr>
                                             <td><label>Set current session</label></td>
-                                            <td>
-                                                <select class="form-control">
-                                                    <option value="2014/2015">2014/2015</option>
+                                            <td ng-hide="!sessions || sessions.length <= 0">
+                                                <span class="alert" style="color: #27c24c"><span class="fa fa-lg fa-check"></span></span>
+                                            </td>
+                                            <td ng-show="!sessions || sessions.length <= 0">
+                                                <select
+                                                        ng-change="saveCurrentSessionTerm(current)"
+                                                        ng-model="current.current_session"
+                                                        class="form-control" ng-options="session.name as session.name for session in sessions">
+                                                    <option value="">Select Session</option>
                                                 </select>
                                             </td>
-                                            <td>
-                                                <button title="Add New Session" class="btn btn-default btn-xs"><span class="fa fa-plus"></span></button>
+                                            <td ng-show="!sessions || sessions.length <= 0">
+                                                <button title="Add New Session"
+                                                        ng-dialog="addNewSessionDialog.html"
+                                                        ng-dialog-class="ngdialog-theme-default"
+                                                        ng-dialog-controller="AddSessionDialogController"
+                                                        ng-dialog-close-previous
+                                                        class="btn btn-default btn-xs"><span class="fa fa-plus"></span></button>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td><label>Select current term</label></td>
-                                            <td>
-                                                <select class="form-control">
-                                                    <option value="first">First Term</option>
+                                            <td ng-hide="!sub_sessions || sub_sessions.length <= 0">
+                                                <span class="alert" style="color: #27c24c"><span class="fa fa-lg fa-check"></span></span>
+                                            </td>
+                                            <td ng-show="!sub_sessions || sub_sessions.length <= 0">
+                                                <select ng-change="saveCurrentSessionTerm(current)"
+                                                        ng-model="current.current_sub_session"
+                                                        class="form-control" ng-options="session.id as session.name for session in sub_sessions">
+                                                    <option value="">Select Term</option>
                                                 </select>
                                             </td>
-                                            <td>
+                                            <td ng-show="!sub_sessions || sub_sessions.length <= 0">
                                                 <button title="Add New Term" class="btn btn-default btn-xs"><span class="fa fa-plus"></span></button>
                                             </td>
                                         </tr>
@@ -197,3 +222,7 @@
     </div>
     <!-- END panel -->
 </div>
+
+@include('school.admin.dashboard.blade-partials.home.dialogs')
+
+<toaster-container toaster-options="{'close-button': true, 'position-class': 'toast-top-right' }"></toaster-container>

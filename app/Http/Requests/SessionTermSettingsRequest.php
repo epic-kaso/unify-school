@@ -26,7 +26,7 @@ class SessionTermSettingsRequest extends Request
         if ($action === 'default') {
             return [
                 'current_session' => 'required',
-                'current_sub_session' => 'required|integer'
+                'current_sub_session' => 'integer'
             ];
         } elseif ($action === SessionTermSettingsController::$action_save_sub_session_dates) {
             return [

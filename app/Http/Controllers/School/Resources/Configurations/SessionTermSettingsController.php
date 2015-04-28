@@ -124,7 +124,11 @@ class SessionTermSettingsController extends Controller
     public function setOrCreateCurrentSession(SessionTermSettingsRequest $request, ScopedSessionRepository $sessionRepository, ScopedSubSessionTypeRepository $subSessionTypeRepository)
     {
         $sessionRepository->setCurrentSession($request->get('current_session'));
-        $subSessionTypeRepository->setCurrentSubSession($request->get('current_sub_session'));
+        $value = $request->get('current_sub_session');
+
+        if(!empty($value)) {
+            $subSessionTypeRepository->setCurrentSubSession($value);
+        }
 
         event(new CurrentSessionSet());
 

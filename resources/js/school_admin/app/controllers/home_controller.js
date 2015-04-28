@@ -12,3 +12,4 @@ App.controller('HomeController',['$scope','SchoolDataService','$window','$rootSc
         });
     }]
 );
+

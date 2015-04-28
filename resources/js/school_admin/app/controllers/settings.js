@@ -5,8 +5,8 @@ var app = angular.module('SchoolAdminApp');
  */
 
 app.controller('NavBarController', [
-        '$scope', '$rootScope', 'SchoolDataService','SchoolContextService',
-        function ($scope, $rootScope, SchoolDataService,SchoolContextService) {
+        '$scope', '$rootScope', 'SchoolDataService','SchoolContextService','$parse',
+        function ($scope, $rootScope, SchoolDataService,SchoolContextService,$parse) {
             var context = {
                 'school_category': 'all',
                 'category_level': 'all',
@@ -73,6 +73,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
         $scope.sessions = getSessionsFrom(SchoolDataService);
         $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
         $scope.current = {loading: true,saving: false};
+
         SessionTermsSettingsService.get({},function(response){
             $scope.current = response;
             $scope.loading = false;
@@ -149,6 +150,12 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 term.saving = false;
             });
         };
+
+
+        $scope.$on('refreshSchoolDataComplete',function(){
+            $scope.sessions = getSessionsFrom(SchoolDataService);
+            $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
+        });
 
         function getSessionsFrom(SchoolDataService) {
             return SchoolDataService.school.sessions.sort(function (a, b) {

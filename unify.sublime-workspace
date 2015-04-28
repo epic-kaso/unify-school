@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"base",
+				"base64_encode"
+			],
+			[
 				"with",
 				"withData"
 			],
@@ -119,54 +123,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
-			"settings":
-			{
-				"buffer_size": 4043,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
-			"settings":
-			{
-				"buffer_size": 3103,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Commands/School/CreateNewSchool.php",
-			"settings":
-			{
-				"buffer_size": 5593,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Handlers/Events/EmailNewSchoolAccountDetails.php",
-			"settings":
-			{
-				"buffer_size": 953,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/js/app.js",
-			"settings":
-			{
-				"buffer_size": 208851,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
-			"settings":
-			{
-				"buffer_size": 25469,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -200,17 +156,31 @@
 	},
 	"file_history":
 	[
+		"/E/php_encoder/result.txt",
+		"/E/php_encoder/format.html",
+		"/E/php_encoder/readme.txt",
+		"/G/php_encoder/DHL _ Tracking.html",
+		"/C/Users/Ak/Downloads/Chrome/dhl_trak.html",
+		"/C/Users/Ak/Documents/DHL _ Tracking.html",
+		"/E/php_encoder/dhl.html",
+		"/E/php_encoder/source.txt",
+		"/E/php_encoder/encode.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/School/SchoolController.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Commands/School/CreateNewSchool.php",
+		"/C/Users/Ak/PhpstormProjects/Unify/app/Handlers/Events/EmailNewSchoolAccountDetails.php",
+		"/C/Users/Ak/Documents/WB04HF123/backend-angular/app/js/app.js",
+		"/C/Users/Ak/Downloads/Chrome/dhl-login.html",
+		"/C/Users/Ak/Downloads/Chrome/DHL   Tracking.html",
 		"/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
 		"/C/Users/Ak/.ssh/id_rsa.pub",
 		"/C/Users/Ak/PhpstormProjects/Unify/.env",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/app.js",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Events/NewSchoolRegistered.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Handlers/Events/EmailNewSchoolAccountDetails.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/config/queue.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/emails/school/new_school.blade.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/LandingPageController.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/SuperAdmin/Resources/SchoolController.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/School/SchoolController.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Entities/Context/SchoolContextTrait.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Middleware/DomainAccess.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/app/School.php",
@@ -218,7 +188,6 @@
 		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/RegistrationWizardController.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/register/wizard/partial/step-one.blade.php",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/js/school_admin/app/controllers/settings.js",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Commands/School/CreateNewSchool.php",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/User/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Ak/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/modules/admin/students/ui/enroll_student.blade.php",
@@ -314,20 +283,7 @@
 		"/C/Users/Ak/PhpstormProjects/Lumen/Klipboard/vendor/laravel/lumen-framework/src/Application.php",
 		"/E/Ak/Documents/y5nhbg/y5nhbg/DHLLINK.html",
 		"/E/Ak/Documents/dhl (2)/dhl/cache_main.php",
-		"/E/Ak/Documents/dhl (2)/dhl/cache.php",
-		"/E/Ak/Documents/y5nhbg/y5nhbg/decrypted/dhl-login.htm",
-		"/E/Ak/Documents/dhl (2)/dhl/decrypted/dhl-login-a.htm",
-		"/E/Ak/Documents/dhl (2)/dhl/dhl-login-a.html",
-		"/E/Ak/Documents/dhl (2)/dhl/dhl-login.html",
-		"/C/Users/Ak/Documents/WB04HF123/backend-angular/vendor/angularjs-toaster/toaster.js",
-		"/C/Users/Ak/PhpstormProjects/gadget-protection-plan/resources/views/errors/404.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/resources/views/school/admin/dashboard/partials/settings/academics.blade.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Requests/GradeAssessmentSystemsRequest.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/Configurations/GradeAssessmentSystemsController.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Http/Controllers/School/Resources/Configurations/GradingSystemsController.php",
-		"/C/Users/Ak/PhpstormProjects/Unify/app/Repositories/School/ScopedGradingSystemsRepository.php",
-		"/C/Users/Ak/Downloads/Chrome/sendy_mailer/includes/config.php",
-		"/C/Users/Ak/Downloads/Chrome/404-white-pack/404-white-pack/web/index.html"
+		"/E/Ak/Documents/dhl (2)/dhl/cache.php"
 	],
 	"find":
 	{
@@ -345,6 +301,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<form",
+			"form",
 			"parsley",
 			"bindContextToSchool",
 			"tpl",
@@ -429,181 +387,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/Http/Controllers/School/Modules/Admin/Students/StudentsController.php",
-					"settings":
-					{
-						"buffer_size": 4043,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 309.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/School/Resources/School/SchoolController.php",
-					"settings":
-					{
-						"buffer_size": 3103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 593.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Commands/School/CreateNewSchool.php",
-					"settings":
-					{
-						"buffer_size": 5593,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2846,
-								2846
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 956.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Handlers/Events/EmailNewSchoolAccountDetails.php",
-					"settings":
-					{
-						"buffer_size": 953,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								949,
-								949
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/js/app.js",
-					"settings":
-					{
-						"buffer_size": 208851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160052,
-								160055
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 74222.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/Ak/Documents/WB04HF123/backend-angular/app/views/form-wizard.html",
-					"settings":
-					{
-						"buffer_size": 25469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7517,
-								7523
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

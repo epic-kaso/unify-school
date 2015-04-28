@@ -65,9 +65,9 @@ use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
  * @property-read SchoolProfile $school_profile
  * @property array $modules
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereModules($value)
- * @property boolean $first_login 
- * @property boolean $setup_complete 
- * @property-read mixed $loaded_modules 
+ * @property boolean $first_login
+ * @property boolean $setup_complete
+ * @property-read mixed $loaded_modules
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereFirstLogin($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\School whereSetupComplete($value)
  */

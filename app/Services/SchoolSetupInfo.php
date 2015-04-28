@@ -67,8 +67,7 @@ class SchoolSetupInfo {
 
     private function isAcademicConfigurationComplete()
     {
-        return $this->behaviourAssessmentSystemRepository->isBehaviourAssessmentSystemConfigured() &&
-               $this->gradeAssessmentSystemsRepository->isGradeAssessmentSystemConfigured() &&
+        return  $this->gradeAssessmentSystemsRepository->isGradeAssessmentSystemConfigured() &&
                 $this->gradingSystemsRepository->isGradingSystemConfigured();
     }
 

@@ -8,9 +8,11 @@ use UnifySchool\Events\Academics\GradingSystemAdded;
 use UnifySchool\Events\NewSchoolRegistered;
 use UnifySchool\Events\SessionAndTerm\CurrentSessionSet;
 use UnifySchool\Events\TertiaryOrNonTertiarySchoolTypeDetected;
+use UnifySchool\Handlers\Events\ActivateBasicModules;
 use UnifySchool\Handlers\Events\EmailNewSchoolAccountDetails;
 use UnifySchool\Handlers\Events\GenerateDefaultSessionsForSchool;
 use UnifySchool\Handlers\Events\SchoolConfigStatusHandler;
+use UnifySchool\Handlers\Events\SchoolLoginEventHandler;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         NewSchoolRegistered::class => [
+            ActivateBasicModules::class,
             EmailNewSchoolAccountDetails::class
         ],
         TertiaryOrNonTertiarySchoolTypeDetected::class => [
@@ -50,6 +53,8 @@ class EventServiceProvider extends ServiceProvider
     public function boot(DispatcherContract $events)
     {
         parent::boot($events);
+
+        $events->listen('auth.login',SchoolLoginEventHandler::class);
 
         //
     }
