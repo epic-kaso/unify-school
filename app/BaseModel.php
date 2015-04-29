@@ -29,7 +29,7 @@ abstract class BaseModel extends Model
         });
     }
 
-    private function clearCache()
+    protected function clearCache()
     {
         \Cache::forget('global_school_context');
     }
