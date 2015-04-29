@@ -530,11 +530,34 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
             });
         };
+
+        $scope.saveSchoolCategoryEditMode = function ($event, school_arm) {
+            school_arm.edit = false;
+            school_arm.updating = true;
+
+            CategoryClassSettingsService.updateCategoryArm({id: school_arm.id},school_arm).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "School Category Arm", "Changes Saved Successfully");
+                $scope.$emit('refreshSchoolData');
+                school_arm.updating = false;
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "School Category Arm", "Failed to save changes, Try Again");
+                school_arm.updating = false;
+            });
+
+            $event.preventDefault();
+            $event.stopProgation();
+        };
         
         function indexToChar(index){
             var chars = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
             return chars[index-1];
         }
+
+        $scope.$on('refreshSchoolDataComplete',function(event){
+            $scope.school = SchoolDataService.school;
+        });
 
     }
 ]);

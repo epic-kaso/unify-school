@@ -58,7 +58,7 @@ class CategoryAndClassesSettingsController extends Controller
 
                 return \Response::json(['success' => true]);
             case static::$action_school_category_arms:
-
+                $response = $this->updateSchoolArm($id, $request);
                 return \Response::json(['success' => true]);
             case static::$action_school_category_arm_subarms:
                 $response = $this->updateSchoolSubArmDivision($id, $request);
@@ -157,6 +157,16 @@ class CategoryAndClassesSettingsController extends Controller
     public function updateSchoolSubArmDivision($id, CategoriesAndClassesRequest $request)
     {
         $subarm = ScopedSchoolCategoryArmSubdivision::findOrFail($id);
+        $display_name = $request->get('display_name', $subarm->display_name);
+        $subarm->display_name = $display_name;
+        $subarm->save();
+
+        return $subarm;
+    }
+
+    private function updateSchoolArm($id, $request)
+    {
+        $subarm = ScopedSchoolCategoryArm::findOrFail($id);
         $display_name = $request->get('display_name', $subarm->display_name);
         $subarm->display_name = $display_name;
         $subarm->save();

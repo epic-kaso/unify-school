@@ -121,7 +121,38 @@
                                             <li
                                                     ng-repeat="school_arm in school_category.school_category_arms"
                                                     class="list-group-item">
-                                                <span class="school_category_title">@{{ school_arm.display_name }}</span>
+                                                <span class="school_category_title">
+                                                    <span class="span" ng-hide="school_arm.edit">
+                                                        <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                                                            @{{ school_arm.display_name }}
+                                                        </span>
+
+                                                        <span class="btn btn-xs"
+                                                              ng-click="
+                                                              school_arm.edit = true;
+                                                              $event.preventDefault();
+                                                              $event.stopProgation();
+                                                              ">
+                                                            <span class="fa fa-pencil"></span>
+                                                        </span>
+                                                    </span>
+
+                                                    <span class="edit-box" style="display: inline-block;width: 380px;"
+                                                          ng-show="school_arm.edit">
+                                                        <input style="width: 250px;display: inline-block" type="text"
+                                                               ng-model="school_arm.display_name"
+                                                               ng-click="$event.preventDefault();$event.stopProgation();"
+                                                               class="form-control"/>
+                                                        <span class="btn btn-primary btn-sm"
+                                                              style="width: 60px"
+                                                              ng-click="saveSchoolCategoryEditMode($event,school_arm)"><span class="fa fa-check"></span></span>
+                                                        <span class="btn btn-default btn-sm"
+                                                              style="width: 60px"
+                                                              ng-click="school_arm.edit = false;
+                                                              $event.preventDefault();
+                                                              $event.stopProgation();"><span class="fa fa-times"></span></span>
+                                                    </span>
+                                                </span>
 
                         <span class="btn btn-xs btn-danger pull-right"
                               ng-click="removeArm(school_category.school_category_arms,$index)">Remove Arm</span>
@@ -155,7 +186,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
-                                                            <button ng-show="school_arm.can_save_subdivision_state" class="btn btn-success btn-sm" ng-click="saveArmSubDivision(school_arm,$index)">Save</button>
+                                                            <button style="  margin-top: 20px;margin-left: -10px;" ng-show="school_arm.can_save_subdivision_state" class="btn btn-success btn-sm" ng-click="saveArmSubDivision(school_arm,$index)">Save</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,14 +199,14 @@
                     </div>
                 </div>
             </tab>
-            <tab>
-                <tab-heading>
-                    Manage Classes
-                </tab-heading>
-                <div>
+            {{--<tab>--}}
+                {{--<tab-heading>--}}
+                    {{--Manage Classes--}}
+                {{--</tab-heading>--}}
+                {{--<div>--}}
 
-                </div>
-            </tab>
+                {{--</div>--}}
+            {{--</tab>--}}
         </tabset>
 
     </div>
