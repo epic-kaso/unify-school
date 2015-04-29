@@ -49,9 +49,25 @@ class CategoryAndClassesSettingsController extends Controller
         }
     }
 
-    public function update($id)
+    public function update($id, CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
+        $action = Input::get('action', 'default');
 
+        switch ($action) {
+            case static::$action_school_category:
+
+                return \Response::json(['success' => true]);
+            case static::$action_school_category_arms:
+
+                return \Response::json(['success' => true]);
+            case static::$action_school_category_arm_subarms:
+                $this->updateSchoolSubArmDivision($id, $request);
+                return \Response::json(['success' => true]);
+
+            case static::$action_remove_all_school_category_arm_subarms:
+
+                return \Response::json(['success' => true]);
+        }
     }
 
     public function destroy($id, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
@@ -129,5 +145,19 @@ class CategoryAndClassesSettingsController extends Controller
         $model = ScopedSchoolCategoryArm::create($data);
         $model->load(['school_category_arm_subdivisions']);
         return \Response::json(['success' => true, 'model' => $model]);
+    }
+
+    /**
+     * @param $id
+     * @param CategoriesAndClassesRequest $request
+     */
+    public function updateSchoolSubArmDivision($id, CategoriesAndClassesRequest $request)
+    {
+        $subarm = ScopedSchoolCategoryArmSubdivision::findOrFail($id);
+        $display_name = $request->get('display_name', $subarm->display_name);
+        if ($subarm->display_name !== $display_name) {
+            $subarm->display_name = $display_name;
+            $subarm->save();
+        }
     }
 }

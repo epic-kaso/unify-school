@@ -17009,5 +17009,30 @@ body {
   margin-right: 6%;
   margin-left: 2%;
 }
+.inline-school-arms {
+  display: inline-block;
+  width: 200px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0 0 0 10px;
+  text-align: left;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+}
+.inline-school-arms .remove-btn {
+  display: inline-block;
+  width: 10px;
+  float: right;
+  clear: both;
+}
+.inline-school-arms .edit-box {
+  display: inline-block;
+  width: 70%;
+}
+.inline-school-arms .edit-box input.editable-input.form-control.input-xs {
+  width: 100px;
+}
 
 /*# sourceMappingURL=school.css.map */

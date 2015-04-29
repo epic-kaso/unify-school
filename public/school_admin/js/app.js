@@ -1136,7 +1136,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                     function ($scope,editableOptions, editableThemes) {
                         //template start
                         editableOptions.theme = 'bs3';
-                        editableThemes.bs3.inputClass = 'input-sm';
+                        editableThemes.bs3.inputClass = 'input-xs';
                         editableThemes.bs3.buttonsClass = 'btn-sm';
                         editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
                         editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
@@ -1240,8 +1240,11 @@ App.factory('CategoryClassSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/category-class-settings/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
         'addCategory': {method: 'POST',params: {'action': 'school_category'}},
+        'updateCategory': {method: 'PUT',params: {'action': 'school_category'}},
         'addCategoryArm': {method: 'POST',params: {'action': 'school_category_arms'}},
+        'updateCategoryArm': {method: 'PUT',params: {'action': 'school_category_arms'}},
         'addCategoryArmSubDivision': {method: 'POST',params: {'action': 'school_category_arm_subarms'}},
+        'updateCategoryArmSubDivision': {method: 'PUT',params: {'action': 'school_category_arm_subarms'}},
         'removeCategory': {method: 'DELETE',params: {'action': 'school_category'}},
         'removeCategoryArm': {method: 'DELETE',params: {'action': 'school_category_arms'}},
         'removeCategoryArmSubDivision': {method: 'DELETE',params: {'action': 'school_category_arm_subarms'}},
@@ -1440,7 +1443,7 @@ app.controller('NavBarController', [
                 'level_class': 'all'
             };
 
-            $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+            $scope.schoolCategories =  SchoolDataService.school.school_type.school_categories;
             $scope.selectedSchoolCategory = $scope.schoolCategories[0];
             $scope.classItems = {
                 submenu: $scope.selectedSchoolCategory.school_category_arms,
@@ -1768,8 +1771,18 @@ app.controller('SettingsStaffController', [
  * Classes Settings Controller
  */
 
-app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','CategoryClassSettingsService','toaster',
-    function ($scope, SchoolDataService,CategoryClassSettingsService,toaster) {
+app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','CategoryClassSettingsService','toaster','editableThemes','editableOptions',
+    function ($scope, SchoolDataService,CategoryClassSettingsService,toaster,editableThemes,editableOptions) {
+
+        //template start
+        editableOptions.theme = 'bs3';
+        editableThemes.bs3.inputClass = 'input-xs';
+        editableThemes.bs3.buttonsClass = 'btn-xs';
+        editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success" ng-click="updateSubArmName($data,arm)"><span class="fa fa-check"></span></button>';
+        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
+        '<span class="fa fa-times text-muted"></span>' +
+        '</button>';
+
         $scope.school = SchoolDataService.school;
 
         $scope.removeSchoolCategory = function (school_type, indexToRemove) {
@@ -1778,15 +1791,19 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             parcel.saving = true;
 
             CategoryClassSettingsService.removeCategory({id: parcel.id}).$promise.then(function (response) {
+
                 console.log('Saved Changes');
                 parcel.saving = false;
                 school_type.school_categories.splice(indexToRemove, 1);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
+
             }, function (data) {
+
                 console.log('could not save changes');
                 parcel.saving = false;
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
+
             });
 
         };
@@ -1802,16 +1819,20 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             school_category.saving = true;
 
             CategoryClassSettingsService.addCategory(parcel).$promise.then(function (response) {
+
                 console.log('Saved Changes');
                 school_type.school_categories.splice(0,0,response.model);
                 school_category.saving = false;
                 school_category.name = '';
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
+
             }, function (data) {
+
                 console.log('could not save changes');
                 school_category.saving = false;
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
+
             });
         };
 
@@ -1829,7 +1850,12 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
             school_arm.school_category_arm_subdivisions.push({
                     'name': baseName + '_' + indexToChar(school_arm.school_category_arm_subdivisions.length + 1),
                     'display_name': baseName + ' ' + indexToChar(school_arm.school_category_arm_subdivisions.length + 1)
-                });
+                }
+            );
+
+            //Ready to save newly added arms
+            school_arm.can_save_subdivision_state = true;
+
             console.log($scope.school.school_type);
         };
 
@@ -1840,14 +1866,37 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
 
             CategoryClassSettingsService.addCategoryArmSubDivision(parcel).$promise.then(function (response) {
                 console.log('Saved Changes');
-                $scope.school.school_type.school_categories.splice(index,1,response.model);
                 toaster.pop('success', "School Category", "Changes Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
+
+                //Ready to save newly added arms
+                school_arm.can_save_subdivision_state = false;
             }, function (data) {
                 console.log('could not save changes');
                 toaster.pop('error', "School Category", "Failed to save changes, Try Again");
             });
         };
+
+        $scope.updateSubArmName  = function ($data,arm){
+            arm.saving = true;
+
+            CategoryClassSettingsService.updateCategoryArmSubDivision({id: arm},arm).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "School Sub-Arm", "Changes Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
+
+                arm.saving = false;
+
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "School Sub-Arm", "Failed to save changes, Try Again");
+                arm.saving = false;
+            });
+
+            console.log($data);
+            console.log(arm);
+        };
+
 
         $scope.removeArmSubDivision = function (school_category_arm_subdivisions,index,arm){
             var parcel = school_category_arm_subdivisions[index];

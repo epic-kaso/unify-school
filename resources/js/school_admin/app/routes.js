@@ -51,7 +51,7 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                     function ($scope,editableOptions, editableThemes) {
                         //template start
                         editableOptions.theme = 'bs3';
-                        editableThemes.bs3.inputClass = 'input-sm';
+                        editableThemes.bs3.inputClass = 'input-xs';
                         editableThemes.bs3.buttonsClass = 'btn-sm';
                         editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
                         editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
