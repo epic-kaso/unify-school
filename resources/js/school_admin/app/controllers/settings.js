@@ -167,7 +167,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 }
                 return 0;
             });
-        }
+        };
 
         $scope.openStartDate = function($event,sub_session){
             $event.stopPropagation();
@@ -179,7 +179,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
             $event.stopPropagation();
             $event.preventDefault();
             sub_session.endDateOpened = true;
-        }
+        };
     }
 ]);
 
@@ -300,7 +300,7 @@ app.controller('SettingsStaffController', [
             $scope.currentStaff.assigned_classes = $scope.currentStaff.assigned_classes || [];
             $event.stopPropagation();
             $event.preventDefault();
-        }
+        };
 
         $scope.saveStaff = function (staff) {
             console.log(staff);
@@ -308,7 +308,7 @@ app.controller('SettingsStaffController', [
                 toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
             },function(error){
                 toaster.pop('error', "Add Staff", "failed to Save Changes");
-            })
+            });
         };
 
         $scope.assignCourses = function (staff,courses){
@@ -333,7 +333,7 @@ app.controller('SettingsStaffController', [
                 staff.saving = false;
                 toaster.pop('error', "Add Staff", "failed to Save Changes");
             });
-        }
+        };
     }
 ]);
 
@@ -414,7 +414,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 school_arm.school_category_arm_subdivisions[0] = {
                     'name': baseName + '_' + indexToChar(1),
                     'display_name': baseName + ' ' + indexToChar(1)
-                }
+                };
             }
 
             school_arm.school_category_arm_subdivisions.push({
