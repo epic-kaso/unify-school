@@ -112,10 +112,6 @@ class School extends BaseModel
             }
         });
 
-        static::saved(function (School $model) {
-            $model->clearCache();
-        });
-
         static::deleting(function (School $model) {
             \DB::transaction(function() use ($model) {
                 ScopedSchoolType::whereSchoolId($model->id)->delete();
@@ -268,10 +264,5 @@ class School extends BaseModel
     {
         $s = new static;
         return $s->getTable();
-    }
-
-    private function clearCache()
-    {
-        \Cache::forget('global_school_context');
     }
 }

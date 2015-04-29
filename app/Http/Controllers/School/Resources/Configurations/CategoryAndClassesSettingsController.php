@@ -61,8 +61,8 @@ class CategoryAndClassesSettingsController extends Controller
 
                 return \Response::json(['success' => true]);
             case static::$action_school_category_arm_subarms:
-                $this->updateSchoolSubArmDivision($id, $request);
-                return \Response::json(['success' => true]);
+                $response = $this->updateSchoolSubArmDivision($id, $request);
+                return \Response::json(['success' => true,'data' => $response]);
 
             case static::$action_remove_all_school_category_arm_subarms:
 
@@ -107,7 +107,9 @@ class CategoryAndClassesSettingsController extends Controller
     private function createNewSchoolCategoryArmSubDivision(CategoriesAndClassesRequest $request, ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
         $arm = $request->get('school_category_arm');
+
         $category_Arm = ScopedSchoolCategoryArm::find($arm['id']);
+
         if (is_null($category_Arm))
             abort(404, 'Invalid Category arm id');
 
@@ -117,11 +119,12 @@ class CategoryAndClassesSettingsController extends Controller
             foreach ($arm['school_category_arm_subdivisions'] as $subdivision) {
                 $data = [
                     'school_id' => $this->getSchool()->id,
-                    'display_name' => $subdivision['display_name'],
                     'name' => Str::slug($subdivision['name'])
                 ];
 
-                $bulk[] = new ScopedSchoolCategoryArmSubdivision($data);
+                $temp = ScopedSchoolCategoryArmSubdivision::firstOrNew($data);
+                $temp->display_name = $subdivision['display_name'];
+                $bulk[] = $temp;
             }
             $category_Arm->deleteDefaultSubdivision();
 
@@ -155,9 +158,9 @@ class CategoryAndClassesSettingsController extends Controller
     {
         $subarm = ScopedSchoolCategoryArmSubdivision::findOrFail($id);
         $display_name = $request->get('display_name', $subarm->display_name);
-        if ($subarm->display_name !== $display_name) {
-            $subarm->display_name = $display_name;
-            $subarm->save();
-        }
+        $subarm->display_name = $display_name;
+        $subarm->save();
+
+        return $subarm;
     }
 }

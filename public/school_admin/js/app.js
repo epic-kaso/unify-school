@@ -1879,8 +1879,11 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
 
         $scope.updateSubArmName  = function ($data,arm){
             arm.saving = true;
+            var backup_previous_display_name = arm.display_name;
 
-            CategoryClassSettingsService.updateCategoryArmSubDivision({id: arm},arm).$promise.then(function (response) {
+            arm.display_name = $data;
+
+            CategoryClassSettingsService.updateCategoryArmSubDivision({id: arm.id},arm).$promise.then(function (response) {
                 console.log('Saved Changes');
                 toaster.pop('success', "School Sub-Arm", "Changes Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
@@ -1891,6 +1894,9 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 console.log('could not save changes');
                 toaster.pop('error', "School Sub-Arm", "Failed to save changes, Try Again");
                 arm.saving = false;
+
+                arm.display_name = backup_previous_display_name;
+
             });
 
             console.log($data);

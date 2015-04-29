@@ -19,4 +19,18 @@ abstract class BaseModel extends Model
         $s = new static;
         return $s->getTable();
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function (School $model) {
+            $model->clearCache();
+        });
+    }
+
+    private function clearCache()
+    {
+        \Cache::forget('global_school_context');
+    }
 }
