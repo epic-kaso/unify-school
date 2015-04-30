@@ -91,5 +91,11 @@ class SchoolRepository extends BaseRepository
             $this->dispatch($updateSchoolCategoriesCommand);
         }
     }
+    
+    public function updateFirstTimeLoginState(CreateSchoolRequest $request){
+        $is_first_time = $request->get('first_time',false);
+       
+        event('first_time_login_handler');
+    }
 
 }

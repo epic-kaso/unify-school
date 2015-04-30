@@ -106,6 +106,7 @@
                                 </span>
 
                                 <span class="btn btn-labeled btn-default pull-right"
+                                     ng-disabled="(gradingSystems.data.length <= 0) || (gradeAssessmentSystems.data.length <= 0)"
                                       ng-click="wizard.go(3)">Next
                                     <span class="btn-label btn-label-right">
                                        <i class="fa fa-arrow-right"></i>
@@ -173,6 +174,7 @@
                             <div class="col-sm-12">
 
                                 <span class="btn btn-labeled btn-default pull-left"
+                               
                                       ng-click="wizard.go(2)">
                                     <span class="btn-label btn-label-right">
                                        <i class="fa fa-arrow-left"></i>
@@ -181,6 +183,7 @@
                                 </span>
 
                                 <span class="btn btn-labeled btn-default pull-right"
+                                      ng-disabled="(!sub_sessions || sub_sessions.length <= 0) || (!sessions || sessions.length <= 0)"
                                       ng-click="wizard.go(4)">Next
                                     <span class="btn-label btn-label-right">
                                        <i class="fa fa-arrow-right"></i>
@@ -195,9 +198,9 @@
                     <div id="step4" ng-show="wizard.active(4)">
                         <div class="jumbotron">
                             <h1>Done!</h1>
-                            <p>In vulputate mattis ipsum vitae vehicula. Praesent at arcu non arcu convallis pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Your school setup is complete, you can now enjoy the unify school plaform.</p>
                             <p>
-                                <button type="button" class="btn btn-info btn-lg">You can Proceed Now</button>
+                                <button type="button" class="btn btn-info btn-lg" ng-click="updateFirstTimeLoginState()">You can Proceed Now</button>
                             </p>
                         </div>
 

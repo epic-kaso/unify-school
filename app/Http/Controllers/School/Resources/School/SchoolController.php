@@ -13,6 +13,7 @@ class SchoolController extends Controller
 {
     protected $action_school_categories_update = 'school_categories_update';
     protected $action_admin_login_details_update = 'admin_login_details_update';
+    protected $action_update_first_time_login_state = 'update_first_time_login_state';
 
     /**
      * Display a listing of the resource.
@@ -85,6 +86,9 @@ class SchoolController extends Controller
                 break;
             case $this->action_school_categories_update:
                 $schoolRepository->updateSchoolCategories($request);
+                break;
+            case $this->action_update_first_time_login_state:
+                $schoolRepository->updateFirstTimeLoginState($request);
                 break;
         }
 

@@ -55,6 +55,7 @@ class EventServiceProvider extends ServiceProvider
         parent::boot($events);
 
         $events->listen('school.auth.logout',SchoolLoginEventHandler::class);
+        $events->listen('first_time_login_handler',SchoolLoginEventHandler::class);
 
         //
     }

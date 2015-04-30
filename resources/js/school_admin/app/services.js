@@ -1,6 +1,7 @@
 App.factory('SchoolService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
+        'update': {method: 'PUT'},
+        'updateFirstTimeLoginState': {method: 'PUT', params: {'action': 'update_first_time_login_state'}}
     });
 }]);
 
