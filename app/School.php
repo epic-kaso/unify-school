@@ -114,6 +114,7 @@ class School extends BaseModel
 
         static::deleting(function (School $model) {
             \DB::transaction(function() use ($model) {
+                SchoolProfile::whereSchoolId($model->id)->delete();
                 ScopedSchoolType::whereSchoolId($model->id)->delete();
                 ScopedStudent::whereSchoolId($model->id)->delete();
                 ScopedSession::whereSchoolId($model->id)->delete();
