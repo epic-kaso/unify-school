@@ -29,13 +29,24 @@ class CreateSchoolRequest extends Request
                 'selected_school_type' => 'required|integer',
             ];
         } elseif ($this->isMethod('put') || $this->isMethod('patch')) {
-            return [
-                'id' => 'required|integer',
-                'slug' => 'required|exists:schools,slug',
-                'school_type' => 'required|array',
-                'admin_email' => 'required_if:action,admin_login_details_update|email',
-                'admin_password' => 'required_with:admin_email|confirmed',
-            ];
+            
+            $action = $this->get('action');
+
+            switch ($action) {
+                case 'update_first_time_login_state':
+                    return [];
+                    
+                default:
+                    return [
+                        'id' => 'required|integer',
+                        'slug' => 'required|exists:schools,slug',
+                        'school_type' => 'required|array',
+                        'admin_email' => 'required_if:action,admin_login_details_update|email',
+                        'admin_password' => 'required_with:admin_email|confirmed',
+                    ];
+            }
+            
+           
         } else {
             return [
 

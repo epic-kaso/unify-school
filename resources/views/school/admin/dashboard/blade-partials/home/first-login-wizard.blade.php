@@ -183,7 +183,7 @@
                                 </span>
 
                                 <span class="btn btn-labeled btn-default pull-right"
-                                      ng-disabled="(!sub_sessions || sub_sessions.length <= 0) || (!sessions || sessions.length <= 0)"
+                                      ng-disabled="sessions.length <= 0"
                                       ng-click="wizard.go(4)">Next
                                     <span class="btn-label btn-label-right">
                                        <i class="fa fa-arrow-right"></i>

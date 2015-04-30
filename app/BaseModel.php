@@ -24,7 +24,7 @@ abstract class BaseModel extends Model
     {
         parent::boot();
 
-        static::saved(function (School $model) {
+        static::saved(function ($model) {
             $model->clearCache();
         });
     }

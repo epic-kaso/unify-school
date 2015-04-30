@@ -107,7 +107,7 @@ class CreateNewSchool extends Command implements SelfHandling
 
         }catch (\Exception $exception){
             \DB::rollBack();
-            throw new \Exception('Could not create school');
+            throw $exception;
         }
 
         return $school;
