@@ -17,7 +17,7 @@ App.controller('HomeController',['$scope','SchoolDataService','$window','$rootSc
             },function(){
                 toaster.pop('error', "School Status Update", "Failed Saving changes");
             });
-        }
+        };
 
         $scope.$on('refreshSchoolDataComplete',function(){
             $scope.school = SchoolDataService.school;
