@@ -1225,7 +1225,8 @@ myAppRoutes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
 }]);
 App.factory('SchoolService', ['$resource', function ($resource) {
     return $resource('/admin/resources/school/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
+        'update': {method: 'PUT'},
+        'updateFirstTimeLoginState': {method: 'PUT', params: {'action': 'update_first_time_login_state'}}
     });
 }]);
 
@@ -1408,18 +1409,27 @@ App.controller('AddSessionDialogController',['$scope','SessionTermsSettingsServi
         };
     }]
 );
+/* global App */
 /**
  * Created by Ak on 4/7/2015.
  */
 
-App.controller('HomeController',['$scope','SchoolDataService','$window','$rootScope',
-    function ($scope,SchoolDataService,$window,$rootScope) {
+App.controller('HomeController',['$scope','SchoolDataService','$window','$rootScope','SchoolService','toaster',
+    function ($scope,SchoolDataService,$window,$rootScope,SchoolService,toaster) {
         $scope.school = SchoolDataService.school;
         console.log($scope.school);
 
         $rootScope.$on('SCHOOL_CONTEXT_CHANGED',function(event,obj){
             console.log('I hear ya @ HomeController');
         });
+        
+        $scope.updateFirstTimeLoginState = function(){
+            SchoolService.updateFirstTimeLoginState({id: $scope.school.id},{}).$promise.then(function(){
+                $scope.$emit('refreshSchoolData'); 
+            },function(){
+                toaster.pop('error', "School Status Update", "Failed Saving changes");
+            });
+        };
 
         $scope.$on('refreshSchoolDataComplete',function(){
             $scope.school = SchoolDataService.school;
@@ -1597,7 +1607,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 }
                 return 0;
             });
-        }
+        };
 
         $scope.openStartDate = function($event,sub_session){
             $event.stopPropagation();
@@ -1609,7 +1619,7 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
             $event.stopPropagation();
             $event.preventDefault();
             sub_session.endDateOpened = true;
-        }
+        };
     }
 ]);
 
@@ -1730,7 +1740,7 @@ app.controller('SettingsStaffController', [
             $scope.currentStaff.assigned_classes = $scope.currentStaff.assigned_classes || [];
             $event.stopPropagation();
             $event.preventDefault();
-        }
+        };
 
         $scope.saveStaff = function (staff) {
             console.log(staff);
@@ -1738,7 +1748,7 @@ app.controller('SettingsStaffController', [
                 toaster.pop('success', "Add Staff", "Changes Saved Succesfully");
             },function(error){
                 toaster.pop('error', "Add Staff", "failed to Save Changes");
-            })
+            });
         };
 
         $scope.assignCourses = function (staff,courses){
@@ -1763,7 +1773,7 @@ app.controller('SettingsStaffController', [
                 staff.saving = false;
                 toaster.pop('error', "Add Staff", "failed to Save Changes");
             });
-        }
+        };
     }
 ]);
 
@@ -1844,7 +1854,7 @@ app.controller('SettingsClassesController', ['$scope', 'SchoolDataService','Cate
                 school_arm.school_category_arm_subdivisions[0] = {
                     'name': baseName + '_' + indexToChar(1),
                     'display_name': baseName + ' ' + indexToChar(1)
-                }
+                };
             }
 
             school_arm.school_category_arm_subdivisions.push({

@@ -27,14 +27,14 @@ App.controller('AddSessionDialogController',['$scope','SessionTermsSettingsServi
             last_year += 1;
             next_year += 1;
 
-            return ""+ last_year+ "/" +next_year
+            return ""+ last_year+ "/" +next_year;
         };
 
         var calculateLastSession = function () {
             last_year -= 1;
             next_year -= 1;
 
-            return ""+ last_year+ "/" +next_year
+            return ""+ last_year+ "/" +next_year;
         };
 
 
