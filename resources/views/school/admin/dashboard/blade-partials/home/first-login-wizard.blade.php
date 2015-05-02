@@ -1,6 +1,6 @@
-<div class="col-sm-8 col-sm-offset-2">
+<div class="col-sm-9 col-sm-offset-1">
     <!-- START panel-->
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-class="{'whirl standard': updatingFirstTimeLogin}">
         <div class="panel-body">
             <form form-wizard="" validate-steps="true" validate-form="" steps="4">
                 <div class="form-wizard wizard-horizontal">
