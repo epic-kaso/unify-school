@@ -1456,11 +1456,15 @@ app.controller('NavBarController', [
                 'level_class': 'all'
             };
 
-            $scope.schoolCategories =  SchoolDataService.school.school_type.school_categories;
-            $scope.selectedSchoolCategory = $scope.schoolCategories[0];
+            var allSchoolCategories =  {display_name: 'All',name: 'all',id: null};
+            var tempSchoolCategories =  SchoolDataService.school.school_type.school_categories;
+            tempSchoolCategories.push(allSchoolCategories);
+            
+            $scope.schoolCategories =  tempSchoolCategories;
+            $scope.selectedSchoolCategory = allSchoolCategories; //$scope.schoolCategories[0];
             $scope.classItems = {
-                submenu: $scope.selectedSchoolCategory.school_category_arms,
-                selected: $scope.selectedSchoolCategory.school_category_arms[0]
+                submenu: $scope.selectedSchoolCategory.school_category_arms
+                //,selected: $scope.selectedSchoolCategory.school_category_arms[0]
             };
 
             $scope.prepareAllSchoolCategory = function ($event){
@@ -1491,9 +1495,9 @@ app.controller('NavBarController', [
 
                 if (angular.isDefined($scope.classItems) && angular.isDefined(obj.value) && obj.value !== null) {
                     $scope.classItems.submenu = obj.value.school_category_arms;
-                    $scope.classItems.selected = obj.value.school_category_arms[0];
+                    //$scope.classItems.selected = obj.value.school_category_arms[0];
                     context.school_category = obj.value;
-                    context.category_level = obj.value.school_category_arms[0];
+                    //context.category_level = obj.value.school_category_arms[0];
                     SchoolContextService.setContext(context);
                 }else{
                     SchoolContextService.setContext(null);

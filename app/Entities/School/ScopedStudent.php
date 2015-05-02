@@ -78,9 +78,9 @@
  */
 class ScopedStudent extends BaseModel
 {
-    protected $appends = [
-        'current_class_student'
-    ];
+//    protected $appends = [
+//        'current_class_student'
+//    ];
 
     public static function boot()
     {
@@ -101,16 +101,12 @@ class ScopedStudent extends BaseModel
     {
         return $this->hasMany(ScopedClassStudent::class);
     }
-
-    /**
-     * @return ScopedClassStudent
-     */
-    public function getCurrentClassStudentAttribute()
+    
+    public function current_class_student()
     {
         $session = ScopedSession::currentSession();
-        return ScopedClassStudent::whereAcademicSession($session)
-            ->whereScopedStudentId($this->id)
-            ->with(ScopedClassStudent::$relationships)
-            ->first();
+        return $this->hasOne(ScopedClassStudent::class)
+        ->whereAcademicSession($session)
+        ->with(ScopedClassStudent::$relationships);
     }
 }

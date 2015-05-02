@@ -79,6 +79,11 @@ class ScopedSchoolCategory extends BaseModel
     {
         return $this->hasMany('UnifySchool\Entities\School\ScopedSchoolCategoryArm');
     }
+    
+    public function school_category_arms_subdivisions()
+    {
+        return $this->hasManyThrough(ScopedSchoolCategoryArmSubdivision::class,ScopedSchoolCategoryArm::class);
+    }
 
     public function scoped_course_categories()
     {

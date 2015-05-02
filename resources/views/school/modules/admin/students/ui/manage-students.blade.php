@@ -2,8 +2,7 @@
     <div class="col-sm-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 style="display: inline">All Students</h3>
-                <hr/>
+                <h3 style="display: inline">@{{ ScopedSchoolCategory.display_name }} Students</h3>
             </div>
 
             <div class="panel-body">

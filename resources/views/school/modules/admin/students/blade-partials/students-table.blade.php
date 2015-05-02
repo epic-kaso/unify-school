@@ -1,20 +1,26 @@
 <div class="row">
 	
-	<div class="col-sm-12">
-		<form class="form-inline">
+	<div class="col-sm-12" style="margin: 0px 0px 30px 0px;">
+		<form class="form-inline" name="SearchForm" ng-submit="searchStudents(query)">
 			<div class="form-group">
-				<input type="text" placeholder="Search Students" class="form-inline form-control">
+				<input type="text" 
+					 style="height: 50px;width: 400px;"
+					 placeholder="Search Students" 
+					 class="form-inline form-control"
+					 ng-model="query"
+					 required
+					 >
 			</div>
 			<div class="form-group">
 				<div class="btn-group">
-					<button class="btn btn-primary">Save</button>
+					<button style="height: 50px;" class="btn btn-primary" ng-click="searchStudents(query)">Search</button>
 				</div>
 			</div>
 		</form>
 	</div>
 	
 	<div class="col-sm-12">
-		<table class="table">
+		<table class="table" ng-class="{'whirl standard': loadingStudents}">
 			<thead>
 				<tr>
 					<td>..</td>

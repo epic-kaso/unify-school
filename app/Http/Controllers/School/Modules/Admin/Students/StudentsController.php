@@ -12,8 +12,12 @@ use Carbon\Carbon;
 use UnifySchool\Entities\School\ScopedClassStudent;
 use UnifySchool\Entities\School\ScopedSession;
 use UnifySchool\Entities\School\ScopedStudent;
+use UnifySchool\Entities\School\ScopedSchoolCategory;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests\Modules\Admin\Students\StudentsRequest;
+use UnifySchool\Repositories\School\Criteria\StudentsBySchoolCategory;
+use UnifySchool\Repositories\School\Criteria\StudentsWithRelationships;
+use UnifySchool\Repositories\School\Criteria\SearchStudentsCriteria;
 use UnifySchool\Repositories\School\ScopedStudentsRepository;
 
 class StudentsController extends Controller
@@ -21,7 +25,29 @@ class StudentsController extends Controller
 
     public function index(ScopedStudentsRepository $studentsRepository)
     {
+        $school_category_id = \Input::get('school_category_id');
+        $search_query = \Input::get('search');
+
+        $studentsRepository->pushCriteria(new StudentsWithRelationships());
+
+        if(!empty($school_category_id)){
+            $subarms = ScopedSchoolCategory::findOrFail($school_category_id)
+                                            ->school_category_arms_subdivisions()
+                                            ->get()
+                                            ->toArray();
+
+            $criteria = new StudentsBySchoolCategory($school_category_id,array_fetch($subarms,'id'));
+            $studentsRepository->pushCriteria($criteria);
+        }
+        
+        if(!empty($search_query)){
+
+            $criteria = new SearchStudentsCriteria($search_query);
+            $studentsRepository->pushCriteria($criteria);
+        }
+        
         return $studentsRepository->paginate(100);//all();
+        
     }
 
     public function show($id)

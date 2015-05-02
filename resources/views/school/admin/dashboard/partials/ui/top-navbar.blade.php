@@ -32,7 +32,7 @@
                 <div class="btn-group btn-block" dropdown>
                     <button type="button" class="btn btn-primary navbar-btn"
                             style="background-color: inherit;
-                            font-size: 15px;font-weight: 600;"><span>@{{ selectedSchoolCategory.display_name || 'All' }}</span></button>
+                            font-size: 15px;font-weight: 600;"><span>@{{ selectedSchoolCategory.display_name }}</span></button>
                     <button type="button"
                             class="btn btn-primary navbar-btn dropdown-toggle"
                             style="background-color: inherit"
@@ -41,9 +41,6 @@
                         <span class="sr-only">Split button!</span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li ng-if="schoolCategories.length > 1">
-                            <a href="#" ng-click="prepareAllSchoolCategory($event)">All</a>
-                        </li>
                         <li ng-repeat="category in schoolCategories">
                             <a href="#" ng-click="prepareSchoolCategory($event,category)">@{{ category.display_name }}</a>
                         </li>

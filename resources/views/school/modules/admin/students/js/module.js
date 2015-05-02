@@ -248,8 +248,10 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
     }
 ]);
 
-App.controller('ManageStudentsController', ['$scope','Students','$http','$state', function ($scope,Students,$http,$state) {
-    $scope.Students = Students;
+App.controller('ManageStudentsController', ['$scope','StudentsService','$http','$state','$rootScope',
+ function ($scope,StudentsService,$http,$state,$rootScope) {
+    $scope.Students = {};
+    $scope.ScopedSchoolCategory = {};
     $scope.studentActionMenuItems = [
         {
             name: 'Promote'
@@ -286,12 +288,65 @@ App.controller('ManageStudentsController', ['$scope','Students','$http','$state'
             $scope.loadingStudents = false; 
         });
         
+    }; 
+    
+    $scope.fetchStudents = function(category_id){
+        $scope.loadingStudents = true;
+        
+        var successCallback = function(response){
+                $scope.Students = response;
+                $scope.loadingStudents = false;
+            };
+        var errorCallback  =   function(){
+                //error
+                $scope.loadingStudents = false;
+            };
+        
+        if(angular.isUndefined(category_id) ||category_id == null){
+            StudentsService.get({},successCallback,errorCallback);
+        }else{
+             StudentsService.get({school_category_id: category_id},successCallback,errorCallback);
+        }
     };
     
+    $scope.searchStudents = function(query){
+        $scope.loadingStudents = true;
+        
+        var successCallback = function(response){
+                $scope.Students = response;
+                $scope.loadingStudents = false;
+            };
+        var errorCallback  =   function(){
+                //error
+                $scope.loadingStudents = false;
+            };
+        
+        if(angular.isDefined(query) && query !== null){
+            StudentsService.get({search: query},successCallback,errorCallback);
+        }
+    };
     
     $scope.viewStudent = function(student_id){
         $state.go('app.students.view_student',{id: student_id});
     };
+    
+    $rootScope.$on('SCHOOL_CONTEXT_CHANGED', 
+        function (event, obj) {
+            console.log('I hear ya @ Student Module : SCHOOL_CONTEXT_CHANGED');
+            console.log(obj);
+        }
+     );
+     
+     $rootScope.$on('selectedSchoolCategoryChanged',function(event, obj){
+         console.log('I hear ya @ Student Module : selectedSchoolCategoryChanged');
+         console.log(obj);
+         
+         $scope.ScopedSchoolCategory = obj.value;
+         $scope.fetchStudents($scope.ScopedSchoolCategory.id);
+     });
+     
+     
+    $scope.fetchStudents();
     
 }]);
 
