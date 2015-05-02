@@ -1,10 +1,10 @@
 <div class="row">
 	
 	<div class="col-sm-12" style="margin: 0px 0px 30px 0px;">
-		<form class="form-inline" name="SearchForm" ng-submit="searchStudents(query)">
+		<form class="form-inline col-sm-6"  name="SearchForm" ng-submit="searchStudents(query)">
 			<div class="form-group">
 				<input type="text" 
-					 style="height: 50px;width: 400px;"
+					 style="width: 400px;"
 					 placeholder="Search Students" 
 					 class="form-inline form-control"
 					 ng-model="query"
@@ -13,23 +13,31 @@
 			</div>
 			<div class="form-group">
 				<div class="btn-group">
-					<button style="height: 50px;" class="btn btn-primary" ng-click="searchStudents(query)">Search</button>
+					<button class="btn btn-primary" ng-click="searchStudents(query)">Search</button>
 				</div>
 			</div>
 		</form>
+		
+		<div class="btn-group pull-right">
+			<button class="btn btn-default" ng-click="">CHANGE CLASS</button>
+			<button class="btn btn-default" ng-click="">PRINT</button>
+			<button class="btn btn-default" ng-click="">EXCEL</button>
+			<button class="btn btn-default" ng-click="">PDF</button>
+			<button class="btn btn-danger" ng-click="">DELETE</button>
+		</div>
 	</div>
 	
 	<div class="col-sm-12">
-		<table class="table" ng-class="{'whirl standard': loadingStudents}">
+		<table class="table table-striped table-bordered" ng-class="{'whirl standard': loadingStudents}">
 			<thead>
 				<tr>
-					<td>..</td>
-					<td>Picture</td>
-					<td>Last Name</td>
-					<td>First Name</td>
-					<td>Reg Number</td>
-					<td>Class</td>
-					<td>Options</td>
+					<td><button class="btn btn-default btn-block">ID</button></td>
+					<td><button class="btn btn-default btn-block">Picture</button></td>
+					<td><button class="btn btn-default btn-block">Last Name</button></td>
+					<td><button class="btn btn-default btn-block">First Name</button></td>
+					<td><button class="btn btn-default btn-block">Reg Number</button></td>
+					<td><button class="btn btn-default btn-block">Class</button></td>
+					<td><button class="btn btn-default btn-block">Options</button></td>
 				</tr>
 			</thead>
 			
