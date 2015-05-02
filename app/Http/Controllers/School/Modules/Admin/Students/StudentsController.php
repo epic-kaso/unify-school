@@ -21,7 +21,7 @@ class StudentsController extends Controller
 
     public function index(ScopedStudentsRepository $studentsRepository)
     {
-        return $studentsRepository->all();
+        return $studentsRepository->paginate(100);//all();
     }
 
     public function show($id)

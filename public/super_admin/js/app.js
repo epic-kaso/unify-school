@@ -1199,51 +1199,6 @@ App.controller('ViewSchoolController',[
             })
         };
 }]);
-App.factory('SchoolService', ['$resource', function ($resource) {
-    return $resource('/unify/resources/school/:id', {id: '@id'}, {
-        'update': {method: 'PUT'},
-        'updateModules': {method: 'PUT', params: {action: 'updateModules'}}
-    });
-}]);
-
-
-App.factory('SchoolSetupService', ['$resource', function ($resource) {
-    return $resource('/resources/school-setup/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });
-}]);
-
-App.factory('ModuleService', ['$resource', function ($resource) {
-    return $resource('/unify/resources/modules/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    });
-}]);
-/**
- * Created by Ak on 4/5/2015.
- */
-App.service('TableDataService', ['SchoolsDataService', function (SchoolsDataService) {
-
-    var TableData = {
-        cache: SchoolsDataService.schools,
-        getData: function ($defer, params) {
-
-            filterdata($defer, params);
-
-            function filterdata($defer, params) {
-                var from = (params.page() - 1) * params.count();
-                var to = params.page() * params.count();
-                var filteredData = TableData.cache.slice(from, to);
-
-                params.total(TableData.cache.length);
-                $defer.resolve(filteredData);
-            }
-
-        }
-    };
-
-    return TableData;
-
-}]);
 /**=========================================================
  * Module: filestyle.js
  * Initializes the fielstyle plugin
@@ -1669,4 +1624,49 @@ App.directive('tagsinput', function($timeout) {
   };
 });
 
+App.factory('SchoolService', ['$resource', function ($resource) {
+    return $resource('/unify/resources/school/:id', {id: '@id'}, {
+        'update': {method: 'PUT'},
+        'updateModules': {method: 'PUT', params: {action: 'updateModules'}}
+    });
+}]);
+
+
+App.factory('SchoolSetupService', ['$resource', function ($resource) {
+    return $resource('/resources/school-setup/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+
+App.factory('ModuleService', ['$resource', function ($resource) {
+    return $resource('/unify/resources/modules/:id', {id: '@id'}, {
+        'update': {method: 'PUT'}
+    });
+}]);
+/**
+ * Created by Ak on 4/5/2015.
+ */
+App.service('TableDataService', ['SchoolsDataService', function (SchoolsDataService) {
+
+    var TableData = {
+        cache: SchoolsDataService.schools,
+        getData: function ($defer, params) {
+
+            filterdata($defer, params);
+
+            function filterdata($defer, params) {
+                var from = (params.page() - 1) * params.count();
+                var to = params.page() * params.count();
+                var filteredData = TableData.cache.slice(from, to);
+
+                params.total(TableData.cache.length);
+                $defer.resolve(filteredData);
+            }
+
+        }
+    };
+
+    return TableData;
+
+}]);
 //# sourceMappingURL=app.js.map

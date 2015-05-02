@@ -1,5 +1,7 @@
+/// <reference path="../../../../../../../typings/angularjs/angular.d.ts"/>
+/* global App */
 App.constant('StudentsViewBaseURL', '/admin/dashboard/load-module/admin/students/ui');
-App.constant('StudentsResourceURL', '/admin/modules/students');
+App.constant('StudentsResourceURL', '/admin/modules/students/:id');
 
 App.factory('StudentsService',['$resource','StudentsResourceURL',function($resource,StudentsResourceURL){
     return $resource(StudentsResourceURL,{id: '@id'});
@@ -14,9 +16,19 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 url: '/students',
                 templateUrl: ViewBaseURL + '/home',
                 title: 'Student Module',
-                resolve: helper.resolveFor('toaster', 'inputmask', 'taginput', 'filestyle', 'slimscroll', 'ngUpload'),
-                controller: ['$scope', '$window', '$rootScope',
-                    function ($scope, $window, $rootScope) {
+                resolve: helper.resolveFor('toaster', 'inputmask', 'taginput', 'filestyle', 'slimscroll', 'ngUpload','xeditable'),
+                controller: ['$scope', '$window', '$rootScope','editableOptions', 'editableThemes',
+                    function ($scope, $window, $rootScope,editableOptions,editableThemes) {
+                        
+                        //template start
+                        editableOptions.theme = 'bs3';
+                        editableThemes.bs3.inputClass = 'input-xs';
+                        editableThemes.bs3.buttonsClass = 'btn-sm';
+                        editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>';
+                        editableThemes.bs3.cancelTpl = '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">' +
+                        '<span class="fa fa-times text-muted"></span>' +
+                        '</button>';
+                        
                         $scope.goBack = function ($event) {
                             $window.history.back();
                             $event.preventDefault();
@@ -34,6 +46,18 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 title: 'Enroll A New Student',
                 controller: 'EnrollStudentController'
             })
+             .state('app.students.view_student',
+            {
+                url: '/{id:int}',
+                templateUrl: ViewBaseURL + '/view-student',
+                title: 'View Student',
+                controller: 'ViewStudentController',
+                resolve: {
+                    'Student': ['StudentsService','$stateParams',function(StudentsService,$stateParams){
+                        return StudentsService.get({id: $stateParams.id});
+                    }]
+                }
+            })
             .state('app.students.enroll_students',
             {
                 url: '/enroll-students',
@@ -50,7 +74,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 controller: 'ManageStudentsController',
                 resolve: {
                     'Students': ['StudentsService',function(StudentsService){
-                        return StudentsService.query({});
+                        return StudentsService.get({});
                     }]
                 }
             }).state('app.students.import', {
@@ -224,10 +248,62 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
     }
 ]);
 
-App.controller('ManageStudentsController', ['$scope','Students', function ($scope,Students) {
+App.controller('ManageStudentsController', ['$scope','Students','$http','$state', function ($scope,Students,$http,$state) {
     $scope.Students = Students;
+    $scope.loadingStudents = false;
+    
+    
+    $scope.fetchPage = function(url){
+        
+        $scope.loadingStudents = true;
+        
+        $http.get(url)
+        .success(function(data){
+            $scope.Students = data;   
+        })
+        .finally(function(){
+            $scope.loadingStudents = false; 
+        });
+        
+    };
+    
+    
+    $scope.viewStudent = function(student_id){
+        $state.go('app.students.view_student',{id: student_id});
+    };
+    
 }]);
 
 App.controller('StudentQuickEnrollController', ['$scope', function ($scope) {
 
+}]);
+
+App.controller('ViewStudentController', ['$scope','Student', function ($scope,Student) {
+    $scope.student = Student;
+    $scope.gender = [
+        {
+            label: 'Male',
+            value: 'male'
+        },
+        {
+            label: 'Female',
+            value: 'female'
+        }
+    ];
+    
+    $scope.religion = [
+        {
+            label: 'Christian',
+            value: 'christian'
+        },
+        {
+            label: 'Muslim',
+            value: 'muslim'
+        },
+        {
+            label: 'Other',
+            value: 'other'
+        }
+    ];
+    
 }]);

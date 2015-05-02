@@ -32,6 +32,4 @@ class ScopedStudentsRepository extends BaseRepository
             return parent::all($columns);
         });
     }
-
-
 }
