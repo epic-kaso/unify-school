@@ -28,19 +28,30 @@
 			</thead>
 			
 			<tbody>
-				<tr ng-repeat="student in Students.data" class="student-row" ng-click="viewStudent(student.id)">
-					<td>@{{ 1 + $index }}</td>
-					<td><img style="height: 50px;border-radius: 100px;" 
+				<tr ng-repeat="student in Students.data" class="student-row" >
+					<td ng-click="viewStudent(student.id)">@{{ 1 + $index }}</td>
+					<td ng-click="viewStudent(student.id)"><img style="height: 50px;border-radius: 100px;" 
 							class="img-responsive img-rounded img-thumbnail" 
 							ng-src="@{{ student.picture.dataURL || '/img/placeholder.jpg'}}" 
 							alt=""
 						/>
 					</td>
-					<td>@{{ student.last_name }}</td>
-					<td>@{{ student.first_name }}</td>
-					<td><strong>@{{ student.reg_number }}</strong></td>
-					<td>@{{ student.current_class_student.school_class.display_name || 'N/A' }}</td>
-					<td><span class="btn btn-default"><span class="fa fa-navicon"></span></span></td>
+					<td ng-click="viewStudent(student.id)">@{{ student.last_name }}</td>
+					<td ng-click="viewStudent(student.id)">@{{ student.first_name }}</td>
+					<td ng-click="viewStudent(student.id)"><strong>@{{ student.reg_number }}</strong></td>
+					<td ng-click="viewStudent(student.id)">@{{ student.current_class_student.school_class.display_name || 'N/A' }}</td>
+					<td>  
+						<span class="dropdown" dropdown on-toggle="toggled($event)">
+					      <a href class="dropdown-toggle" dropdown-toggle>
+					        <span class="fa fa-navicon"></span>
+					      </a>
+					      <ul class="dropdown-menu">
+					        <li ng-repeat="choice in studentActionMenuItems">
+					          <a href>@{{ choice.name }}</a>
+					        </li>
+					      </ul>
+					    </span> 
+					</td>
 				</tr>
 			</tbody>
 		

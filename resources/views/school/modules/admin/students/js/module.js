@@ -250,8 +250,29 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
 
 App.controller('ManageStudentsController', ['$scope','Students','$http','$state', function ($scope,Students,$http,$state) {
     $scope.Students = Students;
+    $scope.studentActionMenuItems = [
+        {
+            name: 'Promote'
+        },
+        {
+            name: 'Change Class'
+        },
+        {
+            name: 'Demote'
+        },
+        {
+            name: 'Delete'
+        }
+    ];
+    
     $scope.loadingStudents = false;
     
+    
+    
+    $scope.toggled = function($event){
+        $event.preventDefault();
+        $event.stopPropagation();
+    };
     
     $scope.fetchPage = function(url){
         
