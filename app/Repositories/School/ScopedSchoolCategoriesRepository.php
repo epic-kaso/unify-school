@@ -27,11 +27,37 @@ class ScopedSchoolCategoriesRepository extends BaseRepository
 
     public function getAssignedGradingSystem()
     {
-        $response = $this->all(['name', 'scoped_grading_system_id'])->map(function ($item) {
+        $response = ScopedSchoolCategory::with('school_category_arms_subdivisions')->get()->map(function ($item) {
             $i = [];
-            $i[$item->name] = $item->scoped_grading_system_id;
-            return $i;
+            $result = [];
+
+            foreach($item->school_category_arms_subdivisions as $j){
+                $i[] = $j->scoped_grading_system_id;
+            }
+
+            if(count($i) < 1){
+                $result[$item->name] = null;
+                return $result;
+            }
+
+            $test1 = $i[0];
+
+            for($k = 1; $k < count($i);$k++){
+                if($i[$k] !== $test1){
+                    $result[$item->name] = null;
+                    return $result;
+                }
+            }
+
+            $result[$item->name] = $test1;
+
+            return $result;
         });
+//        $response = $this->all(['name', 'scoped_grading_system_id'])->map(function ($item) {
+//            $i = [];
+//            $i[$item->name] = $item->scoped_grading_system_id;
+//            return $i;
+//        });
 
         $i = new \stdClass();
         foreach ($response as $item) {
@@ -46,11 +72,38 @@ class ScopedSchoolCategoriesRepository extends BaseRepository
 
     public function getAssignedGradeAssessmentSystem()
     {
-        $response = $this->all(['name', 'scoped_grade_assessment_system_id'])->map(function ($item) {
+        $response = ScopedSchoolCategory::with('school_category_arms_subdivisions')->get()->map(function ($item) {
             $i = [];
-            $i[$item->name] = $item->scoped_grade_assessment_system_id;
-            return $i;
+            $result = [];
+
+            foreach($item->school_category_arms_subdivisions as $j){
+                $i[] = $j->scoped_grade_assessment_system_id;
+            }
+
+            if(count($i) < 1){
+                $result[$item->name] = null;
+                return $result;
+            }
+
+            $test1 = $i[0];
+
+            for($k = 1; $k < count($i);$k++){
+                if($i[$k] !== $test1){
+                    $result[$item->name] = null;
+                    return $result;
+                }
+            }
+
+            $result[$item->name] = $test1;
+
+            return $result;
         });
+
+//        $response = $this->all(['name', 'scoped_grade_assessment_system_id'])->map(function ($item) {
+//            $i = [];
+//            $i[$item->name] = $item->scoped_grade_assessment_system_id;
+//            return $i;
+//        });
 
         $i = new \stdClass();
         foreach ($response as $item) {
@@ -59,5 +112,30 @@ class ScopedSchoolCategoriesRepository extends BaseRepository
             }
         }
         return $i;
+    }
+
+    public function assignGradeAssessmentSystem($grade_assessment_system_id, $key,$value)
+    {
+        $category = $this->findBy($key, $value);
+        if (!is_null($category)) {
+
+            $category->school_category_arms_subdivisions->each(function($item) use($grade_assessment_system_id){
+                $item->scoped_grade_assessment_system_id = $grade_assessment_system_id;
+                $item->save();
+            });
+
+        }
+    }
+
+    public function assignGradingSystem($grading_system_id, $key, $value)
+    {
+        $category = $this->findBy($key, $value);
+        if (!is_null($category)) {
+
+            $category->school_category_arms_subdivisions->each(function($item) use($grading_system_id){
+                $item->scoped_grading_system_id = $grading_system_id;
+                $item->save();
+            });
+        }
     }
 }

@@ -2,17 +2,20 @@
 
 use Illuminate\Support\Str;
 use Input;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Events\Academics\GradingSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\GradingSystemsRequest;
 use UnifySchool\Repositories\School\ScopedGradingSystemsRepository;
 use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
+use UnifySchool\School;
 
 class GradingSystemsController extends Controller
 {
 
     protected static $action_assign_grading_system = 'assignGradingSystem';
+    protected static $action_assign_grading_system_to_class = 'assignGradingSystemToClass';
 
     /**
      * Display a listing of the resource.
@@ -51,7 +54,8 @@ class GradingSystemsController extends Controller
                 return $this->createGradingSystem($request, $repository);
 
             case static::$action_assign_grading_system:
-                return $this->assignGradeAssessmentSystem($request, $schoolCategoriesRepository);
+                return $this->assignGradingSystem($request, $schoolCategoriesRepository);
+
         }
     }
 
@@ -78,14 +82,19 @@ class GradingSystemsController extends Controller
      */
     public function update($id, GradingSystemsRequest $request, ScopedGradingSystemsRepository $repository)
     {
+        $action = $request->get('action', 'default');
 
-        $gradingSystem = $repository->find($id);
-        $gradingSystem->name = $request->get('name');
-        $gradingSystem->slug = Str::slug($gradingSystem->name);
-        $gradingSystem->grades = $request->get('grades');
-        $gradingSystem->save();
-        return $gradingSystem;
-
+        switch ($action) {
+            case 'default':
+                $gradingSystem = $repository->find($id);
+                $gradingSystem->name = $request->get('name');
+                $gradingSystem->slug = Str::slug($gradingSystem->name);
+                $gradingSystem->grades = $request->get('grades');
+                $gradingSystem->save();
+                return $gradingSystem;
+            case static::$action_assign_grading_system_to_class:
+                return $this->assignGradingSystemToClass($id, $request);
+        }
     }
 
     /**
@@ -106,16 +115,13 @@ class GradingSystemsController extends Controller
      * @param ScopedSchoolCategoriesRepository $schoolCategoriesRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function assignGradeAssessmentSystem(GradingSystemsRequest $request,
+    private function assignGradingSystem(GradingSystemsRequest $request,
                                                  ScopedSchoolCategoriesRepository $schoolCategoriesRepository)
     {
         $data = $request->input();
         foreach ($data as $key => $value) {
-            $category = $schoolCategoriesRepository->findBy('name', $key);
-            if (!is_null($category)) {
-                $category->scoped_grading_system_id = $value;
-                $category->save();
-            }
+           $schoolCategoriesRepository->assignGradingSystem($value,'name', $key);
+
         }
         return \Response::json(['success' => true]);
     }
@@ -137,5 +143,16 @@ class GradingSystemsController extends Controller
         event(new GradingSystemAdded());
 
         return \Response::json(['all' => $repository->all(), 'success' => true]);
+    }
+
+    private function assignGradingSystemToClass($id, GradingSystemsRequest $request)
+
+    {
+        $class_arm = ScopedSchoolCategoryArmSubdivision::findOrFail($id);
+        $class_arm->scoped_grading_system_id = $request->get('scoped_grading_system_id');
+        $class_arm->save();
+
+        return \Response::json(['success' => true]);
+
     }
 }

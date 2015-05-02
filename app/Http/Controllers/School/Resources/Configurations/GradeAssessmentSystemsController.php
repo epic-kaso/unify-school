@@ -1,6 +1,7 @@
 <?php namespace UnifySchool\Http\Controllers\School\Resources\Configurations;
 
 use Input;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
 use UnifySchool\Events\Academics\GradeAssessmentSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
@@ -12,6 +13,7 @@ class GradeAssessmentSystemsController extends Controller
 {
 
     protected static $action_assign_grade_assessment_system = 'assignGradeAssessmentSystem';
+    protected static $action_assign_grade_assessment_system_to_class = 'assignGradeAssessmentSystemToClass';
 
     /**
      * Display a listing of the resource.
@@ -81,12 +83,19 @@ class GradeAssessmentSystemsController extends Controller
     public function update($id, GradeAssessmentSystemsRequest $request, ScopedGradeAssessmentSystemsRepository $repository)
     {
 
-        $gradeAssessmentSystem = $repository->find($id);
-        $gradeAssessmentSystem->name = $request->get('name');
-        $gradeAssessmentSystem->divisions = $request->get('divisions');
-        $gradeAssessmentSystem->total_score = $request->get('total_score');
-        $gradeAssessmentSystem->save();
-        return $gradeAssessmentSystem;
+        $action = $request->get('action', 'default');
+
+        switch ($action) {
+            case 'default':
+                $gradeAssessmentSystem = $repository->find($id);
+                $gradeAssessmentSystem->name = $request->get('name');
+                $gradeAssessmentSystem->divisions = $request->get('divisions');
+                $gradeAssessmentSystem->total_score = $request->get('total_score');
+                $gradeAssessmentSystem->save();
+                return $gradeAssessmentSystem;
+            case static::$action_assign_grade_assessment_system_to_class:
+                return $this->assignGradeAssessmentSystemToClass($id, $request);
+        }
     }
 
     /**
@@ -109,11 +118,7 @@ class GradeAssessmentSystemsController extends Controller
     {
         $data = $request->input();
         foreach ($data as $key => $value) {
-            $category = $schoolCategoriesRepository->findBy('name', $key);
-            if (!is_null($category)) {
-                $category->scoped_grade_assessment_system_id = $value;
-                $category->save();
-            }
+            $schoolCategoriesRepository->assignGradeAssessmentSystem($value, 'name', $key);
         }
         return \Response::json(['success' => true]);
     }
@@ -135,6 +140,15 @@ class GradeAssessmentSystemsController extends Controller
         event(new GradeAssessmentSystemAdded());
 
         return \Response::json(['all' => $repository->all(), 'success' => true]);
+    }
+
+    private function assignGradeAssessmentSystemToClass($id, $request)
+    {
+        $class_arm = ScopedSchoolCategoryArmSubdivision::findOrFail($id);
+        $class_arm->scoped_grade_assessment_system_id = $request->get('scoped_grade_assessment_system_id');
+        $class_arm->save();
+
+        return \Response::json(['success' => true]);
     }
 
 }

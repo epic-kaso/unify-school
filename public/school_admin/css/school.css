@@ -17443,7 +17443,7 @@ tr.student-row {
 tr.student-row:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-.students-table {
+.students-table .btn {
   height: 50px;
 }
 

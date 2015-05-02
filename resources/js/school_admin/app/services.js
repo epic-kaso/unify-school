@@ -33,6 +33,7 @@ App.factory('GradingSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grading-systems/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
         'assignGradingSystem': {method: 'POST',params: {'action': 'assignGradingSystem'}},
+        'assignGradingSystemToClass': {method: 'PUT',params: {'action': 'assignGradingSystemToClass'}},
         'getAssignedGradingSystem': {method: 'GET',params: {'action': 'assignGradingSystem'}}
     });
 }]);
@@ -61,6 +62,7 @@ App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
     return $resource('/admin/resources/grade-assessment-systems/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
         'assignGradeAssessmentSystem': {method: 'POST',params: {'action': 'assignGradeAssessmentSystem'}},
+        'assignGradeAssessmentSystemToClass': {method: 'PUT',params: {'action': 'assignGradeAssessmentSystemToClass'}},
         'getAssignedGradeAssessmentSystem': {method: 'GET',params: {'action': 'assignGradeAssessmentSystem'}}
     });
 }]);

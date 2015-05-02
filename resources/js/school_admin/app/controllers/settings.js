@@ -14,7 +14,7 @@ app.controller('NavBarController', [
             };
 
             var allSchoolCategories =  {display_name: 'All',name: 'all',id: null};
-            var tempSchoolCategories =  SchoolDataService.school.school_type.school_categories;
+            var tempSchoolCategories =  JSON.parse(JSON.stringify(SchoolDataService.school.school_type.school_categories));
             tempSchoolCategories.push(allSchoolCategories);
             
             $scope.schoolCategories =  tempSchoolCategories;
@@ -716,6 +716,9 @@ app.controller('SettingsAcademicsController',
         //Grading Systems
 
         $scope.schoolCategories = SchoolDataService.school.school_type.school_categories;
+
+        console.log( $scope.schoolCategories );
+
         $scope.assignedGradingSystem = GradingSystemService.getAssignedGradingSystem();
         $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
         
@@ -845,6 +848,15 @@ app.controller('SettingsAcademicsController',
 
         $scope.saveAssignedGradingSystem = function (assignedGradingSystem){
             GradingSystemService.assignGradingSystem(assignedGradingSystem).$promise.then(function(){
+                toaster.pop('success', "Assign Grading System", "Assignments Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
+            },function(){
+                toaster.pop('error', "Assign Grading System", "Failed to save assignments");
+            });
+        };
+
+        $scope.saveGradingSystemAssignment  = function (classItem){
+            GradingSystemService.assignGradingSystemToClass(classItem).$promise.then(function(){
                 toaster.pop('success', "Assign Grading System", "Assignments Saved Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(){
@@ -1004,6 +1016,17 @@ app.controller('SettingsAcademicsController',
             });
         };
 
+
+        $scope.saveGradeAssessmentSystemAssignment  = function (classItem){
+            GradeAssessmentSystemService.assignGradeAssessmentSystemToClass(classItem).$promise.then(function(){
+                toaster.pop('success', "Assign Grade Assessment System", "Assignments Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
+            },function(){
+                toaster.pop('error', "Assign Grade Assessment System", "Failed to save assignments");
+            });
+        };
+
+        //assignGradeAssessmentSystemToClass
 
 
         //---------------------------------------------------------------------------------------

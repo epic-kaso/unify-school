@@ -155,27 +155,38 @@
                         <div class="row" style="margin-top: 50px">
                             <h4>Assign Grading Systems</h4>
                             <hr/>
-                            <div class="row">
+                            <div class="row" ng-init="showAdvanced = false;">
                                 <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
                                     <div class="form-group">
                                         <label>@{{ schoolCategory.display_name }} Grading System</label>
                                         <select class="form-control" required
                                                 ng-disabled="gradingSystems.loading"
+                                                ng-change="saveAssignedGradingSystem(assignedGradingSystem)"
                                                 ng-model="assignedGradingSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradingSystems.data">
                                             <option value="">Select Grading System</option>
                                         </select>
                                     </div>
+
+                                    <span ng-click="showAdvanced = !showAdvanced">
+                                        Advanced..
+                                    </span>
+                                    <div class="advanced_config" ng-show="showAdvanced" >
+                                        <div class="form-group" ng-repeat="classItem in schoolCategory.classes">
+                                            <label>@{{ classItem.display_name }} Grading System</label>
+                                            <select class="form-control" required
+                                                    ng-change="saveGradingSystemAssignment(classItem)"
+                                                    ng-disabled="classItem.loading"
+                                                    ng-model="classItem.scoped_grading_system_id"
+                                                    ng-options="system.id as system.name for system in gradingSystems.data">
+                                                <option value="">Select Grading System</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <button class="btn btn-success"
-                                            ng-click="saveAssignedGradingSystem(assignedGradingSystem)">Save Changes
-                                    </button>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -333,28 +344,38 @@
                         <div class="row" style="margin-top: 50px">
                             <h4>Assign Grade Assessment Systems</h4>
                             <hr/>
-                            <div class="row">
+                            <div class="row" ng-init="showAdvancedCA = false">
                                 <div class="col-sm-4" ng-repeat="schoolCategory in schoolCategories">
                                     <div class="form-group">
                                         <label>Set @{{ schoolCategory.display_name }} Assessment</label>
                                         <select class="form-control" required
                                                 ng-disabled="gradeAssessmentSystems.loading"
+                                                ng-change="saveAssignedGradeAssessmentSystem(assignedGradeAssignmentSystem)"
                                                 ng-model="assignedGradeAssignmentSystem[schoolCategory.name]"
                                                 ng-options="system.id as system.name for system in gradeAssessmentSystems.data">
                                             <option value="">Select Grade Assessment System</option>
                                         </select>
                                     </div>
-                                </div>
 
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <button class="btn btn-success"
-                                            ng-click="saveAssignedGradeAssessmentSystem(assignedGradeAssignmentSystem)">
-                                        Save Changes
-                                    </button>
+
+                                    <span ng-click="showAdvancedCA = !showAdvancedCA">
+                                        Advanced..
+                                </span>
+                                    <div class="advanced_config" ng-show="showAdvancedCA" >
+                                        <div class="form-group" ng-repeat="classItem in schoolCategory.classes">
+                                            <label>@{{ classItem.display_name }} Grading System</label>
+                                            <select class="form-control" required
+                                                    ng-change="saveGradeAssessmentSystemAssignment(classItem)"
+                                                    ng-disabled="classItem.loading"
+                                                    ng-model="classItem.scoped_grade_assessment_system_id"
+                                                    ng-options="system.id as system.name for system in gradeAssessmentSystems.data">
+                                                <option value="">Select Grade Assessment System</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
