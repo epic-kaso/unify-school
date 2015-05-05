@@ -1319,6 +1319,7 @@ App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
 App.factory('SessionTermsSettingsService', ['$resource', function ($resource) {
     return $resource('/admin/resources/sessions-terms-settings/:id', {id: '@id'}, {
         'update': {method: 'PUT'},
+        'updateSubSession': {method: 'PUT',params: {'action': 'add_sub_session'}},
         'saveSubSessionDates': {method: 'POST',params: {'action': 'sub_session_start_and_end_dates'}},
         'addSubSession': {method: 'POST',params: {'action': 'add_sub_session'}},
         'removeSubSession': {method: 'DELETE',params: {'action': 'add_sub_session'}}
@@ -1611,8 +1612,27 @@ app.controller('SettingsSessionTermController', ['$scope', 'SchoolDataService','
                 term.saving = false;
             });
         };
-
-
+        
+        
+        $scope.saveSubSessionEditMode = function(event,sub_session){
+            sub_session.saving = true;
+             
+             SessionTermsSettingsService.updateSubSession(sub_session).$promise.then(function (response) {
+                console.log('Saved Changes');
+                toaster.pop('success', "Manage Term", "Saved Succesfully");
+                sub_session.saving = false;
+                sub_session.edit = false
+                $scope.$emit('refreshSchoolData');
+            }, function (data) {
+                console.log('could not save changes');
+                toaster.pop('error', "Manage Term", "Failed to save, Try Again");
+                sub_session.saving = false;
+                sub_session.edit = false
+            });
+            
+            event.preventDefault();
+        }
+        
         $scope.$on('refreshSchoolDataComplete',function(){
             $scope.sessions = getSessionsFrom(SchoolDataService);
             $scope.sub_sessions = SchoolDataService.school.session_type.sub_sessions;
@@ -2032,6 +2052,7 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
     function ($scope, SchoolDataService,CoursesSettingsService,toaster) {
         $scope.school_categories = SchoolDataService.getCourseCategories();
         $scope.courses = CoursesSettingsService.query();
+        $scope.coursesToAdd = [];
         $scope.course_categories = CoursesSettingsService.getCourseCategory();
 
         $scope.unAssignCourses = function(school_category_id, assigned_courses,courses_to_unassign){
@@ -2114,6 +2135,27 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
                 toaster.pop('error','Course Category','Failed to Add');
             });
         };
+        
+        $scope.saveCourses = function(courses){
+            var parcel = {
+                'courses': courses,
+                'bulk': true,
+                'action': 'bulk'
+            };
+
+            $scope.course_saving = true;
+
+            CoursesSettingsService.save(parcel,function(response){
+                toaster.pop('success', 'Course','Added Successfully');
+                $scope.course_saving = false;
+                $scope.courses = response.all;
+                $scope.$emit('refreshSchoolData');
+                $scope.coursesToAdd = [];
+            },function(response){
+                toaster.pop('error','Course','Failed to Add');
+                $scope.course_saving = false;
+            });
+        }
 
         $scope.createCourse  = function(course){
             var parcel = {

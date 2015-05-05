@@ -139,13 +139,49 @@
                                         class="list-group-item">
                                        <div class="row">
                                            <div class="col-sm-8">
-                                               <h4>@{{ sub_session.display_name }}</h4></div>
+                                               
+                                               <span class="">
+                                                    <span class="span" ng-hide="sub_session.edit || sub_session.saving">
+                                                        <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                                                            @{{ sub_session.display_name }}
+                                                        </span>
+
+                                                        <span class="btn btn-xs"
+                                                              ng-click="
+                                                              sub_session.edit = true;
+                                                              $event.preventDefault();
+                                                              $event.stopProgation();
+                                                              ">
+                                                            <span class="fa fa-pencil"></span>
+                                                        </span>
+                                                    </span>
+
+                                                    <span class="edit-box" style="display: inline-block;width: 380px;"
+                                                          ng-show="sub_session.edit && !sub_session.saving">
+                                                        <input style="width: 250px;display: inline-block" type="text"
+                                                               ng-model="sub_session.display_name"
+                                                               ng-click="$event.preventDefault();$event.stopProgation();"
+                                                               class="form-control"/>
+                                                        <span class="btn btn-primary btn-sm"
+                                                              style="width: 60px"
+                                                              ng-click="saveSubSessionEditMode($event,sub_session)"><span class="fa fa-check"></span></span>
+                                                        <span class="btn btn-default btn-sm"
+                                                              style="width: 60px"
+                                                              ng-click="sub_session.edit = false;
+                                                              $event.preventDefault();
+                                                              $event.stopProgation();"><span class="fa fa-times"></span></span>
+                                                    </span>
+                                                </span>
+                                                <span class="pull-right" ng-show="sub_session.saving">
+                                                    <span class="fa fa-spin fa-spinner"></span> saving..
+                                                </span>
+                                           </div>
                                            <div class="col-sm-4">
                                             <span ng-disabled="sub_session.saving"
                                                   class="btn btn-xs btn-danger pull-right"
                                                   ng-click="removeTerm(sub_session)">
                                                 <span ng-show="!sub_session.saving">Remove</span>
-                                                <span ng-show="sub_session.saving">
+                                                <span ng-show="sub_session.deleting">
                                                     <span class="fa fa-spin fa-spinner"></span> Deleting..
                                                 </span>
                                             </span>

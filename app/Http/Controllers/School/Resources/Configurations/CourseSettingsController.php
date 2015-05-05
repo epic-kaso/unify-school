@@ -44,7 +44,7 @@ class CourseSettingsController extends Controller
         switch ($action) {
             case static::$action_add_course_category:
                 return $this->addNewCourseCategory($request);
-            case 'default':
+            default:
                 return $this->addNewCourse($request);
         }
     }
@@ -86,17 +86,40 @@ class CourseSettingsController extends Controller
 
     private function addNewCourse(CourseSettingsRequest $request)
     {
-        $data = [
-            'school_id' => $this->getSchool()->id,
-            'name' => $request->get('name'),
-            'code' => $request->get('code'),
-            'scoped_course_category_id' => $request->get('course_category_id'),
-            'slug' => Str::slug($request->get('name'))
-        ];
+        
+        $bulk = $request->get('bulk',false);//courses
+        
+        if($bulk){
+            
+            $courses = $request->get('courses');//courses
+            $data = [];
+            
+            foreach($courses as $course){
+                $data[] = [
+                    'school_id' => $this->getSchool()->id,
+                    'name' => $course['name'],
+                    'code' => $course['code'],
+                    'scoped_course_category_id' => $course['course_category']['id'],
+                    'slug' => Str::slug($course['name'])
+                ];
+            }
+            
+            $response = \DB::table(ScopedCourse::table())->insert($data);
+            
+        }else{
+        
+            $data = [
+                'school_id' => $this->getSchool()->id,
+                'name' => $request->get('name'),
+                'code' => $request->get('code'),
+                'scoped_course_category_id' => $request->get('course_category_id'),
+                'slug' => Str::slug($request->get('name'))
+            ];
+    
+            $response = ScopedCourse::create($data);
+        }
 
-        ScopedCourse::create($data);
-
-        return \Response::json(['all' => ScopedCourse::getWithData()]);
+        return \Response::json(['all' => ScopedCourse::getWithData(),'response' => $response]);
     }
 
     private function assignCourse($id, CourseSettingsRequest $request)

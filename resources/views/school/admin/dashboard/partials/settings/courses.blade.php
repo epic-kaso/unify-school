@@ -71,40 +71,94 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div style="margin-top: 20px">
-                                <h3>Add New Course</h3>
-                                <hr/>
-                                <div class="form-group col-sm-6">
-                                    <select ng-disabled="course.saving"
-                                            class="form-control" ng-model="course.school_category"
-                                            ng-options="system as system.name for system in school_categories">
-                                        <option value="">Select School Category</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-sm-6">
-                                    <select ng-disabled="course.saving"
-                                            class="form-control" ng-model="course.course_category"
-                                            ng-options="system as system.name for system in course.school_category.scoped_course_categories">
-                                        <option value="">Select Course Category</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-sm-6">
-                                    <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.name" placeholder="Course Name"/>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.code" placeholder="Course Code"/>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <button
-                                            class="btn btn-success"
-                                            ng-click="createCourse(course)">
-                                        <span ng-show="!course.saving">Add Course</span>
-                                         <span ng-show="course.saving">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <div class="form-group col-sm-6">
+                                            <strong>Choose School Category:</strong>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <select ng-disabled="course.saving"
+                                                    class="form-control" ng-model="current_school_category"
+                                                    ng-options="system as system.name for system in school_categories">
+                                                <option value="">Select School Category</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="panel-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select ng-disabled="course.saving"
+                                                                    class="form-control" ng-model="course.course_category"
+                                                                    ng-options="system as system.name for system in current_school_category.scoped_course_categories">
+                                                                <option value="">Select Course Category</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.name" placeholder="Course Name"/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input ng-disabled="course.saving" type="text" class="form-control" ng-model="course.code" placeholder="Course Code"/>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <div class="form-group col-sm-6">
+                                                            <button 
+                                                                    ng-disabled="!current_school_category || !course.course_category || !course.name || !course.code"
+                                                                    class="btn btn-success"
+                                                                    ng-click="course.school_category = current_school_category;coursesToAdd.push(course);course = {}">
+                                                                <span ng-show="!course.saving">Add Course</span>
+                                                               
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <tr>
+                                                    <td>Course Name</td>
+                                                    <td>Course Code</td>
+                                                    <td>Course Category</td>
+                                                    <td>School Category</td>
+                                                </tr>
+                                                
+                                                <tr  ng-show="!coursesToAdd || coursesToAdd.length < 1">
+                                                    <td colspan="4" class="text-center"> <span class="fa fa-info"></span> No Course to be Added.</td>
+                                                </tr>
+                                                
+                                                <tr ng-repeat="course in coursesToAdd">
+                                                    <td>@{{ course.name }}</td>
+                                                    <td>@{{ course.code }}</td>
+                                                    <td>@{{ course.course_category.name }}</td>
+                                                    <td>@{{ course.school_category.name }}</td>
+                                                </tr>
+                                            </tbody>
+                                            
+                                        </table>
+                                        <div>
+                                            <span ng-show="courses_saving">
                                                 <span class="fa fa-spin fa-spinner"></span> Loading..
                                             </span>
-                                    </button>
+                                            <button ng-disabled="!coursesToAdd || coursesToAdd.length < 1" class="btn btn-primary"  ng-click="saveCourses(coursesToAdd)">Save Courses</button>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                
+
+                                
+                                
+                                
                             </div>
                         </div>
 

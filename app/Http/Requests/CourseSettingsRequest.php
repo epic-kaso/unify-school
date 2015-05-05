@@ -30,6 +30,11 @@ class CourseSettingsRequest extends Request
                     'name' => 'required',
                     'course_category_id' => 'required|integer'
                 ];
+          case 'bulk':
+            return [
+                'bulk' => 'required',
+                'courses' => 'required|array'
+            ];   
             case CourseSettingsController::$action_add_course_category:
                 return [
                     'name' => 'required',

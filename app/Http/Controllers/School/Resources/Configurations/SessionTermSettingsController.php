@@ -58,9 +58,22 @@ class SessionTermSettingsController extends Controller
 
     }
 
-    public function update($id)
+    public function update($id,ScopedSubSessionTypeRepository $subSessionTypeRepository)
     {
+        $action = \Input::get('action', 'default');
 
+        switch ($action) {
+            case static::$action_add_sub_session:
+                $subSession  = $subSessionTypeRepository->find($id);
+                if(empty($subSession)){
+                    abort(404);
+                }
+                $subSession->display_name  = \Input::get('display_name',$subSession->display_name);
+                $subSession->save();
+                return $subSession;
+            default:
+                return null;
+        }
     }
 
     public function destroy($id,
