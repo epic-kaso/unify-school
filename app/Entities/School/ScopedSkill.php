@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+use UnifySchool\SkillCategory;
 
 /**
  * UnifySchool\Entities\School\ScopedSkill
@@ -19,13 +20,15 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSkill whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property integer $scoped_behaviour_skill_system_id 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSkill whereScopedBehaviourSkillSystemId($value)
  */
 class ScopedSkill extends BaseModel
 {
 
     public function skill_category()
     {
-        return $this->belongsTo('UnifySchool\SkillCategory');
+        return $this->belongsTo(SkillCategory::class);
     }
 
 }

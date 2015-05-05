@@ -1292,15 +1292,26 @@ App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('BehaviourSkillSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/behaviour-skill-systems/:id',
+        {id: '@id'}, {
+            'update': {method: 'PUT'},
+            'getAssignedBehaviourSkillSystem': {method: 'GET',params: {'action': 'assignBehaviourSkillSystem'}},
+            'assignBehaviourSkillSystemToClass': {method: 'PUT',params: {'action': 'assignBehaviourSkillSystemToClass'}},
+            'assignBehaviourSkillSystem': {method: 'POST',params: {'action': 'assignBehaviourSkillSystem'}}
+        });
+}]);
 
 App.factory('BehaviourAssessmentSystemService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/behaviour-assessment-systems/:id', {id: '@id'}, {
+    return $resource('/admin/resources/behaviour-skill-system/:behaviourSkillSystemId/behaviour-assessment-systems/:id',
+                {id: '@id',behaviourSkillSystemId: '@scoped_behaviour_skill_system_id'}, {
         'update': {method: 'PUT'}
     });
 }]);
 
 App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/skill-assessment-systems/:id', {id: '@id'}, {
+    return $resource('/admin/resources/behaviour-skill-system/:behaviourSkillSystemId/skill-assessment-systems/:id',
+                {id: '@id',behaviourSkillSystemId: '@scoped_behaviour_skill_system_id'}, {
         'update': {method: 'PUT'}
     });
 }]);
@@ -1355,516 +1366,6 @@ App.factory('SchoolContextService', ['$rootScope', function ($rootScope) {
         }
     }
 }]);
-/**=========================================================
- * Module: filestyle.js
- * Initializes the fielstyle plugin
- =========================================================*/
-
-App.directive('filestyle', function() {
-  return {
-    restrict: 'A',
-    controller: function($scope, $element) {
-      var options = $element.data();
-      
-      // old usage support
-        options.classInput = $element.data('classinput') || options.classInput;
-      
-      $element.filestyle(options);
-    }
-  };
-});
-
-/**=========================================================
- * Module: form-wizard.js
- * Handles form wizard plugin and validation
- =========================================================*/
-
-App.directive('formWizard', function($parse){
-  'use strict';
-
-  return {
-    restrict: 'A',
-    scope: true,
-    link: function(scope, element, attribute) {
-      var validate = $parse(attribute.validateSteps)(scope),
-          wiz = new Wizard(attribute.steps, !!validate, element);
-      scope.wizard = wiz.init();
-
-    }
-  };
-
-  function Wizard (quantity, validate, element) {
-    
-    var self = this;
-    self.quantity = parseInt(quantity,10);
-    self.validate = validate;
-    self.element = element;
-    
-    self.init = function() {
-      self.createsteps(self.quantity);
-      self.go(1); // always start at fist step
-      return self;
-    };
-
-    self.go = function(step) {
-      
-      if ( angular.isDefined(self.steps[step]) ) {
-
-        if(self.validate && step !== 1) {
-          var form = $(self.element),
-              group = form.children().children('div').get(step - 2);
-
-          if (false === form.parsley().validate( group.id )) {
-            return false;
-          }
-        }
-
-        self.cleanall();
-        self.steps[step] = true;
-      }
-    };
-
-    self.active = function(step) {
-      return !!self.steps[step];
-    };
-
-    self.cleanall = function() {
-      for(var i in self.steps){
-        self.steps[i] = false;
-      }
-    };
-
-    self.createsteps = function(q) {
-      self.steps = [];
-      for(var i = 1; i <= q; i++) self.steps[i] = false;
-    };
-
-  }
-
-});
-
-App.directive('image', function($q) {
-        'use strict'
-
-        var URL = window.URL || window.webkitURL;
-
-        var getResizeArea = function () {
-            var resizeAreaId = 'fileupload-resize-area';
-
-            var resizeArea = document.getElementById(resizeAreaId);
-
-            if (!resizeArea) {
-                resizeArea = document.createElement('canvas');
-                resizeArea.id = resizeAreaId;
-                resizeArea.style.visibility = 'hidden';
-                document.body.appendChild(resizeArea);
-            }
-
-            return resizeArea;
-        }
-
-        var resizeImage = function (origImage, options) {
-            var maxHeight = options.resizeMaxHeight || 300;
-            var maxWidth = options.resizeMaxWidth || 250;
-            var quality = options.resizeQuality || 0.7;
-            var type = options.resizeType || 'image/jpg';
-
-            var canvas = getResizeArea();
-
-            var height = origImage.height;
-            var width = origImage.width;
-
-            // calculate the width and height, constraining the proportions
-            if (width > height) {
-                if (width > maxWidth) {
-                    height = Math.round(height *= maxWidth / width);
-                    width = maxWidth;
-                }
-            } else {
-                if (height > maxHeight) {
-                    width = Math.round(width *= maxHeight / height);
-                    height = maxHeight;
-                }
-            }
-
-            canvas.width = width;
-            canvas.height = height;
-
-            //draw image on canvas
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(origImage, 0, 0, width, height);
-
-            // get the data from canvas as 70% jpg (or specified type).
-            return canvas.toDataURL(type, quality);
-        };
-
-        var createImage = function(url, callback) {
-            var image = new Image();
-            image.onload = function() {
-                callback(image);
-            };
-            image.src = url;
-        };
-
-        var fileToDataURL = function (file) {
-            var deferred = $q.defer();
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                deferred.resolve(e.target.result);
-            };
-            reader.readAsDataURL(file);
-            return deferred.promise;
-        };
-
-
-        return {
-            restrict: 'A',
-            scope: {
-                image: '=',
-                resizeMaxHeight: '@?',
-                resizeMaxWidth: '@?',
-                resizeQuality: '@?',
-                resizeType: '@?',
-            },
-            link: function postLink(scope, element, attrs, ctrl) {
-
-                var doResizing = function(imageResult, callback) {
-                    createImage(imageResult.url, function(image) {
-                        var dataURL = resizeImage(image, scope);
-                        imageResult.resized = {
-                            dataURL: dataURL,
-                            type: dataURL.match(/:(.+\/.+);/)[1],
-                        };
-                        callback(imageResult);
-                    });
-                };
-
-                var applyScope = function(imageResult) {
-                    scope.$apply(function() {
-                        //console.log(imageResult);
-                        if(attrs.multiple)
-                            scope.image.push(imageResult);
-                        else
-                            scope.image = imageResult;
-                    });
-                };
-
-
-                element.bind('change', function (evt) {
-                    //when multiple always return an array of images
-                    if(attrs.multiple)
-                        scope.image = [];
-
-                    var files = evt.target.files;
-                    for(var i = 0; i < files.length; i++) {
-                        //create a result object for each file in files
-                        var imageResult = {
-                            file: files[i],
-                            url: URL.createObjectURL(files[i])
-                        };
-
-                        fileToDataURL(files[i]).then(function (dataURL) {
-                            imageResult.dataURL = dataURL;
-                        });
-
-                        if(scope.resizeMaxHeight || scope.resizeMaxWidth) { //resize image
-                            doResizing(imageResult, function(imageResult) {
-                                applyScope(imageResult);
-                            });
-                        }
-                        else { //no resizing
-                            applyScope(imageResult);
-                        }
-                    }
-                });
-            }
-        };
-    });
-/**=========================================================
- * Module: masked,js
- * Initializes the masked inputs
- =========================================================*/
-
-App.directive('masked', function() {
-  return {
-    restrict: 'A',
-    controller: function($scope, $element) {
-      var $elem = $($element);
-      if($.fn.inputmask)
-        $elem.inputmask();
-    }
-  };
-});
-
-/**
- * Created by Ak on 4/4/2015.
- */
-/**=========================================================
- * Module: scroll.js
- * Make a content box scrollable
- =========================================================*/
-
-App.directive('scrollable', function(){
-    return {
-        restrict: 'EA',
-        link: function(scope, elem, attrs) {
-            var defaultHeight = 250;
-            elem.slimScroll({
-                height: (attrs.height || defaultHeight)
-            });
-        }
-    };
-});
-/**=========================================================
- * Module panel-tools.js
- * Directive tools to control panels. 
- * Allows collapse, refresh and dismiss (remove)
- * Saves panel state in browser storage
- =========================================================*/
-App.directive('paneltool', function($compile, $timeout){
-  var templates = {
-    /* jshint multistr: true */
-    collapse:"<a href='#' panel-collapse='' tooltip='Collapse Panel' ng-click='{{panelId}} = !{{panelId}}'> \
-                <em ng-show='{{panelId}}' class='fa fa-plus'></em> \
-                <em ng-show='!{{panelId}}' class='fa fa-minus'></em> \
-              </a>",
-    dismiss: "<a href='#' panel-dismiss='' tooltip='Close Panel'>\
-               <em class='fa fa-times'></em>\
-             </a>",
-    refresh: "<a href='#' panel-refresh='' data-spinner='{{spinner}}' tooltip='Refresh Panel'>\
-               <em class='fa fa-refresh'></em>\
-             </a>"
-  };
-
-  function getTemplate( elem, attrs ){
-    var temp = '';
-    attrs = attrs || {};
-    if(attrs.toolCollapse)
-      temp += templates.collapse.replace(/{{panelId}}/g, (elem.parent().parent().attr('id')) );
-    if(attrs.toolDismiss)
-      temp += templates.dismiss;
-    if(attrs.toolRefresh)
-      temp += templates.refresh.replace(/{{spinner}}/g, attrs.toolRefresh);
-    return temp;
-  }
-  
-  return {
-    restrict: 'E',
-    scope: false,
-    link: function (scope, element, attrs) {
-
-      var tools = scope.panelTools || attrs;
-  
-      $timeout(function() {
-        element.html(getTemplate(element, tools )).show();
-        $compile(element.contents())(scope);
-        
-        element.addClass('pull-right');
-      });
-
-    }
-  };
-})
-/**=========================================================
- * Dismiss panels * [panel-dismiss]
- =========================================================*/
-.directive('panelDismiss', function($q, Utils){
-  'use strict';
-  return {
-    restrict: 'A',
-    controller: function ($scope, $element) {
-      var removeEvent   = 'panel-remove',
-          removedEvent  = 'panel-removed';
-
-      $element.on('click', function () {
-
-        // find the first parent panel
-        var parent = $(this).closest('.panel');
-
-        removeElement();
-
-        function removeElement() {
-          var deferred = $q.defer();
-          var promise = deferred.promise;
-          
-          // Communicate event destroying panel
-          $scope.$emit(removeEvent, parent.attr('id'), deferred);
-          promise.then(destroyMiddleware);
-        }
-
-        // Run the animation before destroy the panel
-        function destroyMiddleware() {
-          if(Utils.support.animation) {
-            parent.animo({animation: 'bounceOut'}, destroyPanel);
-          }
-          else destroyPanel();
-        }
-
-        function destroyPanel() {
-
-          var col = parent.parent();
-          parent.remove();
-          // remove the parent if it is a row and is empty and not a sortable (portlet)
-          col
-            .filter(function() {
-            var el = $(this);
-            return (el.is('[class*="col-"]:not(.sortable)') && el.children('*').length === 0);
-          }).remove();
-
-          // Communicate event destroyed panel
-          $scope.$emit(removedEvent, parent.attr('id'));
-
-        }
-      });
-    }
-  };
-})
-/**=========================================================
- * Collapse panels * [panel-collapse]
- =========================================================*/
-.directive('panelCollapse', ['$timeout', function($timeout){
-  'use strict';
-  
-  var storageKeyName = 'panelState',
-      storage;
-  
-  return {
-    restrict: 'A',
-    scope: false,
-    controller: function ($scope, $element) {
-
-      // Prepare the panel to be collapsible
-      var $elem   = $($element),
-          parent  = $elem.closest('.panel'), // find the first parent panel
-          panelId = parent.attr('id');
-
-      storage = $scope.$storage;
-
-      // Load the saved state if exists
-      var currentState = loadPanelState( panelId );
-      if ( typeof currentState !== 'undefined') {
-        $timeout(function(){
-            $scope[panelId] = currentState; },
-          10);
-      }
-
-      // bind events to switch icons
-      $element.bind('click', function() {
-
-        savePanelState( panelId, !$scope[panelId] );
-
-      });
-    }
-  };
-
-  function savePanelState(id, state) {
-    if(!id) return false;
-    var data = angular.fromJson(storage[storageKeyName]);
-    if(!data) { data = {}; }
-    data[id] = state;
-    storage[storageKeyName] = angular.toJson(data);
-  }
-
-  function loadPanelState(id) {
-    if(!id) return false;
-    var data = angular.fromJson(storage[storageKeyName]);
-    if(data) {
-      return data[id];
-    }
-  }
-
-}])
-/**=========================================================
- * Refresh panels
- * [panel-refresh] * [data-spinner="standard"]
- =========================================================*/
-.directive('panelRefresh', function($q){
-  'use strict';
-  
-  return {
-    restrict: 'A',
-    scope: false,
-    controller: function ($scope, $element) {
-      
-      var refreshEvent   = 'panel-refresh',
-          whirlClass     = 'whirl',
-          defaultSpinner = 'standard';
-
-
-      // catch clicks to toggle panel refresh
-      $element.on('click', function () {
-        var $this   = $(this),
-            panel   = $this.parents('.panel').eq(0),
-            spinner = $this.data('spinner') || defaultSpinner
-            ;
-
-        // start showing the spinner
-        panel.addClass(whirlClass + ' ' + spinner);
-
-        // Emit event when refresh clicked
-        $scope.$emit(refreshEvent, panel.attr('id'));
-
-      });
-
-      // listen to remove spinner
-      $scope.$on('removeSpinner', removeSpinner);
-
-      // method to clear the spinner when done
-      function removeSpinner (ev, id) {
-        if (!id) return;
-        var newid = id.charAt(0) == '#' ? id : ('#'+id);
-        angular
-          .element(newid)
-          .removeClass(whirlClass);
-      }
-    }
-  };
-});
-
-/**=========================================================
- * Module: tags-input.js
- * Initializes the tag inputs plugin
- =========================================================*/
-
-App.directive('tagsinput', function($timeout) {
-  return {
-    restrict: 'A',
-    require: 'ngModel',
-    link: function(scope, element, attrs, ngModel) {
-
-      element.on('itemAdded itemRemoved', function(){
-        // check if view value is not empty and is a string
-        // and update the view from string to an array of tags
-        if(ngModel.$viewValue && ngModel.$viewValue.split) {
-          ngModel.$setViewValue( ngModel.$viewValue.split(',') );
-          ngModel.$render();
-        }
-      });
-
-      $timeout(function(){
-        element.tagsinput();
-      });
-
-    }
-  };
-});
-
-/**=========================================================
- * Module: validate-form.js
- * Initializes the validation plugin Parsley
- =========================================================*/
-
-App.directive('validateForm', function() {
-  return {
-    restrict: 'A',
-    controller: function($scope, $element) {
-      var $elem = $($element);
-      if($.fn.parsley)
-        $elem.parsley();
-    }
-  };
-});
-
 /**
  * Created by Ak on 4/28/2015.
  */
@@ -1953,6 +1454,7 @@ App.controller('HomeController',['$scope','SchoolDataService','$window','$rootSc
 );
 
 
+/// <reference path="../../../../../typings/angularjs/angular.d.ts"/>
 var app = angular.module('SchoolAdminApp');
 /**
  * Controllers
@@ -2664,9 +2166,9 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
 
 app.controller('SettingsAcademicsController',
     [ '$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService','toaster',
-        'BehaviourAssessmentSystemService','SkillAssessmentSystemService',
-    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster,BehaviourAssessmentSystemService,
-              SkillAssessmentSystemService) {
+       'BehaviourSkillSystemService', 'BehaviourAssessmentSystemService','SkillAssessmentSystemService',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster,
+              BehaviourSkillSystemService, BehaviourAssessmentSystemService, SkillAssessmentSystemService) {
 
         //Grading Systems
 
@@ -2675,7 +2177,7 @@ app.controller('SettingsAcademicsController',
         console.log( $scope.schoolCategories );
 
         $scope.assignedGradingSystem = GradingSystemService.getAssignedGradingSystem();
-        $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+
         
         $scope.gradingSystems = 
         {
@@ -2818,14 +2320,17 @@ app.controller('SettingsAcademicsController',
                 toaster.pop('error', "Assign Grading System", "Failed to save assignments");
             });
         };
-        console.log(GradingSystemService.query());
+        
+        
 
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
         //Grade Assessment Systems
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
-
+        
+        $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+                
         $scope.gradeAssessmentSystems = 
         {
             loading: true,
@@ -2990,15 +2495,63 @@ app.controller('SettingsAcademicsController',
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
 
-        $scope.behaviourCategories  = BehaviourAssessmentSystemService.query({'action': 'categories'});
-        $scope.behaviours  = BehaviourAssessmentSystemService.query();
-        $scope.skillCategories  = SkillAssessmentSystemService.query({'action': 'categories'});
-        $scope.skills  = SkillAssessmentSystemService.query();
+        $scope.assignedBehaviourSkillSystem  = BehaviourSkillSystemService.getAssignedBehaviourSkillSystem();
+        
+        $scope.behaviourSkillSystems  = {data: null, loading: true,empty: false};
+        
+        BehaviourSkillSystemService.query({},function(response){
+            $scope.behaviourSkillSystems.data  = response;
+            $scope.behaviourSkillSystems.loading  = false;
+            if(angular.isArray(response) && response.length < 1){
+                $scope.behaviourSkillSystems.empty  = true;
+            }
 
-        $scope.addBehaviour = function(behaviour){
+        },function(err){
+            $scope.behaviourSkillSystems.loading  = false;
+        });
+
+        $scope.behaviourCategories  = BehaviourAssessmentSystemService.query({'action': 'categories',behaviourSkillSystemId: 0});
+        //$scope.behaviours  = BehaviourAssessmentSystemService.query();
+        $scope.skillCategories  = SkillAssessmentSystemService.query({'action': 'categories',behaviourSkillSystemId: 0});
+        //$scope.skills  = SkillAssessmentSystemService.query();
+        
+        $scope.addNewBehaviourSkillSystem = function(){
+            $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem =  true;
+            var system = {
+                name: generateBehaviourSkillSystemName()
+            };
+            
+            BehaviourSkillSystemService.save(system,function(data){
+                $scope.behaviourSkillSystems.data.push(data);
+                
+                toaster.pop('success', "Behaviour Assessment System", "Added Succesfully");
+                $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem = false;
+                system.name = '';
+            },function(){
+                $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem = false;
+                toaster.pop('error', "behaviour Assessment System", "Failed to add");
+            });
+        };
+        
+        $scope.removeBehaviourSkillSystem = function(system,$index){
+            system.deleting =  true;
+            BehaviourSkillSystemService.delete(system,function(data){
+                $scope.behaviourSkillSystems.data.splice($index,1);
+                
+                toaster.pop('success', "Behaviour Assessment System", "Removed Succesfully");
+                system.deleting = false;
+            },function(){
+                system.adding = false;
+                toaster.pop('error', "behaviour Assessment System", "Failed to remove");
+            });
+        };
+        
+        $scope.addBehaviour = function(behaviour,behaviourSkillSystem){
             behaviour.adding =  true;
+            behaviour.scoped_behaviour_skill_system_id =  behaviourSkillSystem.id;
+            
             BehaviourAssessmentSystemService.save(behaviour,function(data){
-                $scope.behaviours  = data.all;
+                behaviourSkillSystem.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
                 behaviour.adding = false;
                 behaviour.name = '';
@@ -3009,11 +2562,12 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.removeBehaviour = function(behaviour){
+        $scope.removeBehaviour = function(behaviour,behaviourSkillSystem){
             behaviour.removing =  true;
+            
             BehaviourAssessmentSystemService.delete(behaviour,function(data){
                 behaviour.removing =  false;
-                $scope.behaviours  = data.all;
+                behaviourSkillSystem.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "Behaviour removed Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(){
@@ -3032,12 +2586,14 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.addSkill = function(skill){
+        $scope.addSkill = function(skill,behaviourSkillSystem){
             skill.adding =  true;
+            skill.scoped_behaviour_skill_system_id =  behaviourSkillSystem.id;
+            
             SkillAssessmentSystemService.save(skill,function(data){
                 skill.adding =  false;
                 skill.name =  '';
-                $scope.skills  = data.all;
+                behaviourSkillSystem.skills  = data.all;
                 toaster.pop('success', "Skill Assessment System", "Added Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(){
@@ -3046,10 +2602,10 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.removeSkill = function(skill){
+        $scope.removeSkill = function(skill,behaviourSkillSystem){
             skill.removing =  true;
             SkillAssessmentSystemService.delete(skill,function(data){
-                $scope.skills  = data.all;
+                behaviourSkillSystem.skills  = data.all;
                 skill.removing =  false;
                 toaster.pop('success', "Skill Assessment System", "Removed Succesfully");
                 $scope.$emit('refreshSchoolData');
@@ -3068,10 +2624,35 @@ app.controller('SettingsAcademicsController',
                 toaster.pop('error', "Skill Assessment System", "Failed to update");
             });
         };
+        
+        $scope.saveAssignedBehaviourSkillSystem = function (assignedBehaviourSkillSystem){
+            BehaviourSkillSystemService.assignBehaviourSkillSystem(assignedBehaviourSkillSystem).$promise.then(function(){
+                toaster.pop('success', "Assign Grade Assessment System", "Assignments Saved Succesfully");
+            },function(){
+                toaster.pop('error', "Assign Grade Assessment System", "Failed to save assignments");
+            });
+        };
+        
+        $scope.saveBehaviourSkillSystemAssignment = function (classItem){
+            BehaviourSkillSystemService.assignBehaviourSkillSystemToClass(classItem).$promise.then(function(){
+                toaster.pop('success', "Assign Behaviour Skill System", "Assignments Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
+            },function(){
+                toaster.pop('error', "Assign Behaviour Skill System", "Failed to save assignments");
+            });
+        };
+        
+        
 
-
-
-
+        function generateBehaviourSkillSystemName(){
+           if($scope.behaviourSkillSystems.data === null || $scope.behaviourSkillSystems.data.length < 1 ){
+               return "Default Behaviour Skill System";
+           }else{
+                return "Default Behaviour Skill System "+ $scope.behaviourSkillSystems.data.length;
+           }
+        }
+            
+            
         function validateGradeAssessmentSystem(gradeAssessmentSystem){
             var total_score = parseInt(gradeAssessmentSystem.total_score);
             var sum =  0;
@@ -3186,5 +2767,515 @@ app.controller('SettingsAdministratorsController', ['$scope', 'SchoolDataService
         }
     }
 ]);
+
+/**=========================================================
+ * Module: filestyle.js
+ * Initializes the fielstyle plugin
+ =========================================================*/
+
+App.directive('filestyle', function() {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element) {
+      var options = $element.data();
+      
+      // old usage support
+        options.classInput = $element.data('classinput') || options.classInput;
+      
+      $element.filestyle(options);
+    }
+  };
+});
+
+/**=========================================================
+ * Module: form-wizard.js
+ * Handles form wizard plugin and validation
+ =========================================================*/
+
+App.directive('formWizard', function($parse){
+  'use strict';
+
+  return {
+    restrict: 'A',
+    scope: true,
+    link: function(scope, element, attribute) {
+      var validate = $parse(attribute.validateSteps)(scope),
+          wiz = new Wizard(attribute.steps, !!validate, element);
+      scope.wizard = wiz.init();
+
+    }
+  };
+
+  function Wizard (quantity, validate, element) {
+    
+    var self = this;
+    self.quantity = parseInt(quantity,10);
+    self.validate = validate;
+    self.element = element;
+    
+    self.init = function() {
+      self.createsteps(self.quantity);
+      self.go(1); // always start at fist step
+      return self;
+    };
+
+    self.go = function(step) {
+      
+      if ( angular.isDefined(self.steps[step]) ) {
+
+        if(self.validate && step !== 1) {
+          var form = $(self.element),
+              group = form.children().children('div').get(step - 2);
+
+          if (false === form.parsley().validate( group.id )) {
+            return false;
+          }
+        }
+
+        self.cleanall();
+        self.steps[step] = true;
+      }
+    };
+
+    self.active = function(step) {
+      return !!self.steps[step];
+    };
+
+    self.cleanall = function() {
+      for(var i in self.steps){
+        self.steps[i] = false;
+      }
+    };
+
+    self.createsteps = function(q) {
+      self.steps = [];
+      for(var i = 1; i <= q; i++) self.steps[i] = false;
+    };
+
+  }
+
+});
+
+App.directive('image', function($q) {
+        'use strict'
+
+        var URL = window.URL || window.webkitURL;
+
+        var getResizeArea = function () {
+            var resizeAreaId = 'fileupload-resize-area';
+
+            var resizeArea = document.getElementById(resizeAreaId);
+
+            if (!resizeArea) {
+                resizeArea = document.createElement('canvas');
+                resizeArea.id = resizeAreaId;
+                resizeArea.style.visibility = 'hidden';
+                document.body.appendChild(resizeArea);
+            }
+
+            return resizeArea;
+        }
+
+        var resizeImage = function (origImage, options) {
+            var maxHeight = options.resizeMaxHeight || 300;
+            var maxWidth = options.resizeMaxWidth || 250;
+            var quality = options.resizeQuality || 0.7;
+            var type = options.resizeType || 'image/jpg';
+
+            var canvas = getResizeArea();
+
+            var height = origImage.height;
+            var width = origImage.width;
+
+            // calculate the width and height, constraining the proportions
+            if (width > height) {
+                if (width > maxWidth) {
+                    height = Math.round(height *= maxWidth / width);
+                    width = maxWidth;
+                }
+            } else {
+                if (height > maxHeight) {
+                    width = Math.round(width *= maxHeight / height);
+                    height = maxHeight;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            //draw image on canvas
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(origImage, 0, 0, width, height);
+
+            // get the data from canvas as 70% jpg (or specified type).
+            return canvas.toDataURL(type, quality);
+        };
+
+        var createImage = function(url, callback) {
+            var image = new Image();
+            image.onload = function() {
+                callback(image);
+            };
+            image.src = url;
+        };
+
+        var fileToDataURL = function (file) {
+            var deferred = $q.defer();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                deferred.resolve(e.target.result);
+            };
+            reader.readAsDataURL(file);
+            return deferred.promise;
+        };
+
+
+        return {
+            restrict: 'A',
+            scope: {
+                image: '=',
+                resizeMaxHeight: '@?',
+                resizeMaxWidth: '@?',
+                resizeQuality: '@?',
+                resizeType: '@?',
+            },
+            link: function postLink(scope, element, attrs, ctrl) {
+
+                var doResizing = function(imageResult, callback) {
+                    createImage(imageResult.url, function(image) {
+                        var dataURL = resizeImage(image, scope);
+                        imageResult.resized = {
+                            dataURL: dataURL,
+                            type: dataURL.match(/:(.+\/.+);/)[1],
+                        };
+                        callback(imageResult);
+                    });
+                };
+
+                var applyScope = function(imageResult) {
+                    scope.$apply(function() {
+                        //console.log(imageResult);
+                        if(attrs.multiple)
+                            scope.image.push(imageResult);
+                        else
+                            scope.image = imageResult;
+                    });
+                };
+
+
+                element.bind('change', function (evt) {
+                    //when multiple always return an array of images
+                    if(attrs.multiple)
+                        scope.image = [];
+
+                    var files = evt.target.files;
+                    for(var i = 0; i < files.length; i++) {
+                        //create a result object for each file in files
+                        var imageResult = {
+                            file: files[i],
+                            url: URL.createObjectURL(files[i])
+                        };
+
+                        fileToDataURL(files[i]).then(function (dataURL) {
+                            imageResult.dataURL = dataURL;
+                        });
+
+                        if(scope.resizeMaxHeight || scope.resizeMaxWidth) { //resize image
+                            doResizing(imageResult, function(imageResult) {
+                                applyScope(imageResult);
+                            });
+                        }
+                        else { //no resizing
+                            applyScope(imageResult);
+                        }
+                    }
+                });
+            }
+        };
+    });
+/**=========================================================
+ * Module: masked,js
+ * Initializes the masked inputs
+ =========================================================*/
+
+App.directive('masked', function() {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element) {
+      var $elem = $($element);
+      if($.fn.inputmask)
+        $elem.inputmask();
+    }
+  };
+});
+
+/**
+ * Created by Ak on 4/4/2015.
+ */
+/**=========================================================
+ * Module: scroll.js
+ * Make a content box scrollable
+ =========================================================*/
+
+App.directive('scrollable', function(){
+    return {
+        restrict: 'EA',
+        link: function(scope, elem, attrs) {
+            var defaultHeight = 250;
+            elem.slimScroll({
+                height: (attrs.height || defaultHeight)
+            });
+        }
+    };
+});
+/**=========================================================
+ * Module panel-tools.js
+ * Directive tools to control panels. 
+ * Allows collapse, refresh and dismiss (remove)
+ * Saves panel state in browser storage
+ =========================================================*/
+App.directive('paneltool', function($compile, $timeout){
+  var templates = {
+    /* jshint multistr: true */
+    collapse:"<a href='#' panel-collapse='' tooltip='Collapse Panel' ng-click='{{panelId}} = !{{panelId}}'> \
+                <em ng-show='{{panelId}}' class='fa fa-plus'></em> \
+                <em ng-show='!{{panelId}}' class='fa fa-minus'></em> \
+              </a>",
+    dismiss: "<a href='#' panel-dismiss='' tooltip='Close Panel'>\
+               <em class='fa fa-times'></em>\
+             </a>",
+    refresh: "<a href='#' panel-refresh='' data-spinner='{{spinner}}' tooltip='Refresh Panel'>\
+               <em class='fa fa-refresh'></em>\
+             </a>"
+  };
+
+  function getTemplate( elem, attrs ){
+    var temp = '';
+    attrs = attrs || {};
+    if(attrs.toolCollapse)
+      temp += templates.collapse.replace(/{{panelId}}/g, (elem.parent().parent().attr('id')) );
+    if(attrs.toolDismiss)
+      temp += templates.dismiss;
+    if(attrs.toolRefresh)
+      temp += templates.refresh.replace(/{{spinner}}/g, attrs.toolRefresh);
+    return temp;
+  }
+  
+  return {
+    restrict: 'E',
+    scope: false,
+    link: function (scope, element, attrs) {
+
+      var tools = scope.panelTools || attrs;
+  
+      $timeout(function() {
+        element.html(getTemplate(element, tools )).show();
+        $compile(element.contents())(scope);
+        
+        element.addClass('pull-right');
+      });
+
+    }
+  };
+})
+/**=========================================================
+ * Dismiss panels * [panel-dismiss]
+ =========================================================*/
+.directive('panelDismiss', function($q, Utils){
+  'use strict';
+  return {
+    restrict: 'A',
+    controller: function ($scope, $element) {
+      var removeEvent   = 'panel-remove',
+          removedEvent  = 'panel-removed';
+
+      $element.on('click', function () {
+
+        // find the first parent panel
+        var parent = $(this).closest('.panel');
+
+        removeElement();
+
+        function removeElement() {
+          var deferred = $q.defer();
+          var promise = deferred.promise;
+          
+          // Communicate event destroying panel
+          $scope.$emit(removeEvent, parent.attr('id'), deferred);
+          promise.then(destroyMiddleware);
+        }
+
+        // Run the animation before destroy the panel
+        function destroyMiddleware() {
+          if(Utils.support.animation) {
+            parent.animo({animation: 'bounceOut'}, destroyPanel);
+          }
+          else destroyPanel();
+        }
+
+        function destroyPanel() {
+
+          var col = parent.parent();
+          parent.remove();
+          // remove the parent if it is a row and is empty and not a sortable (portlet)
+          col
+            .filter(function() {
+            var el = $(this);
+            return (el.is('[class*="col-"]:not(.sortable)') && el.children('*').length === 0);
+          }).remove();
+
+          // Communicate event destroyed panel
+          $scope.$emit(removedEvent, parent.attr('id'));
+
+        }
+      });
+    }
+  };
+})
+/**=========================================================
+ * Collapse panels * [panel-collapse]
+ =========================================================*/
+.directive('panelCollapse', ['$timeout', function($timeout){
+  'use strict';
+  
+  var storageKeyName = 'panelState',
+      storage;
+  
+  return {
+    restrict: 'A',
+    scope: false,
+    controller: function ($scope, $element) {
+
+      // Prepare the panel to be collapsible
+      var $elem   = $($element),
+          parent  = $elem.closest('.panel'), // find the first parent panel
+          panelId = parent.attr('id');
+
+      storage = $scope.$storage;
+
+      // Load the saved state if exists
+      var currentState = loadPanelState( panelId );
+      if ( typeof currentState !== 'undefined') {
+        $timeout(function(){
+            $scope[panelId] = currentState; },
+          10);
+      }
+
+      // bind events to switch icons
+      $element.bind('click', function() {
+
+        savePanelState( panelId, !$scope[panelId] );
+
+      });
+    }
+  };
+
+  function savePanelState(id, state) {
+    if(!id) return false;
+    var data = angular.fromJson(storage[storageKeyName]);
+    if(!data) { data = {}; }
+    data[id] = state;
+    storage[storageKeyName] = angular.toJson(data);
+  }
+
+  function loadPanelState(id) {
+    if(!id) return false;
+    var data = angular.fromJson(storage[storageKeyName]);
+    if(data) {
+      return data[id];
+    }
+  }
+
+}])
+/**=========================================================
+ * Refresh panels
+ * [panel-refresh] * [data-spinner="standard"]
+ =========================================================*/
+.directive('panelRefresh', function($q){
+  'use strict';
+  
+  return {
+    restrict: 'A',
+    scope: false,
+    controller: function ($scope, $element) {
+      
+      var refreshEvent   = 'panel-refresh',
+          whirlClass     = 'whirl',
+          defaultSpinner = 'standard';
+
+
+      // catch clicks to toggle panel refresh
+      $element.on('click', function () {
+        var $this   = $(this),
+            panel   = $this.parents('.panel').eq(0),
+            spinner = $this.data('spinner') || defaultSpinner
+            ;
+
+        // start showing the spinner
+        panel.addClass(whirlClass + ' ' + spinner);
+
+        // Emit event when refresh clicked
+        $scope.$emit(refreshEvent, panel.attr('id'));
+
+      });
+
+      // listen to remove spinner
+      $scope.$on('removeSpinner', removeSpinner);
+
+      // method to clear the spinner when done
+      function removeSpinner (ev, id) {
+        if (!id) return;
+        var newid = id.charAt(0) == '#' ? id : ('#'+id);
+        angular
+          .element(newid)
+          .removeClass(whirlClass);
+      }
+    }
+  };
+});
+
+/**=========================================================
+ * Module: tags-input.js
+ * Initializes the tag inputs plugin
+ =========================================================*/
+
+App.directive('tagsinput', function($timeout) {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+
+      element.on('itemAdded itemRemoved', function(){
+        // check if view value is not empty and is a string
+        // and update the view from string to an array of tags
+        if(ngModel.$viewValue && ngModel.$viewValue.split) {
+          ngModel.$setViewValue( ngModel.$viewValue.split(',') );
+          ngModel.$render();
+        }
+      });
+
+      $timeout(function(){
+        element.tagsinput();
+      });
+
+    }
+  };
+});
+
+/**=========================================================
+ * Module: validate-form.js
+ * Initializes the validation plugin Parsley
+ =========================================================*/
+
+App.directive('validateForm', function() {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element) {
+      var $elem = $($element);
+      if($.fn.parsley)
+        $elem.parsley();
+    }
+  };
+});
 
 //# sourceMappingURL=app.js.map

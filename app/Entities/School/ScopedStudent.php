@@ -75,6 +75,10 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactPhone($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedStudent whereContactAddress($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|ScopedClassStudent[] $class_students 
+ * @property-read ScopedClassStudent::class)
+ *         ->whereAcademicSession($session)
+ *         ->with(ScopedClassStudent::$relati $current_class_student 
  */
 class ScopedStudent extends BaseModel
 {

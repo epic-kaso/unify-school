@@ -20,6 +20,8 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read \UnifySchool\School $school
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property-read ScopedSchoolCategoryArmSubdivision $school_class 
+ * @method static \UnifySchool\Entities\School\ScopedClassStudent dStudent()
  */
 class ScopedClassStudent extends BaseModel
 {

@@ -1,3 +1,4 @@
+/// <reference path="../../../../../typings/angularjs/angular.d.ts"/>
 var app = angular.module('SchoolAdminApp');
 /**
  * Controllers
@@ -709,9 +710,9 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
 
 app.controller('SettingsAcademicsController',
     [ '$scope', 'GradingSystemService', 'GradeAssessmentSystemService','SchoolDataService','toaster',
-        'BehaviourAssessmentSystemService','SkillAssessmentSystemService',
-    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster,BehaviourAssessmentSystemService,
-              SkillAssessmentSystemService) {
+       'BehaviourSkillSystemService', 'BehaviourAssessmentSystemService','SkillAssessmentSystemService',
+    function ($scope, GradingSystemService, GradeAssessmentSystemService,SchoolDataService,toaster,
+              BehaviourSkillSystemService, BehaviourAssessmentSystemService, SkillAssessmentSystemService) {
 
         //Grading Systems
 
@@ -720,7 +721,7 @@ app.controller('SettingsAcademicsController',
         console.log( $scope.schoolCategories );
 
         $scope.assignedGradingSystem = GradingSystemService.getAssignedGradingSystem();
-        $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+
         
         $scope.gradingSystems = 
         {
@@ -863,14 +864,17 @@ app.controller('SettingsAcademicsController',
                 toaster.pop('error', "Assign Grading System", "Failed to save assignments");
             });
         };
-        console.log(GradingSystemService.query());
+        
+        
 
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
         //Grade Assessment Systems
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
-
+        
+        $scope.assignedGradeAssignmentSystem = GradeAssessmentSystemService.getAssignedGradeAssessmentSystem();
+                
         $scope.gradeAssessmentSystems = 
         {
             loading: true,
@@ -1035,15 +1039,63 @@ app.controller('SettingsAcademicsController',
         //---------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------
 
-        $scope.behaviourCategories  = BehaviourAssessmentSystemService.query({'action': 'categories'});
-        $scope.behaviours  = BehaviourAssessmentSystemService.query();
-        $scope.skillCategories  = SkillAssessmentSystemService.query({'action': 'categories'});
-        $scope.skills  = SkillAssessmentSystemService.query();
+        $scope.assignedBehaviourSkillSystem  = BehaviourSkillSystemService.getAssignedBehaviourSkillSystem();
+        
+        $scope.behaviourSkillSystems  = {data: null, loading: true,empty: false};
+        
+        BehaviourSkillSystemService.query({},function(response){
+            $scope.behaviourSkillSystems.data  = response;
+            $scope.behaviourSkillSystems.loading  = false;
+            if(angular.isArray(response) && response.length < 1){
+                $scope.behaviourSkillSystems.empty  = true;
+            }
 
-        $scope.addBehaviour = function(behaviour){
+        },function(err){
+            $scope.behaviourSkillSystems.loading  = false;
+        });
+
+        $scope.behaviourCategories  = BehaviourAssessmentSystemService.query({'action': 'categories',behaviourSkillSystemId: 0});
+        //$scope.behaviours  = BehaviourAssessmentSystemService.query();
+        $scope.skillCategories  = SkillAssessmentSystemService.query({'action': 'categories',behaviourSkillSystemId: 0});
+        //$scope.skills  = SkillAssessmentSystemService.query();
+        
+        $scope.addNewBehaviourSkillSystem = function(){
+            $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem =  true;
+            var system = {
+                name: generateBehaviourSkillSystemName()
+            };
+            
+            BehaviourSkillSystemService.save(system,function(data){
+                $scope.behaviourSkillSystems.data.push(data);
+                
+                toaster.pop('success', "Behaviour Assessment System", "Added Succesfully");
+                $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem = false;
+                system.name = '';
+            },function(){
+                $scope.behaviourSkillSystems.isAddingNewBehaviourSkillSystem = false;
+                toaster.pop('error', "behaviour Assessment System", "Failed to add");
+            });
+        };
+        
+        $scope.removeBehaviourSkillSystem = function(system,$index){
+            system.deleting =  true;
+            BehaviourSkillSystemService.delete(system,function(data){
+                $scope.behaviourSkillSystems.data.splice($index,1);
+                
+                toaster.pop('success', "Behaviour Assessment System", "Removed Succesfully");
+                system.deleting = false;
+            },function(){
+                system.adding = false;
+                toaster.pop('error', "behaviour Assessment System", "Failed to remove");
+            });
+        };
+        
+        $scope.addBehaviour = function(behaviour,behaviourSkillSystem){
             behaviour.adding =  true;
+            behaviour.scoped_behaviour_skill_system_id =  behaviourSkillSystem.id;
+            
             BehaviourAssessmentSystemService.save(behaviour,function(data){
-                $scope.behaviours  = data.all;
+                behaviourSkillSystem.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "New Behaviour Added Succesfully");
                 behaviour.adding = false;
                 behaviour.name = '';
@@ -1054,11 +1106,12 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.removeBehaviour = function(behaviour){
+        $scope.removeBehaviour = function(behaviour,behaviourSkillSystem){
             behaviour.removing =  true;
+            
             BehaviourAssessmentSystemService.delete(behaviour,function(data){
                 behaviour.removing =  false;
-                $scope.behaviours  = data.all;
+                behaviourSkillSystem.behaviours  = data.all;
                 toaster.pop('success', "Behaviour Assessment System", "Behaviour removed Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(){
@@ -1077,12 +1130,14 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.addSkill = function(skill){
+        $scope.addSkill = function(skill,behaviourSkillSystem){
             skill.adding =  true;
+            skill.scoped_behaviour_skill_system_id =  behaviourSkillSystem.id;
+            
             SkillAssessmentSystemService.save(skill,function(data){
                 skill.adding =  false;
                 skill.name =  '';
-                $scope.skills  = data.all;
+                behaviourSkillSystem.skills  = data.all;
                 toaster.pop('success', "Skill Assessment System", "Added Succesfully");
                 $scope.$emit('refreshSchoolData');
             },function(){
@@ -1091,10 +1146,10 @@ app.controller('SettingsAcademicsController',
             });
         };
 
-        $scope.removeSkill = function(skill){
+        $scope.removeSkill = function(skill,behaviourSkillSystem){
             skill.removing =  true;
             SkillAssessmentSystemService.delete(skill,function(data){
-                $scope.skills  = data.all;
+                behaviourSkillSystem.skills  = data.all;
                 skill.removing =  false;
                 toaster.pop('success', "Skill Assessment System", "Removed Succesfully");
                 $scope.$emit('refreshSchoolData');
@@ -1113,10 +1168,35 @@ app.controller('SettingsAcademicsController',
                 toaster.pop('error', "Skill Assessment System", "Failed to update");
             });
         };
+        
+        $scope.saveAssignedBehaviourSkillSystem = function (assignedBehaviourSkillSystem){
+            BehaviourSkillSystemService.assignBehaviourSkillSystem(assignedBehaviourSkillSystem).$promise.then(function(){
+                toaster.pop('success', "Assign Grade Assessment System", "Assignments Saved Succesfully");
+            },function(){
+                toaster.pop('error', "Assign Grade Assessment System", "Failed to save assignments");
+            });
+        };
+        
+        $scope.saveBehaviourSkillSystemAssignment = function (classItem){
+            BehaviourSkillSystemService.assignBehaviourSkillSystemToClass(classItem).$promise.then(function(){
+                toaster.pop('success', "Assign Behaviour Skill System", "Assignments Saved Succesfully");
+                $scope.$emit('refreshSchoolData');
+            },function(){
+                toaster.pop('error', "Assign Behaviour Skill System", "Failed to save assignments");
+            });
+        };
+        
+        
 
-
-
-
+        function generateBehaviourSkillSystemName(){
+           if($scope.behaviourSkillSystems.data === null || $scope.behaviourSkillSystems.data.length < 1 ){
+               return "Default Behaviour Skill System";
+           }else{
+                return "Default Behaviour Skill System "+ $scope.behaviourSkillSystems.data.length;
+           }
+        }
+            
+            
         function validateGradeAssessmentSystem(gradeAssessmentSystem){
             var total_score = parseInt(gradeAssessmentSystem.total_score);
             var sum =  0;

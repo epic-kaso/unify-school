@@ -72,8 +72,11 @@ Route::group(
         Route::resource('courses-settings', 'Configurations\CourseSettingsController');
         Route::resource('category-class-settings', 'Configurations\CategoryAndClassesSettingsController');
         Route::resource('sessions-terms-settings', 'Configurations\SessionTermSettingsController');
-        Route::resource('behaviour-assessment-systems', 'Configurations\BehaviourAssessmentSystemController');
-        Route::resource('skill-assessment-systems', 'Configurations\SkillAssessmentSystemController');
+
+        Route::resource('behaviour-skill-systems', 'Configurations\BehaviourSkillSystemController');
+        Route::resource('behaviour-skill-system.skill-assessment-systems', 'Configurations\SkillAssessmentSystemController');
+        Route::resource('behaviour-skill-system.behaviour-assessment-systems', 'Configurations\BehaviourAssessmentSystemController');
+
         Route::resource('grade-assessment-systems', 'Configurations\GradeAssessmentSystemsController');
         Route::resource('import-students', 'School\StudentImportController');
 

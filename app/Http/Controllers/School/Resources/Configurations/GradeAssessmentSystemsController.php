@@ -2,12 +2,13 @@
 
 use Input;
 use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
+use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
 use UnifySchool\Events\Academics\GradeAssessmentSystemAdded;
 use UnifySchool\Http\Controllers\Controller;
 use UnifySchool\Http\Requests;
 use UnifySchool\Http\Requests\GradeAssessmentSystemsRequest;
 use UnifySchool\Repositories\School\ScopedGradeAssessmentSystemsRepository;
-use UnifySchool\Repositories\School\ScopedSchoolCategoriesRepository;
+
 
 class GradeAssessmentSystemsController extends Controller
 {

@@ -23,6 +23,12 @@
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @property-read \UnifySchool\School $school
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property integer $scoped_grade_assessment_system_id 
+ * @property integer $scoped_grading_system_id 
+ * @property integer $scoped_behaviour_skill_system_id 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereScopedGradeAssessmentSystemId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereScopedGradingSystemId($value)
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision whereScopedBehaviourSkillSystemId($value)
  */
 class ScopedSchoolCategoryArmSubdivision extends BaseModel
 {

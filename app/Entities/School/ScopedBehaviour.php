@@ -1,4 +1,5 @@
 <?php namespace UnifySchool\Entities\School;
+use UnifySchool\BehaviourCategory;
 
 /**
  * UnifySchool\Entities\School\ScopedBehaviour
@@ -19,6 +20,8 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedBehaviour whereUpdatedAt($value)
  * @method static \UnifySchool\Entities\School\BaseModel unScoped()
  * @method static \UnifySchool\Entities\School\BaseModel getWithData()
+ * @property integer $scoped_behaviour_skill_system_id 
+ * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Entities\School\ScopedBehaviour whereScopedBehaviourSkillSystemId($value)
  */
 class ScopedBehaviour extends BaseModel
 {
@@ -26,6 +29,6 @@ class ScopedBehaviour extends BaseModel
 
     public function behaviour_category()
     {
-        return $this->belongsTo('UnifySchool\BehaviourCategory');
+        return $this->belongsTo(BehaviourCategory::class);
     }
 }

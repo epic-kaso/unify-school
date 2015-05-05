@@ -67,15 +67,26 @@ App.factory('GradeAssessmentSystemService', ['$resource', function ($resource) {
     });
 }]);
 
+App.factory('BehaviourSkillSystemService', ['$resource', function ($resource) {
+    return $resource('/admin/resources/behaviour-skill-systems/:id',
+        {id: '@id'}, {
+            'update': {method: 'PUT'},
+            'getAssignedBehaviourSkillSystem': {method: 'GET',params: {'action': 'assignBehaviourSkillSystem'}},
+            'assignBehaviourSkillSystemToClass': {method: 'PUT',params: {'action': 'assignBehaviourSkillSystemToClass'}},
+            'assignBehaviourSkillSystem': {method: 'POST',params: {'action': 'assignBehaviourSkillSystem'}}
+        });
+}]);
 
 App.factory('BehaviourAssessmentSystemService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/behaviour-assessment-systems/:id', {id: '@id'}, {
+    return $resource('/admin/resources/behaviour-skill-system/:behaviourSkillSystemId/behaviour-assessment-systems/:id',
+                {id: '@id',behaviourSkillSystemId: '@scoped_behaviour_skill_system_id'}, {
         'update': {method: 'PUT'}
     });
 }]);
 
 App.factory('SkillAssessmentSystemService', ['$resource', function ($resource) {
-    return $resource('/admin/resources/skill-assessment-systems/:id', {id: '@id'}, {
+    return $resource('/admin/resources/behaviour-skill-system/:behaviourSkillSystemId/skill-assessment-systems/:id',
+                {id: '@id',behaviourSkillSystemId: '@scoped_behaviour_skill_system_id'}, {
         'update': {method: 'PUT'}
     });
 }]);

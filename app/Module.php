@@ -24,7 +24,7 @@
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereUpdatedAt($value)
  * @property boolean $active
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereActive($value)
- * @property boolean $is_fundamental 
+ * @property boolean $is_fundamental
  * @method static \Illuminate\Database\Query\Builder|\UnifySchool\Module whereIsFundamental($value)
  */
 class Module extends BaseModel
