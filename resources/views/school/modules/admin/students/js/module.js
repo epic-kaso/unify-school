@@ -4,7 +4,9 @@ App.constant('StudentsViewBaseURL', '/admin/dashboard/load-module/admin/students
 App.constant('StudentsResourceURL', '/admin/modules/students/:id');
 
 App.factory('StudentsService',['$resource','StudentsResourceURL',function($resource,StudentsResourceURL){
-    return $resource(StudentsResourceURL,{id: '@id'});
+    return $resource(StudentsResourceURL,{id: '@id'},{
+        'update': {method: 'PUT'}
+        });
 }]);
 
 App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider', 'StudentsViewBaseURL',
@@ -248,11 +250,13 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
     }
 ]);
 
-App.controller('ManageStudentsController', ['$scope','StudentsService','$http','$state','$rootScope',
- function ($scope,StudentsService,$http,$state,$rootScope) {
-     
+App.controller('ManageStudentsController', 
+['$scope','StudentsService','$http','$state','$rootScope','SchoolDataService','toaster',
+ function ($scope,StudentsService,$http,$state,$rootScope,SchoolDataService,toaster) {
+    console.log(SchoolDataService.school.school_type.classes); 
     $scope.showContextMenu = false; 
     $scope.Students = {};
+    $scope.classes = SchoolDataService.school.school_type.classes;
     $scope.ScopedSchoolCategory = {};
     $scope.studentActionMenuItems = [
         {
@@ -291,6 +295,25 @@ App.controller('ManageStudentsController', ['$scope','StudentsService','$http','
         });
         
     }; 
+    
+    
+    $scope.saveStudentEditMode = function(event,student,index){
+        student.updating = true;
+        student.action = 'updateStudent';
+        
+        StudentsService.update(student).$promise.then(function(response){
+            toaster.pop('success', 'Student', 'Updated Successfully');
+            student.updating = false;
+            student = response;
+            
+            $scope.Students.data.splice(index,1,student);
+            
+        },function(err){
+            toaster.pop('error', 'Student', 'Update Failed');
+            student.updating = false;
+        });
+        event.preventDefault();
+    };
     
     $scope.fetchStudents = function(category_id){
         $scope.loadingStudents = true;
@@ -363,6 +386,10 @@ App.controller('ManageStudentsController', ['$scope','StudentsService','$http','
             console.log(obj);
         }
      );
+     
+     $rootScope.$on('refreshSchoolDataComplete',function(){
+         $scope.classes = SchoolDataService.school.school_type.classes;
+     });
      
      $rootScope.$on('selectedSchoolCategoryChanged',function(event, obj){
          console.log('I hear ya @ Student Module : selectedSchoolCategoryChanged');

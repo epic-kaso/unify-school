@@ -82,9 +82,10 @@
  */
 class ScopedStudent extends BaseModel
 {
-//    protected $appends = [
-//        'current_class_student'
-//    ];
+    public static $relationships = [
+//        'class_students',
+        'current_class_student'
+    ];
 
     public static function boot()
     {

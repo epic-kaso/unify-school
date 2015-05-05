@@ -61,7 +61,8 @@ class CourseSettingsController extends Controller
         switch ($action) {
             case static::$action_assign_course:
                 return $this->assignCourse($id, $request);
-            case 'default':
+            default:
+                return $this->updateCourse($id,$request);
                 break;
         }
     }
@@ -134,5 +135,21 @@ class CourseSettingsController extends Controller
         $schoolCategory->save();
 
         return \Response::json(['model' => $schoolCategory]);
+    }
+    
+    private function updateCourse($id,$request){
+        $course  = ScopedCourse::find($id);
+        
+        $editableCourse = $request->get('course');
+        
+        if(!empty($editableCourse)){
+            $course->code = $editableCourse['code'];
+            $course->name = $editableCourse['name'];
+            
+            $course->save();
+            
+        }
+        
+        return $course;
     }
 }

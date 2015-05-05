@@ -186,8 +186,63 @@
                                 <tbody>
                                    <tr ng-repeat="course in courses">
                                         <td>@{{ $index+1 }}</td>
-                                        <td>@{{ course.name }}</td>
-                                        <td>@{{ course.code }}</td>
+                                        <td>
+                                            <span class="">
+                                                    <span class="span" ng-hide="course.edit">
+                                                        <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                                                            @{{ course.name }}
+                                                        </span>
+
+                                                        <span class="btn btn-xs" ng-click="course.edit = true;">
+                                                            <span class="fa fa-pencil"></span>
+                                                        </span>
+                                                    </span>
+
+                                                    <span class="edit-box" style="display: inline-block;width: 220px;"
+                                                          ng-show="course.edit">
+                                                        <input style="width: 150px;display: inline-block" type="text"
+                                                               ng-model="course.name"
+                                                               class="form-control"/>
+                                                        <span class="btn btn-primary btn-sm"
+                                                              style="width: 30px"
+                                                              ng-click="saveCourseEditMode($event,course);course.edit_code = false;"><span class="fa fa-check"></span></span>
+                                                        <span class="btn btn-default btn-sm"
+                                                              style="width: 30px"
+                                                              ng-click="course.edit = false;">
+                                                              <span class="fa fa-times"></span>
+                                                         </span>
+                                                    </span>
+                                               </span>
+                                            
+                                         </td>
+                                        <td>
+                                            <span class="">
+                                                    <span class="span" ng-hide="course.edit_code">
+                                                        <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                                                            @{{ course.code }}
+                                                        </span>
+
+                                                        <span class="btn btn-xs" ng-click="course.edit_code = true;">
+                                                            <span class="fa fa-pencil"></span>
+                                                        </span>
+                                                    </span>
+
+                                                    <span class="edit-box" style="display: inline-block;width: 220px;"
+                                                          ng-show="course.edit_code">
+                                                        <input style="width: 150px;display: inline-block" type="text"
+                                                               ng-model="course.code"
+                                                               class="form-control"/>
+                                                        <span class="btn btn-primary btn-sm"
+                                                              style="width: 30px"
+                                                              ng-click="saveCourseEditMode($event,course);course.edit_code = false;"><span class="fa fa-check"></span></span>
+                                                        <span class="btn btn-default btn-sm"
+                                                              style="width: 30px"
+                                                              ng-click="course.edit_code = false;">
+                                                              <span class="fa fa-times"></span>
+                                                         </span>
+                                                    </span>
+                                               </span>
+                                        </td>
                                         <td>@{{ course.scoped_course_category.name }}</td>
                                         <td>@{{ course.scoped_course_category.scoped_school_category.name }}</td>
                                         <td><span class="btn pull-right"><i class="fa fa-times"></i></span></td>

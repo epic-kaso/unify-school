@@ -116,7 +116,33 @@ class StudentsController extends Controller
 
     public function update($id)
     {
-
+        $student = ScopedStudent::findOrFail($id);
+        $all = \Input::all();
+        
+        foreach($all as $key => $value){
+            if(array_key_exists($key, $student->getAttributes())){
+                $student->{$key} = empty($value) ? $student->{$key} : $value;
+            }
+        }
+        
+        $student->save();
+        
+        if(isset($all['current_class_student']) && isset($all['current_class_student']['scoped_school_category_arm_subdivision_id'])){
+            
+            $sub_class = $student->current_class_student;
+            
+            $current_sub_class_id =  $sub_class->scoped_school_category_arm_subdivision_id;
+            $new_sub_class_id = $all['current_class_student']['scoped_school_category_arm_subdivision_id'];
+            
+            if($current_sub_class_id !== $new_sub_class_id){
+                $sub_class->scoped_school_category_arm_subdivision_id = $new_sub_class_id;
+                $sub_class->save();
+            }
+        }
+        
+        $student->load(ScopedStudent::$relationships);
+        
+        return $student;
     }
 
     public function destroy($id)

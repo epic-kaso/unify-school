@@ -36,7 +36,7 @@
 					<td>ID</td>
 					<td>Sur Name</td>
 					<td>First Name</td>
-						<td>Middle Name</td>
+					<td>Middle Name</td>
 					<td>Reg Number</td>
 					<td>Class</d>
 					<td>..</td>
@@ -44,7 +44,7 @@
 			</thead>
 			
 			<tbody>
-				<tr ng-repeat="student in Students.data" class="student-row" >
+				<tr ng-class="{'whirl standard': student.updating}" ng-repeat="student in Students.data" class="student-row" >
 					<td>
 						<input type="checkbox" ng-model="student.selected" ng-change="studentSelected(Students.data,student,$index)">
 					</td>
@@ -55,17 +55,128 @@
 							alt=""
 						/>
 					</td>-->
-					<td ng-click="viewStudent(student.id)">@{{ student.last_name }}</td>
-					<td ng-click="viewStudent(student.id)">@{{ student.first_name }}</td>
-					<td ng-click="viewStudent(student.id)">@{{ student.middle_name }}</td>
-					<td ng-click="viewStudent(student.id)"><strong>@{{ student.reg_number }}</strong></td>
-					<td ng-click="viewStudent(student.id)">@{{ student.current_class_student.school_class.display_name || 'N/A' }}</td>
+					<td>
+						<span class="">
+                <span class="span" ng-hide="student.edit_last_name">
+                    <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                         @{{ student.last_name }}
+                    </span>
+
+                    <span class="btn btn-xs" ng-click="student.edit_last_name = true;">
+                        <span class="fa fa-pencil"></span>
+                    </span>
+                </span>
+
+                <span class="edit-box" style="display: inline-block;width: 220px;"
+                      ng-show="student.edit_last_name">
+                    <input style="width: 150px;display: inline-block" type="text"
+                           ng-model="student.last_name"
+                           class="form-control"/>
+                    <span class="btn btn-primary btn-sm"
+                          style="width: 30px"
+                          ng-click="saveStudentEditMode($event,student,$index);student.edit_last_name = false;"><span class="fa fa-check"></span></span>
+                    <span class="btn btn-default btn-sm"
+                          style="width: 30px"
+                          ng-click="student.edit_last_name = false;">
+                          <span class="fa fa-times"></span>
+                     </span>
+                </span>
+           </span>
+					</td>
+					<td>
+						<span class="">
+                <span class="span" ng-hide="student.edit_first_name">
+                    <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                         @{{ student.first_name }}
+                    </span>
+
+                    <span class="btn btn-xs" ng-click="student.edit_first_name = true;">
+                        <span class="fa fa-pencil"></span>
+                    </span>
+                </span>
+
+                <span class="edit-box" style="display: inline-block;width: 220px;"
+                      ng-show="student.edit_first_name">
+                    <input style="width: 150px;display: inline-block" type="text"
+                           ng-model="student.first_name"
+                           class="form-control"/>
+                    <span class="btn btn-primary btn-sm"
+                          style="width: 30px"
+                          ng-click="saveStudentEditMode($event,student,$index);student.edit_first_name = false;"><span class="fa fa-check"></span></span>
+                    <span class="btn btn-default btn-sm"
+                          style="width: 30px"
+                          ng-click="student.edit_first_name = false;">
+                          <span class="fa fa-times"></span>
+                     </span>
+                </span>
+           </span>
+					</td>
+					<td>
+						<span class="">
+                <span class="span" ng-hide="student.edit_middle_name">
+                    <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                         @{{ student.middle_name || 'empty' }}
+                    </span>
+
+                    <span class="btn btn-xs" ng-click="student.edit_middle_name = true;">
+                        <span class="fa fa-pencil"></span>
+                    </span>
+                </span>
+
+                <span class="edit-box" style="display: inline-block;width: 220px;"
+                      ng-show="student.edit_middle_name">
+                    <input style="width: 150px;display: inline-block" type="text"
+                           ng-model="student.middle_name"
+                           class="form-control"/>
+                    <span class="btn btn-primary btn-sm"
+                          style="width: 30px"
+                          ng-click="saveStudentEditMode($event,student,$index);student.edit_middle_name = false;"><span class="fa fa-check"></span></span>
+                    <span class="btn btn-default btn-sm"
+                          style="width: 30px"
+                          ng-click="student.edit_middle_name = false;">
+                          <span class="fa fa-times"></span>
+                     </span>
+                </span>
+           </span>
+					</td>
+					<td><strong>@{{ student.reg_number }}</strong></td>
+					<td>
+						<span class="">
+                <span class="span" ng-hide="student.edit_school_class">
+                    <span style="text-decoration: none;color: #428bca;border-bottom: dashed 1px #428bca;">
+                         @{{ student.current_class_student.school_class.display_name || 'N/A' }}
+                    </span>
+
+                    <span class="btn btn-xs" ng-click="student.edit_school_class = true;">
+                        <span class="fa fa-pencil"></span>
+                    </span>
+                </span>
+
+                <span class="edit-box" style="display: inline-block;width: 220px;"
+                      ng-show="student.edit_school_class">
+                    <select style="width: 150px;display: inline-block" 
+                           ng-model="student.current_class_student.scoped_school_category_arm_subdivision_id"
+                           ng-options="sub_class.id as sub_class.display_name for sub_class in classes"
+                           class="form-control">
+	                  </select>
+                    <span class="btn btn-primary btn-sm"
+                          style="width: 30px"
+                          ng-click="saveStudentEditMode($event,student,$index);student.edit_school_class = false;"><span class="fa fa-check"></span></span>
+                    <span class="btn btn-default btn-sm"
+                          style="width: 30px"
+                          ng-click="student.edit_school_class = false;">
+                          <span class="fa fa-times"></span>
+                     </span>
+                </span>
+           </span>
+          </td>
 					<td>  
 						<span class="dropdown" dropdown on-toggle="toggled($event)">
 					      <a href class="dropdown-toggle" dropdown-toggle>
 					        <span class="fa fa-navicon"></span>
 					      </a>
 					      <ul class="dropdown-menu">
+							  <li><a ui-sref="app.students.view_student({id: student.id})">View</a></li>
 					        <li ng-repeat="choice in studentActionMenuItems">
 					          <a href>@{{ choice.name }}</a>
 					        </li>

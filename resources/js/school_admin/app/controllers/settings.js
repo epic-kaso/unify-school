@@ -720,6 +720,27 @@ app.controller('SettingsCoursesController', ['$scope', 'SchoolDataService','Cour
                 course.saving = false;
             });
         };
+        
+        
+        $scope.saveCourseEditMode = function(event,course){
+             course.saving = true;
+             var payload  = {
+                 action: 'update_course',
+                 course: course,
+                 id: course.id
+             };
+
+            CoursesSettingsService.update(payload,function(response){
+                toaster.pop('success', 'Course','Updated Successfully');
+                course.saving = false;
+                //$scope.$emit('refreshSchoolData');
+            },function(response){
+                toaster.pop('error','Course','Failed to Add');
+                course.saving = false;
+            });
+            
+            event.preventDefault();
+        };
 
         $scope.$on('refreshSchoolDataComplete',function(event){
             $scope.school_categories = SchoolDataService.getCourseCategories();
