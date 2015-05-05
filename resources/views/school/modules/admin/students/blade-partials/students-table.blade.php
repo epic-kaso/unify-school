@@ -19,11 +19,10 @@
 		</form>
 		
 		<div class="btn-group pull-right">
-			<button class="btn btn-default" ng-click="">CHANGE CLASS</button>
-			<button class="btn btn-default" ng-click="">PRINT</button>
-			<button class="btn btn-default" ng-click="">EXCEL</button>
-			<button class="btn btn-default" ng-click="">PDF</button>
-			<button class="btn btn-danger" ng-click="">DELETE</button>
+			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">CHANGE CLASS</button>
+			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">PRINT</button>
+			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">EXCEL</button>
+			<button class="btn btn-danger"  ng-disabled="!showContextMenu" ng-click="">DELETE</button>
 		</div>
 	</div>
 	
@@ -32,23 +31,22 @@
 			<thead>
 				<tr>
 					<td>
-						<input type="checkbox" ng-model="select_all_students">
+						<input type="checkbox" ng-model="select_all_students" ng-change="selectAllStudents(Students.data,select_all_students)">
 					</td>
-					<td><button class="btn btn-default btn-block">ID</button></td>
-					
-					<td><button class="btn btn-default btn-block">Sur Name</button></td>
-					<td><button class="btn btn-default btn-block">First Name</button></td>
-						<td><button class="btn btn-default btn-block">Middle Name</button></td>
-					<td><button class="btn btn-default btn-block">Reg Number</button></td>
-					<td><button class="btn btn-default btn-block">Class</button></td>
-					<td><button class="btn btn-default btn-block">Options</button></td>
+					<td>ID</td>
+					<td>Sur Name</td>
+					<td>First Name</td>
+						<td>Middle Name</td>
+					<td>Reg Number</td>
+					<td>Class</d>
+					<td>..</td>
 				</tr>
 			</thead>
 			
 			<tbody>
 				<tr ng-repeat="student in Students.data" class="student-row" >
 					<td>
-						<input type="checkbox" ng-model="student.selected">
+						<input type="checkbox" ng-model="student.selected" ng-change="studentSelected(Students.data,student,$index)">
 					</td>
 					<td ng-click="viewStudent(student.id)">@{{ 1 + $index }}</td>
 <!--					<td ng-click="viewStudent(student.id)"><img style="height: 50px;border-radius: 100px;" 

@@ -250,6 +250,8 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
 
 App.controller('ManageStudentsController', ['$scope','StudentsService','$http','$state','$rootScope',
  function ($scope,StudentsService,$http,$state,$rootScope) {
+     
+    $scope.showContextMenu = false; 
     $scope.Students = {};
     $scope.ScopedSchoolCategory = {};
     $scope.studentActionMenuItems = [
@@ -328,6 +330,31 @@ App.controller('ManageStudentsController', ['$scope','StudentsService','$http','
     
     $scope.viewStudent = function(student_id){
         $state.go('app.students.view_student',{id: student_id});
+    };
+    
+    
+    $scope.selectAllStudents = function(students,select_all_students){
+        angular.forEach(students,function(student,index){
+            student.selected = select_all_students;
+            }
+         );
+    };
+    
+    $scope.studentSelected  = function(students,selected_student,$index){
+        $scope.showContextMenu = false;
+        
+        if(angular.isDefined(selected_student) && selected_student != null && selected_student.selected){
+            $scope.showContextMenu = true;
+            return;
+        }
+        
+        if(angular.isDefined(students) && angular.isArray(students)){
+            angular.forEach(students,function(student,index){
+                if(student.selected){
+                    $scope.showContextMenu = true;
+                }
+            });
+        }
     };
     
     $rootScope.$on('SCHOOL_CONTEXT_CHANGED', 
