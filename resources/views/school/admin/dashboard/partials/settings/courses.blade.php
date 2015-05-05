@@ -165,20 +165,35 @@
                         <div class="col-sm-12">
                             <h3>Manage Courses</h3>
                             <hr/>
-
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <select class="form-control" ng-model="current_school_cat_name"
-                                            ng-options="system.name as system.name for system in school_categories">
-                                        <option value="">All</option>
-                                    </select>
-                                </li>
-                                <li class="list-group-item" ng-repeat="course in courses">
-                                    <span class="btn pull-right"><i class="fa fa-times"></i></span>
-                                    <strong>@{{ course.name }}</strong>
-                                    <p>@{{ course.code }}</p>
-                                </li>
-                            </ul>
+                            
+                            <div class="form-group">
+                                <select class="form-control" ng-model="current_school_cat_name"
+                                        ng-options="system.name as system.name for system in school_categories">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>..</td>
+                                        <td>Course Name</td>
+                                        <td>Course Code</td>
+                                        <td>Course Category</td>
+                                        <td>School Category</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <tr ng-repeat="course in courses">
+                                        <td>@{{ $index+1 }}</td>
+                                        <td>@{{ course.name }}</td>
+                                        <td>@{{ course.code }}</td>
+                                        <td>@{{ course.scoped_course_category.name }}</td>
+                                        <td>@{{ course.scoped_course_category.scoped_school_category.name }}</td>
+                                        <td><span class="btn pull-right"><i class="fa fa-times"></i></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@
 class ScopedCourse extends BaseModel
 {
 
-    public static $relationships = ['scoped_course_category'];
+    public static $relationships = ['scoped_course_category.scoped_school_category'];
 
     public function scoped_course_category()
     {
