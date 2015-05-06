@@ -91,6 +91,12 @@ class ScopedStudent extends BaseModel
     {
         parent::boot();
 
+        static::saving(function($model){
+            if(empty($model->attributes['reg_number'])){
+                $model->attributes['reg_number'] = $model->generateRegNumber();
+            }
+        });
+        
         static::saved(function($model){
             \Cache::forget('scoped_students_'.$model->getSchool()->id);
         });
@@ -113,5 +119,39 @@ class ScopedStudent extends BaseModel
         return $this->hasOne(ScopedClassStudent::class)
         ->whereAcademicSession($session)
         ->with(ScopedClassStudent::$relationships);
+    }
+    
+    public function generateRegNumber( $default_session_name = null)
+    {
+        $session_name = $this->getInitialClassStudentSessionName($default_session_name);
+        $count = $this->getCountOfStudentsInSession($session_name);
+        $studentCount = is_int($count) ? $count + 1 : 1;
+        $regnumber = "$session_name/$studentCount";
+        while(!$this->isUniqueRegNumber($regnumber)){
+            $studentCount++;
+            $regnumber = "$session_name/$studentCount";
+        }
+        return $regnumber;
+    }
+    
+    public function getInitialClassStudentSessionName($default_session_name){
+        $class_student = $this->class_students()
+                    ->orderBy('created_at', 'asc')
+                    ->first();
+         if(empty($class_student) && empty($default_session_name)){
+             $default_session_name =  ScopedSession::currentSession();
+         }
+                    
+         return !empty($class_student) ? $class_student->academic_session : $default_session_name;
+    }
+    
+    public function getCountOfStudentsInSession($session_name)
+    {
+        return ScopedClassStudent::whereAcademicSession($session_name)->count();
+    }
+    
+    public function isUniqueRegNumber($regnumber){
+        $student = static::whereRegNumber($regnumber)->first();
+        return empty($student);
     }
 }

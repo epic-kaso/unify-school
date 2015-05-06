@@ -9,7 +9,13 @@
 namespace UnifySchool\Entities\Legacy\Adapters;
 
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
+use UnifySchool\Entities\School\ScopedClassStudent;
+use UnifySchool\Entities\School\ScopedSchoolCategoryArmSubdivision;
+use UnifySchool\Entities\School\ScopedSession;
+use UnifySchool\Entities\School\ScopedStudent;
+use UnifySchool\School;
 
 class StudentExcelObjectAdapter
 {
@@ -72,13 +78,60 @@ class StudentExcelObjectAdapter
     public $unique_number;
     public $confirm_number;
     public $status;
+    
+    private $hasAdapted;
 
-    function __construct($row)
+    public function __construct($row)
     {
+        $this->hasAdapted = false;
         $this->adapt($row);
+        $this->hasAdapted = true;
     }
 
+    public function getStudentModel(School $school,
+                                    ScopedSession $currentSession,
+                                    ScopedSession $regNumberSession,
+                                    ScopedSchoolCategoryArmSubdivision $schoolClass)
+    {
+        if(!$this->hasAdapted){
+            throw new \Exception("Student needs to adapt first");
+        }
+        
+        $this->validate();
+        
+        
+        $studentClass = $this->tryDetectClass($schoolClass);
+        $studentSession = $this->tryDetectSession($school,$regNumberSession);
+        
+        $model = new ScopedStudent();
+        $model->school_id = $school->id;
 
+        $model->last_name = $this->lastname;
+        $model->first_name = $this->firstname;
+        $model->middle_name = $this->middlename;
+        $model->birth_date = Carbon::parse($this->dob);
+        $model->sex = $this->sex;
+        $model->religion = $this->religion;
+        $model->country_of_origin = $this->country;
+        $model->state_of_origin = $this->state;
+        
+        $model->registration_date = Carbon::parse($this->date_of_admission);
+        
+        $model->blood_group  = $this->bloodgroup;
+        $model->genotype = $this->genotype;
+        $model->disabilities = $this->disabilities;
+        
+        $model->contact_phone = $this->phone;
+        $model->contact_address = $this->contact_address;
+        $model->reg_number = $model->generateRegNumber($studentSession->name);
+        $model->save();
+        
+        $this->getClassStudentModel($school,$model,$currentSession,$studentClass);
+        $model->load('current_class_student');
+        
+        return $model;
+    }
+    
     protected function adapt($rowobject)
     {
         foreach ($this->keys as $key) {
@@ -88,5 +141,51 @@ class StudentExcelObjectAdapter
             //}
         }
     }
+    
+    private function validate(){
+        if(empty($this->lastname ) ||
+           empty($this->firstname )){
+                throw new ImportException('Last Name and First name are required');
+         }
+    }
+    
+    private function getClassStudentModel(
+                                    School $school,
+                                    ScopedStudent $student,
+                                    ScopedSession $currentSession,
+                                    ScopedSchoolCategoryArmSubdivision $schoolClass)
+    {
+        $model = new ScopedClassStudent();
+        $model->school_id = $school->id;
+        $model->academic_session = $currentSession->name;
+        $model->scoped_school_category_arm_subdivision_id = $schoolClass->id;
+        $model->scoped_student_id = $student->id;
+        
+        $model->save();
+        
+        return $model;
+    }
+    
+    private function tryDetectClass(ScopedSchoolCategoryArmSubdivision $default)
+    {
+        $studentClass = ScopedSchoolCategoryArmSubdivision
+                            ::whereNameOrDisplayName($this->class,$this->class)
+                            ->first();
+        return empty($studentClass) ? $default: $studentClass;                    
+    }
 
+
+    private function tryDetectSession(School $school, ScopedSession $default){
+        if(!empty($this->session)){
+            $studentSession = ScopedSession::firstOrCreate(
+                [ 
+                    'name' => $this->session,
+                    'school_id' => $school->id 
+                ]
+            );
+            return $studentSession;
+        }
+        
+        return $default;
+    }
 }

@@ -36,13 +36,14 @@ class UploadStudentsExcelImportDocument extends Command implements SelfHandling
     public function handle()
     {
         $school = $this->getSchool();
+        $import_path = storage_path($school->slug);
 
-        if (!\File::exists(storage_path($school->slug . '/imports'))) {
-            \File::makeDirectory(storage_path($school->slug . '/imports', true));
+        if (!\File::exists($import_path)) {
+            \File::makeDirectory($import_path,true);
         }
 
         $name = "import_" . Str::slug(Carbon::now()->toDateTimeString()) . "." . $this->uploadedFile->getClientOriginalExtension();
-        $file = $this->uploadedFile->move(storage_path($school->slug . '/imports'), $name);
+        $file = $this->uploadedFile->move($import_path, $name);
 
         return $file;
     }

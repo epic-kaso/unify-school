@@ -210,9 +210,24 @@ App.controller('StudentsImportController', ['$scope', 'SchoolDataService','Impor
         console.log(SchoolDataService.school.school_type.school_categories);
         
         $scope.import = {
+                            working: false,
+                            error: false,
+                            response: null,
                             url: ImportStudentsResourceURL,
                             completed: function(response){
                                 console.log(response);
+                                if(angular.isObject(response)){
+                                    $scope.import.response = response;
+                                }else{
+                                    $scope.import.response = null;
+                                    $scope.import.error = true;
+                                }
+                                
+                                $scope.import.working = false;
+                            },
+                            isUploading: function(){
+                                $scope.import.error = false;
+                                $scope.import.working = true;
                             }
                         };
 

@@ -97,7 +97,6 @@ class StudentsController extends Controller
         $requiredClassStudentData = $request->only($requiredClassStudentKeys);
 
         $requiredData['school_id'] = $currentSchool->id;
-        $requiredData['reg_number'] = $this->generateRegNumber();
 
 
         $student = ScopedStudent::create($requiredData);
@@ -167,15 +166,7 @@ class StudentsController extends Controller
         return $classStudent;
     }
 
-    private function generateRegNumber()
-    {
-        $reg = ScopedSession::currentSession();
-
-        $count = ScopedStudent::all()->count();
-        $studentCount = is_int($count) ? $count + 1 : 1;
-        return "$reg/$studentCount";
-    }
-
+  
     private function preparePicture($student, $request)
     {
         $picture = $request->get('picture');
@@ -194,6 +185,5 @@ class StudentsController extends Controller
         }
 
         return true;
-
     }
 }
