@@ -5,17 +5,32 @@
         </div>
 
         <div class="panel-body">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form ng-attr-action="@{{ import.url }}"
+                  ng-upload="import.completed(content)" >
 
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                     <label>Select Session</label>
-                    <select name="import_session" class="form-control" ng-model="form.session"
+                    
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button tooltip="Add New Session"
+                                    ng-dialog="addNewSessionDialog.html"
+                                    ng-dialog-class="ngdialog-theme-default"
+                                    ng-dialog-controller="AddSessionDialogController"
+                                    ng-dialog-close-previous
+                                    class="btn btn-default"><span class="fa fa-plus"></span>
+                             </button>
+                        </span>
+                        
+                        <select name="import_session" class="form-control" ng-model="form.session"
                             ng-options="session.id as session.name for session in sessions">
-                        <option value="">Select Session</option>
-                    </select>
+                            <option value="">Select Session</option>
+                        </select>
+                    </div>
+                    
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                     <label>Select Term</label>
                     <select name="import_term" class="form-control" ng-model="form.sub_session"
                             ng-options="sub_session.id as sub_session.display_name for sub_session in sub_sessions">
@@ -23,7 +38,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                     <label>Select School Category</label>
                     <select name="import_school_type"
                             class="form-control"
@@ -33,7 +48,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                     <label>Select Class</label>
                     <select name="import_class"
                             class="form-control"
@@ -43,16 +58,16 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                     <label>Select Excel File to Upload</label>
-                    <input class="form-control" type="file" name="excel_file"/>
+                    <input  name="excel_file" filestyle="" type="file" data-classbutton="btn btn-default"
+                           data-classinput="form-control inline" class="form-control"
+                     />
                 </div>
-                <div class="form-group">
 
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Upload"/>
+                <div class="form-group col-sm-4">
+                    <br/>
+                    <input ng-disabled="$isUploading" type="submit" class="btn btn-primary" value="Upload"/>
                 </div>
             </form>
         </div>

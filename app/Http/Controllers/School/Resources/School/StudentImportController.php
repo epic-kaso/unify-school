@@ -24,6 +24,7 @@ class StudentImportController extends Controller
      * @param UploadStudentsExcelImportDocument $excelImport
      * @param UploadStudentsExcelRequest $request
      *
+     * @return array
      */
     public function store(StudentExcelImport $excelImport, UploadStudentsExcelRequest $request)
     {
@@ -35,7 +36,7 @@ class StudentImportController extends Controller
             $response[] = new  StudentExcelObjectAdapter($result);
         }
 
-        dd($response);
+        return \Response::json($response);
     }
 
 }

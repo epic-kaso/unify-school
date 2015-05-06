@@ -2,6 +2,7 @@
 /* global App */
 App.constant('StudentsViewBaseURL', '/admin/dashboard/load-module/admin/students/ui');
 App.constant('StudentsResourceURL', '/admin/modules/students/:id');
+App.constant('ImportStudentsResourceURL', '/admin/resources/import-students');
 
 App.factory('StudentsService',['$resource','StudentsResourceURL',function($resource,StudentsResourceURL){
     return $resource(StudentsResourceURL,{id: '@id'},{
@@ -90,6 +91,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                 title: 'Export Students',
                 controller: ['$scope',
                     function ($scope) {
+                        
                     }
                 ]
             });
@@ -202,10 +204,17 @@ App.controller('EnrollStudentController',['$scope', 'toaster', '$rootScope', 'Sc
 ]);
 
 
-App.controller('StudentsImportController', ['$scope', 'SchoolDataService',
-    function ($scope, SchoolDataService) {
+App.controller('StudentsImportController', ['$scope', 'SchoolDataService','ImportStudentsResourceURL',
+    function ($scope, SchoolDataService,ImportStudentsResourceURL) {
 
         console.log(SchoolDataService.school.school_type.school_categories);
+        
+        $scope.import = {
+                            url: ImportStudentsResourceURL,
+                            completed: function(response){
+                                console.log(response);
+                            }
+                        };
 
         $scope.current_school_classes = null;
         $scope.school_categories = SchoolDataService.school.school_type.school_categories;
@@ -273,9 +282,28 @@ App.controller('ManageStudentsController',
         }
     ];
     
+    $scope.menu = {
+      promoteSelectedStudents: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      },
+      demoteSelectedStudents: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      },
+      changeSelectedStudentsClass: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      },
+      printSelectedStudents: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      },
+      exportSelectedStudentsToExcel: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      },
+      deleteSelectedStudents: function(students){
+          var selectedStudents = extractSelectedStudents(students);
+      }
+    };
+    
     $scope.loadingStudents = false;
-    
-    
     
     $scope.toggled = function($event){
         $event.preventDefault();
@@ -361,6 +389,8 @@ App.controller('ManageStudentsController',
             student.selected = select_all_students;
             }
          );
+         
+         $scope.studentSelected(students);
     };
     
     $scope.studentSelected  = function(students,selected_student,$index){
@@ -379,6 +409,19 @@ App.controller('ManageStudentsController',
             });
         }
     };
+    
+    function extractSelectedStudents(students){
+        var response = [];
+        if(angular.isDefined(students) && angular.isArray(students)){
+            angular.forEach(students,function(student,index){
+                if(student.selected){
+                   this.push(student);
+                }
+            },response);
+        }
+        
+        return response;
+    }
     
     $rootScope.$on('SCHOOL_CONTEXT_CHANGED', 
         function (event, obj) {

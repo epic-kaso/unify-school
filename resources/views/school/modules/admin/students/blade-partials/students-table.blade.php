@@ -1,7 +1,7 @@
 <div class="row">
 	
 	<div class="col-sm-12" style="margin: 0px 0px 30px 0px;">
-		<form class="form-inline col-sm-6"  name="SearchForm" ng-submit="searchStudents(query)">
+		<form class="form-inline col-sm-12"  name="SearchForm" ng-submit="searchStudents(query)">
 			<div class="form-group">
 				<input type="text" 
 					 style="width: 400px;"
@@ -17,17 +17,52 @@
 				</div>
 			</div>
 		</form>
-		
-		<div class="btn-group pull-right">
-			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">CHANGE CLASS</button>
-			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">PRINT</button>
-			<button class="btn btn-default" ng-disabled="!showContextMenu" ng-click="">EXCEL</button>
-			<button class="btn btn-danger"  ng-disabled="!showContextMenu" ng-click="">DELETE</button>
-		</div>
-	</div>
 	
-	<div class="col-sm-12">
-		<table class="table table-striped table-bordered" ng-class="{'whirl standard': loadingStudents}">
+  <div class="col-sm-12">
+    
+    <div style="margin-top: 10px;margin-bottom: 10px;">
+      
+      <div style="margin-left: 10px;" class="btn-group pull-right">
+  			<button class="btn btn-default" 
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.changeSelectedStudentsClass(Students.data)">
+                CHANGE CLASS
+        </button>
+  			<button class="btn btn-default" 
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.printSelectedStudents(Students.data)">
+                PRINT
+        </button>
+  			<button class="btn btn-default" 
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.exportSelectedStudentsToExcel(Students.data)">
+                EXCEL
+        </button>
+  			<button class="btn btn-danger"  
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.deleteSelectedStudents(Students.data)">
+                DELETE
+        </button>
+		  </div>
+      
+      <div style="margin-left: 10px;" class="btn-group pull-right">
+        <button class="btn btn-success" 
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.promoteSelectedStudents(Students.data)">
+                PROMOTE
+        </button>
+        <button class="btn btn-warning" 
+                ng-disabled="!showContextMenu" 
+                ng-click="menu.demoteSelectedStudents(Students.data)">
+                DEMOTE
+        </button>
+      </div>
+	</div>
+  </div>
+  
+  <div class="col-sm-12">
+    
+		<table style="margin-top: 10px;" class="table table-striped table-bordered" ng-class="{'whirl standard': loadingStudents}">
 			<thead>
 				<tr>
 					<td>
