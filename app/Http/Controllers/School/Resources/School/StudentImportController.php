@@ -38,30 +38,38 @@ class StudentImportController extends Controller
         $current_session = ScopedSession::currentSessionModel();
         
         $temp_session = ScopedSession::find($import_session_id);
-        $import_session = empty($temp_session) ?  : $temp_session;
+        $import_session = empty($temp_session) ?  $current_session : $temp_session;
         
         
         
         $response = [];
         $failedImports = [];
-        $successfulImports = [];
+        $completeSuccessfulImports = [];
+        $partialSuccessfulImports = [];
         $results = $excelImport->get();
 
         foreach ($results as $result) {
             $temp = new  StudentExcelObjectAdapter($result);
             try{
-                $successfulImports[] = $temp->getStudentModel(
+                
+                list($student,$hasClassStudent) = $temp->getStudentModel(
                     $this->getSchool(),
                     $current_session,
                     $import_session,
                     ScopedSchoolCategoryArmSubdivision::find($import_class) 
                );
+               if($hasClassStudent){
+                    $completeSuccessfulImports[] = $student;
+               }else{
+                   $partialSuccessfulImports[] = $student;
+               }
             }catch(ImportException $e){
                 $failedImports[] = $temp; 
             }
         }
         
-        $response['successful'] = $successfulImports;
+        $response['successful_with_class'] = $completeSuccessfulImports;
+        $response['successful_without_class'] = $partialSuccessfulImports;
         $response['failure'] = $failedImports;
         
 

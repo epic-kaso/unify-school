@@ -17,7 +17,7 @@
                 ng-upload-loading="import.isUploading()"
                 ng-upload="import.completed(content)" >
 
-                
+           
                 
                 <div class="form-group col-sm-4">
                     <label>Select Session</label>
@@ -86,7 +86,13 @@
                     <button class="btn btn-primary" ng-click="import.response = null">Import Students</button>
                 </div>
                 <div class="alert alert-success">
-                    <p>Successful Imports: @{{ import.response.successful.length }} Student(s)</p>
+                    <h4>Successful Imports: @{{ import.response.successful_with_class.length }} Student(s)</h4>
+                    <p>Students where successfully created and assigned to class.</p>
+                </div>
+                
+                <div class="alert alert-warning" ng-show="import.response.successful_without_class.length > 0">
+                    <h4>Partialy Successful Imports: @{{ import.response.successful_without_class.length }} Student(s)</h4>
+                    <p>Students where successfully created but no class was assigned to them.</p>
                 </div>
                 
                 <div class="panel panel-danger" ng-show="import.response.failure.length > 0">

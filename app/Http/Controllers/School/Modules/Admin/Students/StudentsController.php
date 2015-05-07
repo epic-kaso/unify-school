@@ -146,7 +146,17 @@ class StudentsController extends Controller
 
     public function destroy($id)
     {
-        return ScopedStudent::destroy($id);
+        $action = \Input::get('action');
+        
+        switch($action){
+            case 'destroy_students':
+                $ids = \Input::get('ids');
+                return ScopedStudent::destroy(explode(',',$ids));
+            default:
+                return ScopedStudent::destroy($id);
+               
+        }
+        
     }
 
     /**

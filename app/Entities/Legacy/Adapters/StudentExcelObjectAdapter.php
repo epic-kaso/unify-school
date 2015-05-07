@@ -91,45 +91,50 @@ class StudentExcelObjectAdapter
     public function getStudentModel(School $school,
                                     ScopedSession $currentSession,
                                     ScopedSession $regNumberSession,
-                                    ScopedSchoolCategoryArmSubdivision $schoolClass)
+                                    ScopedSchoolCategoryArmSubdivision $schoolClass = null)
     {
         if(!$this->hasAdapted){
             throw new \Exception("Student needs to adapt first");
         }
-        
+        $studentHasClass = true;
         $this->validate();
         
+        try{
+            $studentClass = $this->tryDetectClass($schoolClass);
+        }catch(NoClassDetectedException $e){
+            $studentHasClass = false;
+        }
         
-        $studentClass = $this->tryDetectClass($schoolClass);
         $studentSession = $this->tryDetectSession($school,$regNumberSession);
         
-        $model = new ScopedStudent();
-        $model->school_id = $school->id;
-
-        $model->last_name = $this->lastname;
-        $model->first_name = $this->firstname;
-        $model->middle_name = $this->middlename;
-        $model->birth_date = Carbon::parse($this->dob);
-        $model->sex = $this->sex;
-        $model->religion = $this->religion;
-        $model->country_of_origin = $this->country;
-        $model->state_of_origin = $this->state;
         
-        $model->registration_date = Carbon::parse($this->date_of_admission);
+        $model = [];
+        $model['school_id'] = $school->id;
+        $model['last_name'] = $this->lastname;
+        $model['first_name'] = $this->firstname;
+        $model['middle_name'] = $this->middlename;
+        $model['birth_date'] = Carbon::parse($this->dob);
+        $model['sex'] = $this->sex;
+        $model['religion'] = $this->religion;
+        $model['country_of_origin'] = $this->country;
+        $model['state_of_origin'] = $this->state;
+        $model['registration_date'] = Carbon::parse($this->date_of_admission);
+        $model['blood_group']  = $this->bloodgroup;
+        $model['genotype'] = $this->genotype;
+        $model['disabilities'] = $this->disabilities;
+        $model['contact_phone'] = $this->phone;
+        $model['contact_address'] = $this->contact_address;
         
-        $model->blood_group  = $this->bloodgroup;
-        $model->genotype = $this->genotype;
-        $model->disabilities = $this->disabilities;
+        $student = ScopedStudent::firstOrNew($model);
+        $student->reg_number = $student->generateRegNumber($studentSession->name);
+        $student->save();
         
-        $model->contact_phone = $this->phone;
-        $model->contact_address = $this->contact_address;
-        $model->reg_number = $model->generateRegNumber($studentSession->name);
-        $model->save();
+        if($studentHasClass){
+            $this->getClassStudentModel($school,$student,$currentSession,$studentClass);
+            $student->load('current_class_student');
+        }
         
-        $this->getClassStudentModel($school,$model,$currentSession,$studentClass);
-        $model->load('current_class_student');
-        
-        return $model;
+        return [$student,$studentHasClass];
     }
     
     protected function adapt($rowobject)
@@ -166,11 +171,15 @@ class StudentExcelObjectAdapter
         return $model;
     }
     
-    private function tryDetectClass(ScopedSchoolCategoryArmSubdivision $default)
+    private function tryDetectClass(ScopedSchoolCategoryArmSubdivision $default = null)
     {
         $studentClass = ScopedSchoolCategoryArmSubdivision
                             ::whereNameOrDisplayName($this->class,$this->class)
                             ->first();
+                            
+        if(empty($studentClass) && empty($default)){
+            throw new NoClassDetectedException("Student's class couldn't be detected.");
+        }                    
         return empty($studentClass) ? $default: $studentClass;                    
     }
 

@@ -6,7 +6,8 @@ App.constant('ImportStudentsResourceURL', '/admin/resources/import-students');
 
 App.factory('StudentsService',['$resource','StudentsResourceURL',function($resource,StudentsResourceURL){
     return $resource(StudentsResourceURL,{id: '@id'},{
-        'update': {method: 'PUT'}
+        'update': {method: 'PUT'},
+        'destroyMany': {method: 'DELETE',params: {action: 'destroy_students',id: 0}}
         });
 }]);
 
@@ -300,21 +301,68 @@ App.controller('ManageStudentsController',
     $scope.menu = {
       promoteSelectedStudents: function(students){
           var selectedStudents = extractSelectedStudents(students);
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
       },
       demoteSelectedStudents: function(students){
           var selectedStudents = extractSelectedStudents(students);
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
       },
       changeSelectedStudentsClass: function(students){
           var selectedStudents = extractSelectedStudents(students);
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
       },
       printSelectedStudents: function(students){
           var selectedStudents = extractSelectedStudents(students);
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
       },
       exportSelectedStudentsToExcel: function(students){
           var selectedStudents = extractSelectedStudents(students);
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
       },
       deleteSelectedStudents: function(students){
+          $scope.loadingStudents = true;
           var selectedStudents = extractSelectedStudents(students);
+         
+          var selectedIDs = [];
+          
+          angular.forEach(selectedStudents,function(item){
+              this.push(item.student.id);
+          },selectedIDs); 
+          
+           console.log(students,selectedStudents,selectedIDs);
+          
+          StudentsService.destroyMany({ids: selectedIDs.join(',')}).$promise.then(function(response){
+              
+              angular.forEach(selectedStudents,function(item){
+                  this.splice(item.index,1);
+              },students); 
+              toaster.pop('success', 'Student', 'Deleted Successfully');
+              $scope.loadingStudents = false;
+              
+          },function(){
+              toaster.pop('error', 'Student', 'Delete Failed');
+              $scope.loadingStudents = false;
+          });
       }
     };
     
@@ -430,13 +478,17 @@ App.controller('ManageStudentsController',
         if(angular.isDefined(students) && angular.isArray(students)){
             angular.forEach(students,function(student,index){
                 if(student.selected){
-                   this.push(student);
+                   this.push({student: student,index: index});
                 }
             },response);
         }
         
         return response;
     }
+    
+    $scope.$watch('Students.data',function(newValue,oldValue){
+        $scope.studentSelected($scope.Students.data);
+    },true);
     
     $rootScope.$on('SCHOOL_CONTEXT_CHANGED', 
         function (event, obj) {
