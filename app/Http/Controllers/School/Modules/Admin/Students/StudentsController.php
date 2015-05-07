@@ -130,12 +130,21 @@ class StudentsController extends Controller
             
             $sub_class = $student->current_class_student;
             
-            $current_sub_class_id =  $sub_class->scoped_school_category_arm_subdivision_id;
             $new_sub_class_id = $all['current_class_student']['scoped_school_category_arm_subdivision_id'];
             
-            if($current_sub_class_id !== $new_sub_class_id){
-                $sub_class->scoped_school_category_arm_subdivision_id = $new_sub_class_id;
-                $sub_class->save();
+            if(empty($sub_class)){
+                $model = new ScopedClassStudent();
+                $model->school_id = $this->getSchool()->id;
+                $model->academic_session = ScopedSession::currentSession();
+                $model->scoped_school_category_arm_subdivision_id = $new_sub_class_id;
+                $model->scoped_student_id = $student->id;
+                $model->save();
+            }else{
+                $current_sub_class_id =  $sub_class->scoped_school_category_arm_subdivision_id;
+                if($current_sub_class_id !== $new_sub_class_id){
+                    $sub_class->scoped_school_category_arm_subdivision_id = $new_sub_class_id;
+                    $sub_class->save();
+                }
             }
         }
         
