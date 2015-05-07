@@ -178,8 +178,8 @@
                                                                     <span class="fa fa-spin fa-spinner"></span> saving..
                                                                 </span>
                                                             </div>
-                                                            <div class="remove-btn" ng-hide="arm.saving">
-                                                                <span class="btn btn-xs pull-right" style="color: red;"
+                                                            <div class="remove-btn pull-right" ng-hide="arm.saving">
+                                                                <span class="btn btn-xs" style="color: red;"
                                                                       ng-click="removeArmSubDivision(school_arm.school_category_arm_subdivisions,$index,school_arm)">
                                                                     <i class="fa fa-times fa-lg"></i>
                                                                 </span>

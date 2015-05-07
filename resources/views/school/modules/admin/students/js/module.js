@@ -62,16 +62,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
                     }]
                 }
             })
-            .state('app.students.enroll_students',
-            {
-                url: '/enroll-students',
-                templateUrl: ViewBaseURL + '/enroll_students',
-                title: 'Enroll Many Students',
-                controller: ['$scope',
-                    function ($scope) {
-                    }
-                ]
-            }).state('app.students.manage', {
+            .state('app.students.manage', {
                 url: '/manage',
                 templateUrl: ViewBaseURL + '/manage-students',
                 title: 'Manage Students',
