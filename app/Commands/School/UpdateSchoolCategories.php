@@ -79,11 +79,16 @@ class UpdateSchoolCategories extends Command implements SelfHandling
 
     private function createCategoryArmSubdivision($id, $display_name)
     {
-        $categoryArm = new ScopedSchoolCategoryArmSubdivision();
-        $categoryArm->scoped_school_category_arm_id = $id;
+
+        $categoryArm = ScopedSchoolCategoryArmSubdivision::firstOrNew(
+            [
+                'display_name'=> $display_name,
+                'school_id' => $this->school->id,
+                'scoped_school_category_arm_id' => $id
+            ]);
+
         $categoryArm->name = Str::slug($display_name);
-        $categoryArm->display_name = $display_name;
-        $categoryArm->school_id = $this->school->id;
+
         $categoryArm->save();
 
         return $categoryArm;

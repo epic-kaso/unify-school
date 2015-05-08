@@ -46,6 +46,10 @@ class ScopedSchoolCategoryArm extends BaseModel
                 $arm->delete();
             }
         });
+
+        static::created(function($model){
+            $model->makeDefaultSubDivision();
+        });
     }
 
     public function school_category()
@@ -90,7 +94,7 @@ class ScopedSchoolCategoryArm extends BaseModel
         }
     }
 
-    private function makeDefaultSubDivision()
+    public function makeDefaultSubDivision()
     {
         $categoryArm = new ScopedSchoolCategoryArmSubdivision();
         $categoryArm->scoped_school_category_arm_id = $this->id;

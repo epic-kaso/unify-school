@@ -23,8 +23,11 @@ class StudentExcelObjectAdapter
     protected $keys = [
         'title',
         'firstname',
+        'first_name',
         'middlename',
+        'middle_name',
         'lastname',
+        'last_name',
         'sex',
         'dob',
         'religion',
@@ -53,8 +56,11 @@ class StudentExcelObjectAdapter
 
     public $title;
     public $firstname;
+    public $first_name;
     public $middlename;
+    public $middle_name;
     public $lastname;
+    public $last_name;
     public $sex;
     public $dob;
     public $religion;
@@ -110,11 +116,11 @@ class StudentExcelObjectAdapter
         
         $model = [];
         $model['school_id'] = $school->id;
-        $model['last_name'] = $this->lastname;
-        $model['first_name'] = $this->firstname;
-        $model['middle_name'] = $this->middlename;
+        $model['last_name'] = empty($this->last_name) ? $this->lastname : $this->last_name;
+        $model['first_name'] = empty($this->first_name) ? $this->firstname : $this->first_name;
+        $model['middle_name'] = empty($this->middle_name) ? $this->middlename : $this->middle_name;
         $model['birth_date'] = Carbon::parse($this->dob);
-        $model['sex'] = $this->sex;
+        $model['sex'] = $this->getSex($this->sex);
         $model['religion'] = $this->religion;
         $model['country_of_origin'] = $this->country;
         $model['state_of_origin'] = $this->state;
@@ -140,7 +146,7 @@ class StudentExcelObjectAdapter
     protected function adapt($rowobject)
     {
         foreach ($this->keys as $key) {
-            $slug = Str::slug($key, '_');
+            $slug = Str::slug(strtolower($key), '_');
             //if(property_exists($rowobject,$slug)){
             $this->{$slug} = $rowobject->{$slug};
             //}
@@ -148,8 +154,8 @@ class StudentExcelObjectAdapter
     }
     
     private function validate(){
-        if(empty($this->lastname ) ||
-           empty($this->firstname )){
+        if((empty($this->lastname) && empty($this->last_name)) ||
+            (empty($this->firstname ) && empty($this->first_name))){
                 throw new ImportException('Last Name and First name are required');
          }
     }
@@ -196,5 +202,16 @@ class StudentExcelObjectAdapter
         }
         
         return $default;
+    }
+
+    private function getSex($sex)
+    {
+        $temp = strtolower($sex);
+
+        if(Str::startsWith($temp,'m')){
+            return 'male';
+        }else{
+            return 'female';
+        }
     }
 }

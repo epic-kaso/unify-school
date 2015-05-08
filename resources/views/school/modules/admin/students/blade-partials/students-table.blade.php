@@ -83,7 +83,7 @@
 					<td>
 						<input type="checkbox" ng-model="student.selected" ng-change="studentSelected(Students.data,student,$index)">
 					</td>
-					<td ng-click="viewStudent(student.id)">@{{ 1 + $index }}</td>
+					<td ng-click="viewStudent(student.id)">@{{ Students.from + $index }}</td>
 <!--					<td ng-click="viewStudent(student.id)"><img style="height: 50px;border-radius: 100px;" 
 							class="img-responsive img-rounded img-thumbnail" 
 							ng-src="@{{ student.picture.dataURL || '/img/placeholder.jpg'}}" 

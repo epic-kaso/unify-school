@@ -46,27 +46,44 @@ class StudentImportController extends Controller
         $failedImports = [];
         $completeSuccessfulImports = [];
         $partialSuccessfulImports = [];
-        $results = $excelImport->get();
 
-        foreach ($results as $result) {
-            $temp = new  StudentExcelObjectAdapter($result);
-            try{
-                
-                list($student,$hasClassStudent) = $temp->getStudentModel(
-                    $this->getSchool(),
-                    $current_session,
-                    $import_session,
-                    ScopedSchoolCategoryArmSubdivision::find($import_class) 
-               );
-               if($hasClassStudent){
-                    $completeSuccessfulImports[] = $student;
-               }else{
-                   $partialSuccessfulImports[] = $student;
-               }
-            }catch(ImportException $e){
-                $failedImports[] = $temp; 
-            }
-        }
+        $excelImport->get()->each(function($sheet)
+            use(
+                &$current_session,
+                &$import_session,
+                &$import_class,
+                &$completeSuccessfulImports,
+                &$partialSuccessfulImports,
+                &$failedImports
+            ){
+                $sheet->each(function($row)
+                    use(
+                        &$current_session,
+                        &$import_session,
+                        &$import_class,
+                        &$completeSuccessfulImports,
+                        &$partialSuccessfulImports,
+                        &$failedImports
+                    ){
+                        $temp = new  StudentExcelObjectAdapter($row);
+                        try{
+
+                            list($student,$hasClassStudent) = $temp->getStudentModel(
+                                $this->getSchool(),
+                                $current_session,
+                                $import_session,
+                                ScopedSchoolCategoryArmSubdivision::find($import_class)
+                            );
+                            if($hasClassStudent){
+                                $completeSuccessfulImports[] = $student;
+                            }else{
+                                $partialSuccessfulImports[] = $student;
+                            }
+                        }catch(ImportException $e){
+                            $failedImports[] = $temp;
+                        }
+                });
+        });
         
         $response['successful_with_class'] = $completeSuccessfulImports;
         $response['successful_without_class'] = $partialSuccessfulImports;

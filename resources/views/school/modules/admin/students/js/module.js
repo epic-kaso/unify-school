@@ -271,6 +271,7 @@ App.controller('ManageStudentsController',
  function ($scope,StudentsService,$http,$state,$rootScope,SchoolDataService,toaster) {
     console.log(SchoolDataService.school.school_type.classes); 
     $scope.showContextMenu = false; 
+    $scope.hasFirstBroadcastEventOccured = false;
     $scope.Students = {};
     $scope.classes = SchoolDataService.school.school_type.classes;
     $scope.ScopedSchoolCategory = {};
@@ -493,11 +494,15 @@ App.controller('ManageStudentsController',
      });
      
      $rootScope.$on('selectedSchoolCategoryChanged',function(event, obj){
-         console.log('I hear ya @ Student Module : selectedSchoolCategoryChanged');
-         console.log(obj);
-         
-         $scope.ScopedSchoolCategory = obj.value;
-         $scope.fetchStudents($scope.ScopedSchoolCategory.id);
+         if( $scope.hasFirstBroadcastEventOccured) {
+             console.log('I hear ya @ Student Module : selectedSchoolCategoryChanged');
+             console.log(obj);
+
+             $scope.ScopedSchoolCategory = obj.value;
+             $scope.fetchStudents($scope.ScopedSchoolCategory.id);
+         }else{
+             $scope.hasFirstBroadcastEventOccured = true;
+         }
      });
      
      
